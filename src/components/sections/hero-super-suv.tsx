@@ -27,6 +27,28 @@ export default function HeroSuperSUV() {
       ],
       type: "video",
       src: "https://www.astonmartin.com/-/media/models---db12-s/final-images/heros/home_page_16x9_edit_3.mp4?rev=a387b4fe1ca348fc89e2ffbefc061406"
+    },
+    {
+      id: 3,
+      subheading: "ASTON MARTIN",
+      headline: "BERO Collection",
+      buttons: [
+        { label: "Discover", href: "#", variant: "primary" },
+        { label: "Learn More", href: "#", variant: "secondary" }
+      ],
+      type: "image",
+      src: "https://www.astonmartin.com/-/media/brand-stories/bero/bero-new-hero.jpg?mw=1920&rev=c7592cae29df4ba2b3c3391749c2e0bc&extension=webp&hash=9FFFD68CD5FE82C0021018589EA03AC9"
+    },
+    {
+      id: 4,
+      subheading: "RECOGNITION",
+      headline: "Top Gear Award 2026",
+      buttons: [
+        { label: "View Award", href: "#", variant: "primary" },
+        { label: "Read More", href: "#", variant: "secondary" }
+      ],
+      type: "image",
+      src: "https://www.astonmartin.com/-/media/top-gear-award-2026/tga-desk-still-new.jpg?mw=1920&rev=a7de10be96464e8a8b2cbc28245eab17&extension=webp&hash=82C03D910BC260F53351CD1AFFA2835B"
     }
   ];
 
@@ -61,6 +83,12 @@ export default function HeroSuperSUV() {
                 muted
                 playsInline
                 src={slide.src}
+              />
+            ) : slide.type === "image" && slide.src ? (
+              <img
+                className="h-full w-full object-cover"
+                src={slide.src}
+                alt={slide.headline}
               />
             ) : (
               <div className={`h-full w-full ${slide.bgClass} relative`}>
