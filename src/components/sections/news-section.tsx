@@ -3,35 +3,32 @@ export default function NewsSection() {
     {
       id: 1,
       date: "12 Dec 2025",
-      headline:
-        "Kobe Pauwels is the newest Aston Martin Racing Driver Academy winner",
-      link: "/news/kobe-pauwels-academy-winner",
+      headline: "Kobe Pauwels is the newest Aston Martin Racing Driver Academy winner",
+      link: "#",
     },
     {
       id: 2,
       date: "8 Dec 2025",
-      headline:
-        "Aston Martin Valkyrie will race with unchanged line-up in 2026",
-      link: "/news/valkyrie-race-lineup-2026",
+      headline: "Aston Martin Valkyrie will race with unchanged line-up in 2026",
+      link: "#",
     },
     {
       id: 3,
       date: "12 Nov 2025",
       headline: "BERO and Aston Martin forge a distinctly British alliance",
-      link: "/news/bero-aston-martin-alliance",
+      link: "#",
     },
   ];
 
   return (
     <section className="w-full bg-[#1a1a1a] py-20 text-white md:py-24">
       <div className="container mx-auto px-4 md:px-10 lg:px-10 max-w-[1440px]">
-        {/* Header Row */}
         <div className="mb-12 flex items-center justify-between md:mb-16">
           <h2 className="font-sans text-xs font-bold uppercase tracking-[0.15em] text-white">
             News
           </h2>
           <a
-            href="/news"
+            href="#"
             className="group flex items-center gap-2 font-sans text-xs font-bold uppercase tracking-[0.15em] text-white transition-opacity hover:opacity-80"
           >
             See All News
@@ -53,7 +50,6 @@ export default function NewsSection() {
           </a>
         </div>
 
-        {/* News Grid */}
         <div className="grid grid-cols-1 gap-x-6 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
           {newsItems.map((item) => (
             <div

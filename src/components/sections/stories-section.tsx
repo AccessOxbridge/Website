@@ -32,7 +32,6 @@ export default function StoriesSection() {
   return (
     <section className="bg-[#1a1a1a] text-white py-[72px] w-full border-t border-[#2d2d2d] overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 md:px-14">
-        {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
           <h2 className="text-[36px] md:text-[48px] font-normal leading-[1.2] tracking-tight">
             Stories
@@ -45,9 +44,7 @@ export default function StoriesSection() {
           </a>
         </div>
 
-        {/* Stories Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-12">
-          {/* Left Column - Stacked Items */}
           <div className="flex flex-col gap-y-12">
             {stories
               .filter((story) => !story.isTall)
@@ -56,7 +53,6 @@ export default function StoriesSection() {
               ))}
           </div>
 
-          {/* Right Column - Tall Item */}
           <div className="flex flex-col gap-y-12 h-full">
             {stories
               .filter((story) => story.isTall)
@@ -70,7 +66,17 @@ export default function StoriesSection() {
   );
 }
 
-function StoryCard({ story }: { story: any }) {
+interface Story {
+  id: number;
+  category: string;
+  title: string;
+  date: string;
+  image: string;
+  alt: string;
+  isTall: boolean;
+}
+
+function StoryCard({ story }: { story: Story }) {
   return (
     <div className="group flex flex-col cursor-pointer w-full">
       <div 
@@ -87,7 +93,7 @@ function StoryCard({ story }: { story: any }) {
         <span className="text-[#1b8a7a] text-[12px] font-bold uppercase tracking-[0.15em] mb-3">
           {story.category}
         </span>
-        <h3 className="text-white text-[20px] md:text-[24px] font-normal leadingHeight-[1.4] mb-4 group-hover:underline decoration-1 underline-offset-4 decoration-[#1b8a7a]">
+        <h3 className="text-white text-[20px] md:text-[24px] font-normal leading-[1.4] mb-4 group-hover:underline decoration-1 underline-offset-4 decoration-[#1b8a7a]">
           {story.title}
         </h3>
         <span className="text-[#a0a0a0] text-[14px]">
