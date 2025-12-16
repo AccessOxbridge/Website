@@ -248,21 +248,21 @@ export default function HeroSuperSUV() {
                   )}
                 </div>
 
-                <div className="absolute inset-0 flex flex-col justify-center">
-                  <div className="container mx-auto px-6 md:px-10 lg:px-12 flex items-end justify-between">
+                <div className="absolute inset-0 flex flex-col justify-end pb-16 md:pb-0 md:justify-center">
+                  <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
                     <div className="max-w-4xl mt-16">
-                      <h3 className="text-sm font-semibold tracking-[0.15em] text-white uppercase opacity-90">
+                      <h3 className="text-xs sm:text-sm font-semibold tracking-[0.15em] text-white uppercase opacity-90">
                         {slide.subheading}
                       </h3>
-                      <h2 className="mb-8 text-4xl font-semibold text-white sm:text-5xl md:text-6xl lg:text-[64px]">
+                      <h2 className="mb-4 sm:mb-8 text-2xl sm:text-4xl font-semibold text-white md:text-5xl lg:text-[64px]">
                         {slide.headline}
                       </h2>
-                      <div className="flex flex-wrap gap-4">
+                      <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
                         {slide.buttons.map((btn, idx) => (
                           <a
                             key={idx}
                             href={btn.href}
-                            className={`inline-flex min-w-[160px] items-center justify-center px-8 py-3.5 text-sm font-bold uppercase tracking-wider transition-all duration-300 ${btn.variant === "primary"
+                            className={`inline-flex min-w-[140px] sm:min-w-[160px] items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 ${btn.variant === "primary"
                               ? "bg-white text-black hover:bg-gray-200"
                               : "bg-[#2d2d2d]/90 text-white hover:bg-[#1f1f1f]"
                               }`}
@@ -273,7 +273,7 @@ export default function HeroSuperSUV() {
                       </div>
                     </div>
 
-                    <div className="flex justify-end gap-2 mt-12">
+                    <div className="hidden md:flex justify-end gap-2 mt-12">
                       <button onClick={prevSlide} aria-label="Previous slide">
                         <ArrowLeftIcon className="size-10 rounded-full bg-white/50 p-2 hover:bg-white/70" />
                       </button>
@@ -300,9 +300,8 @@ export default function HeroSuperSUV() {
       </div>
 
       {/* STATS */}
-      {/* STATS */}
       <motion.div
-        className="relative z-20 bg-[#ffffff] h-[45vh] py-12"
+        className="relative z-20 bg-[#ffffff] min-h-[45vh] py-8 sm:py-12"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
@@ -332,11 +331,11 @@ export default function HeroSuperSUV() {
                 },
               }}
             >
-              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#1b8a7a]">
+              <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#000000]">
                 <Check className="h-5 w-5 text-white" />
               </div>
 
-              <h5 className="text-4xl font-bold text-[#1b8a7a]">{stat.value}</h5>
+              <h5 className="text-4xl font-bold text-[#000000]">{stat.value}</h5>
               <h6 className="mt-2 text-2xl tracking-tighter text-black">
                 {stat.title}
               </h6>
@@ -359,18 +358,18 @@ export default function HeroSuperSUV() {
 
 export function SchoolLogosCarousel() {
   return (
-    <section className="overflow-hidden py-24">
+    <section className="overflow-hidden py-12 sm:py-24">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="mb-16 text-center"
+        className="mb-10 sm:mb-16 text-center px-4"
       >
-        <h2 className="mx-auto max-w-3xl text-4xl font-semibold tracking-tighter text-black">
+        <h2 className="mx-auto max-w-3xl text-2xl sm:text-4xl font-semibold tracking-tighter text-black">
           We have exclusive partnerships with the best schools in the UK and around the world.
         </h2>
-        <button className="mt-6 bg-black px-6 py-3 text-white hover:bg-accent cursor-pointer">Find out more</button>
+        <button className="mt-4 sm:mt-6 bg-black px-6 py-3 text-sm sm:text-base text-white hover:bg-accent cursor-pointer">Find out more</button>
       </motion.div>
 
 
@@ -404,8 +403,7 @@ export function SchoolLogosCarousel() {
 
 export function ExpertiseSection() {
   return (
-    <section className="relative bg-[#096857] py-28">
-      {/* <div className="w-full flex flex-col items-center justify-center gap-4"> */}
+    <section className="relative bg-[#096857] py-16 sm:py-28">
       <motion.div
          initial="hidden"
          whileInView="visible"
@@ -414,10 +412,10 @@ export function ExpertiseSection() {
            hidden: {},
            visible: { transition: { staggerChildren: 0.15 } },
          }}
-        className="flex flex-col items-center text-center"
+        className="flex flex-col items-center text-center px-4"
       >
-        <motion.img src='/logo.webp' alt='' width={120} height={120} />
-        <motion.h1 className="text-center w-2/3 mx-auto text-3xl tracking-tighter font-medium">
+        <motion.img src='/logo.webp' alt='' width={120} height={120} className="w-20 sm:w-[120px]" />
+        <motion.h1 className="text-center w-full sm:w-2/3 mx-auto text-xl sm:text-3xl tracking-tighter font-medium">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Furiosam eos dolorem consequuntur quisquam sunt eum numquam commodi accusamus.
         </motion.h1>
       </motion.div>
@@ -480,14 +478,14 @@ export function ExpertiseSection() {
 export function VideoTestimonials() {
   return (
     <section className="relative bg-[#1a1a1a] py-20">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 px-14">
+      <div className="flex flex-col-reverse md:flex-row justify-between items-start md:items-end mb-8 sm:mb-12 px-4 sm:px-14">
           <a
             href="#"
-            className="mt-6 md:mt-0 inline-block bg-[#1b8a7a] hover:bg-[#156b5e] text-white text-[16px] font-semibold px-8 py-4 transition-colors duration-300 ease-in-out"
+            className="mt-4 md:mt-0 inline-block bg-[#1b8a7a] hover:bg-[#156b5e] text-white text-sm sm:text-[16px] font-semibold px-6 sm:px-8 py-3 sm:py-4 transition-colors duration-300 ease-in-out"
           >
             Read Client reviews
           </a>
-          <h2 className="text-[36px] md:text-[48px] font-normal leading-[1.2] tracking-tight">
+          <h2 className="text-[28px] sm:text-[36px] md:text-[48px] font-normal leading-[1.2] tracking-tight">
             Testimonials
           </h2>
         </div>

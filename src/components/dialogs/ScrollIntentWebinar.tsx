@@ -46,7 +46,8 @@ export function WebinarToast({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="fixed bottom-6 left-6 z-50 w-full max-w-sm rounded-xl bg-[#1e2f55] p-6 text-white shadow-2xl"
+          className="fixed bottom-4 left-4 right-4 sm:right-auto sm:left-6 sm:bottom-6 z-50 w-auto sm:w-full max-w-sm rounded-xl 
+          bg-[#000000] p-4 sm:p-6 text-white shadow-2xl"
         >
           {/* Close */}
           <button

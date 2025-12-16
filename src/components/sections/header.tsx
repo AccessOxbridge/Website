@@ -9,8 +9,9 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 z-1002 w-full shadow-sm transition-all duration-300 backdrop-blur-md">
-        <div className="mx-auto h-16 max-w-[1440px] px-4 md:px-10 grid grid-cols-3">
+      <header className="fixed top-0 z-1002 w-full shadow-sm transition-all duration-300 backdrop-blur-md
+      bg-blend-exclusion">
+        <div className="mx-auto h-16 max-w-[1440px] px-4 md:px-10 grid grid-cols-3 items-center">
           <div className="col-span-1 flex items-center">
             <button
               aria-label="Navigation Menu"
@@ -40,15 +41,17 @@ export default function Header() {
             className="col-span-1 flex items-center justify-center transition-opacity gap-2"
           >
             <Image src="/logo.webp" alt="Access Oxbridge" width={32} height={32} />
-            <h1 className="text-2xl tracking-tighter text-center">Access Oxbridge</h1>
+            <h1 className="text-lg hidden md:flex sm:text-2xl tracking-tighter text-center whitespace-nowrap">
+              Access Oxbridge
+            </h1>
           </Link>
-          <div className="col-span-1 hidden md:flex items-center justify-end gap-4">
+          <div className="col-span-1 md:flex items-center justify-end gap-4 w-fit sm:w-full h-fit">
             <Link
               href="#"
-              className="px-4 py-2 text-sm font-semibold border 
+              className="px-1 sm:px-4 py-2 text-[10px] sm:text-sm font-semibold border whitespace-nowrap
               transition-all uppercase tracking-tighter bg-white text-black"
             >
-              Book a free consultation
+              Book free consultation
             </Link>
           </div>
         </div>

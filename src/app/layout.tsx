@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | Access Oxbridge",
   },
   description: "Access Oxbridge is a leading provider of Oxbridge admissions consulting services. We help students get into Oxbridge with a proven 62% success rate.",
-  viewport: "width=device-width, initial-scale=1",
+  // viewport: "width=device-width, initial-scale=1",
   icons: {
     icon: "/logo.webp",
   },
