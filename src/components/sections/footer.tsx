@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-[1440px] mx-auto px-5 sm:px-10 py-16">
         <div className="mb-6">
           <h2 className="text-[13px] font-bold tracking-[0.1em] uppercase text-black">
-            Aston Martin
+            Access Oxbridge
           </h2>
         </div>
 
@@ -44,11 +44,11 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col space-y-4 lg:pl-10">
-            <h3 className="text-sm text-neutral-900 font-normal mb-1">Find a dealer</h3>
+            <h3 className="text-sm text-neutral-900 font-normal mb-1">Sign up for our newsletter</h3>
             <div className="relative w-full max-w-[300px]">
               <input
                 type="text"
-                placeholder="Town/Postcode"
+                placeholder="Email"
                 className="w-full border-b border-neutral-300 py-2 text-sm text-neutral-900 placeholder:text-neutral-500 bg-transparent focus:outline-none focus:border-[#1b8a7a] transition-colors pr-8"
               />
               <Search className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
@@ -56,27 +56,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col items-start space-y-8 mb-16">
-          <Link href="#" className="text-[10px] sm:text-xs font-medium text-neutral-500 hover:text-[#1b8a7a] uppercase tracking-wide border-b border-neutral-300 pb-0.5 hover:border-[#1b8a7a] transition-colors flex items-center gap-1">
-            <span className="text-[10px]">&gt;</span> MODERN SLAVERY STATEMENT ACT
-          </Link>
-
-          <p className="text-[10px] sm:text-[11px] leading-relaxed text-neutral-500 max-w-4xl">
-            The emissions/fuel economy figures quoted are sourced from official regulated test results obtained through laboratory testing. They are for comparability purposes only and may not reflect your real driving experience, which may vary depending on factors including road conditions, weather, vehicle load and driving style.
-          </p>
-
-          <Link href="#" className="text-[10px] sm:text-xs font-medium text-neutral-500 hover:text-[#1b8a7a] uppercase tracking-wide border-b border-neutral-300 pb-0.5 hover:border-[#1b8a7a] transition-colors flex items-center gap-1">
-            <span className="text-[10px]">&gt;</span> WLTP - CONSUMPTION AND EMISSION VALUES
-          </Link>
-        </div>
-
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 pt-4">
-          <button className="flex items-center gap-2 text-xs text-neutral-800 hover:text-[#1b8a7a] transition-colors group">
-            <span>International site</span>
-            <ChevronUp className="w-3.5 h-3.5 transition-transform group-hover:-translate-y-0.5" />
-          </button>
-
-          <div className="flex flex-col items-start lg:items-end gap-6 w-full lg:w-auto">
             <div className="flex items-center gap-5 text-neutral-500">
               <Link href="#" className="hover:text-[#1b8a7a] transition-colors" aria-label="Instagram">
                 <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -97,12 +77,13 @@ export default function Footer() {
                 <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
               </Link>
             </div>
+          <div className="flex flex-col items-start lg:items-end gap-6 w-full lg:w-auto">
 
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] text-neutral-500">
               <Link href="#" className="hover:text-[#1b8a7a] transition-colors">Terms & Conditions</Link>
               <Link href="#" className="hover:text-[#1b8a7a] transition-colors">Privacy</Link>
               <Link href="#" className="hover:text-[#1b8a7a] transition-colors">Cookies</Link>
-              <span className="text-neutral-400">© Aston Martin 2025</span>
+              <span className="text-neutral-400">© Access Oxbridge 2025</span>
             </div>
           </div>
         </div>

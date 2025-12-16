@@ -198,17 +198,6 @@
     margin-bottom: 16px;
   }
 
-  a {
-    color: var(--color-teal-accent-primary);
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
-  }
-
-  a:hover {
-    text-decoration: underline;
-    opacity: 0.8;
-  }
-
   .container {
     max-width: 1440px;
     margin-left: auto;
