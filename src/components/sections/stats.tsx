@@ -1,3 +1,5 @@
+"use client";
+
 import { homeConfig } from "@/configs/home.config";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";

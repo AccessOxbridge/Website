@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <>
       <header className="fixed top-0 z-1002 w-full shadow-sm transition-all duration-300 backdrop-blur-md
-      bg-blend-exclusion">
+      bg-blend-exclusion text-white">
         <div className="mx-auto h-16 max-w-[1440px] px-4 md:px-10 grid grid-cols-3 items-center">
           <div className="col-span-1 flex items-center">
             <button
@@ -66,7 +66,7 @@ export default function Header() {
             <div className="flex h-20 items-center justify-between px-10">
               <button
                 onClick={() => setIsMenuOpen(false)}
-                className="flex items-center gap-2 text-sm uppercase tracking-wider text-white hover:text-[#1b8a7a]"
+                className="flex items-center gap-2 text-sm uppercase tracking-wider"
               >
                 <svg
                   width="24"
@@ -84,7 +84,7 @@ export default function Header() {
               </button>
               <button
                 onClick={() => setIsMenuOpen(false)}
-                className="p-2 text-white hover:text-[#1b8a7a]"
+                className="p-2"
               >
                 <svg
                   width="24"
@@ -104,32 +104,32 @@ export default function Header() {
             <div className="flex-1 overflow-y-auto px-10 py-8">
               <ul className="space-y-6">
                 <li>
-                  <a href="#" className="flex w-full items-center justify-between text-2xl font-light text-white hover:text-[#1b8a7a]">
+                  <a href="#" className="flex w-full items-center justify-between text-2xl font-light text-white hover:underline">
                     <span>About</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="flex w-full items-center justify-between text-2xl font-light text-white hover:text-[#1b8a7a]">
+                  <a href="#" className="flex w-full items-center justify-between text-2xl font-light text-white hover:underline">
                     <span>Guides</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="flex w-full items-center justify-between text-2xl font-light text-white hover:text-[#1b8a7a]">
+                  <a href="#" className="flex w-full items-center justify-between text-2xl font-light text-white hover:underline">
                     <span>Mentorship</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="flex w-full items-center justify-between text-2xl font-light text-white hover:text-[#1b8a7a]">
+                  <a href="#" className="flex w-full items-center justify-between text-2xl font-light text-white hover:underline">
                     <span>Testimonials</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="flex w-full items-center justify-between text-2xl font-light text-white hover:text-[#1b8a7a]">
+                  <a href="#" className="flex w-full items-center justify-between text-2xl font-light text-white hover:underline">
                     <span>Resources</span>
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="flex w-full items-center justify-between text-2xl font-light text-white hover:text-[#1b8a7a]">
+                  <a href="#" className="flex w-full items-center justify-between text-2xl font-light text-white hover:underline">
                     <span>FAQs</span>
                   </a>
                 </li>

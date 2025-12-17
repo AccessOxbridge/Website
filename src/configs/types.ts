@@ -125,3 +125,20 @@ export interface ModelCarouselConfig {
     configure: string;
   };
 }
+
+export interface ApproachCard {
+  label: string;
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
+}
+
+export interface ApproachCardsConfig {
+  badge: string;
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonHref: string;
+  cards: ApproachCard[];
+}

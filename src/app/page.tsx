@@ -1,25 +1,29 @@
 import Header from "@/components/sections/header";
 import HeroSuperSUV from "@/components/sections/hero";
-import BrandPhilosophy from "@/components/sections/brand-philosophy";
-import ModelCarousel from "@/components/sections/model-carousel";
-import SplitShowcase from "@/components/sections/split-showcase";
+// import SplitShowcase from "@/components/sections/split-showcase";
 import StoriesSection from "@/components/sections/stories-section";
 import NewsSection from "@/components/sections/news-section";
 import Footer from "@/components/sections/footer";
 import ScrollIntentWebinar from "@/components/dialogs/ScrollIntentWebinar";
+import ApproachCards from "@/components/sections/cards";
+import Stats from "@/components/sections/stats";
+import UniversitiesCarousel from "@/components/home/universities-carousel";
+import ExpertiseSection from "@/components/home/expertise";
+import { VideoTestimonials } from "@/components/home/testimonials";
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
       <HeroSuperSUV />
+      <Stats/>
+      <div className="mx-auto  h-px w-full max-w-5xl bg-gray-200" />
+      <UniversitiesCarousel/>
+      <ExpertiseSection />
+      <VideoTestimonials/>
+      <ApproachCards/>
       <StoriesSection />
-      {/* 
-      <NewsSection /> 
-      <SplitShowcase />
-      <BrandPhilosophy />
-      <ModelCarousel />
-      */}
+      <NewsSection/>
       <Footer />
       <ScrollIntentWebinar/>
     </main>

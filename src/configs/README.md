@@ -10,7 +10,7 @@ This directory contains all the configurable content for the Oxbridge Admissions
 - `stories.config.ts` - Configuration for the stories section
 - `blog.config.ts` - Configuration for the blog page
 - `news.config.ts` - Configuration for the news section
-- `model-carousel.config.ts` - Configuration for the model carousel section
+- `approach-cards.config.ts` - Configuration for the approach cards section
 
 ## How to Use
 
@@ -60,7 +60,7 @@ export default function MyComponent() {
 - **Stories Section**: Story cards with titles, dates, images, and categories
 - **Blog Page**: Page titles, descriptions, and section headers
 - **News Section**: News headlines, dates, and links
-- **Model Carousel**: Model names, labels, and button text
+- **Approach Cards**: Card labels, titles, descriptions, images, and header content
 
 ## Adding New Pages
 
