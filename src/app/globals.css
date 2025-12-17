@@ -8,6 +8,7 @@
 @theme {
   --color-background: #1a1a1a;
   --color-foreground: #ffffff;
+  --brand-color: #092c68
 
   --color-card: #1a1a1a;
   --color-card-foreground: #ffffff;
@@ -24,8 +25,9 @@
   --color-muted: #a0a0a0;
   --color-muted-foreground: #d4d4d4;
 
-  --color-accent: #1b8a7a;
-  --color-accent-foreground: #ffffff;
+  --color-accent: #092c68;
+  --color-accent-light: #595a81;
+  --color-accent-foreground: #15196b;
 
   --color-destructive: #ef4444;
   --color-destructive-foreground: #fafafa;
@@ -51,7 +53,7 @@
 
   --color-primary-background: #1a1a1a;
   --color-secondary-background-dark: #0f0f0f;
-  --color-teal-accent-primary: #1b8a7a;
+  --color-teal-accent-primary: #092c68;
   --color-burgundy-wine-red: #8b2d2d;
   --color-text-primary-light: #ffffff;
   --color-text-secondary-light: #d4d4d4;
@@ -123,42 +125,10 @@
 
 @layer base {
   :root {
-    --background: var(--color-primary-background);
-    --foreground: var(--color-text-primary-light);
-    --card: var(--color-card);
-    --card-foreground: var(--color-card-foreground);
-    --popover: var(--color-popover);
-    --popover-foreground: var(--color-popover-foreground);
-    --primary: var(--color-primary);
-    --primary-foreground: var(--color-primary-foreground);
-    --secondary: var(--color-secondary);
-    --secondary-foreground: var(--color-secondary-foreground);
-    --muted: var(--color-muted);
-    --muted-foreground: var(--color-muted-foreground);
-    --accent: var(--color-teal-accent-primary);
-    --accent-foreground: var(--color-accent-foreground);
-    --destructive: var(--color-destructive);
-    --destructive-foreground: var(--color-destructive-foreground);
-    --border: var(--color-border);
-    --input: var(--color-input);
-    --ring: var(--color-ring);
-    --chart-1: var(--color-chart-1);
-    --chart-2: var(--color-chart-2);
-    --chart-3: var(--color-chart-3);
-    --chart-4: var(--color-chart-4);
-    --chart-5: var(--color-chart-5);
-    --radius: 0.5rem;
-    --sidebar-background: var(--color-sidebar);
-    --sidebar-foreground: var(--color-sidebar-foreground);
-    --sidebar-primary: var(--color-sidebar-primary);
-    --sidebar-primary-foreground: var(--color-sidebar-primary-foreground);
-    --sidebar-accent: var(--color-sidebar-accent);
-    --sidebar-accent-foreground: var(--color-sidebar-accent-foreground);
-    --sidebar-border: var(--color-sidebar-border);
-    --sidebar-ring: var(--color-sidebar-ring);
+    --brand-color: #092c68
   }
 
-  body {
+  /* body {
     font-family: var(--font-primary);
     font-size: 16px;
     line-height: 1.6;
@@ -196,7 +166,7 @@
 
   p {
     margin-bottom: 16px;
-  }
+  } */
 
   .container {
     max-width: 1440px;

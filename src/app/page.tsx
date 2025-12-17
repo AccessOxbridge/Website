@@ -1,5 +1,5 @@
 import Header from "@/components/sections/header";
-import HeroSuperSUV from "@/components/sections/hero-super-suv";
+import HeroSuperSUV from "@/components/sections/hero";
 import BrandPhilosophy from "@/components/sections/brand-philosophy";
 import ModelCarousel from "@/components/sections/model-carousel";
 import SplitShowcase from "@/components/sections/split-showcase";

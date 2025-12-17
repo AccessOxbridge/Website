@@ -1,37 +1,20 @@
+import { newsConfig } from "@/configs/news.config";
+
 export default function NewsSection() {
-  const newsItems = [
-    {
-      id: 1,
-      date: "12 Dec 2025",
-      headline: "Kobe Pauwels is the newest Aston Martin Racing Driver Academy winner",
-      link: "#",
-    },
-    {
-      id: 2,
-      date: "8 Dec 2025",
-      headline: "Aston Martin Valkyrie will race with unchanged line-up in 2026",
-      link: "#",
-    },
-    {
-      id: 3,
-      date: "12 Nov 2025",
-      headline: "BERO and Aston Martin forge a distinctly British alliance",
-      link: "#",
-    },
-  ];
+  const newsItems = newsConfig.newsItems;
 
   return (
     <section className="w-full bg-[#1a1a1a] py-20 text-white md:py-24">
       <div className="container mx-auto px-4 md:px-10 lg:px-10 max-w-[1440px]">
         <div className="mb-12 flex items-center justify-between md:mb-16">
           <h2 className="font-sans text-xs font-bold uppercase tracking-[0.15em] text-white">
-            News
+            {newsConfig.title}
           </h2>
           <a
             href="#"
             className="group flex items-center gap-2 font-sans text-xs font-bold uppercase tracking-[0.15em] text-white transition-opacity hover:opacity-80"
           >
-            See All News
+            {newsConfig.buttonText}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
