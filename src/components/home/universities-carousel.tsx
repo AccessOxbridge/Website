@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function UniversitiesCarousel() {
     return (
-      <section className="overflow-hidden py-12 sm:py-24">
+      <section className="overflow-hidden py-12 sm:py-24 bg-rich-beige-accent">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -16,7 +16,7 @@ export default function UniversitiesCarousel() {
           <h2 className="mx-auto max-w-3xl text-2xl sm:text-4xl font-semibold tracking-tighter text-black">
             {homeConfig.schoolLogos.title}
           </h2>
-          <button className="mt-4 sm:mt-6 bg-black px-6 py-3 text-sm sm:text-base text-white hover:bg-accent cursor-pointer">{homeConfig.schoolLogos.buttonText}</button>
+          <button className="mt-4 sm:mt-6 bg-black px-6 py-3 text-sm sm:text-base text-white hover:bg-black/80 cursor-pointer">{homeConfig.schoolLogos.buttonText}</button>
         </motion.div>
   
   

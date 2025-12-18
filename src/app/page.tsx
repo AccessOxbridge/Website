@@ -1,5 +1,5 @@
 import Header from "@/components/sections/header";
-import HeroSuperSUV from "@/components/sections/hero";
+import HeroSuperSUV from "@/components/home/hero";
 // import SplitShowcase from "@/components/sections/split-showcase";
 import StoriesSection from "@/components/sections/stories-section";
 import NewsSection from "@/components/sections/news-section";
@@ -14,14 +14,12 @@ import { VideoTestimonials } from "@/components/home/testimonials";
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Header />
       <HeroSuperSUV />
-      <Stats/>
       <div className="mx-auto  h-px w-full max-w-5xl bg-gray-200" />
       <UniversitiesCarousel/>
+      <Stats/>
       <ExpertiseSection />
       <VideoTestimonials/>
-      <ApproachCards/>
       <StoriesSection />
       <NewsSection/>
       <Footer />

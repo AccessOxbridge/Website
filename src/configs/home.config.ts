@@ -11,8 +11,8 @@ export const homeConfig: HomeConfig = {
           { label: "Free Consultation", href: "/consultation", variant: "primary" },
           { label: "Our Results", href: "#results", variant: "secondary" },
         ],
-        type: "video",
-        src: "https://www.astonmartin.com/-/media/models---db12-s/final-images/heros/home_page_16x9_edit_3.mp4?rev=a387b4fe1ca348fc89e2ffbefc061406",
+        type: "image",
+        src: "https://dukeseducation.com/wp-content/uploads/2019/09/Eaton-Square-edited-e1568717984986.jpg",
       },
       {
         id: 2,
@@ -34,10 +34,22 @@ export const homeConfig: HomeConfig = {
           { label: "Boost Your Chances by 400%", href: "/success-stats", variant: "secondary" },
         ],
         type: "image",
-        src: "https://www.astonmartin.com/-/media/top-gear-award-2026/tga-desk-still-new.jpg?mw=1920&rev=a7de10be96464e8a8b2cbc28245eab17&extension=webp",
+        src: "/dukes.png",
       },
     ],
   },
+  boxes: [
+    {
+      title: 'UK University Admissions',
+      button: 'Enquire Now',
+      description: 'When Dukes Education was first founded in 2015, Aatif asked the team, “What makes your hearts sing?” His love for developing young people had led him to found Dukes Education. In our collection of schools and colleges, we have brought together teams of individuals who are driven by the same purpose. Today, the Dukes Education family is home to some of the UK’s best schools and brightest people, all united in their passion for nurturing students.'
+    },
+    {
+      title: 'Oxbridge Admissions',
+      button: 'Enquire Now',
+      description: 'We set out to build a collection of schools who could share and learn from each other, while still having the freedom to do what they do best. Today, the Dukes Education family is home to some of the UK’s finest independent nurseries, schools, and colleges, as well as summer schools, day camps, and consultancy services — all united in their passion for nurturing students and helping them thrive. We’re proud of how far we’ve come, but we’re excited to go further.'
+    },
+  ],
   stats: [
     {
       value: "10,000+",

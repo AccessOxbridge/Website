@@ -98,6 +98,26 @@ export default function HeroSuperSUV() {
           </motion.div>
         </AnimatePresence>
       </div>
+      <div className="relative h-fit flex items-center flex-wrap justify-center gap-0">
+        {
+          homeConfig.boxes.map((box, id) => {
+            // Set alignment CSS classes dynamically for text and content
+            const textAligns = ['text-left items-start', 'text-right items-end', 'text-center items-center'];
+            const bgClasses = ['bg-accent text-white', 'bg-rich-amber-accent', 'bg-rich-beige-accent'];
+            const alignClasses = textAligns[id % textAligns.length];
+            return (
+              <div
+                className={`${bgClasses[id % bgClasses.length]} w-1/2 h-full p-12 flex flex-col gap-8 ${alignClasses}`}
+                key={id}
+              >
+                <h2 className="text-lg font-bold">{box.title}</h2>
+                <p className="text-xl">{box.description}</p>
+                <button className="bg-rich-beige-accent w-fit p-4 text-accent">{box.button}</button>
+              </div>
+            );
+          })
+        }
+      </div>
     </section>
   );
 }

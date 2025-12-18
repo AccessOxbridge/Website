@@ -70,6 +70,7 @@ export interface HomeConfig {
   hero: {
     slides: HeroSlide[];
   };
+  boxes: Boxes[],
   stats: StatItem[];
   expertise: {
     logo: {
@@ -142,3 +143,10 @@ export interface ApproachCardsConfig {
   buttonHref: string;
   cards: ApproachCard[];
 }
+
+export interface Boxes {
+  title: string,
+  image?: string,
+  description: string,
+  button: string
+};
