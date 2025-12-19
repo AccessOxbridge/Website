@@ -170,6 +170,6 @@ export const homeConfig: HomeConfig = {
   },
   testimonialsSection: {
     buttonText: "Read Client reviews",
-    title: "Testimonials",
+    title: "Here's what our clients say about us!",
   },
 };

@@ -10,6 +10,7 @@ import Stats from "@/components/sections/stats";
 import UniversitiesCarousel from "@/components/home/universities-carousel";
 import ExpertiseSection from "@/components/home/expertise";
 import { VideoTestimonials } from "@/components/home/testimonials";
+import FAQs from "@/components/home/faqs";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <ExpertiseSection />
       <VideoTestimonials/>
       <StoriesSection />
+      <FAQs />
       <NewsSection/>
       <Footer />
       <ScrollIntentWebinar/>
