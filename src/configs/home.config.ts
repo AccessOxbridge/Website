@@ -172,4 +172,57 @@ export const homeConfig: HomeConfig = {
     buttonText: "Read Client reviews",
     title: "Here's what our clients say about us!",
   },
+  faqs: [
+    {
+      title: "UCAS PERSONAL STATEMENT FAQs",
+      faqs: [
+        {
+          question: "What makes a UK personal statement strong?",
+          answer: "A strong UK personal statement is focused, reflective, and tailored to the chosen subject. Universities want to see academic interest, relevant experience, and evidence of independent thinking. Specific examples are more effective than general claims. Clear structure and concise writing are important. The statement should show motivation for the course and readiness for university level study rather than simply listing achievements."
+        },
+        {
+          question: "When should I start writing my UCAS personal statement?",
+          answer: "It is best to start writing your personal statement at least three to six months before the UCAS deadline. Early preparation gives you time to explore your subject, draft thoughtfully, and edit carefully. Starting early also reduces stress and leads to a stronger, more confident final statement."
+        }
+      ]
+    },
+    {
+      title: "OXBRIDGE INTERVIEW FAQs",
+      faqs: [
+        {
+          question: "How are Oxford and Cambridge interviews different from normal interviews?",
+          answer: "Oxbridge interviews are academic rather than personal. Instead of asking about hobbies or career goals, tutors ask subject based questions and explore your thinking. You may be asked to solve problems, analyse texts, or discuss unfamiliar ideas. Interviewers want to see curiosity, logical reasoning, and how you approach challenges, not polished or rehearsed answers."
+        },
+        {
+          question: "How many interviews will I have at Oxford or Cambridge?",
+          answer: "Most applicants have one to three interviews, sometimes with different colleges or tutors. Some candidates may be interviewed by more than one college through the pooling process. Each interview usually lasts between twenty and thirty minutes. Having multiple interviews is normal and does not mean anything negative."
+        },
+        {
+          question: "How should I prepare for an Oxbridge interview?",
+          answer: "Preparation should focus on understanding your subject deeply rather than memorising answers. Review key concepts, practise thinking aloud, and be ready to discuss topics from your personal statement. Reading beyond the syllabus and practising with sample questions or mock interviews can help build confidence. Good preparation helps you stay calm and engaged during the interview."
+        },
+        {
+          question: "How much weight do interviews carry in Oxbridge admissions decisions?",
+          answer: "Interviews carry significant weight in Oxbridge admissions. Once you are invited to interview, tutors rely heavily on your performance to decide whether you are offered a place. Interviews help them assess academic potential and suitability for the teaching system. Strong interviews can sometimes outweigh weaker parts of an application."
+        }
+      ]
+    },
+    {
+      title: "OXBRIDGE ASSESSMENT TEST FAQs",
+      faqs: [
+        {
+          question: "Which courses usually require admissions tests?",
+          answer: "Admissions tests are commonly required for Medicine, Dentistry, Law, Economics, Engineering, Mathematics, and some Humanities courses. Oxford and Cambridge use tests for many subjects, while other universities may require tests such as the UCAT or LNAT. Each course sets its own requirements, so students should check university websites carefully."
+        },
+        {
+          question: "How should students prepare for admissions tests?",
+          answer: "Effective preparation includes practising past papers, learning question types, working under timed conditions, and reviewing mistakes. Students should focus on reasoning skills rather than memorising content. Many tests reward clear thinking and problem solving. Mock tests and structured practice plans can greatly improve results."
+        },
+        {
+          question: "How do admissions tests fit into the overall application process?",
+          answer: "Admissions tests are one part of a wider application that includes grades, personal statements, references, and interviews. For competitive universities, test scores often play a major role in shortlisting. Performing well helps tutors identify students with strong academic potential. Success comes from balanced preparation across all parts of the application."
+        }
+      ]
+    }
+  ]
 };

@@ -11,6 +11,7 @@ import UniversitiesCarousel from "@/components/home/universities-carousel";
 import ExpertiseSection from "@/components/home/expertise";
 import { VideoTestimonials } from "@/components/home/testimonials";
 import FAQs from "@/components/home/faqs";
+import { Globe } from "@/components/ui/globe";
 
 export default function Home() {
   return (
@@ -24,7 +25,7 @@ export default function Home() {
       <StoriesSection />
       <FAQs />
       <NewsSection/>
-      <Footer />
+      <Globe/>
       <ScrollIntentWebinar/>
     </main>
   );

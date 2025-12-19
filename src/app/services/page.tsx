@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import ApproachCards from '@/components/sections/cards'
 import { motion } from 'framer-motion'
 import { CheckCircle2, Target, FileText, BookOpen, Users, Clock, Award, GraduationCap, ArrowRight, ArrowRightIcon, ArrowLeftIcon } from 'lucide-react'
+import ScrollIntentSpinWheel from '@/components/dialogs/ScrollIntentSpinWheel'
 
 // export const metadata: Metadata = blogConfig.metadata
 
@@ -22,8 +23,11 @@ const staggerContainer = {
 };
 
 export default function ServicesPage() {
+
   return (
     <section className='w-full h-full'>
+      {/* Scroll Intent Spin Wheel Dialog */}
+      <ScrollIntentSpinWheel />
 
       <section className='w-full h-screen'>
         <div
@@ -57,10 +61,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      
-
       {/* Timeline Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white flex items-center justify-between">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-serif text-primary mb-4">Your Journey to Success</h2>

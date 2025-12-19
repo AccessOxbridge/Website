@@ -73,7 +73,7 @@ export default function HeroSuperSUV() {
                       </div>
                     </div>
 
-                    <div className="hidden md:flex justify-end gap-2 mt-12">
+                    <div className="flex justify-center sm:justify-end gap-2 mt-12">
                       <button onClick={prevSlide} aria-label="Previous slide">
                         <ArrowLeftIcon className="size-10 rounded-full bg-white/50 p-2 hover:bg-white/70" />
                       </button>
@@ -98,25 +98,39 @@ export default function HeroSuperSUV() {
           </motion.div>
         </AnimatePresence>
       </div>
-      <div className="relative h-fit flex items-center flex-wrap justify-center gap-0">
-        {
-          homeConfig.boxes.map((box, id) => {
-            // Set alignment CSS classes dynamically for text and content
-            const textAligns = ['text-left items-start', 'text-right items-end', 'text-center items-center'];
-            const bgClasses = ['bg-accent text-white', 'bg-rich-amber-accent', 'bg-rich-beige-accent'];
-            const alignClasses = textAligns[id % textAligns.length];
-            return (
-              <div
-                className={`${bgClasses[id % bgClasses.length]} w-1/2 h-full p-12 flex flex-col gap-8 ${alignClasses}`}
-                key={id}
-              >
-                <h2 className="text-lg font-bold">{box.title}</h2>
-                <p className="text-xl">{box.description}</p>
-                <button className="bg-rich-beige-accent w-fit p-4 text-accent">{box.button}</button>
-              </div>
-            );
-          })
-        }
+      <div className="relative h-fit flex flex-col sm:flex-row flex-wrap justify-center items-stretch gap-0">
+        {homeConfig.boxes.map((box, id) => {
+          // Set alignment CSS classes dynamically for text and content
+          const textAligns = [
+            'text-center items-center sm:text-left sm:items-start',
+            'text-center items-center  sm:text-right sm:items-end',
+            'text-center items-center'
+          ];
+          const bgClasses = [
+            'bg-accent text-white',
+            'bg-rich-amber-accent',
+            'bg-rich-beige-accent'
+          ];
+          const alignClasses = textAligns[id % textAligns.length];
+          return (
+            <div
+              key={id}
+              className={`
+                ${bgClasses[id % bgClasses.length]} 
+                w-full sm:w-1/2 
+                h-full 
+                px-5 py-8 sm:p-12 
+                flex flex-col gap-4 sm:gap-8 
+                ${alignClasses}
+                transition-all
+              `}
+            >
+              <h2 className="text-base sm:text-lg font-bold">{box.title}</h2>
+              <p className="text-base sm:text-xl">{box.description}</p>
+              <button className="bg-rich-beige-accent w-fit px-4 py-2 sm:p-4 text-accent text-sm sm:text-base rounded-md">{box.button}</button>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

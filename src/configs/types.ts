@@ -66,6 +66,17 @@ export interface BlogConfig {
   };
 }
 
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export interface FAQCategory {
+  title: string;
+  faqs: FAQItem[];
+}
+
+
 export interface HomeConfig {
   hero: {
     slides: HeroSlide[];
@@ -92,6 +103,7 @@ export interface HomeConfig {
     buttonText: string;
     title: string;
   };
+  faqs: FAQCategory[]
 }
 
 export interface StoriesConfig {

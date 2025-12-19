@@ -14,7 +14,7 @@ import type { Swiper as SwiperType } from "swiper";
 export function VideoTestimonials() {
     const swiperRef = useRef<SwiperType | null>(null);
     return (
-        <section id="testimonials" className="relative bg-rich-beige-accent py-12 sm:py-24 overflow-hidden">
+        <section id="testimonials" className="relative bg-rich-beige-accent py-24 overflow-hidden">
             <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
