@@ -47,8 +47,8 @@ export default function Header() {
           <div className="col-span-1 md:flex items-center justify-end gap-4 w-fit sm:w-full h-fit">
             <Link
               href="#"
-              className={`px-1 sm:px-4 py-2 text-[10px] sm:text-sm font-semibold border whitespace-nowrap
-              transition-all uppercase tracking-tighter bg-white text-black border-white hover:bg-gray-100'`}
+              className={`px-1 sm:px-4 py-2 text-[10px] sm:text-sm font-serif font-black border whitespace-nowrap
+              transition-all uppercase tracking-tight bg-rich-amber-accent text-rich-purple border-rich-purple hover:bg-gray-100'`}
             >
               Book free consultation
             </Link>
