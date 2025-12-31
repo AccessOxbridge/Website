@@ -1,11 +1,31 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleEscapeKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscapeKey);
+
+    return () => {
+      document.removeEventListener('keydown', handleEscapeKey);
+    };
+  }, []);
   return (
     <>
       <header className={`fixed top-0 z-1002 w-full shadow-sm transition-all duration-300 backdrop-blur-md bg-black/20 text-white`}>
@@ -47,18 +67,88 @@ export default function Header() {
           </div>
 
         <nav className="hidden md:flex items-center space-x-6 lg:space-x-8 flex-1 justify-center">
-          <a href="#" className="text-xs font-light text-white hover:text-rich-amber-accent transition-colors uppercase tracking-wider">
-            UK University Applicants
-          </a>
-          <Link href="/services" className="text-xs font-light text-white hover:text-rich-amber-accent transition-colors uppercase tracking-wider">
-            Oxbridge Applicants
-          </Link>
-          <a href="#" className="text-xs font-light text-white hover:text-rich-amber-accent transition-colors uppercase tracking-wider">
-            FREE RESOURCES
-          </a>
-          <Link href="/services" className="text-xs font-light text-white hover:text-rich-amber-accent transition-colors uppercase tracking-wider">
-            OUR SERVICES
-          </Link>
+          <Accordion type="single" collapsible className="w-auto flex items-center justify-center gap-0">
+            {/* UK University Applicants */}
+            <AccordionItem value="uk-applicants" className="border-0">
+              <AccordionTrigger className="text-xs font-light text-white hover:text-rich-amber-accent transition-colors uppercase tracking-wider p-0 hover:no-underline data-[state=open]:text-rich-amber-accent">
+                UK University Applicants
+              </AccordionTrigger>
+              <AccordionContent className="absolute top-full mt-2 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200 p-0">
+                <div className="py-1">
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Undergraduate Applications
+                  </a>
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Postgraduate Applications
+                  </a>
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Application Guidance
+                  </a>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+
+            {/* Oxbridge Applicants */}
+            <AccordionItem value="oxbridge" className="border-0">
+              <AccordionTrigger className="text-xs font-light text-white hover:text-rich-amber-accent transition-colors uppercase tracking-wider p-0 hover:no-underline data-[state=open]:text-rich-amber-accent">
+                Oxbridge Applicants
+              </AccordionTrigger>
+              <AccordionContent className="absolute top-full mt-2 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200 p-0">
+                <div className="py-1">
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Oxford Applications
+                  </a>
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Cambridge Applications
+                  </a>
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Interview Preparation
+                  </a>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+
+            {/* FREE RESOURCES */}
+            <AccordionItem value="resources" className="border-0">
+              <AccordionTrigger className="text-xs font-light text-white hover:text-rich-amber-accent transition-colors uppercase tracking-wider p-0 hover:no-underline data-[state=open]:text-rich-amber-accent">
+                FREE RESOURCES
+              </AccordionTrigger>
+              <AccordionContent className="absolute top-full mt-2 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200 p-0">
+                <div className="py-1">
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Application Guides
+                  </a>
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Sample Essays
+                  </a>
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Interview Tips
+                  </a>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+
+            {/* OUR SERVICES */}
+            <AccordionItem value="services" className="border-0">
+              <AccordionTrigger className="text-xs font-light text-white hover:text-rich-amber-accent transition-colors uppercase tracking-wider p-0 hover:no-underline data-[state=open]:text-rich-amber-accent">
+                OUR SERVICES
+              </AccordionTrigger>
+              <AccordionContent className="absolute top-full mt-2 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200 p-0">
+                <div className="py-1">
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Personal Statement Review
+                  </a>
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Mock Interviews
+                  </a>
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    UCAS Application Help
+                  </a>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+
           <Link href="/contact" className="text-xs font-light text-white hover:text-rich-amber-accent transition-colors uppercase tracking-wider">
             CONTACT US
           </Link>
@@ -122,33 +212,122 @@ export default function Header() {
             </button>
           </div>
           <div className="flex-1 overflow-y-auto px-10 py-8">
-            <ul className="space-y-6 uppercase">
-              <li onClick={() => setIsMenuOpen(false)}>
-                <a href="#" className="flex w-full items-center justify-between text-2xl font-light text-white hover:underline">
-                  <span>UK University Applicants</span>
-                </a>
-              </li>
-              <li onClick={() => setIsMenuOpen(false)}>
-                <Link href="/services" className="flex w-full items-center justify-between text-2xl font-light text-white hover:underline">
-                  <span>Oxbridge Applicants</span>
-                </Link>
-              </li>
-              <li>
-                <a href="#" className="flex w-full items-center justify-between text-2xl font-light text-white hover:underline">
-                  <span>FREE RESOURCES</span>
-                </a>
-              </li>
-              <li onClick={() => setIsMenuOpen(false)}>
-                <Link href="/services" className="flex w-full items-center justify-between text-2xl font-light text-white hover:underline">
-                  <span>OUR SERVICES</span>
-                </Link>
-              </li>
-              <li onClick={() => setIsMenuOpen(false)}>
-                <Link href="/contact" className="flex w-full items-center justify-between text-2xl font-light text-white hover:underline">
-                  <span>CONTACT US</span>
-                </Link>
-              </li>
-            </ul>
+            <Accordion type="single" collapsible className="w-full space-y-6">
+              {/* UK University Applicants */}
+              <AccordionItem value="uk-applicants-mobile" className="border-b border-white/20">
+                <AccordionTrigger className="text-2xl font-light text-white hover:text-white uppercase p-0 hover:no-underline data-[state=open]:text-rich-amber-accent">
+                  UK University Applicants
+                </AccordionTrigger>
+                <AccordionContent className="pb-4">
+                  <ul className="mt-4 ml-4 space-y-3">
+                    <li>
+                      <a href="#" className="text-lg font-light text-white/80 hover:text-white hover:underline">
+                        Undergraduate Applications
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-lg font-light text-white/80 hover:text-white hover:underline">
+                        Postgraduate Applications
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-lg font-light text-white/80 hover:text-white hover:underline">
+                        Application Guidance
+                      </a>
+                    </li>
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+
+              {/* Oxbridge Applicants */}
+              <AccordionItem value="oxbridge-mobile" className="border-b border-white/20">
+                <AccordionTrigger className="text-2xl font-light text-white hover:text-white uppercase p-0 hover:no-underline data-[state=open]:text-rich-amber-accent">
+                  Oxbridge Applicants
+                </AccordionTrigger>
+                <AccordionContent className="pb-4">
+                  <ul className="mt-4 ml-4 space-y-3">
+                    <li>
+                      <a href="#" className="text-lg font-light text-white/80 hover:text-white hover:underline">
+                        Oxford Applications
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-lg font-light text-white/80 hover:text-white hover:underline">
+                        Cambridge Applications
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-lg font-light text-white/80 hover:text-white hover:underline">
+                        Interview Preparation
+                      </a>
+                    </li>
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+
+              {/* FREE RESOURCES */}
+              <AccordionItem value="resources-mobile" className="border-b border-white/20">
+                <AccordionTrigger className="text-2xl font-light text-white hover:text-white uppercase p-0 hover:no-underline data-[state=open]:text-rich-amber-accent">
+                  FREE RESOURCES
+                </AccordionTrigger>
+                <AccordionContent className="pb-4">
+                  <ul className="mt-4 ml-4 space-y-3">
+                    <li>
+                      <a href="#" className="text-lg font-light text-white/80 hover:text-white hover:underline">
+                        Application Guides
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-lg font-light text-white/80 hover:text-white hover:underline">
+                        Sample Essays
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-lg font-light text-white/80 hover:text-white hover:underline">
+                        Interview Tips
+                      </a>
+                    </li>
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+
+              {/* OUR SERVICES */}
+              <AccordionItem value="services-mobile" className="border-b border-white/20">
+                <AccordionTrigger className="text-2xl font-light text-white hover:text-white uppercase p-0 hover:no-underline data-[state=open]:text-rich-amber-accent">
+                  OUR SERVICES
+                </AccordionTrigger>
+                <AccordionContent className="pb-4">
+                  <ul className="mt-4 ml-4 space-y-3">
+                    <li>
+                      <a href="#" className="text-lg font-light text-white/80 hover:text-white hover:underline">
+                        Personal Statement Review
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-lg font-light text-white/80 hover:text-white hover:underline">
+                        Mock Interviews
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" className="text-lg font-light text-white/80 hover:text-white hover:underline">
+                        UCAS Application Help
+                      </a>
+                    </li>
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+
+            {/* CONTACT US - Not in accordion */}
+            <div className="mt-6 pt-6 border-t border-white/20">
+              <Link
+                href="/contact"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-2xl font-light text-white hover:text-rich-amber-accent hover:underline uppercase"
+              >
+                CONTACT US
+              </Link>
+            </div>
           </div>
         </div>
       </nav>

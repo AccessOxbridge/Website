@@ -3,7 +3,7 @@
 import type { Metadata } from 'next'
 import ApproachCards from '@/components/sections/cards'
 import { motion } from 'framer-motion'
-import { CheckCircle2, Target, FileText, BookOpen, Users, Clock, Award, GraduationCap, ArrowRight, ArrowRightIcon, ArrowLeftIcon } from 'lucide-react'
+import { CheckCircle2, Target, FileText, BookOpen, Users, Clock, Award, GraduationCap } from 'lucide-react'
 import ScrollIntentSpinWheel from '@/components/dialogs/ScrollIntentSpinWheel'
 
 // export const metadata: Metadata = blogConfig.metadata
@@ -23,187 +23,187 @@ const staggerContainer = {
 };
 
 export default function ServicesPage() {
+  const steps = [
+    {
+      number: 1,
+      title: "Free Consultation",
+      desc: "Initial assessment of academic profile and university goals. We map out your strategic roadmap.",
+      icon: <Users className="w-5 h-5" />
+    },
+    {
+      number: 2,
+      title: "Program Development",
+      desc: "Tailored academic enrichment, reading lists, and super-curricular planning to build your profile.",
+      icon: <BookOpen className="w-5 h-5" />
+    },
+    {
+      number: 3,
+      title: "Application & Testing",
+      desc: "Intensive personal statement crafting and admissions test preparation (UCAT, LNAT, TSA, etc).",
+      icon: <FileText className="w-5 h-5" />
+    },
+    {
+      number: 4,
+      title: "Interview Coaching",
+      desc: "Rigorous mock interviews with subject specialists to refine communication and critical thinking.",
+      icon: <Target className="w-5 h-5" />
+    },
+    {
+      number: 5,
+      title: "Offer & Success",
+      desc: "Securing your place at a top-tier university and preparing for the transition.",
+      icon: <CheckCircle2 className="w-5 h-5" />,
+      isSuccess: true
+    }
+  ];
+
+  const services = [
+    { title: "Strategic Admissions Consultations", icon: Target, desc: "Expert guidance on university selection and application strategy tailored to your strengths." },
+    { title: "Academic Portfolio Development", icon: FileText, desc: "Building a robust body of work to demonstrate intellectual curiosity and capability." },
+    { title: "Super Curricular Enrichment", icon: BookOpen, desc: "Going beyond the syllabus with advanced reading and research projects." },
+    { title: "Academic Resource Creation", icon: Users, desc: "Custom guides, exclusive webinars, and sample statements for your subject." },
+    { title: "UCAS Personal Statement Support", icon: FileText, desc: "Drafting, editing, and refining your statement to stand out to admissions tutors." },
+    { title: "Admissions Test Prep", icon: Clock, desc: "Comprehensive preparation for UCAT, BMAT, LNAT, TSA, and other entrance exams." },
+    { title: "Medicine Mock Interviews", icon: Award, desc: "MMI and panel interview simulations with qualified medical professionals." },
+    { title: "Oxbridge Mock Interviews", icon: GraduationCap, desc: "Subject-specific mock interviews replicating the rigorous Oxbridge format." },
+    { title: "Curriculum Support (GCSE/A-Level/IB)", icon: BookOpen, desc: "Subject tuition to ensure top grades in your qualifying examinations." },
+  ];
 
   return (
-    <section className='w-full h-full'>
-      {/* Scroll Intent Spin Wheel Dialog */}
-      <ScrollIntentSpinWheel />
-
-      <section className='w-full h-screen'>
-        <div
-          className={`absolute inset-0 h-[75vh] w-full transition-opacity duration-1000 ease-in-out`}
-        >
-          <div className="absolute inset-0 h-full w-full">
-            <img className="h-full w-full object-cover" src='https://dukestutoring.com/content/uploads/2024/05/bg-hero.png' alt='' />
-          </div>
-
-          <div className="absolute inset-0 flex flex-col justify-end pb-16 md:pb-0 md:justify-center">
-            <div className="container mx-auto px-4 sm:px-6 md:px-10 lg:px-12 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-              <div className="max-w-4xl mt-16">
-                <h3 className="text-xs sm:text-sm font-semibold tracking-[0.15em] text-white uppercase opacity-90">
-                  Lorem, ipsum dolor sit amet
-                </h3>
-                <h2 className="mb-4 sm:mb-8 text-2xl sm:text-4xl font-semibold text-white md:text-5xl lg:text-[64px]">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam laudantium
-                </h2>
-                <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-                  <a
-                    href={''}
-                    className={`inline-flex min-w-[140px] sm:min-w-[160px] items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 text-xs 
-                      sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 bg-white text-black hover:bg-gray-200`}
-                  >
-                    Get in touch
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline Section */}
-      <section className="py-24 bg-white flex items-center justify-between">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif text-primary mb-4">Your Journey to Success</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              A structured, strategic approach ensuring every aspect of your application is perfected.
+    <main className="w-full bg-white">
+      {/* Hero Section - 70% Height Horizontal Timeline */}
+      <section className="relative h-[70vh] min-h-fit pt-24 w-full flex flex-col items-center justify-center 
+      overflow-hidden">
+        <div className="container mx-auto px-6 relative z-10 flex flex-col items-center gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <h1 className="text-5xl font-black tracking-tight text-primary mb-6">
+              Your Journey <span className="text-accent underline">to Success</span>
+            </h1>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              A structured, strategic approach ensuring every aspect of your application is perfected,
+              from your first consultation to the moment you receive your offer.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="relative max-w-5xl mx-auto">
-            {/* Timeline Line */}
-            <div className="absolute left-[50%] top-0 bottom-0 w-px bg-gray-200 hidden md:block transform -translate-x-1/2" />
+          <div className="relative w-full max-w-6xl px-4">
+            {/* Horizontal Timeline Track */}
+            <div className="absolute top-[32px] left-0 w-full h-[2px] bg-gray-100 hidden md:block" />
+            <motion.div
+              initial={{ width: 0 }}
+              whileInView={{ width: "100%" }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.5, ease: "easeInOut", delay: 0.5 }}
+              className="absolute top-[32px] left-0 h-[2px] bg-secondary hidden md:block"
+            />
 
-            <div className="space-y-12 md:space-y-24">
-              {/* Step 1 */}
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="relative md:grid md:grid-cols-2 gap-12 items-center"
-              >
-                <div className="md:text-right">
-                  <h3 className="text-2xl font-serif text-primary mb-2">Free Consultation</h3>
-                  <p className="text-gray-600">Initial assessment of academic profile and university goals. We map out your strategic roadmap.</p>
-                </div>
-                <div className="hidden md:flex justify-center absolute left-1/2 transform -translate-x-1/2">
-                  <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-primary font-bold z-10 border-4 border-white shadow-lg">1</div>
-                </div>
-                <div className="hidden md:block" />
-              </motion.div>
+            {/* Timeline Steps */}
+            <motion.div
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-5 gap-12 relative z-20 w-full"
+            >
+              {steps.map((step, idx) => (
+                <motion.div
+                  key={idx}
+                  variants={fadeIn}
+                  className="flex flex-col items-center text-left group"
+                >
+                  <div className={`
+                    w-16 h-16 rounded-full flex items-center justify-center 
+                    transition-all duration-500 relative
+                    ${step.isSuccess
+                      ? "bg-green-600 text-white shadow-[0_0_20px_rgba(22,163,74,0.3)]"
+                      : idx === 0
+                        ? "bg-secondary text-primary shadow-[0_0_20px_rgba(251,191,36,0.2)]"
+                        : "bg-white text-primary border-2 border-gray-100 shadow-sm"}
+                    group-hover:scale-110 group-hover:shadow-lg
+                  `}>
+                    <div className="absolute inset-0 rounded-full bg-current opacity-0 group-hover:opacity-10 transition-opacity" />
+                    {step.icon}
+                  </div>
 
-              {/* Step 2 */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="relative md:grid md:grid-cols-2 gap-12 items-center"
-              >
-                <div className="hidden md:block" />
-                <div className="hidden md:flex justify-center absolute left-1/2 transform -translate-x-1/2">
-                  <div className="w-12 h-12 bg-primary text-secondary rounded-full flex items-center justify-center font-bold z-10 border-4 border-white shadow-lg">2</div>
-                </div>
-                <div className="md:text-left">
-                  <h3 className="text-2xl font-serif text-primary mb-2">Program Development</h3>
-                  <p className="text-gray-600">Tailored academic enrichment, reading lists, and super-curricular planning to build your profile.</p>
-                </div>
-              </motion.div>
-
-              {/* Step 3 */}
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="relative md:grid md:grid-cols-2 gap-12 items-center"
-              >
-                <div className="md:text-right">
-                  <h3 className="text-2xl font-serif text-primary mb-2">Application & Testing</h3>
-                  <p className="text-gray-600">Intensive personal statement crafting and admissions test preparation (UCAT, LNAT, TSA, etc).</p>
-                </div>
-                <div className="hidden md:flex justify-center absolute left-1/2 transform -translate-x-1/2">
-                  <div className="w-12 h-12 bg-primary text-secondary rounded-full flex items-center justify-center font-bold z-10 border-4 border-white shadow-lg">3</div>
-                </div>
-                <div className="hidden md:block" />
-              </motion.div>
-
-              {/* Step 4 */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="relative md:grid md:grid-cols-2 gap-12 items-center"
-              >
-                <div className="hidden md:block" />
-                <div className="hidden md:flex justify-center absolute left-1/2 transform -translate-x-1/2">
-                  <div className="w-12 h-12 bg-primary text-secondary rounded-full flex items-center justify-center font-bold z-10 border-4 border-white shadow-lg">4</div>
-                </div>
-                <div className="md:text-left">
-                  <h3 className="text-2xl font-serif text-primary mb-2">Interview Coaching</h3>
-                  <p className="text-gray-600">Rigorous mock interviews with subject specialists to refine communication and critical thinking.</p>
-                </div>
-              </motion.div>
-
-              {/* Step 5 - Success */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                className="relative text-center pt-8"
-              >
-                <div className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center font-bold z-10 border-4 border-white shadow-xl mx-auto mb-6 text-2xl">
-                  <CheckCircle2 />
-                </div>
-                <h3 className="text-3xl font-serif text-primary mb-2">Offer & Success</h3>
-                <p className="text-gray-600 max-w-md mx-auto">Securing your place at a top-tier university and preparing for the transition.</p>
-              </motion.div>
-
-            </div>
+                  <div className="mt-6 flex flex-col items-center w-full">
+                    <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 group-hover:text-secondary mb-1 transition-colors">
+                      Step 0{step.number}
+                    </span>
+                    <h3 className="text-lg font-bold text-primary mb-3">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 text-left leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
+                      {step.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Core Services Grid */}
-      <section className="py-24 bg-muted/30">
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-px" />
+
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-primary/60 uppercase tracking-widest text-xs font-bold mb-3 block">Comprehensive Support</span>
-            <h2 className="text-4xl font-serif text-primary">Core Services</h2>
+          <div className="flex flex-col mb-12 gap-8 text-center ">
+            <div>
+              <span className="text-secondary uppercase tracking-[0.3em] text-xs font-black mb-4 block">
+                Comprehensive Expertise
+              </span>
+              <h2 className="text-5xl font-black text-primary tracking-tight">
+                Our Specialized <span className="text-gray-400">Services</span>
+              </h2>
+            </div>
+            {/* <p className="text-gray-500 max-w-md md:mb-1">
+              From subject-specific interview prep to long-term academic mentoring, we provide elite
+              support at every stage of the competitive admissions process.
+            </p> */}
           </div>
 
           <motion.div
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {[
-              { title: "Strategic Admissions Consultations", icon: Target, desc: "Expert guidance on university selection and application strategy tailored to your strengths." },
-              { title: "Academic Portfolio Development", icon: FileText, desc: "Building a robust body of work to demonstrate intellectual curiosity and capability." },
-              { title: "Super Curricular Enrichment", icon: BookOpen, desc: "Going beyond the syllabus with advanced reading and research projects." },
-              { title: "Academic Resource Creation", icon: Users, desc: "Custom guides, exclusive webinars, and sample statements for your subject." },
-              { title: "UCAS Personal Statement Support", icon: FileText, desc: "Drafting, editing, and refining your statement to stand out to admissions tutors." },
-              { title: "Admissions Test Prep", icon: Clock, desc: "Comprehensive preparation for UCAT, BMAT, LNAT, TSA, and other entrance exams." },
-              { title: "Medicine Mock Interviews", icon: Award, desc: "MMI and panel interview simulations with qualified medical professionals." },
-              { title: "Oxbridge Mock Interviews", icon: GraduationCap, desc: "Subject-specific mock interviews replicating the rigorous Oxbridge format." },
-              { title: "Curriculum Support (GCSE/A-Level/IB)", icon: BookOpen, desc: "Subject tuition to ensure top grades in your qualifying examinations." },
-            ].map((service, idx) => (
+            {services.map((service, idx) => (
               <motion.div
                 key={idx}
                 variants={fadeIn}
-                className="bg-white p-8 rounded-sm shadow-sm hover:shadow-md transition-all border border-gray-100 group"
+                className="group relative bg-white p-10 rounded-2xl transition-all duration-500 hover:-translate-y-2 border cursor-pointer
+                border-gray-100 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.1)]"
               >
-                <service.icon className="w-10 h-10 text-primary mb-6 group-hover:text-secondary transition-colors" />
-                <h3 className="text-xl font-serif text-primary mb-3 group-hover:text-secondary transition-colors">{service.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{service.desc}</p>
+                <div className="absolute top-0 left-0 w-full h-1 bg-secondary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-t-2xl origin-left" />
+
+                <div className="w-14 h-14 bg-gray-50 rounded-xl flex items-center justify-center mb-8 group-hover:bg-primary 
+                group-hover:text-accent transition-colors duration-500">
+                  <service.icon className="w-6 h-6 transition-transform group-hover:scale-110" />
+                </div>
+
+                <h3 className="text-xl font-bold text-primary mb-4 group-hover:underline group-hover:text-secondary transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                  {service.desc}
+                </p>
+
+                <div className="flex items-center text-xs font-black uppercase tracking-widest text-primary opacity-0 group-hover:opacity-100 transition-all transform translate-x-2 group-hover:translate-x-0">
+                  <span>Learn more</span>
+                  <div className="ml-2 w-4 h-px bg-primary" />
+                </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
-
-
-    </section>
-  )
+    </main>
+  );
 }
