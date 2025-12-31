@@ -1,17 +1,19 @@
 export interface BlogPost {
+  id: string;
   slug: string;
   title: string;
   description: string;
   author: string;
   publishedAt: Date;
   updatedAt?: Date;
-  category: string;
+  category: BlogCategory;
   tags: string[];
   image: string;
   readingTime: number;
   featured: boolean;
   body: string;
   permalink: string;
+  createdAt: Date;
 }
 
 export type BlogCategory =

@@ -1,7 +1,7 @@
 import { getAllPosts } from '@/lib/blog'
 import type { MetadataRoute } from 'next'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://accessoxbridge.net/'
 
   // Static pages
@@ -21,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   // Blog posts
-  const posts = getAllPosts()
+  const posts = await getAllPosts()
   const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${baseUrl}${post.permalink}`,
     lastModified: post.updatedAt || post.publishedAt,

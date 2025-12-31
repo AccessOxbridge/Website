@@ -5,9 +5,9 @@ import { blogConfig } from '@/configs/blog.config'
 
 export const metadata: Metadata = blogConfig.metadata
 
-export default function BlogPage() {
-  const allPosts = getAllPosts()
-  const featuredPosts = getFeaturedPosts().slice(0, 3)
+export default async function BlogPage() {
+  const allPosts = await getAllPosts()
+  const featuredPosts = (await getFeaturedPosts()).slice(0, 3)
   const regularPosts = allPosts.filter(post => !post.featured)
 
   return (

@@ -1,31 +1,71 @@
-import { blog } from '../../.velite'
-import type { BlogPost } from '@/types/blog'
+import { supabase } from './supabase'
+import type { BlogPost, BlogCategory } from '@/types/blog'
 
 /**
  * Get all blog posts sorted by publishedAt (newest first)
  */
-export function getAllPosts(): BlogPost[] {
-  return blog.map(post => ({
-    ...post,
-    publishedAt: new Date(post.publishedAt),
-    updatedAt: post.updatedAt ? new Date(post.updatedAt) : undefined,
-  })).sort((a, b) =>
-    new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-  )
+export async function getAllPosts(): Promise<BlogPost[]> {
+  const { data, error } = await supabase
+    .from('articles')
+    .select('*')
+    .order('published_at', { ascending: false })
+
+  if (error) {
+    console.error('Error fetching all posts:', error)
+    return []
+  }
+
+  return data.map(post => ({
+    id: post.id,
+    slug: post.slug,
+    title: post.title,
+    description: post.description,
+    author: post.author,
+    publishedAt: new Date(post.published_at),
+    updatedAt: post.updated_at ? new Date(post.updated_at) : undefined,
+    category: post.category as BlogCategory,
+    tags: post.tags || [],
+    image: post.image,
+    readingTime: post.reading_time,
+    featured: post.featured,
+    body: post.body,
+    permalink: post.permalink,
+    createdAt: new Date(post.created_at),
+  }))
 }
 
 /**
  * Get a single blog post by slug
  */
-export function getPostBySlug(slug: string): BlogPost | null {
+export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   try {
-    const post = blog.find((post: { slug: string }) => post.slug === slug)
-    if (!post) return null
+    const { data, error } = await supabase
+      .from('articles')
+      .select('*')
+      .eq('slug', slug)
+      .single()
+
+    if (error || !data) {
+      console.error(`Error fetching post with slug "${slug}":`, error)
+      return null
+    }
 
     return {
-      ...post,
-      publishedAt: new Date(post.publishedAt),
-      updatedAt: post.updatedAt ? new Date(post.updatedAt) : undefined,
+      id: data.id,
+      slug: data.slug,
+      title: data.title,
+      description: data.description,
+      author: data.author,
+      publishedAt: new Date(data.published_at),
+      updatedAt: data.updated_at ? new Date(data.updated_at) : undefined,
+      category: data.category as BlogCategory,
+      tags: data.tags || [],
+      image: data.image,
+      readingTime: data.reading_time,
+      featured: data.featured,
+      body: data.body,
+      permalink: data.permalink,
+      createdAt: new Date(data.created_at),
     }
   } catch (error) {
     console.error(`Error fetching post with slug "${slug}":`, error)
@@ -36,25 +76,41 @@ export function getPostBySlug(slug: string): BlogPost | null {
 /**
  * Get related posts in the same category, excluding the current post
  */
-export function getRelatedPosts(slug: string, limit: number = 3): BlogPost[] {
+export async function getRelatedPosts(slug: string, limit: number = 3): Promise<BlogPost[]> {
   try {
-    const currentPost = getPostBySlug(slug)
+    const currentPost = await getPostBySlug(slug)
     if (!currentPost) return []
 
-      return blog
-        .filter((post: { category: string; slug: string }) =>
-          post.category === currentPost.category &&
-          post.slug !== slug
-        )
-        .map(post => ({
-          ...post,
-          publishedAt: new Date(post.publishedAt),
-          updatedAt: post.updatedAt ? new Date(post.updatedAt) : undefined,
-        }))
-        .sort((a, b) =>
-          new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-        )
-      .slice(0, limit)
+    const { data, error } = await supabase
+      .from('articles')
+      .select('*')
+      .eq('category', currentPost.category)
+      .neq('slug', slug)
+      .order('published_at', { ascending: false })
+      .limit(limit)
+
+    if (error) {
+      console.error(`Error fetching related posts for slug "${slug}":`, error)
+      return []
+    }
+
+    return data.map(post => ({
+      id: post.id,
+      slug: post.slug,
+      title: post.title,
+      description: post.description,
+      author: post.author,
+      publishedAt: new Date(post.published_at),
+      updatedAt: post.updated_at ? new Date(post.updated_at) : undefined,
+      category: post.category as BlogCategory,
+      tags: post.tags || [],
+      image: post.image,
+      readingTime: post.reading_time,
+      featured: post.featured,
+      body: post.body,
+      permalink: post.permalink,
+      createdAt: new Date(post.created_at),
+    }))
   } catch (error) {
     console.error(`Error fetching related posts for slug "${slug}":`, error)
     return []
@@ -64,31 +120,67 @@ export function getRelatedPosts(slug: string, limit: number = 3): BlogPost[] {
 /**
  * Get featured posts
  */
-export function getFeaturedPosts(): BlogPost[] {
-  return blog
-    .filter((post: { featured: any }) => post.featured)
-    .map(post => ({
-      ...post,
-      publishedAt: new Date(post.publishedAt),
-      updatedAt: post.updatedAt ? new Date(post.updatedAt) : undefined,
-    }))
-    .sort((a, b) =>
-      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-    )
+export async function getFeaturedPosts(): Promise<BlogPost[]> {
+  const { data, error } = await supabase
+    .from('articles')
+    .select('*')
+    .eq('featured', true)
+    .order('published_at', { ascending: false })
+
+  if (error) {
+    console.error('Error fetching featured posts:', error)
+    return []
+  }
+
+  return data.map(post => ({
+    id: post.id,
+    slug: post.slug,
+    title: post.title,
+    description: post.description,
+    author: post.author,
+    publishedAt: new Date(post.published_at),
+    updatedAt: post.updated_at ? new Date(post.updated_at) : undefined,
+    category: post.category as BlogCategory,
+    tags: post.tags || [],
+    image: post.image,
+    readingTime: post.reading_time,
+    featured: post.featured,
+    body: post.body,
+    permalink: post.permalink,
+    createdAt: new Date(post.created_at),
+  }))
 }
 
 /**
  * Get posts by category
  */
-export function getPostsByCategory(category: string): BlogPost[] {
-  return blog
-    .filter((post: { category: string }) => post.category === category)
-    .map(post => ({
-      ...post,
-      publishedAt: new Date(post.publishedAt),
-      updatedAt: post.updatedAt ? new Date(post.updatedAt) : undefined,
-    }))
-    .sort((a, b) =>
-      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-    )
+export async function getPostsByCategory(category: BlogCategory): Promise<BlogPost[]> {
+  const { data, error } = await supabase
+    .from('articles')
+    .select('*')
+    .eq('category', category)
+    .order('published_at', { ascending: false })
+
+  if (error) {
+    console.error(`Error fetching posts by category "${category}":`, error)
+    return []
+  }
+
+  return data.map(post => ({
+    id: post.id,
+    slug: post.slug,
+    title: post.title,
+    description: post.description,
+    author: post.author,
+    publishedAt: new Date(post.published_at),
+    updatedAt: post.updated_at ? new Date(post.updated_at) : undefined,
+    category: post.category as BlogCategory,
+    tags: post.tags || [],
+    image: post.image,
+    readingTime: post.reading_time,
+    featured: post.featured,
+    body: post.body,
+    permalink: post.permalink,
+    createdAt: new Date(post.created_at),
+  }))
 }
