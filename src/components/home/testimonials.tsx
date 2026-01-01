@@ -8,13 +8,39 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Play, ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import { motion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import type { Swiper as SwiperType } from "swiper";
 
 export function VideoTestimonials() {
     const swiperRef = useRef<SwiperType | null>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [isVisible, setIsVisible] = useState(false);
+    const [loadedVideos, setLoadedVideos] = useState<Set<number>>(new Set());
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.1, rootMargin: '50px' }
+        );
+
+        if (containerRef.current) {
+            observer.observe(containerRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
+    const handleVideoLoad = (index: number) => {
+        setLoadedVideos(prev => new Set([...prev, index]));
+    };
+
     return (
-        <section id="testimonials" className="relative bg-rich-beige-accent py-24 overflow-hidden">
+        <section ref={containerRef} id="testimonials" className="relative bg-rich-beige-accent py-24 overflow-hidden">
             <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -66,13 +92,24 @@ export function VideoTestimonials() {
                             >
                                 {/* Video Card */}
                                 <div className="relative aspect-9/16 overflow-hidden rounded-2xl bg-black/10">
-                                    <iframe
-                                        src={`${t.video}?badge=0&autopause=0`}
-                                        allow="autoplay; fullscreen; picture-in-picture"
-                                        className="absolute inset-0 h-full w-full"
-                                    />
-                                    {/* Play overlay */}
-                                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors duration-300">
+                                    {isVisible && loadedVideos.has(i) ? (
+                                        <iframe
+                                            src={`${t.video}?badge=0&autopause=0`}
+                                            allow="autoplay; fullscreen; picture-in-picture"
+                                            className="absolute inset-0 h-full w-full"
+                                            onLoad={() => handleVideoLoad(i)}
+                                            loading="lazy"
+                                        />
+                                    ) : (
+                                        <div className="absolute inset-0 bg-gray-200 flex items-center justify-center">
+                                            <div className="text-gray-500 text-sm">Loading video...</div>
+                                        </div>
+                                    )}
+                                    {/* Play overlay - clickable to load video */}
+                                    <div
+                                        className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors duration-300 cursor-pointer"
+                                        onClick={() => handleVideoLoad(i)}
+                                    >
                                         <div className="rounded-full bg-rich-amber-accent p-4 shadow-lg">
                                             <Play className="h-8 w-8 text-white" fill="white" />
                                         </div>

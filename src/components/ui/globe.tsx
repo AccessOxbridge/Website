@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import createGlobe, { type COBEOptions } from "cobe"
 import { useMotionValue, useSpring } from "framer-motion"
 
@@ -9,15 +9,15 @@ import { cn } from "@/lib/utils"
 const MOVEMENT_DAMPING = 1400
 
 const GLOBE_CONFIG: COBEOptions = {
-    width: 800,
-    height: 800,
+    width: 600,
+    height: 600,
     onRender: () => { },
-    devicePixelRatio: 2,
+    devicePixelRatio: 1,
     phi: 0,
     theta: 0.3,
     dark: 0,
     diffuse: 0.4,
-    mapSamples: 16000,
+    mapSamples: 8000, // Reduced from 16000
     mapBrightness: 1.2,
     baseColor: [1, 1, 1],
     markerColor: [251 / 255, 100 / 255, 21 / 255],
@@ -46,8 +46,10 @@ export function Globe({
     let phi = 0
     let width = 0
     const canvasRef = useRef<HTMLCanvasElement>(null)
+    const containerRef = useRef<HTMLDivElement>(null)
     const pointerInteracting = useRef<number | null>(null)
     const pointerInteractionMovement = useRef(0)
+    const [isVisible, setIsVisible] = useState(false)
 
     const r = useMotionValue(0)
     const rs = useSpring(r, {
@@ -72,6 +74,27 @@ export function Globe({
     }
 
     useEffect(() => {
+        // Intersection Observer for lazy loading
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    setIsVisible(true)
+                    observer.disconnect()
+                }
+            },
+            { threshold: 0.1 }
+        )
+
+        if (containerRef.current) {
+            observer.observe(containerRef.current)
+        }
+
+        return () => observer.disconnect()
+    }, [])
+
+    useEffect(() => {
+        if (!isVisible) return
+
         const onResize = () => {
             if (canvasRef.current) {
                 width = canvasRef.current.offsetWidth
@@ -86,7 +109,8 @@ export function Globe({
             width: width * 2,
             height: width * 2,
             onRender: (state) => {
-                if (!pointerInteracting.current) phi += 0.005
+                // Reduce rotation speed and only animate when not interacting
+                if (!pointerInteracting.current) phi += 0.002 // Reduced from 0.005
                 state.phi = phi + rs.get()
                 state.width = width * 2
                 state.height = width * 2
@@ -98,18 +122,18 @@ export function Globe({
             globe.destroy()
             window.removeEventListener("resize", onResize)
         }
-    }, [rs, config])
+    }, [rs, config, isVisible])
 
     return (
-        <section className="relative w-full pt-10 md:min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 sm:px-8 lg:px-16">
+        <section ref={containerRef} className="relative w-full pt-10 md:min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 sm:px-8 lg:px-16">
             <div className="w-full lg:w-1/2 h-auto lg:h-full py-8 lg:py-16 flex flex-col gap-6 sm:gap-8 justify-center">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl tracking-tighter font-bold">
                     Lorem ipsum dolor sit amet
                 </h1>
                 <p className="text-base sm:text-lg">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus quidem quasi exercitationem nam excepturi debitis 
-                    dolorem ipsum. Quod asperiores error, consequuntur doloribus perferendis assumenda tempore odit aut, labore possimus 
-                    voluptates? Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores animi numquam accusantium dolorum, ut nostrum 
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus quidem quasi exercitationem nam excepturi debitis
+                    dolorem ipsum. Quod asperiores error, consequuntur doloribus perferendis assumenda tempore odit aut, labore possimus
+                    voluptates? Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores animi numquam accusantium dolorum, ut nostrum
                     beatae sequi, enim commodi, deleniti quasi? Et nisi perspiciatis, velit reprehenderit aut asperiores consectetur accusamus!
                 </p>
             </div>

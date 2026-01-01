@@ -42,12 +42,22 @@ export const homeConfig: HomeConfig = {
     {
       title: 'UK University Admissions',
       button: 'Enquire Now',
-      description: 'When Dukes Education was first founded in 2015, Aatif asked the team, “What makes your hearts sing?” His love for developing young people had led him to found Dukes Education. In our collection of schools and colleges, we have brought together teams of individuals who are driven by the same purpose. Today, the Dukes Education family is home to some of the UK’s best schools and brightest people, all united in their passion for nurturing students.'
+      href: '/services',
+      images: [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_ymlJD7F2A6Oad1vdQ5UlNdYzF_lFUBcwlw&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_ymlJD7F2A6Oad1vdQ5UlNdYzF_lFUBcwlw&s"
+      ],
+      description: 'Applying to UK universities is exciting but complex, and small mistakes can have a big impact on your results. From choosing the right courses to writing a strong personal statement and meeting UCAS deadlines, the process rewards strategy as much as academic ability. Many students find that having clear guidance and a structured approach makes the experience far more manageable and effective.'
     },
     {
       title: 'Oxbridge Admissions',
       button: 'Enquire Now',
-      description: 'We set out to build a collection of schools who could share and learn from each other, while still having the freedom to do what they do best. Today, the Dukes Education family is home to some of the UK’s finest independent nurseries, schools, and colleges, as well as summer schools, day camps, and consultancy services — all united in their passion for nurturing students and helping them thrive. We’re proud of how far we’ve come, but we’re excited to go further.'
+      href: '/services',
+      images: [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_ymlJD7F2A6Oad1vdQ5UlNdYzF_lFUBcwlw&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_ymlJD7F2A6Oad1vdQ5UlNdYzF_lFUBcwlw&s"
+      ],
+      description: 'Applying to Oxbridge is challenging, but with the right support, you can increase your chances of success. Our Oxbridge Admissions service provides expert guidance, personalized mock interviews, and comprehensive admissions test tuition. We help you prepare for interviews, improve your test scores, and write a strong personal statement. With our support, you can increase your chances of success by 400%.'
     },
   ],
   stats: [
@@ -165,7 +175,7 @@ export const homeConfig: HomeConfig = {
     "https://storage.googleapis.com/wp-static/oxbridgeapplications.com/St-Andrew-College-Cambridge.png",
   ],
   schoolLogos: {
-    title: "We have exclusive partnerships with the best schools in the UK and around the world.",
+    title: "Collaborations, Partnerships and Destinations.",
     buttonText: "Find out more",
   },
   testimonialsSection: {

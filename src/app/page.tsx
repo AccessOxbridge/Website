@@ -1,5 +1,5 @@
 import Header from "@/components/sections/header";
-import HeroSuperSUV from "@/components/home/hero";
+import Hero from "@/components/home/hero";
 // import SplitShowcase from "@/components/sections/split-showcase";
 import StoriesSection from "@/components/sections/stories-section";
 import NewsSection from "@/components/sections/news-section";
@@ -9,23 +9,46 @@ import ApproachCards from "@/components/sections/cards";
 import Stats from "@/components/sections/stats";
 import UniversitiesCarousel from "@/components/home/universities-carousel";
 import ExpertiseSection from "@/components/home/expertise";
-import { VideoTestimonials } from "@/components/home/testimonials";
 import FAQs from "@/components/home/faqs";
+import { GetInTouch } from "@/components/home/get-in-touch";
 import { Globe } from "@/components/ui/globe";
+import { LazyLoad } from "@/components/ui/lazy-load";
+import dynamic from "next/dynamic";
+
+// Lazy load heavy below-the-fold components
+const LazyVideoTestimonials = dynamic(() => import("@/components/home/testimonials").then(mod => ({ default: mod.VideoTestimonials })), {
+  loading: () => <div className="h-96 flex items-center justify-center bg-rich-beige-accent">Loading testimonials...</div>
+});
 
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <HeroSuperSUV />
+      <Hero />
       <div className="mx-auto  h-px w-full max-w-5xl bg-gray-200" />
-      <UniversitiesCarousel/>
       <Stats/>
+      <UniversitiesCarousel/>
+      <GetInTouch />
       <ExpertiseSection />
-      <VideoTestimonials/>
-      <StoriesSection />
+
+      {/* Lazy load heavy components */}
+      <LazyLoad>
+        <LazyVideoTestimonials/>
+      </LazyLoad>
+
+      <LazyLoad>
+        <StoriesSection />
+      </LazyLoad>
+
       <FAQs />
-      <NewsSection/>
-      <Globe/>
+
+      <LazyLoad>
+        <NewsSection/>
+      </LazyLoad>
+
+      <LazyLoad>
+        <Globe/>
+      </LazyLoad>
+
       <ScrollIntentWebinar/>
     </main>
   );

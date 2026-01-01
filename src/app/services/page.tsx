@@ -5,6 +5,7 @@ import ApproachCards from '@/components/sections/cards'
 import { motion } from 'framer-motion'
 import { CheckCircle2, Target, FileText, BookOpen, Users, Clock, Award, GraduationCap } from 'lucide-react'
 import ScrollIntentSpinWheel from '@/components/dialogs/ScrollIntentSpinWheel'
+import { useState } from 'react'
 
 // export const metadata: Metadata = blogConfig.metadata
 
@@ -23,7 +24,9 @@ const staggerContainer = {
 };
 
 export default function ServicesPage() {
-  const steps = [
+  const [isOxbridge, setIsOxbridge] = useState(false);
+
+  const ukSteps = [
     {
       number: 1,
       title: "Free Consultation",
@@ -39,23 +42,59 @@ export default function ServicesPage() {
     {
       number: 3,
       title: "Application & Testing",
-      desc: "Intensive personal statement crafting and admissions test preparation (UCAT, LNAT, TSA, etc).",
+      desc: "Intensive personal statement crafting and admissions test preparation. UCAS deadline: January 15th.",
       icon: <FileText className="w-5 h-5" />
     },
     {
       number: 4,
       title: "Interview Coaching",
-      desc: "Rigorous mock interviews with subject specialists to refine communication and critical thinking.",
+      desc: "Mock interviews and preparation for university interviews typically held in December-January.",
       icon: <Target className="w-5 h-5" />
     },
     {
       number: 5,
       title: "Offer & Success",
-      desc: "Securing your place at a top-tier university and preparing for the transition.",
+      desc: "Securing your place at a top-tier university. Offers typically arrive January through May.",
       icon: <CheckCircle2 className="w-5 h-5" />,
       isSuccess: true
     }
   ];
+
+  const oxbridgeSteps = [
+    {
+      number: 1,
+      title: "Free Consultation",
+      desc: "Early assessment of academic profile and Oxbridge readiness. We map out your accelerated strategic roadmap.",
+      icon: <Users className="w-5 h-5" />
+    },
+    {
+      number: 2,
+      title: "Program Development",
+      desc: "Intensive academic enrichment, subject-specific reading lists, and super-curricular planning for Oxbridge standards.",
+      icon: <BookOpen className="w-5 h-5" />
+    },
+    {
+      number: 3,
+      title: "Application & Testing",
+      desc: "Personal statement crafting and admissions test preparation (TSA, PAT, MAT, etc). UCAS deadline: October 15th.",
+      icon: <FileText className="w-5 h-5" />
+    },
+    {
+      number: 4,
+      title: "Interview Coaching",
+      desc: "Rigorous subject-specific mock interviews replicating the demanding Oxbridge interview format in December.",
+      icon: <Target className="w-5 h-5" />
+    },
+    {
+      number: 5,
+      title: "Offer & Success",
+      desc: "Securing your place at Oxford or Cambridge. Decisions typically arrive in early January.",
+      icon: <CheckCircle2 className="w-5 h-5" />,
+      isSuccess: true
+    }
+  ];
+
+  const steps = isOxbridge ? oxbridgeSteps : ukSteps;
 
   const services = [
     { title: "Strategic Admissions Consultations", icon: Target, desc: "Expert guidance on university selection and application strategy tailored to your strengths." },
@@ -70,21 +109,56 @@ export default function ServicesPage() {
   ];
 
   return (
-    <main className="w-full bg-white">
+    <main className={`w-full transition-colors duration-500 ${isOxbridge ? 'bg-gray-900 dark' : 'bg-white'}`}>
       {/* Hero Section - 70% Height Horizontal Timeline */}
-      <section className="relative h-[70vh] min-h-fit pt-24 w-full flex flex-col items-center justify-center 
-      overflow-hidden">
+      <section className={`relative h-[70vh] min-h-fit pt-24 w-full flex flex-col items-center justify-center 
+      overflow-hidden transition-colors duration-500 ${isOxbridge ? 'bg-gray-900' : 'bg-white'}`}>
         <div className="container mx-auto px-6 relative z-10 flex flex-col items-center gap-8">
+          {/* Toggle Switch */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center gap-4 mb-4"
+          >
+            <button
+              onClick={() => setIsOxbridge(false)}
+              className={`px-6 py-3 rounded-full font-bold text-sm uppercase tracking-wider transition-all duration-300 ${
+                !isOxbridge
+                  ? 'bg-accent text-white shadow-lg scale-105'
+                  : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
+              }`}
+            >
+              UK Universities
+            </button>
+            <button
+              onClick={() => setIsOxbridge(true)}
+              className={`px-6 py-3 rounded-full font-bold text-sm uppercase tracking-wider transition-all duration-300 ${
+                isOxbridge
+                  ? 'bg-accent text-white shadow-lg scale-105'
+                  : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
+              }`}
+            >
+              Oxbridge
+            </button>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-5xl font-black tracking-tight text-primary mb-6">
-              Your Journey <span className="text-accent underline">to Success</span>
+            <h1 className={`text-5xl font-black tracking-tight mb-6 transition-colors duration-500 ${
+              isOxbridge ? 'text-white' : 'text-primary'
+            }`}>
+              Your Journey <span className={`underline transition-colors duration-500 ${
+                isOxbridge ? 'text-rich-amber-accent' : 'text-accent'
+              }`}>to Success</span>
             </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className={`text-lg max-w-2xl mx-auto leading-relaxed transition-colors duration-500 ${
+              isOxbridge ? 'text-gray-300' : 'text-gray-600'
+            }`}>
               A structured, strategic approach ensuring every aspect of your application is perfected,
               from your first consultation to the moment you receive your offer.
             </p>
@@ -92,8 +166,11 @@ export default function ServicesPage() {
 
           <div className="relative w-full max-w-6xl px-4">
             {/* Horizontal Timeline Track */}
-            <div className="absolute top-[32px] left-0 w-full h-[2px] bg-gray-100 hidden md:block" />
+            <div className={`absolute top-[32px] left-0 w-full h-[2px] hidden md:block transition-colors duration-500 ${
+              isOxbridge ? 'bg-gray-700' : 'bg-gray-100'
+            }`} />
             <motion.div
+              key={isOxbridge ? 'oxbridge' : 'uk'}
               initial={{ width: 0 }}
               whileInView={{ width: "100%" }}
               viewport={{ once: true }}
@@ -120,9 +197,9 @@ export default function ServicesPage() {
                     transition-all duration-500 relative
                     ${step.isSuccess
                       ? "bg-green-600 text-white shadow-[0_0_20px_rgba(22,163,74,0.3)]"
-                      : idx === 0
-                        ? "bg-secondary text-primary shadow-[0_0_20px_rgba(251,191,36,0.2)]"
-                        : "bg-white text-primary border-2 border-gray-100 shadow-sm"}
+                        : isOxbridge
+                          ? "bg-gray-800 text-white border-2 border-gray-700 shadow-sm"
+                          : "bg-white text-primary border-2 border-gray-100 shadow-sm"}
                     group-hover:scale-110 group-hover:shadow-lg
                   `}>
                     <div className="absolute inset-0 rounded-full bg-current opacity-0 group-hover:opacity-10 transition-opacity" />
@@ -130,13 +207,21 @@ export default function ServicesPage() {
                   </div>
 
                   <div className="mt-6 flex flex-col items-center w-full">
-                    <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 group-hover:text-secondary mb-1 transition-colors">
+                    <span className={`text-[10px] uppercase tracking-[0.2em] font-bold mb-1 transition-colors ${
+                      isOxbridge 
+                        ? 'text-gray-400 group-hover:text-secondary' 
+                        : 'text-gray-400 group-hover:text-secondary'
+                    }`}>
                       Step 0{step.number}
                     </span>
-                    <h3 className="text-lg font-bold text-primary mb-3">
+                    <h3 className={`text-lg font-bold mb-3 transition-colors duration-500 ${
+                      isOxbridge ? 'text-white' : 'text-primary'
+                    }`}>
                       {step.title}
                     </h3>
-                    <p className="text-sm text-gray-500 text-left leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
+                    <p className={`text-sm text-left leading-relaxed opacity-80 group-hover:opacity-100 transition-all duration-500 ${
+                      isOxbridge ? 'text-gray-300' : 'text-gray-500'
+                    }`}>
                       {step.desc}
                     </p>
                   </div>
@@ -148,8 +233,12 @@ export default function ServicesPage() {
       </section>
 
       {/* Core Services Grid */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-px" />
+      <section className={`py-24 relative overflow-hidden transition-colors duration-500 ${
+        isOxbridge ? 'bg-gray-900' : 'bg-white'
+      }`}>
+        <div className={`absolute top-0 left-0 w-full h-px transition-colors duration-500 ${
+          isOxbridge ? 'bg-gray-700' : 'bg-gray-100'
+        }`} />
 
         <div className="container mx-auto px-6">
           <div className="flex flex-col mb-12 gap-8 text-center ">
@@ -157,8 +246,12 @@ export default function ServicesPage() {
               <span className="text-secondary uppercase tracking-[0.3em] text-xs font-black mb-4 block">
                 Comprehensive Expertise
               </span>
-              <h2 className="text-5xl font-black text-primary tracking-tight">
-                Our Specialized <span className="text-gray-400">Services</span>
+              <h2 className={`text-5xl font-black tracking-tight transition-colors duration-500 ${
+                isOxbridge ? 'text-white' : 'text-primary'
+              }`}>
+                Our Specialized <span className={`transition-colors duration-500 ${
+                  isOxbridge ? 'text-gray-400' : 'text-gray-400'
+                }`}>Services</span>
               </h2>
             </div>
             {/* <p className="text-gray-500 max-w-md md:mb-1">
@@ -178,26 +271,41 @@ export default function ServicesPage() {
               <motion.div
                 key={idx}
                 variants={fadeIn}
-                className="group relative bg-white p-10 rounded-2xl transition-all duration-500 hover:-translate-y-2 border cursor-pointer
-                border-gray-100 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.1)]"
+                className={`group relative p-10 rounded-2xl transition-all duration-500 hover:-translate-y-2 border cursor-pointer
+                shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.1)] ${
+                  isOxbridge
+                    ? 'bg-gray-800 border-gray-700'
+                    : 'bg-white border-gray-100'
+                }`}
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-secondary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-t-2xl origin-left" />
 
-                <div className="w-14 h-14 bg-gray-50 rounded-xl flex items-center justify-center mb-8 group-hover:bg-primary 
-                group-hover:text-accent transition-colors duration-500">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-8 transition-colors duration-500 ${
+                  isOxbridge
+                    ? 'bg-gray-700 group-hover:bg-primary group-hover:text-accent'
+                    : 'bg-gray-50 group-hover:bg-primary group-hover:text-accent'
+                }`}>
                   <service.icon className="w-6 h-6 transition-transform group-hover:scale-110" />
                 </div>
 
-                <h3 className="text-xl font-bold text-primary mb-4 group-hover:underline group-hover:text-secondary transition-colors">
+                <h3 className={`text-xl font-bold mb-4 group-hover:underline group-hover:text-secondary transition-colors duration-500 ${
+                  isOxbridge ? 'text-white' : 'text-primary'
+                }`}>
                   {service.title}
                 </h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                <p className={`text-sm leading-relaxed mb-6 transition-colors duration-500 ${
+                  isOxbridge ? 'text-gray-300' : 'text-gray-500'
+                }`}>
                   {service.desc}
                 </p>
 
-                <div className="flex items-center text-xs font-black uppercase tracking-widest text-primary opacity-0 group-hover:opacity-100 transition-all transform translate-x-2 group-hover:translate-x-0">
+                <div className={`flex items-center text-xs font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-2 group-hover:translate-x-0 ${
+                  isOxbridge ? 'text-white' : 'text-primary'
+                }`}>
                   <span>Learn more</span>
-                  <div className="ml-2 w-4 h-px bg-primary" />
+                  <div className={`ml-2 w-4 h-px transition-colors duration-500 ${
+                    isOxbridge ? 'bg-white' : 'bg-primary'
+                  }`} />
                 </div>
               </motion.div>
             ))}

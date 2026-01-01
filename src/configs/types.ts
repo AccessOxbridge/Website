@@ -158,7 +158,34 @@ export interface ApproachCardsConfig {
 
 export interface Boxes {
   title: string,
-  image?: string,
+  images?: string[],
   description: string,
-  button: string
+  button: string,
+  href: string
 };
+
+export interface BenefitItem {
+  number: string;
+  description: string;
+}
+
+export interface FormField {
+  id: string;
+  label: string;
+  type: 'text' | 'email' | 'radio' | 'select' | 'phone';
+  placeholder?: string;
+  required?: boolean;
+  options?: { label: string; value: string }[];
+}
+
+export interface GetInTouchConfig {
+  title: string;
+  subtitle: string;
+  benefits: BenefitItem[];
+  form: {
+    title: string;
+    description: string;
+    fields: FormField[];
+    submitButtonText: string;
+  };
+}

@@ -6,9 +6,10 @@ import {
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { homeConfig } from "@/configs/home.config";
+import Image from "next/image";
 
 
-export default function HeroSuperSUV() {
+export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = homeConfig.hero.slides;
 
@@ -100,35 +101,44 @@ export default function HeroSuperSUV() {
       </div>
       <div className="relative h-fit flex flex-col sm:flex-row flex-wrap justify-center items-stretch gap-0">
         {homeConfig.boxes.map((box, id) => {
-          // Set alignment CSS classes dynamically for text and content
-          const textAligns = [
-            'text-center items-center sm:text-left sm:items-start',
-            'text-center items-center  sm:text-right sm:items-end',
-            'text-center items-center'
-          ];
-          const bgClasses = [
-            'bg-accent text-white',
-            'bg-rich-amber-accent',
-            'bg-rich-beige-accent'
-          ];
-          const alignClasses = textAligns[id % textAligns.length];
           return (
-            <div
+            <a
               key={id}
+              href={box.href}
               className={`
-                ${bgClasses[id % bgClasses.length]} 
-                w-full sm:w-1/2 
+                group relative w-full sm:w-1/2 
                 h-full 
-                px-5 py-8 sm:p-12 
+                px-5 py-8 sm:p-12 lg:p-16
                 flex flex-col gap-4 sm:gap-8 
-                ${alignClasses}
-                transition-all
+                transition-all duration-500 text-center cursor-pointer
+                bg-white hover:-translate-y-2
+                border border-gray-100 
+                shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] 
+                hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.1)]
               `}
             >
-              <h2 className="text-base sm:text-lg font-bold">{box.title}</h2>
-              <p className="text-base sm:text-xl">{box.description}</p>
-              <button className="bg-rich-beige-accent w-fit px-4 py-2 sm:p-4 text-accent text-sm sm:text-base rounded-md">{box.button}</button>
-            </div>
+              <h2 className="text-base sm:text-lg lg:text-xl font-bold text-primary group-hover:text-accent transition-colors">
+                {box.title}
+              </h2>
+              <div className="flex items-center justify-center w-full gap-10">
+                {box.images && box.images.map((img, imgId) => (
+                  <Image 
+                    className="transition-transform group-hover:scale-110 duration-500" 
+                    key={imgId} 
+                    src={img} 
+                    alt="" 
+                    width={160} 
+                    height={160}
+                  />
+                ))}
+              </div>
+              <p className="text-base sm:text-xl text-left text-gray-500 leading-relaxed group-hover:text-gray-700 transition-colors">
+                {box.description}
+              </p>
+              <button className="bg-accent text-white w-fit px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-bold uppercase tracking-wider rounded-md mx-auto hover:bg-accent-foreground transition-colors duration-300">
+                {box.button}
+              </button>
+            </a>
           );
         })}
       </div>

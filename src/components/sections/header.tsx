@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { MenuIcon } from "lucide-react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,21 +38,7 @@ export default function Header() {
               className={`md:hidden group flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-white/10 text-white`}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              <svg
-                viewBox="0 0 24 24"
-                width="24"
-                height="24"
-                stroke="currentColor"
-                strokeWidth="2"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-6 w-6"
-              >
-                <line x1="3" y1="12" x2="21" y2="12" />
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <line x1="3" y1="18" x2="21" y2="18" />
-              </svg>
+              <MenuIcon className="w-6 h-6" />
             </button>
 
             <Link
@@ -66,22 +53,22 @@ export default function Header() {
             </Link>
           </div>
 
-        <nav className="hidden md:flex items-center space-x-6 lg:space-x-8 flex-1 justify-center">
-          <Accordion type="single" collapsible className="w-auto flex items-center justify-center gap-0">
+        <nav className="hidden md:flex items-center space-x-2 flex-1 justify-center">
+          <Accordion type="single" collapsible className="w-auto flex items-center justify-center gap-2">
             {/* UK University Applicants */}
-            <AccordionItem value="uk-applicants" className="border-0">
-              <AccordionTrigger className="text-xs font-light text-white hover:text-rich-amber-accent transition-colors uppercase tracking-wider p-0 hover:no-underline data-[state=open]:text-rich-amber-accent">
+            <AccordionItem value="uk-applicants" className="border-0 relative">
+              <AccordionTrigger className="text-xs font-light text-white hover:text-accent hover:font-black hover:underline transition-colors uppercase tracking-wider px-2 py-1 hover:no-underline data-[state=open]:text-rich-amber-accent gap-1.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:transition-transform [&>svg]:duration-200 items-center">
                 UK University Applicants
               </AccordionTrigger>
-              <AccordionContent className="absolute top-full mt-2 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200 p-0">
+              <AccordionContent className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200 p-0 overflow-hidden data-[state=closed]:animate-dropdown-up data-[state=open]:animate-dropdown-down">
                 <div className="py-1">
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
                     Undergraduate Applications
                   </a>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
                     Postgraduate Applications
                   </a>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
                     Application Guidance
                   </a>
                 </div>
@@ -89,16 +76,16 @@ export default function Header() {
             </AccordionItem>
 
             {/* Oxbridge Applicants */}
-            <AccordionItem value="oxbridge" className="border-0">
-              <AccordionTrigger className="text-xs font-light text-white hover:text-rich-amber-accent transition-colors uppercase tracking-wider p-0 hover:no-underline data-[state=open]:text-rich-amber-accent">
+            <AccordionItem value="oxbridge" className="border-0 relative">
+              <AccordionTrigger className="text-xs font-light text-white hover:text-accent hover:font-black hover:underline transition-colors uppercase tracking-wider px-2 py-1 hover:no-underline data-[state=open]:text-rich-amber-accent gap-1.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:transition-transform [&>svg]:duration-200 items-center">
                 Oxbridge Applicants
               </AccordionTrigger>
-              <AccordionContent className="absolute top-full mt-2 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200 p-0">
+              <AccordionContent className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200 p-0 overflow-hidden data-[state=closed]:animate-dropdown-up data-[state=open]:animate-dropdown-down">
                 <div className="py-1">
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
                     Oxford Applications
                   </a>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
                     Cambridge Applications
                   </a>
                 </div>
@@ -106,19 +93,19 @@ export default function Header() {
             </AccordionItem>
 
             {/* FREE RESOURCES */}
-            <AccordionItem value="resources" className="border-0">
-              <AccordionTrigger className="text-xs font-light text-white hover:text-rich-amber-accent transition-colors uppercase tracking-wider p-0 hover:no-underline data-[state=open]:text-rich-amber-accent">
+            <AccordionItem value="resources" className="border-0 relative">
+              <AccordionTrigger className="text-xs font-light text-white hover:text-accent hover:font-black hover:underline transition-colors uppercase tracking-wider px-2 py-1 hover:no-underline data-[state=open]:text-rich-amber-accent gap-1.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:transition-transform [&>svg]:duration-200 items-center">
                 FREE RESOURCES
               </AccordionTrigger>
-              <AccordionContent className="absolute top-full mt-2 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200 p-0">
+              <AccordionContent className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200 p-0 overflow-hidden data-[state=closed]:animate-dropdown-up data-[state=open]:animate-dropdown-down">
                 <div className="py-1">
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
                     Application Guides
                   </a>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
                     Sample Essays
                   </a>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
                     Interview Tips
                   </a>
                 </div>
@@ -126,19 +113,19 @@ export default function Header() {
             </AccordionItem>
 
             {/* OUR SERVICES */}
-            <AccordionItem value="services" className="border-0">
-              <AccordionTrigger className="text-xs font-light text-white hover:text-rich-amber-accent transition-colors uppercase tracking-wider p-0 hover:no-underline data-[state=open]:text-rich-amber-accent">
+            <AccordionItem value="services" className="border-0 relative">
+              <AccordionTrigger className="text-xs font-light text-white hover:text-accent hover:font-black hover:underline transition-colors uppercase tracking-wider px-2 py-1 hover:no-underline data-[state=open]:text-rich-amber-accent gap-1.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:transition-transform [&>svg]:duration-200 items-center">
                 OUR SERVICES
               </AccordionTrigger>
-              <AccordionContent className="absolute top-full mt-2 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200 p-0">
+              <AccordionContent className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 border border-gray-200 p-0 overflow-hidden data-[state=closed]:animate-dropdown-up data-[state=open]:animate-dropdown-down">
                 <div className="py-1">
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
                     Personal Statement Review
                   </a>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
                     Mock Interviews
                   </a>
-                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
                     UCAS Application Help
                   </a>
                 </div>
@@ -146,7 +133,7 @@ export default function Header() {
             </AccordionItem>
           </Accordion>
 
-          <Link href="/contact" className="text-xs font-light text-white hover:text-rich-amber-accent transition-colors uppercase tracking-wider">
+          <Link href="/contact" className="text-xs font-light text-white hover:text-accent hover:font-black hover:underline transition-colors uppercase tracking-wider">
             CONTACT US
           </Link>
         </nav>
@@ -154,8 +141,14 @@ export default function Header() {
         <div className="flex items-center shrink-0">
           <Link
             href="#"
-            className={`px-1 sm:px-4 py-2 text-[10px] sm:text-sm font-serif font-black border whitespace-nowrap
-            transition-all uppercase tracking-tight bg-rich-amber-accent text-rich-purple border-rich-purple hover:bg-gray-100'`}
+            className={`
+              px-1 sm:px-4 py-2 text-base sm:text-sm font-black border whitespace-nowrap
+              transition-all rounded-md
+              bg-white text-black border-rich-purple
+              hover:text-blue-600 hover:shadow-lg hover:scale-105
+              duration-200 ease-in-out
+            `}
+            style={{ textTransform: "none" }}
           >
             Book free consultation
           </Link>
@@ -209,10 +202,10 @@ export default function Header() {
             </button>
           </div>
           <div className="flex-1 overflow-y-auto px-10 py-8">
-            <Accordion type="single" collapsible className="w-full space-y-6">
+            <Accordion type="single" collapsible className="w-full space-y-8">
               {/* UK University Applicants */}
               <AccordionItem value="uk-applicants-mobile" className="border-b border-white/20">
-                <AccordionTrigger className="text-2xl font-light text-white hover:text-white uppercase p-0 hover:no-underline data-[state=open]:text-rich-amber-accent">
+                <AccordionTrigger className="text-2xl font-light text-white hover:text-white uppercase px-4 py-2 hover:no-underline data-[state=open]:text-rich-amber-accent gap-2 [&>svg]:w-8 [&>svg]:h-8">
                   UK University Applicants
                 </AccordionTrigger>
                 <AccordionContent className="pb-4">
@@ -238,7 +231,7 @@ export default function Header() {
 
               {/* Oxbridge Applicants */}
               <AccordionItem value="oxbridge-mobile" className="border-b border-white/20">
-                <AccordionTrigger className="text-2xl font-light text-white hover:text-white uppercase p-0 hover:no-underline data-[state=open]:text-rich-amber-accent">
+                <AccordionTrigger className="text-2xl font-light text-white hover:text-white uppercase px-4 py-2 hover:no-underline data-[state=open]:text-rich-amber-accent gap-2 [&>svg]:w-8 [&>svg]:h-8">
                   Oxbridge Applicants
                 </AccordionTrigger>
                 <AccordionContent className="pb-4">
@@ -264,7 +257,7 @@ export default function Header() {
 
               {/* FREE RESOURCES */}
               <AccordionItem value="resources-mobile" className="border-b border-white/20">
-                <AccordionTrigger className="text-2xl font-light text-white hover:text-white uppercase p-0 hover:no-underline data-[state=open]:text-rich-amber-accent">
+                <AccordionTrigger className="text-2xl font-light text-white hover:text-white uppercase px-4 py-2 hover:no-underline data-[state=open]:text-rich-amber-accent gap-2 [&>svg]:w-8 [&>svg]:h-8">
                   FREE RESOURCES
                 </AccordionTrigger>
                 <AccordionContent className="pb-4">
@@ -290,7 +283,7 @@ export default function Header() {
 
               {/* OUR SERVICES */}
               <AccordionItem value="services-mobile" className="border-b border-white/20">
-                <AccordionTrigger className="text-2xl font-light text-white hover:text-white uppercase p-0 hover:no-underline data-[state=open]:text-rich-amber-accent">
+                <AccordionTrigger className="text-2xl font-light text-white hover:text-white uppercase px-4 py-2 hover:no-underline data-[state=open]:text-rich-amber-accent gap-2 [&>svg]:w-8 [&>svg]:h-8">
                   OUR SERVICES
                 </AccordionTrigger>
                 <AccordionContent className="pb-4">
@@ -320,7 +313,7 @@ export default function Header() {
               <Link
                 href="/contact"
                 onClick={() => setIsMenuOpen(false)}
-                className="text-2xl font-light text-white hover:text-rich-amber-accent hover:underline uppercase"
+                className="text-2xl font-light text-white hover:text-accent hover:font-black hover:underline uppercase"
               >
                 CONTACT US
               </Link>
