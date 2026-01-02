@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import type { FAQItem } from "@/configs/types";
 import { homeConfig } from "@/configs/home.config";
+import Markdown from "react-markdown";
 
 function FAQItem({ faq, index }: { faq: FAQItem; index: number }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,7 +41,10 @@ function FAQItem({ faq, index }: { faq: FAQItem; index: number }) {
             className="overflow-hidden"
           >
             <div className="pb-6 px-4">
-              <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+              {/* <p className="text-gray-700 leading-relaxed">{faq.answer}</p> */}
+              <Markdown>
+                {faq.answer}
+              </Markdown>
             </div>
           </motion.div>
         )}
