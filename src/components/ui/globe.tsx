@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import createGlobe, { type COBEOptions } from "cobe"
 import { useMotionValue, useSpring } from "framer-motion"
 
@@ -9,123 +9,99 @@ import { cn } from "@/lib/utils"
 const MOVEMENT_DAMPING = 1400
 
 const GLOBE_CONFIG: COBEOptions = {
-    width: 600,
-    height: 600,
-    onRender: () => { },
-    devicePixelRatio: 1,
-    phi: 0,
-    theta: 0.3,
-    dark: 0,
-    diffuse: 0.4,
-    mapSamples: 8000, // Reduced from 16000
-    mapBrightness: 1.2,
-    baseColor: [1, 1, 1],
-    markerColor: [251 / 255, 100 / 255, 21 / 255],
-    glowColor: [1, 1, 1],
-    markers: [
-        { location: [14.5995, 120.9842], size: 0.03 },
-        { location: [19.076, 72.8777], size: 0.1 },
-        { location: [23.8103, 90.4125], size: 0.05 },
-        { location: [30.0444, 31.2357], size: 0.07 },
-        { location: [39.9042, 116.4074], size: 0.08 },
-        { location: [-23.5505, -46.6333], size: 0.1 },
-        { location: [19.4326, -99.1332], size: 0.1 },
-        { location: [40.7128, -74.006], size: 0.1 },
-        { location: [34.6937, 135.5022], size: 0.05 },
-        { location: [41.0082, 28.9784], size: 0.06 },
-    ],
+  width: 800,
+  height: 800,
+  onRender: () => {},
+  devicePixelRatio: 2,
+  phi: 0,
+  theta: 0.3,
+  dark: 0,
+  diffuse: 0.4,
+  mapSamples: 16000,
+  mapBrightness: 1.2,
+  baseColor: [1, 1, 1],
+  markerColor: [251 / 255, 100 / 255, 21 / 255],
+  glowColor: [1, 1, 1],
+  markers: [
+    { location: [14.5995, 120.9842], size: 0.03 },
+    { location: [19.076, 72.8777], size: 0.1 },
+    { location: [23.8103, 90.4125], size: 0.05 },
+    { location: [30.0444, 31.2357], size: 0.07 },
+    { location: [39.9042, 116.4074], size: 0.08 },
+    { location: [-23.5505, -46.6333], size: 0.1 },
+    { location: [19.4326, -99.1332], size: 0.1 },
+    { location: [40.7128, -74.006], size: 0.1 },
+    { location: [34.6937, 135.5022], size: 0.05 },
+    { location: [41.0082, 28.9784], size: 0.06 },
+  ],
 }
 
 export function Globe({
-    className,
-    config = GLOBE_CONFIG,
+  className,
+  config = GLOBE_CONFIG,
 }: {
-    className?: string
-    config?: COBEOptions
+  className?: string
+  config?: COBEOptions
 }) {
-    let phi = 0
-    let width = 0
-    const canvasRef = useRef<HTMLCanvasElement>(null)
-    const containerRef = useRef<HTMLDivElement>(null)
-    const pointerInteracting = useRef<number | null>(null)
-    const pointerInteractionMovement = useRef(0)
-    const [isVisible, setIsVisible] = useState(false)
+  let phi = 0
+  let width = 0
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const pointerInteracting = useRef<number | null>(null)
+  const pointerInteractionMovement = useRef(0)
 
-    const r = useMotionValue(0)
-    const rs = useSpring(r, {
-        mass: 1,
-        damping: 30,
-        stiffness: 100,
+  const r = useMotionValue(0)
+  const rs = useSpring(r, {
+    mass: 1,
+    damping: 30,
+    stiffness: 100,
+  })
+
+  const updatePointerInteraction = (value: number | null) => {
+    pointerInteracting.current = value
+    if (canvasRef.current) {
+      canvasRef.current.style.cursor = value !== null ? "grabbing" : "grab"
+    }
+  }
+
+  const updateMovement = (clientX: number) => {
+    if (pointerInteracting.current !== null) {
+      const delta = clientX - pointerInteracting.current
+      pointerInteractionMovement.current = delta
+      r.set(r.get() + delta / MOVEMENT_DAMPING)
+    }
+  }
+
+  useEffect(() => {
+    const onResize = () => {
+      if (canvasRef.current) {
+        width = canvasRef.current.offsetWidth
+      }
+    }
+
+    window.addEventListener("resize", onResize)
+    onResize()
+
+    const globe = createGlobe(canvasRef.current!, {
+      ...config,
+      width: width * 2,
+      height: width * 2,
+      onRender: (state) => {
+        if (!pointerInteracting.current) phi += 0.005
+        state.phi = phi + rs.get()
+        state.width = width * 2
+        state.height = width * 2
+      },
     })
 
-    const updatePointerInteraction = (value: number | null) => {
-        pointerInteracting.current = value
-        if (canvasRef.current) {
-            canvasRef.current.style.cursor = value !== null ? "grabbing" : "grab"
-        }
+    setTimeout(() => (canvasRef.current!.style.opacity = "1"), 0)
+    return () => {
+      globe.destroy()
+      window.removeEventListener("resize", onResize)
     }
-
-    const updateMovement = (clientX: number) => {
-        if (pointerInteracting.current !== null) {
-            const delta = clientX - pointerInteracting.current
-            pointerInteractionMovement.current = delta
-            r.set(r.get() + delta / MOVEMENT_DAMPING)
-        }
-    }
-
-    useEffect(() => {
-        // Intersection Observer for lazy loading
-        const observer = new IntersectionObserver(
-            (entries) => {
-                if (entries[0].isIntersecting) {
-                    setIsVisible(true)
-                    observer.disconnect()
-                }
-            },
-            { threshold: 0.1 }
-        )
-
-        if (containerRef.current) {
-            observer.observe(containerRef.current)
-        }
-
-        return () => observer.disconnect()
-    }, [])
-
-    useEffect(() => {
-        if (!isVisible) return
-
-        const onResize = () => {
-            if (canvasRef.current) {
-                width = canvasRef.current.offsetWidth
-            }
-        }
-
-        window.addEventListener("resize", onResize)
-        onResize()
-
-        const globe = createGlobe(canvasRef.current!, {
-            ...config,
-            width: width * 2,
-            height: width * 2,
-            onRender: (state) => {
-                // Reduce rotation speed and only animate when not interacting
-                if (!pointerInteracting.current) phi += 0.002 // Reduced from 0.005
-                state.phi = phi + rs.get()
-                state.width = width * 2
-                state.height = width * 2
-            },
-        })
-
-        setTimeout(() => (canvasRef.current!.style.opacity = "1"), 0)
-        return () => {
-            globe.destroy()
-            window.removeEventListener("resize", onResize)
-        }
-    }, [rs, config, isVisible])
+  }, [rs, config])
 
     return (
-        <section ref={containerRef} className="relative w-full pt-10 md:min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 sm:px-8 lg:px-16">
+        <section className="relative w-full pt-10 md:min-h-screen flex flex-col lg:flex-row items-center justify-center px-4 sm:px-8 lg:px-16">
             <div className="w-full lg:w-1/2 h-auto lg:h-full py-8 lg:py-16 flex flex-col gap-6 sm:gap-8 justify-center">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl tracking-tighter font-bold">
                     Lorem ipsum dolor sit amet

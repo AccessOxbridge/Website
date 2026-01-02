@@ -20,7 +20,7 @@ export default function UniversitiesCarousel() {
           <h2 className="mx-auto max-w-3xl text-2xl sm:text-4xl font-semibold tracking-tighter text-black">
             {homeConfig.schoolLogos.title}
           </h2>
-          <button className="mt-4 sm:mt-6 bg-black px-6 py-3 text-sm sm:text-base text-white hover:bg-black/80 cursor-pointer">{homeConfig.schoolLogos.buttonText}</button>
+          {/* <button className="mt-4 sm:mt-6 bg-black px-6 py-3 text-sm sm:text-base text-white hover:bg-black/80 cursor-pointer">{homeConfig.schoolLogos.buttonText}</button> */}
         </motion.div>
 
 
