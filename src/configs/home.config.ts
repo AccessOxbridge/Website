@@ -84,7 +84,7 @@ export const homeConfig: HomeConfig = {
       width: 120,
       height: 120,
     },
-    description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Furiosam eos dolorem consequuntur quisquam sunt eum numquam commodi accusamus.",
+    description: "Building Futures",
     items: [
       {
         icon: "GraduationCap",
@@ -184,53 +184,27 @@ export const homeConfig: HomeConfig = {
   },
   faqs: [
     {
-      title: "UCAS PERSONAL STATEMENT FAQs",
+      title: "ACCESS OXFORD FAQs",
       faqs: [
         {
-          question: "What makes a UK personal statement strong?",
-          answer: "A strong UK personal statement is focused, reflective, and tailored to the chosen subject. Universities want to see academic interest, relevant experience, and evidence of independent thinking. Specific examples are more effective than general claims. Clear structure and concise writing are important. The statement should show motivation for the course and readiness for university level study rather than simply listing achievements."
+          question: "How can Access Oxbridge help me with my University Application?",
+          answer: "Access Oxbridge offers focused, academically driven support for students applying to Oxford, Cambridge, and the UK's most competitive universities, including:\n\n– **Personalised Academic Strategy:** A tailored roadmap covering subject preparation, supercurricular development, admissions tests, and application milestones.\n\n– **Expert Oxbridge Insight:** Guidance from experienced mentors who understand how Oxford and Cambridge assess candidates at subject level.\n\n– **Application and Personal Statement Development:** Structured support to help articulate academic motivation, intellectual curiosity, and subject readiness with clarity and depth.\n\n– **Interview Preparation:** Targeted practice designed to develop confident academic thinking, clear reasoning, and effective communication under pressure.\n\n– **UK University Admissions Support:** Broader guidance on UCAS strategy, course selection, entry requirements, offer management, and results day decisions across leading UK universities."
         },
         {
-          question: "When should I start writing my UCAS personal statement?",
-          answer: "It is best to start writing your personal statement at least three to six months before the UCAS deadline. Early preparation gives you time to explore your subject, draft thoughtfully, and edit carefully. Starting early also reduces stress and leads to a stronger, more confident final statement."
-        }
-      ]
-    },
-    {
-      title: "OXBRIDGE INTERVIEW FAQs",
-      faqs: [
-        {
-          question: "How are Oxford and Cambridge interviews different from normal interviews?",
-          answer: "Oxbridge interviews are academic rather than personal. Instead of asking about hobbies or career goals, tutors ask subject based questions and explore your thinking. You may be asked to solve problems, analyse texts, or discuss unfamiliar ideas. Interviewers want to see curiosity, logical reasoning, and how you approach challenges, not polished or rehearsed answers."
+          question: "Can international students apply to Oxford or Cambridge?",
+          answer: "Yes! International students can absolutely apply to Oxbridge, and both universities welcome qualified applicants from around the world through the normal UCAS process, provided they meet the academic and admissions test requirements and complete any interview stages just like UK applicants."
         },
         {
-          question: "How many interviews will I have at Oxford or Cambridge?",
-          answer: "Most applicants have one to three interviews, sometimes with different colleges or tutors. Some candidates may be interviewed by more than one college through the pooling process. Each interview usually lasts between twenty and thirty minutes. Having multiple interviews is normal and does not mean anything negative."
+          question: "How Many International Students Study at Oxbridge",
+          answer: "**University of Oxford:**\n\n* Around **35 % of the student body is international**, meaning students from outside the UK make up roughly one‑third of all Oxford students.\n\n**University of Cambridge:**\n\n* Around **32 % of students at Cambridge are international**, placing the university's international presence on a par with other leading UK institutions."
         },
         {
-          question: "How should I prepare for an Oxbridge interview?",
-          answer: "Preparation should focus on understanding your subject deeply rather than memorising answers. Review key concepts, practise thinking aloud, and be ready to discuss topics from your personal statement. Reading beyond the syllabus and practising with sample questions or mock interviews can help build confidence. Good preparation helps you stay calm and engaged during the interview."
+          question: "How much does support from Access Oxbridge cost?",
+          answer: "We offer a range of support options designed to suit different levels of preparation and commitment. Details are discussed individually to ensure guidance is aligned with each student's goals and circumstances."
         },
         {
-          question: "How much weight do interviews carry in Oxbridge admissions decisions?",
-          answer: "Interviews carry significant weight in Oxbridge admissions. Once you are invited to interview, tutors rely heavily on your performance to decide whether you are offered a place. Interviews help them assess academic potential and suitability for the teaching system. Strong interviews can sometimes outweigh weaker parts of an application."
-        }
-      ]
-    },
-    {
-      title: "OXBRIDGE ASSESSMENT TEST FAQs",
-      faqs: [
-        {
-          question: "Which courses usually require admissions tests?",
-          answer: "Admissions tests are commonly required for Medicine, Dentistry, Law, Economics, Engineering, Mathematics, and some Humanities courses. Oxford and Cambridge use tests for many subjects, while other universities may require tests such as the UCAT or LNAT. Each course sets its own requirements, so students should check university websites carefully."
-        },
-        {
-          question: "How should students prepare for admissions tests?",
-          answer: "Effective preparation includes practising past papers, learning question types, working under timed conditions, and reviewing mistakes. Students should focus on reasoning skills rather than memorising content. Many tests reward clear thinking and problem solving. Mock tests and structured practice plans can greatly improve results."
-        },
-        {
-          question: "How do admissions tests fit into the overall application process?",
-          answer: "Admissions tests are one part of a wider application that includes grades, personal statements, references, and interviews. For competitive universities, test scores often play a major role in shortlisting. Performing well helps tutors identify students with strong academic potential. Success comes from balanced preparation across all parts of the application."
+          question: "How do I get started with Access Oxbridge?",
+          answer: "Book a free consultation with one of our Academic Advisors to explore your ambitions and see how our guidance can support your success."
         }
       ]
     }

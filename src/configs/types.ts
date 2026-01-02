@@ -189,3 +189,23 @@ export interface GetInTouchConfig {
     submitButtonText: string;
   };
 }
+
+export interface DropdownItem {
+  title: string;
+  href: string;
+}
+
+export interface NavigationItem {
+  title: string;
+  href: string;
+  hasDropdown: boolean;
+  dropdownItems?: DropdownItem[];
+}
+
+export interface HeaderConfig {
+  navigation: NavigationItem[];
+  cta: {
+    text: string;
+    href: string;
+  };
+}
