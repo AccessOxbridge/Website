@@ -143,28 +143,7 @@ export default function ServicesPage() {
             </button>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h1 className={`text-4xl font-black tracking-tight transition-colors duration-500 ${
-              isOxbridge ? 'text-white' : 'text-primary'
-            }`}>
-              Your Journey <span className={`underline transition-colors duration-500 ${
-                isOxbridge ? 'text-rich-amber-accent' : 'text-accent'
-              }`}>to Success</span>
-            </h1>
-            {/* <p className={`text-lg max-w-2xl mx-auto leading-relaxed transition-colors duration-500 ${
-              isOxbridge ? 'text-gray-300' : 'text-gray-600'
-            }`}>
-              A structured, strategic approach ensuring every aspect of your application is perfected,
-              from your first consultation to the moment you receive your offer.
-            </p> */}
-          </motion.div>
-
-          <div className="relative w-full max-w-7xl px-4 py-16">
+          <div className="relative w-full max-w-7xl px-4 py-1">
             {/* Horizontal Timeline Track */}
             <div className={`absolute top-1/2 left-0 w-full h-[3px] hidden md:block transition-colors duration-500 transform -translate-y-1/2 rounded-full ${
               isOxbridge ? 'bg-gray-700' : 'bg-gray-200'
