@@ -1,8 +1,8 @@
 import { GetInTouchConfig } from './types';
 
 export const getInTouchConfig: GetInTouchConfig = {
-  title: "Don't wait until Grade 12 to start your university journey!",
-  subtitle: "Contact us today to schedule a free initial consultation and discuss your university options.",
+  title: "What Happens in Your Free Consultation?",
+  subtitle: "Schedule a free consultation with one of our specialised team members to discuss your tailored roadmap to success!",
   benefits: [
     {
       number: "01",

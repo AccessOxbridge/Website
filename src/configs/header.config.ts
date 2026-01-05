@@ -66,7 +66,7 @@ export const headerConfig: HeaderConfig = {
     },
   ],
   cta: {
-    text: 'Begin Your Journey',
+    text: 'Get Started',
     href: '/consultation',
   },
 };

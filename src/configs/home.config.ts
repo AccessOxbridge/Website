@@ -12,7 +12,7 @@ export const homeConfig: HomeConfig = {
           { label: "Our Results", href: "#results", variant: "secondary" },
         ],
         type: "image",
-        src: "https://dukeseducation.com/wp-content/uploads/2019/09/Eaton-Square-edited-e1568717984986.jpg",
+        src: "/oxbridge.png",
       },
       {
         id: 2,
