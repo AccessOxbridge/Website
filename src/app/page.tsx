@@ -28,7 +28,7 @@ export default function Home() {
       <Stats/>
       <UniversitiesCarousel/>
       <GetInTouch />
-      <ExpertiseSection />
+      {/* <ExpertiseSection /> */}
 
       {/* Lazy load heavy components */}
       <LazyLoad>
