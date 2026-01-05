@@ -46,8 +46,8 @@ export function WebinarToast({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="fixed bottom-4 left-4 right-4 sm:right-auto sm:left-6 sm:bottom-6 z-50 w-auto sm:w-full max-w-sm rounded-xl 
-          bg-[#000000] p-4 sm:p-6 text-white shadow-2xl"
+          className="fixed bottom-4 left-4 right-4 sm:right-auto sm:left-6 sm:bottom-6 z-50 w-auto sm:w-full max-w-sm rounded-xl
+          bg-accent p-4 sm:p-6 text-white shadow-2xl"
         >
           {/* Close */}
           <button
@@ -62,21 +62,20 @@ export function WebinarToast({
           </p>
 
           <h3 className="mb-3 text-lg font-semibold text-[#d6b34a]">
-            Get a head start on your Oxbridge application
+            How To Get Ahead on Your Oxbridge Application - Webinar
           </h3>
 
           <p className="mb-4 text-sm leading-relaxed text-white/90">
-            Learn how preparing in Year 12 gives students a competitive
-            advantage for Oxbridge admissions.
+            Learn the steps to take as an early applicant that can boost your chances of success this Oxbridge cycle!
           </p>
 
           <p className="mb-4 text-sm font-medium text-[#d6b34a]">
-            Wed 14<sup>th</sup> Jan · 6:00pm (UK)
+            Wednesday 11th February 6:00pm UK
           </p>
 
           <a
             href="/webinar-registration"
-            className="inline-block w-full rounded-md bg-[#d6b34a] py-2.5 text-center text-sm font-semibold text-[#1e2f55] transition hover:bg-[#c7a741]"
+            className="inline-block w-full rounded-md bg-white py-2.5 text-center text-sm font-semibold text-accent transition hover:bg-gray-100"
           >
             Register Now
           </a>
