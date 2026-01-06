@@ -111,7 +111,7 @@ export default function Header() {
               className={`
                 py-2 px-4 text-base font-bold border whitespace-nowrap
                 transition-all rounded-md
-                bg-rich-amber-accent text-black
+                bg-white text-black
                 hover:text-accent hover:shadow-lg hover:scale-105
                 duration-200 ease-in-out
               `}

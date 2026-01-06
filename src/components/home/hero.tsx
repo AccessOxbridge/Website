@@ -135,8 +135,11 @@ export default function Hero() {
               <p className="text-base text-left text-gray-500 leading-relaxed group-hover:text-gray-700 transition-colors">
                 {box.description}
               </p>
-              <button className="bg-accent text-white w-fit px-6 sm:px-8 py-2 text-sm font-bold uppercase tracking-wider rounded-md mx-auto hover:bg-accent-foreground transition-colors duration-300">
+              <button className="bg-accent text-white w-fit px-6 sm:px-8 py-2 text-sm 
+              font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2
+              hover:bg-accent-foreground transition-colors duration-300 cursor-pointer">
                 {box.button}
+                <ArrowRightIcon className="size-4" />
               </button>
             </a>
           );
