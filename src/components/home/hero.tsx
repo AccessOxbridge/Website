@@ -108,7 +108,7 @@ export default function Hero() {
               className={`
                 group relative w-full sm:w-1/2 
                 h-full 
-                px-5 py-8 sm:p-12 lg:p-16
+                px-5 py-8
                 flex flex-col gap-4 sm:gap-8 
                 transition-all duration-500 text-center cursor-pointer
                 bg-white hover:-translate-y-2
@@ -132,10 +132,10 @@ export default function Hero() {
                   />
                 ))}
               </div>
-              <p className="text-base sm:text-xl text-left text-gray-500 leading-relaxed group-hover:text-gray-700 transition-colors">
+              <p className="text-base text-left text-gray-500 leading-relaxed group-hover:text-gray-700 transition-colors">
                 {box.description}
               </p>
-              <button className="bg-accent text-white w-fit px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-bold uppercase tracking-wider rounded-md mx-auto hover:bg-accent-foreground transition-colors duration-300">
+              <button className="bg-accent text-white w-fit px-6 sm:px-8 py-2 text-sm font-bold uppercase tracking-wider rounded-md mx-auto hover:bg-accent-foreground transition-colors duration-300">
                 {box.button}
               </button>
             </a>

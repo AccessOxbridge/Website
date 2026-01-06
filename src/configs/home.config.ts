@@ -19,8 +19,8 @@ export const homeConfig: HomeConfig = {
         subheading: "INSIGHTS & GUIDES",
         headline: "Achieving Dreams: The Cambridge Experience",
         buttons: [
-          { label: "Download Free PDF", href: "/resources/ucas-guide", variant: "primary" },
-          { label: "Explore Articles", href: "/blog", variant: "secondary" },
+          { label: "Book Free Consultation", href: "/consultation", variant: "primary" },
+          { label: "View Article", href: "/blog/achieving-dreams-the-cambridge-experience", variant: "secondary" },
         ],
         type: "image",
         src: "/ppl2.jpeg",
@@ -41,7 +41,7 @@ export const homeConfig: HomeConfig = {
   boxes: [
     {
       title: 'UK University Admissions',
-      button: 'Enquire Now',
+      button: 'Find Out More',
       href: '/services',
       images: [
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_ymlJD7F2A6Oad1vdQ5UlNdYzF_lFUBcwlw&s",
@@ -51,7 +51,7 @@ export const homeConfig: HomeConfig = {
     },
     {
       title: 'Oxbridge Admissions',
-      button: 'Enquire Now',
+      button: 'Speak to a Specialist',
       href: '/services',
       images: [
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_ymlJD7F2A6Oad1vdQ5UlNdYzF_lFUBcwlw&s",

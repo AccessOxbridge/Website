@@ -9,7 +9,7 @@ export default function UniversitiesCarousel() {
     const { shouldReduceMotion } = usePerformance();
 
     return (
-      <section className="overflow-hidden py-12 sm:py-24 bg-rich-beige-accent">
+      <section className="overflow-hidden py-12 sm:py-24 bg-white">
         <motion.div
           initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 40 }}
           whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
@@ -30,7 +30,7 @@ export default function UniversitiesCarousel() {
               <motion.div
                 key={idx}
                 whileHover={shouldReduceMotion ? {} : { scale: 1.5 }}
-                className="flex h-24 items-center opacity-70"
+                className="flex h-24 items-center opacity-70 hover:scale-150 transition-all duration-100"
               >
                 <Image
                   src={logo}

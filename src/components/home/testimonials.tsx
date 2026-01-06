@@ -40,7 +40,7 @@ export function VideoTestimonials() {
     };
 
     return (
-        <section ref={containerRef} id="testimonials" className="relative bg-rich-beige-accent py-24 overflow-hidden">
+        <section ref={containerRef} id="testimonials" className="relative bg-white py-24 overflow-hidden">
             <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}

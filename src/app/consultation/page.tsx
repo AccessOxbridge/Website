@@ -161,7 +161,7 @@ export default function ConsultationPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                      Phone Number
+                      Phone Number *
                     </label>
                     <input
                       type="tel"
@@ -225,6 +225,9 @@ export default function ConsultationPage() {
                     placeholder="E.g., I'm interested in applying to Oxford for Computer Science..."
                   />
                 </div>
+
+                <input type="checkbox"/>
+                <label> I am a Student/Parent/School Teacher</label>
 
                 <button
                   type="submit"

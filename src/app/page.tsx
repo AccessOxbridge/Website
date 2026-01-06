@@ -17,7 +17,7 @@ import dynamic from "next/dynamic";
 
 // Lazy load heavy below-the-fold components
 const LazyVideoTestimonials = dynamic(() => import("@/components/home/testimonials").then(mod => ({ default: mod.VideoTestimonials })), {
-  loading: () => <div className="h-96 flex items-center justify-center bg-rich-beige-accent">Loading testimonials...</div>
+  loading: () => <div className="h-96 flex items-center justify-center bg-white">Loading testimonials...</div>
 });
 
 export default function Home() {
@@ -25,8 +25,8 @@ export default function Home() {
     <main className="min-h-screen">
       <Hero />
       <div className="mx-auto  h-px w-full max-w-5xl bg-gray-200" />
-      <Stats/>
       <UniversitiesCarousel/>
+      <Stats/>
       <GetInTouch />
       {/* <ExpertiseSection /> */}
 
