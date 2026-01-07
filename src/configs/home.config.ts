@@ -8,7 +8,7 @@ export const homeConfig: HomeConfig = {
         subheading: "ELITE ADMISSIONS",
         headline: "Unlock Oxbridge: 62% Success Rate",
         buttons: [
-          { label: "Free Consultation", href: "/consultation", variant: "primary" },
+          { label: "Speak to a Specialist", href: "/consultation", variant: "primary" },
           { label: "Our Results", href: "#results", variant: "secondary" },
         ],
         type: "image",
