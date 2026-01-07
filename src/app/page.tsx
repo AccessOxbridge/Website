@@ -1,8 +1,5 @@
 import Header from "@/components/sections/header";
 import Hero from "@/components/home/hero";
-// import SplitShowcase from "@/components/sections/split-showcase";
-import StoriesSection from "@/components/sections/stories-section";
-import NewsSection from "@/components/sections/news-section";
 import Footer from "@/components/sections/footer";
 import ScrollIntentWebinar from "@/components/dialogs/ScrollIntentWebinar";
 import ApproachCards from "@/components/sections/cards";
@@ -35,15 +32,15 @@ export default function Home() {
         <LazyVideoTestimonials/>
       </LazyLoad>
 
-      <LazyLoad>
+      {/* <LazyLoad>
         <StoriesSection />
-      </LazyLoad>
+      </LazyLoad> */}
 
       <FAQs />
 
-      <LazyLoad>
+      {/* <LazyLoad>
         <NewsSection/>
-      </LazyLoad>
+      </LazyLoad> */}
 
       <LazyLoad>
         <Globe/>
