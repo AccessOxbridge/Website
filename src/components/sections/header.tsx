@@ -70,7 +70,7 @@ export default function Header() {
                     >
                       {item.title}
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent className="bg-white rounded-md shadow-lg border border-gray-200">
+                    <NavigationMenuContent className="bg-white rounded-md shadow-lg border border-gray-200 capitalize">
                       <ul className="grid gap-1 p-2 w-56">
                         {item.dropdownItems.map((dropdownItem) => (
                           <li key={dropdownItem.title}>
@@ -182,7 +182,7 @@ export default function Header() {
                         <ul className="mt-4 ml-4 space-y-3">
                           {item.dropdownItems.map((dropdownItem) => (
                             <li key={dropdownItem.title}>
-                              <Link href={dropdownItem.href} onClick={() => setIsMenuOpen(false)} className="text-lg font-light text-white/80 hover:text-white hover:underline">
+                              <Link href={dropdownItem.href} onClick={() => setIsMenuOpen(false)} className="text-lg font-light text-white/80 capitalize hover:text-white hover:underline">
                                 {dropdownItem.title}
                               </Link>
                             </li>
