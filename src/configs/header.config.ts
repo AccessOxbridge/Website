@@ -42,20 +42,20 @@ export const headerConfig: HeaderConfig = {
     },
     {
       title: 'Admissions Resources',
-      href: '/blog',
+      href: '/admissions-resources',
       hasDropdown: true,
       dropdownItems: [
         {
-          title: 'Oxbridge Academic Guides',
-          href: '/blog',
+          title: 'Oxbridge Guides and Resources',
+          href: '/blog?category=oxbridge',
         },
         {
-          title: 'UK University Guides',
-          href: '/blog',
+          title: 'UK University Guides and Resources',
+          href: '/blog?category=uk-universities',
         },
         {
-          title: 'International Student Guides',
-          href: '/blog',
+          title: 'International Student Guides and Resources',
+          href: '/blog?category=international',
         },
       ],
     },

@@ -21,4 +21,5 @@ export type BlogCategory =
   | "Interview Tips"
   | "Personal Statement"
   | "UK Universities"
-  | "Student Stories";
+  | "Student Stories"
+  | "International Students";
