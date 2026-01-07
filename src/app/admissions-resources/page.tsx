@@ -59,7 +59,7 @@ export default function AdmissionsResourcesPage() {
       </section>
 
       {/* Resource Categories */}
-      <section className="py-16">
+      <section className="pt-16 pb-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {resourceCategories.map((category) => (
@@ -68,7 +68,7 @@ export default function AdmissionsResourcesPage() {
                 href={category.href}
                 className="group block bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-200 overflow-hidden border border-gray-200 hover:border-blue-300"
               >
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-56 overflow-hidden">
                   <Image
                     src={category.image}
                     alt={category.title}
@@ -101,7 +101,7 @@ export default function AdmissionsResourcesPage() {
       <FAQs showAdditionalFAQBox={false}/>
 
       {/* Call to Action */}
-      <section className="py-16 bg-accent">
+      <section className="py-16 bg-accent mt-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             Need Personalised Guidance?

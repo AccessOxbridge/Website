@@ -56,13 +56,13 @@ function FAQItem({ faq, index }: { faq: FAQItem; index: number }) {
 export default function FAQs({ showAdditionalFAQBox = true }: { showAdditionalFAQBox?: boolean }) {
   return (
     <section className="pt-16 sm:pt-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          className="text-center mb-12 px-4 sm:px-6 lg:px-8"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
             FAQs
@@ -98,6 +98,8 @@ export default function FAQs({ showAdditionalFAQBox = true }: { showAdditionalFA
           ))}
         </div>
 
+
+      </div>
         {showAdditionalFAQBox && (
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -112,8 +114,6 @@ export default function FAQs({ showAdditionalFAQBox = true }: { showAdditionalFA
             <button className="bg-black text-white px-4 py-2">Ask us any question</button>
           </motion.div>
         )}
-
-      </div>
 
     </section>
   );
