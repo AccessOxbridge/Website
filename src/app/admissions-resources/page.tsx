@@ -44,13 +44,13 @@ export default function AdmissionsResourcesPage() {
   return (
     <div className="min-h-screen bg-gray-50 pt-24">
       {/* Hero Section */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-3xl font-bold text-gray-900">
               Admissions Resources
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base text-gray-600 max-w-3xl mx-auto w-1/2">
               Comprehensive guides, expert advice, and insider tips to help you navigate the competitive world of UK university admissions.
             </p>
           </div>
