@@ -75,16 +75,16 @@ export default function FAQs({ showAdditionalFAQBox = true }: { showAdditionalFA
         <div className="max-w-4xl mx-auto space-y-8">
           {homeConfig.faqs.map((category, categoryIndex) => (
             <motion.div
-              key={category.title}
+              key={categoryIndex}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
               className=" rounded-2xl p-6 sm:p-8"
             >
-              <h3 className="text-sm underline font-bold text-accent mb-6 text-center">
+              {/* <h3 className="text-sm underline font-bold text-accent mb-6 text-center">
                 {category.title}
-              </h3>
+              </h3> */}
               <div className="space-y-0">
                 {category.faqs.map((faq, faqIndex) => (
                   <FAQItem

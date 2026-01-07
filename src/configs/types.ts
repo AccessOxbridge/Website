@@ -72,7 +72,6 @@ export interface FAQItem {
 }
 
 export interface FAQCategory {
-  title: string;
   faqs: FAQItem[];
 }
 

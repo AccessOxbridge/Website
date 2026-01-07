@@ -184,7 +184,6 @@ export const homeConfig: HomeConfig = {
   },
   faqs: [
     {
-      title: "ACCESS OXFORD FAQs",
       faqs: [
         {
           question: "How can Access Oxbridge help me with my University Application?",
