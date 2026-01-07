@@ -99,7 +99,16 @@
 
 @font-face {
   font-family: 'GT';
-  src: url('./GTWalsheimPro-Light.woff2');
+  src: url('./4de1fea1a954a5b6-s.p.woff2');
+}
+
+@font-face {
+  font-family: 'fancy';
+  src: url('./9ec5edc9d8302014-s.p.woff2');
+}
+
+.fancy {
+  font-family: 'fancy';
 }
 
 @layer base {
