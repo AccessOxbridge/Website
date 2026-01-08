@@ -47,11 +47,11 @@ export default function AdmissionsResourcesPage() {
       {/* Hero Section */}
       <section className="bg-white py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-3xl font-bold text-gray-900">
-              Admissions Resources
+          <div className="text-center flex flex-col gap-2">
+            <h1 className="text-3xl font-bold text-gray-900 w-[70%] mx-auto">
+            Browse Our Admissions Resources for Expert Guidance at Every Stage of Your Application
             </h1>
-            <p className="text-base text-gray-600 max-w-3xl mx-auto w-1/2 px-24">
+            <p className="text-base text-gray-600 max-w-3xl mx-auto px-12">
               Browse Our Admissions Resources for Expert Guidance at Every Stage of Your Application
             </p>
           </div>

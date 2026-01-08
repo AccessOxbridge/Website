@@ -62,7 +62,7 @@ export function ResultsPageContent() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="py-16 sm:py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section className="py-16 sm:py-32 ">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
@@ -70,18 +70,18 @@ export function ResultsPageContent() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-4xl sm:text-5xl font-bold tracking-tighter text-black mb-6">
-              Our Results Speak for Themselves
+            <h1 className="text-4xl sm:text-5xl text-black w-2/3 mx-auto">
+            Discover the impact Access Oxbridge has made on thousands of students pursuing their Oxbridge dreams
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            {/* <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Discover the impact Access Oxbridge has made on thousands of students pursuing their Oxbridge dreams.
-            </p>
+            </p> */}
           </motion.div>
         </div>
       </section>
 
       {/* UK & Oxbridge Section */}
-      <section className="py-16 sm:py-24 bg-white border-t border-gray-200">
+      <section className="py-16 sm:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
