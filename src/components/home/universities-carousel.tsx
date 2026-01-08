@@ -23,10 +23,7 @@ export default function UniversitiesCarousel() {
           </h2>
           {/* <button className="mt-4 sm:mt-6 bg-black px-6 py-3 text-sm sm:text-base text-white hover:bg-black/80 cursor-pointer">{homeConfig.schoolLogos.buttonText}</button> */}
         </motion.div>
-
-        <ResultsSection/>
-
-
+        
         <div className="relative">
           <div className="flex w-max gap-16" style={{ animation: 'marquee 28s linear infinite' }}>
             {[...homeConfig.logos, ...homeConfig.logos].map((logo, idx) => (
@@ -49,6 +46,10 @@ export default function UniversitiesCarousel() {
             ))}
           </div>
         </div>
+
+        <ResultsSection/>
+
+
       </section>
     );
   }

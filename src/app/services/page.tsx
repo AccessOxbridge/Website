@@ -5,7 +5,8 @@ import ApproachCards from '@/components/sections/cards'
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion'
 import { CheckCircle2, Target, FileText, BookOpen, Users, Clock, Award, GraduationCap } from 'lucide-react'
 import ScrollIntentSpinWheel from '@/components/dialogs/ScrollIntentSpinWheel'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 
 // export const metadata: Metadata = blogConfig.metadata
 
@@ -24,7 +25,13 @@ const staggerContainer = {
 };
 
 export default function ServicesPage() {
-  const [isOxbridge, setIsOxbridge] = useState(false);
+  const searchParams = useSearchParams();
+  const type = searchParams.get('type');
+  const [isOxbridge, setIsOxbridge] = useState(type !== 'uk');
+
+  useEffect(() => {
+    setIsOxbridge(type !== 'uk');
+  }, [type]); 
 
   const ukSteps = [
     {
@@ -109,13 +116,12 @@ export default function ServicesPage() {
   ];
 
   return (
-    <section className={`pt-24 transition-colors duration-700 ${isOxbridge ? 'bg-gray-900 text-white' : 'bg-white text-slate-900'}`}>
+    <section className={`py-24 transition-colors duration-700 ${isOxbridge ? 'bg-gray-900 text-white' : 'bg-white text-slate-900'}`}>
       <div className="max-w-7xl mx-auto px-6">
 
         {/* 1. Detached Header Section - Prevents overlap */}
         <div className="flex flex-col items-center mb-8">
-
-          <div className="inline-flex p-1 bg-slate-100 dark:bg-white/5 rounded-full border border-slate-200 dark:border-white/10 backdrop-blur-md">
+          <div className="inline-flex bg-slate-100 dark:bg-white/5 rounded-full border border-slate-200 dark:border-white/10 backdrop-blur-md">
             {['UK Universities', 'Oxbridge'].map((tab) => {
               const active = (tab === 'Oxbridge') === isOxbridge
               return (
@@ -175,7 +181,8 @@ export default function ServicesPage() {
 
                       {/* The Node */}
                       <div className="relative z-10">
-                        <div className={`w-16 h-16 rounded-full flex items-center justify-center border-2 transition-all duration-500 shadow-2xl ${step.isSuccess
+                        <div className={`w-16 h-16 rounded-full flex items-center justify-center border-2 transition-all 
+                        duration-500 shadow-2xl hover:scale-150 hover:bg-green-400 cursor-pointer ${step.isSuccess
                             ? 'bg-green-500 border-green-400 text-white'
                             : isOxbridge
                               ? 'bg-gray-900 border-white/20 text-white'
@@ -274,13 +281,13 @@ export default function ServicesPage() {
 function StepContent({ step, isOxbridge }: { step: any, isOxbridge: boolean }) {
   return (
     <div className="max-w-[200px]">
-      <span className="text-[10px] font-black tracking-widest text-accent uppercase mb-2 block">
+      <span className="text-[10px] font-black tracking-widest text-rich-amber-accent uppercase mb-2 block">
         Phase 0{step.number}
       </span>
-      <h3 className="text-sm font-bold mb-2 leading-tight tracking-tight">
+      <h3 className="font-bold mb-2 leading-tight tracking-tight">
         {step.title}
       </h3>
-      <p className="text-[11px] leading-relaxed opacity-60 font-medium">
+      <p className="text-sm leading-4 opacity-60 font-medium">
         {step.desc}
       </p>
     </div>

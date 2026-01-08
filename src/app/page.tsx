@@ -18,7 +18,7 @@ export default function Home() {
       <Hero />
       <div className="mx-auto  h-px w-full max-w-5xl bg-gray-200" />
       <UniversitiesCarousel/>
-      <Stats/>
+      {/* <Stats/> */}
       {/* <GetInTouch /> */}
       {/* <ExpertiseSection /> */}
 

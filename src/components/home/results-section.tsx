@@ -20,7 +20,7 @@ export function ResultsSection() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section id="results" className="py-12 sm:py-16 bg-white">
+    <section id="results" className="pt-12 sm:pt-24 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}

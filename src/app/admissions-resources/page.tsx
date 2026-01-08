@@ -98,7 +98,7 @@ export default function AdmissionsResourcesPage() {
         </div>
       </section>
 
-      <FAQs showAdditionalFAQBox={false}/>
+      <FAQs />
     </div>
   )
 }

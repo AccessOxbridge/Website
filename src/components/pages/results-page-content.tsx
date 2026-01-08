@@ -81,7 +81,7 @@ export function ResultsPageContent() {
       </section>
 
       {/* UK & Oxbridge Section */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="py-1">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
@@ -343,29 +343,6 @@ export function ResultsPageContent() {
                 </div>
               </div>
             </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 sm:py-24 bg-black text-white border-t border-gray-200">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
-            whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to Achieve Your Oxbridge Dreams?</h2>
-            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-              Join thousands of students who have successfully gained admission to Oxford and Cambridge with Access Oxbridge.
-            </p>
-            <a
-              href="/consultation"
-              className="inline-block bg-cyan-500 text-black px-8 py-3 font-semibold hover:bg-cyan-400 transition-colors rounded"
-            >
-              Book a Free Consultation
-            </a>
           </motion.div>
         </div>
       </section>

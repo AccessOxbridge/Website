@@ -9,16 +9,16 @@ export const headerConfig: HeaderConfig = {
       dropdownItems: [
         {
           title: 'UK University applications',
-          href: '/services',
+          href: '/services?type=uk',
         },
         {
           title: 'Oxbridge applications',
-          href: '/services',
+          href: '/services?type=oxbridge',
         },
-        {
-          title: 'GCSE/A-level',
-          href: '/services',
-        },
+        // {
+        //   title: 'GCSE/A-level',
+        //   href: '/services?type=gcse',
+        // },
       ],
     },
     {
@@ -28,11 +28,11 @@ export const headerConfig: HeaderConfig = {
       dropdownItems: [
         {
           title: 'Our Story',
-          href: '/network',
+          href: '/our-story',
         },
         {
           title: 'Our Results',
-          href: '/blog',
+          href: '/our-results',
         },
         {
           title: 'Join Our Admissions Team',
