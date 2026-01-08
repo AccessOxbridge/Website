@@ -25,6 +25,13 @@ export default function Hero() {
     <section className="relative w-full h-fit overflow-hidden">
       {/* HERO */}
       <div className="relative h-[75vh] flex-1 flex flex-col justify-center">
+        <Image
+          src='/logo.webp'
+          alt="Access Oxbridge"
+          width={360}
+          height={360}
+          className="absolute top-[30%] right-[12%] w-48 h-48 z-100000"
+        />
         <AnimatePresence mode="popLayout">
           <motion.div
             key={currentSlide}
@@ -34,7 +41,6 @@ export default function Hero() {
             exit={{ opacity: 0, scale: 0.98 }}
             transition={{ duration: .8, ease: "backInOut" }}
           >
-
             {slides.map((slide, index) => (
               <div
                 key={slide.id}
@@ -66,8 +72,8 @@ export default function Hero() {
                             className={`inline-flex min-w-[140px] sm:min-w-[160px] items-center justify-center px-6 sm:px-8 py-3 
                               sm:py-3.5 text-xs sm:text-sm font-bold capitalize tracking-wider transition-all duration-300 
                               rounded-md ${btn.variant === "primary"
-                              ? "bg-white text-black hover:bg-gray-200"
-                              : "bg-[#2d2d2d]/90 text-white hover:bg-[#1f1f1f]"
+                                ? "bg-white text-black hover:bg-gray-200"
+                                : "bg-[#2d2d2d]/90 text-white hover:bg-[#1f1f1f]"
                               }`}
                           >
                             {btn.label}
@@ -122,21 +128,21 @@ export default function Hero() {
           </h2>
           <div className="flex items-center justify-center w-full gap-10">
             <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-32 h-32 object-contain"
+              className="transition-transform group-hover:scale-110 duration-200 w-28 h-28 object-contain"
               src="/scientia.png"
               alt="Scientia"
               width={96}
               height={96}
             />
             <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-32 h-32 object-contain"
+              className="transition-transform group-hover:scale-110 duration-200 w-28 h-28 object-contain"
               src="/lse.png"
               alt="LSE"
               width={80}
               height={80}
             />
             <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-40 h-40 object-contain"
+              className="transition-transform group-hover:scale-110 duration-200 w-44 h-44 object-contain"
               src="/ucl.png"
               alt="UCL"
               width={112}

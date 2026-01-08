@@ -5,7 +5,7 @@ import ApproachCards from '@/components/sections/cards'
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion'
 import { CheckCircle2, Target, FileText, BookOpen, Users, Clock, Award, GraduationCap } from 'lucide-react'
 import ScrollIntentSpinWheel from '@/components/dialogs/ScrollIntentSpinWheel'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 
 // export const metadata: Metadata = blogConfig.metadata
@@ -24,7 +24,7 @@ const staggerContainer = {
   }
 };
 
-export default function ServicesPage() {
+function ServicesContent() {
   const searchParams = useSearchParams();
   const type = searchParams.get('type');
   const [isOxbridge, setIsOxbridge] = useState(type !== 'uk');
@@ -277,6 +277,13 @@ export default function ServicesPage() {
   );
 }
 
+export default function ServicesPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ServicesContent />
+    </Suspense>
+  );
+}
 
 function StepContent({ step, isOxbridge }: { step: any, isOxbridge: boolean }) {
   return (
