@@ -31,7 +31,7 @@ export const headerConfig: HeaderConfig = {
           href: '/network',
         },
         {
-          title: 'Articles',
+          title: 'Our Results',
           href: '/blog',
         },
         {

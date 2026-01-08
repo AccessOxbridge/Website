@@ -24,7 +24,7 @@ export default function Home() {
       <div className="mx-auto  h-px w-full max-w-5xl bg-gray-200" />
       <UniversitiesCarousel/>
       <Stats/>
-      <GetInTouch />
+      {/* <GetInTouch /> */}
       {/* <ExpertiseSection /> */}
 
       {/* Lazy load heavy components */}

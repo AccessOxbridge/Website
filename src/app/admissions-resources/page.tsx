@@ -43,7 +43,7 @@ const resourceCategories: ResourceCategory[] = [
 
 export default function AdmissionsResourcesPage() {
   return (
-    <div className="min-h-screen bg-gray-50 pt-24">
+    <div className="min-h-screen bg-gray-50 pt-16">
       {/* Hero Section */}
       <section className="bg-white py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,15 +51,15 @@ export default function AdmissionsResourcesPage() {
             <h1 className="text-3xl font-bold text-gray-900">
               Admissions Resources
             </h1>
-            <p className="text-base text-gray-600 max-w-3xl mx-auto w-1/2">
-              Comprehensive guides, expert advice, and insider tips to help you navigate the competitive world of UK university admissions.
+            <p className="text-base text-gray-600 max-w-3xl mx-auto w-1/2 px-24">
+              Browse Our Admissions Resources for Expert Guidance at Every Stage of Your Application
             </p>
           </div>
         </div>
       </section>
 
       {/* Resource Categories */}
-      <section className="pt-16 pb-4">
+      <section className="pt-1 pb-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {resourceCategories.map((category) => (
@@ -99,26 +99,6 @@ export default function AdmissionsResourcesPage() {
       </section>
 
       <FAQs showAdditionalFAQBox={false}/>
-
-      {/* Call to Action */}
-      <section className="py-16 bg-accent mt-12">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Need Personalised Guidance?
-          </h2>
-          <p className="text-blue-100 text-lg mb-8">
-            Our expert consultants can provide tailored advice for your specific situation and goals.
-          </p>
-          <Link
-            href="/consultation"
-            className="inline-flex items-center px-8 py-3 bg-white text-black font-semibold rounded-lg 
-            hover:text-accent hover:shadow-lg hover:scale-105 duration-200 ease-in-out"
-          >
-            Book a Consultation
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
-        </div>
-      </section>
     </div>
   )
 }

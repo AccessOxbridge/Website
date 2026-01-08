@@ -6,17 +6,6 @@ export const homeConfig: HomeConfig = {
       {
         id: 1,
         subheading: "ELITE ADMISSIONS",
-        headline: "Unlock Oxbridge: 62% Success Rate",
-        buttons: [
-          { label: "Speak to a Specialist", href: "/consultation", variant: "primary" },
-          { label: "Our Results", href: "#results", variant: "secondary" },
-        ],
-        type: "image",
-        src: "/oxbridge.png",
-      },
-      {
-        id: 2,
-        subheading: "INSIGHTS & GUIDES",
         headline: "Achieving Dreams: The Cambridge Experience",
         buttons: [
           { label: "View Article", href: "/blog/achieving-dreams-the-cambridge-experience", variant: "secondary" },
@@ -24,6 +13,17 @@ export const homeConfig: HomeConfig = {
         ],
         type: "image",
         src: "/ppl2.jpeg",
+      },
+      {
+        id: 2,
+        subheading: "TAILORED PATHWAYS",
+        headline: "Securing Futures",
+        buttons: [
+          { label: "Speak to a Specialist", href: "/consultation", variant: "primary" },
+          { label: "Our Results", href: "#results", variant: "secondary" },
+        ],
+        type: "image",
+        src: "/oxbridge.png",
       },
       {
         id: 3,

@@ -64,7 +64,7 @@ export default function Hero() {
                             key={idx}
                             href={btn.href}
                             className={`inline-flex min-w-[140px] sm:min-w-[160px] items-center justify-center px-6 sm:px-8 py-3 
-                              sm:py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-300 
+                              sm:py-3.5 text-xs sm:text-sm font-bold capitalize tracking-wider transition-all duration-300 
                               rounded-md ${btn.variant === "primary"
                               ? "bg-white text-black hover:bg-gray-200"
                               : "bg-[#2d2d2d]/90 text-white hover:bg-[#1f1f1f]"
