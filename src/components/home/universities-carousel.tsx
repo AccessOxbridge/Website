@@ -4,6 +4,7 @@ import { homeConfig } from "@/configs/home.config";
 import { motion } from "framer-motion";
 import { usePerformance } from "@/hooks/use-performance";
 import Image from "next/image";
+import { ResultsSection } from "./results-section";
 
 export default function UniversitiesCarousel() {
     const { shouldReduceMotion } = usePerformance();
@@ -22,6 +23,8 @@ export default function UniversitiesCarousel() {
           </h2>
           {/* <button className="mt-4 sm:mt-6 bg-black px-6 py-3 text-sm sm:text-base text-white hover:bg-black/80 cursor-pointer">{homeConfig.schoolLogos.buttonText}</button> */}
         </motion.div>
+
+        <ResultsSection/>
 
 
         <div className="relative">
