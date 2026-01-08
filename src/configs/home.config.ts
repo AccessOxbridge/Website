@@ -38,28 +38,6 @@ export const homeConfig: HomeConfig = {
       },
     ],
   },
-  boxes: [
-    {
-      title: 'UK University Admissions',
-      button: 'Find Out More',
-      href: '/services',
-      images: [
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_ymlJD7F2A6Oad1vdQ5UlNdYzF_lFUBcwlw&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_ymlJD7F2A6Oad1vdQ5UlNdYzF_lFUBcwlw&s"
-      ],
-      description: 'Applying to UK universities is exciting but complex, and small mistakes can have a big impact on your results. From choosing the right courses to writing a strong personal statement and meeting UCAS deadlines, the process rewards strategy as much as academic ability. Many students find that having clear guidance and a structured approach makes the experience far more manageable and effective.'
-    },
-    {
-      title: 'Oxbridge Admissions',
-      button: 'Speak to a Specialist',
-      href: '/consultation',
-      images: [
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_ymlJD7F2A6Oad1vdQ5UlNdYzF_lFUBcwlw&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_ymlJD7F2A6Oad1vdQ5UlNdYzF_lFUBcwlw&s"
-      ],
-      description: 'Applying to Oxbridge is challenging, but with the right support, you can increase your chances of success. Our Oxbridge Admissions service provides expert guidance, personalized mock interviews, and comprehensive admissions test tuition. We help you prepare for interviews, improve your test scores, and write a strong personal statement. With our support, you can increase your chances of success by 400%.'
-    },
-  ],
   stats: [
     {
       value: "10,000+",

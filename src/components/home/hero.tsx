@@ -102,50 +102,102 @@ export default function Hero() {
         </AnimatePresence>
       </div>
       <div className="relative h-fit flex flex-col sm:flex-row flex-wrap justify-center items-stretch gap-0">
-        {homeConfig.boxes.map((box, id) => {
-          return (
-            <a
-              key={id}
-              href={box.href}
-              className={`
-                group relative w-full sm:w-1/2 
-                h-full 
-                px-5 py-8
-                flex flex-col gap-4 sm:gap-8 
-                transition-all duration-500 text-center cursor-pointer
-                bg-white hover:-translate-y-2
-                border border-gray-100 
-                shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] 
-                hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.1)]
-              `}
-            >
-              <h2 className="text-base sm:text-lg lg:text-xl font-bold text-primary group-hover:text-accent transition-colors">
-                {box.title}
-              </h2>
-              <div className="flex items-center justify-center w-full gap-10">
-                {box.images && box.images.map((img, imgId) => (
-                  <Image 
-                    className="transition-transform group-hover:scale-110 duration-500" 
-                    key={imgId} 
-                    src={img} 
-                    alt="" 
-                    width={160} 
-                    height={160}
-                  />
-                ))}
-              </div>
-              <p className="text-base text-left text-gray-500 leading-relaxed group-hover:text-gray-700 transition-colors">
-                {box.description}
-              </p>
-              <button className="bg-accent text-white w-fit px-6 sm:px-8 py-2 text-sm 
-              font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2
-              hover:bg-accent-foreground transition-colors duration-300 cursor-pointer">
-                {box.button}
-                <ArrowRightIcon className="size-4" />
-              </button>
-            </a>
-          );
-        })}
+        {/* UK University Admissions Box */}
+        <a
+          href="/services"
+          className={`
+            group relative w-full sm:w-1/2
+            h-full
+            px-5 py-8
+            flex flex-col gap-4 sm:gap-8
+            transition-all duration-500 text-center cursor-pointer
+            bg-white hover:-translate-y-2
+            border border-gray-100
+            shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)]
+            hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.1)]
+          `}
+        >
+          <h2 className="text-base sm:text-lg lg:text-xl font-bold text-primary group-hover:text-accent transition-colors">
+            UK University Admissions
+          </h2>
+          <div className="flex items-center justify-center w-full gap-10">
+            <Image
+              className="transition-transform group-hover:scale-110 duration-200 w-32 h-32 object-contain"
+              src="/scientia.png"
+              alt="Scientia"
+              width={96}
+              height={96}
+            />
+            <Image
+              className="transition-transform group-hover:scale-110 duration-200 w-32 h-32 object-contain"
+              src="/lse.png"
+              alt="LSE"
+              width={80}
+              height={80}
+            />
+            <Image
+              className="transition-transform group-hover:scale-110 duration-200 w-40 h-40 object-contain"
+              src="/ucl.png"
+              alt="UCL"
+              width={112}
+              height={112}
+            />
+          </div>
+          <p className="text-base text-left text-gray-500 leading-relaxed group-hover:text-gray-700 transition-colors">
+            Applying to UK universities is exciting but complex, and small mistakes can have a big impact on your results. From choosing the right courses to writing a strong personal statement and meeting UCAS deadlines, the process rewards strategy as much as academic ability. Many students find that having clear guidance and a structured approach makes the experience far more manageable and effective.
+          </p>
+          <button className="bg-accent text-white w-fit px-6 sm:px-8 py-2 text-sm
+          font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2
+          hover:bg-accent-foreground transition-colors duration-300 cursor-pointer">
+            Find Out More
+            <ArrowRightIcon className="size-4" />
+          </button>
+        </a>
+
+        {/* Oxbridge Admissions Box */}
+        <a
+          href="/consultation"
+          className={`
+            group relative w-full sm:w-1/2
+            h-full
+            px-5 py-8
+            flex flex-col gap-4 sm:gap-8
+            transition-all duration-500 text-center cursor-pointer
+            bg-white hover:-translate-y-2
+            border border-gray-100
+            shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)]
+            hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.1)]
+          `}
+        >
+          <h2 className="text-base sm:text-lg lg:text-xl font-bold text-primary group-hover:text-accent transition-colors">
+            Oxbridge Admissions
+          </h2>
+          <div className="flex items-center justify-center w-full gap-10">
+            <Image
+              className="transition-transform group-hover:scale-110 duration-200 w-40 h-40 object-contain"
+              src="/cambridge.png"
+              alt="Cambridge"
+              width={128}
+              height={128}
+            />
+            <Image
+              className="transition-transform group-hover:scale-110 duration-200 w-32 h-32 object-contain"
+              src="/oxford.png"
+              alt="Oxford"
+              width={96}
+              height={96}
+            />
+          </div>
+          <p className="text-base text-left text-gray-500 leading-relaxed group-hover:text-gray-700 transition-colors">
+            Applying to Oxbridge is challenging, but with the right support, you can increase your chances of success. Our Oxbridge Admissions service provides expert guidance, personalized mock interviews, and comprehensive admissions test tuition. We help you prepare for interviews, improve your test scores, and write a strong personal statement. With our support, you can increase your chances of success by 400%.
+          </p>
+          <button className="bg-accent text-white w-fit px-6 sm:px-8 py-2 text-sm
+          font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2
+          hover:bg-accent-foreground transition-colors duration-300 cursor-pointer">
+            Speak to a Specialist
+            <ArrowRightIcon className="size-4" />
+          </button>
+        </a>
       </div>
     </section>
   );
