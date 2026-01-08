@@ -1,13 +1,8 @@
-import Header from "@/components/sections/header";
 import Hero from "@/components/home/hero";
-import Footer from "@/components/sections/footer";
 import ScrollIntentWebinar from "@/components/dialogs/ScrollIntentWebinar";
-import ApproachCards from "@/components/sections/cards";
 import Stats from "@/components/sections/stats";
 import UniversitiesCarousel from "@/components/home/universities-carousel";
-import ExpertiseSection from "@/components/home/expertise";
 import FAQs from "@/components/home/faqs";
-import { GetInTouch } from "@/components/home/get-in-touch";
 import { Globe } from "@/components/ui/globe";
 import { LazyLoad } from "@/components/ui/lazy-load";
 import dynamic from "next/dynamic";
