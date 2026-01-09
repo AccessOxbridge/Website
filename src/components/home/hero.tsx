@@ -11,6 +11,7 @@ import Image from "next/image";
 
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [scrollOpacity, setScrollOpacity] = useState(0.7);
   const slides = homeConfig.hero.slides;
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
@@ -19,6 +20,18 @@ export default function Hero() {
   useEffect(() => {
     const timer = setInterval(nextSlide, 6000);
     return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      // Start fading when scrolled 50px, fully faded at 200px
+      const opacity = Math.max(0, 0.7 - (scrollY / 200));
+      setScrollOpacity(opacity);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -30,7 +43,8 @@ export default function Hero() {
           alt="Access Oxbridge"
           width={360}
           height={360}
-          className="absolute top-[30%] right-[12%] w-48 h-48 z-100000"
+          className="hidden md:block absolute top-[30%] right-[14%] w-48 h-48 z-1001 opacity-70 transition-colors duration-300"
+          style={{ opacity: scrollOpacity }}
         />
         <AnimatePresence mode="popLayout">
           <motion.div
@@ -70,7 +84,7 @@ export default function Hero() {
                             key={idx}
                             href={btn.href}
                             className={`inline-flex min-w-[140px] sm:min-w-[160px] items-center justify-center px-6 sm:px-8 py-3 
-                              sm:py-3.5 text-xs sm:text-sm font-bold capitalize tracking-wider transition-all duration-300 
+                              sm:py-3.5 text-base font-bold transition-all duration-300 
                               rounded-md ${btn.variant === "primary"
                                 ? "bg-white text-black hover:bg-gray-200"
                                 : "bg-[#2d2d2d]/90 text-white hover:bg-[#1f1f1f]"
@@ -113,7 +127,7 @@ export default function Hero() {
           href="/services"
           className={`
             group relative w-full sm:w-1/2
-            h-full
+            h-120
             px-5 py-8
             flex flex-col gap-4 sm:gap-8
             transition-all duration-500 text-center cursor-pointer
@@ -123,38 +137,61 @@ export default function Hero() {
             hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.1)]
           `}
         >
-          <h2 className="text-base sm:text-lg lg:text-xl font-bold text-primary group-hover:text-accent transition-colors">
+          <h2 className="text-base sm:text-lg lg:text-xl font-bold text-primary group-hover:text-accent 
+          transition-colors h-[10%]">
             UK University Admissions
           </h2>
-          <div className="flex items-center justify-center w-full gap-10">
+          <div className="flex items-center justify-center w-full gap-6 h-[30%]">
             <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-28 h-28 object-contain"
+              className="transition-transform group-hover:scale-110 duration-200 w-14 h-full object-contain"
               src="/scientia.png"
               alt="Scientia"
               width={96}
               height={96}
             />
             <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-28 h-28 object-contain"
+              className="transition-transform group-hover:scale-110 duration-200 w-14 h-full object-contain"
               src="/lse.png"
               alt="LSE"
               width={80}
               height={80}
             />
             <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-44 h-44 object-contain"
+              className="transition-transform group-hover:scale-110 duration-200 w-20 h-full object-contain"
               src="/ucl.png"
               alt="UCL"
               width={112}
               height={112}
             />
+            <Image
+              className="transition-transform group-hover:scale-110 duration-200 w-14 h-full object-contain"
+              src="/edinburgh.png"
+              alt="Edinburgh"
+              width={112}
+              height={112}
+            />
+            <Image
+              className="transition-transform group-hover:scale-110 duration-200 w-14 h-full object-contain"
+              src="/kings.png"
+              alt="Kings"
+              width={112}
+              height={112}
+            />
+            <Image
+              className="transition-transform group-hover:scale-110 duration-200 w-32 h-full object-contain"
+              src="/bristol.png"
+              alt="Bristol"
+              width={112}
+              height={112}
+            />
           </div>
-          <p className="text-base text-left text-gray-500 leading-relaxed group-hover:text-gray-700 transition-colors">
+          <p className="text-base text-left text-gray-500 leading-relaxed group-hover:text-gray-700 
+          transition-colors h-[40%]">
             Applying to UK universities is exciting but complex, and small mistakes can have a big impact on your results. From choosing the right courses to writing a strong personal statement and meeting UCAS deadlines, the process rewards strategy as much as academic ability. Many students find that having clear guidance and a structured approach makes the experience far more manageable and effective.
           </p>
-          <button className="bg-accent text-white w-fit px-6 sm:px-8 py-2 text-sm
+          <button className="bg-accent text-white px-6 sm:px-8 py-2 text-sm justify-center
           font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2
-          hover:bg-accent-foreground transition-colors duration-300 cursor-pointer">
+          hover:bg-accent-foreground transition-colors duration-300 cursor-pointer h-12 w-68">
             Find Out More
             <ArrowRightIcon className="size-4" />
           </button>
@@ -165,7 +202,7 @@ export default function Hero() {
           href="/consultation"
           className={`
             group relative w-full sm:w-1/2
-            h-full
+            h-120
             px-5 py-8
             flex flex-col gap-4 sm:gap-8
             transition-all duration-500 text-center cursor-pointer
@@ -175,31 +212,33 @@ export default function Hero() {
             hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.1)]
           `}
         >
-          <h2 className="text-base sm:text-lg lg:text-xl font-bold text-primary group-hover:text-accent transition-colors">
+          <h2 className="text-base sm:text-lg lg:text-xl font-bold text-primary group-hover:text-accent 
+          transition-colors h-[10%]">
             Oxbridge Admissions
           </h2>
-          <div className="flex items-center justify-center w-full gap-10">
+          <div className="flex items-center justify-center w-full gap-6 h-[30%]">
             <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-40 h-40 object-contain"
+              className="transition-transform group-hover:scale-110 duration-200 w-24 h-full object-contain"
               src="/cambridge.png"
               alt="Cambridge"
               width={128}
               height={128}
             />
             <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-32 h-32 object-contain"
+              className="transition-transform group-hover:scale-110 duration-200 w-14 h-full object-contain"
               src="/oxford.png"
               alt="Oxford"
               width={96}
               height={96}
             />
           </div>
-          <p className="text-base text-left text-gray-500 leading-relaxed group-hover:text-gray-700 transition-colors">
+          <p className="text-base text-left text-gray-500 leading-relaxed group-hover:text-gray-700 
+          transition-colors h-[40%]">
             Applying to Oxbridge is challenging, but with the right support, you can increase your chances of success. Our Oxbridge Admissions service provides expert guidance, personalized mock interviews, and comprehensive admissions test tuition. We help you prepare for interviews, improve your test scores, and write a strong personal statement. With our support, you can increase your chances of success by 400%.
           </p>
-          <button className="bg-accent text-white w-fit px-6 sm:px-8 py-2 text-sm
+          <button className="bg-accent text-white px-6 sm:px-8 py-2 text-sm justify-center
           font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2
-          hover:bg-accent-foreground transition-colors duration-300 cursor-pointer">
+          hover:bg-accent-foreground transition-colors duration-300 cursor-pointer h-12 w-68">
             Speak to a Specialist
             <ArrowRightIcon className="size-4" />
           </button>

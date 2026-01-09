@@ -55,7 +55,7 @@ function FAQItem({ faq, index }: { faq: FAQItem; index: number }) {
 
 export default function FAQs() {
   return (
-    <section className="pt-16 sm:pt-24">
+    <section className="pt-16 sm:pt-24 mb-12">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

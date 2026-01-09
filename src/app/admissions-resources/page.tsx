@@ -51,9 +51,9 @@ export default function AdmissionsResourcesPage() {
             <h1 className="text-3xl font-bold text-gray-900 w-[70%] mx-auto">
             Browse Our Admissions Resources for Expert Guidance at Every Stage of Your Application
             </h1>
-            <p className="text-base text-gray-600 max-w-3xl mx-auto px-12">
+            {/* <p className="text-base text-gray-600 max-w-3xl mx-auto px-12">
               Browse Our Admissions Resources for Expert Guidance at Every Stage of Your Application
-            </p>
+            </p> */}
           </div>
         </div>
       </section>
@@ -80,14 +80,14 @@ export default function AdmissionsResourcesPage() {
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-accent transition-colors">
                     {category.title}
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed mb-4">
                     {category.description}
                   </p>
 
-                  <div className="flex items-center text-blue-600 font-medium text-sm group-hover:text-blue-700">
+                  <div className="flex items-center text-accent font-medium text-sm group-hover:text-accent">
                     <span>Explore Resources</span>
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </div>

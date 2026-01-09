@@ -116,7 +116,7 @@ function ServicesContent() {
   ];
 
   return (
-    <section className={`py-24 transition-colors duration-700 ${isOxbridge ? 'bg-gray-900 text-white' : 'bg-white text-slate-900'}`}>
+    <section className={`py-24 transition-colors duration-700 ${!isOxbridge ? 'bg-gray-900 text-white' : 'bg-white text-slate-900'}`}>
       <div className="max-w-7xl mx-auto px-6">
 
         {/* 1. Detached Header Section - Prevents overlap */}
@@ -206,24 +206,19 @@ function ServicesContent() {
       </div>
 
       {/* Core Services Grid */}
-      <section className={`mt-12 py-12 relative overflow-hidden transition-colors duration-500 ${isOxbridge ? 'bg-gray-900' : 'bg-white'
-        }`}>
-        <div className={`absolute top-0 left-0 w-full h-px transition-colors duration-500 ${isOxbridge ? 'bg-gray-700' : 'bg-gray-100'
-          }`} />
-
-        <div className="container mx-auto px-6">
+      <section className={`mt-12 py-12 overflow-hidden transition-colors duration-500 
+      ${!isOxbridge ? 'bg-gray-900' : 'bg-white'}`}>
+        <div className={`absolute top-0 left-0 w-full h-px transition-colors duration-500 
+        ${!isOxbridge ? 'bg-gray-700' : 'bg-gray-100'}`} />
+        <div className=" mx-auto px-6">
           <div className="flex flex-col mb-12 gap-8 text-center ">
-            <div>
-              <h2 className={`text-5xl font-black tracking-tight transition-colors duration-500 ${isOxbridge ? 'text-white' : 'text-primary'
-                }`}>
-                Our Tailored <span className={`transition-colors duration-500 ${isOxbridge ? 'text-gray-400' : 'text-gray-400'
-                  }`}>Services</span>
+              <h2 className={`text-5xl font-black tracking-tight transition-colors duration-500 
+              ${!isOxbridge ? 'text-white' : 'text-primary'}`}>
+                Our Tailored <span className={`transition-colors duration-500 
+                ${!isOxbridge ? 'text-gray-400' : 'text-gray-400'}`}>
+                  Services
+                </span>
               </h2>
-            </div>
-            {/* <p className="text-gray-500 max-w-md md:mb-1">
-              From subject-specific interview prep to long-term academic mentoring, we provide elite
-              support at every stage of the competitive admissions process.
-            </p> */}
           </div>
 
           <motion.div
@@ -237,34 +232,34 @@ function ServicesContent() {
               <motion.div
                 key={idx}
                 variants={fadeIn}
-                className={`group relative p-10 rounded-2xl transition-all duration-500 hover:-translate-y-2 border cursor-pointer
-                shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.1)] ${isOxbridge
+                className={`group relative p-10 rounded-2xl border transition-all duration-500 hover:-translate-y-2 cursor-pointer
+                shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.1)] ${!isOxbridge
                     ? 'bg-gray-800 border-gray-700'
                     : 'bg-white border-gray-100'
                   }`}
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-secondary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-t-2xl origin-left" />
 
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-8 transition-colors duration-500 ${isOxbridge
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-8 transition-colors duration-500 ${!isOxbridge
                     ? 'bg-gray-700 group-hover:bg-primary group-hover:text-accent'
                     : 'bg-gray-50 group-hover:bg-primary group-hover:text-accent'
                   }`}>
                   <service.icon className="w-6 h-6 transition-transform group-hover:scale-110" />
                 </div>
 
-                <h3 className={`text-xl font-bold mb-4 group-hover:underline group-hover:text-secondary transition-colors duration-500 ${isOxbridge ? 'text-white' : 'text-primary'
+                <h3 className={`text-xl font-bold mb-4 group-hover:underline group-hover:text-secondary transition-colors duration-500 ${!isOxbridge ? 'text-white' : 'text-primary'
                   }`}>
                   {service.title}
                 </h3>
-                <p className={`text-sm leading-relaxed mb-6 transition-colors duration-500 ${isOxbridge ? 'text-gray-300' : 'text-gray-500'
+                <p className={`text-sm leading-relaxed mb-6 transition-colors duration-500 ${!isOxbridge ? 'text-gray-300' : 'text-gray-500'
                   }`}>
                   {service.desc}
                 </p>
 
-                <div className={`flex items-center text-xs font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-2 group-hover:translate-x-0 ${isOxbridge ? 'text-white' : 'text-primary'
+                <div className={`flex items-center text-xs font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-2 group-hover:translate-x-0 ${!isOxbridge ? 'text-white' : 'text-primary'
                   }`}>
                   <span>Learn more</span>
-                  <div className={`ml-2 w-4 h-px transition-colors duration-500 ${isOxbridge ? 'bg-white' : 'bg-primary'
+                  <div className={`ml-2 w-4 h-px transition-colors duration-500 ${!isOxbridge ? 'bg-white' : 'bg-primary'
                     }`} />
                 </div>
               </motion.div>

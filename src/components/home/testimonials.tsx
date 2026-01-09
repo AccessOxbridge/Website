@@ -53,7 +53,8 @@ export function VideoTestimonials() {
                 </h2>
                 <a
                     href="#"
-                    className="inline-block bg-black hover:bg-accent-foreground text-white text-sm sm:text-base font-bold px-6 py-3 uppercase tracking-wider transition-all duration-300"
+                    className="inline-block bg-black hover:bg-accent-foreground text-white text-sm sm:text-base 
+                    font-bold px-6 py-3 uppercase tracking-wider transition-all duration-300 rounded-md"
                 >
                     {homeConfig.testimonialsSection.buttonText}
                 </a>

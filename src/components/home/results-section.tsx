@@ -66,7 +66,8 @@ export function ResultsSection() {
 
             <Link
               href="/our-results"
-              className="inline-block bg-black px-8 py-3 text-white font-medium hover:bg-black/80 transition-colors"
+              className="inline-block bg-black px-8 py-3 text-white font-medium hover:bg-black/80 transition-colors
+              rounded-md"
             >
               Our Results
             </Link>
