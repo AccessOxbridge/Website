@@ -30,7 +30,7 @@ export default function UniversitiesCarousel() {
               <motion.div
                 key={idx}
                 whileHover={shouldReduceMotion ? {} : { scale: 1.5 }}
-                className="flex h-24 items-center opacity-70 hover:scale-100 transition-colors"
+                className="flex h-24 items-center hover:scale-100 transition-colors"
               >
                 <Image
                   src={logo}

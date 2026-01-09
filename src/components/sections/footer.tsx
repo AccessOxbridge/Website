@@ -1,90 +1,136 @@
 import Link from "next/link";
-import { Search, ChevronUp } from "lucide-react";
+import { Globe, Instagram, Facebook, Youtube, Linkedin, Twitter } from "lucide-react";
 
 export default function Footer() {
+  const footerSections = [
+    {
+      title: "Our Services",
+      links: [
+        { label: "US Admissions Consulting", href: "#" },
+        { label: "UK Admissions Consulting", href: "#" },
+        { label: "European Admissions Consulting", href: "#" },
+        { label: "University Prep for 11-14 Year Olds", href: "#" },
+        { label: "Former Admission Officers Review", href: "#" },
+        { label: "SAT Tutoring", href: "#" },
+      ],
+    },
+    {
+      title: "About Access Oxbridge",
+      links: [
+        { label: "Our Consultants", href: "#" },
+        { label: "Our Results", href: "#" },
+        { label: "Our Story", href: "#" },
+        { label: "Access Oxbridge in the News", href: "#" },
+        { label: "Join Our Admissions Team", href: "#" },
+        { label: "US College Sports Recruitment", href: "#" },
+        { label: "Postgrad Admissions Consulting", href: "#" },
+        { label: "All Careers", href: "#" },
+        { label: "Our Scholarships", href: "#" },
+      ],
+    },
+    {
+      title: "Admission Resources",
+      links: [
+        { label: "Articles", href: "#" },
+        { label: "SAT Practice Tests", href: "#" },
+        { label: "ACT Practice Tests", href: "#" },
+        { label: "A-Level & IB to GPA Calculator", href: "#" },
+      ],
+    },
+    {
+      title: "Events",
+      links: [
+        { label: "Upcoming Events", href: "#" },
+      ],
+    },
+  ];
+
+  const socialLinks = [
+    { icon: <Instagram className="w-5 h-5" />, href: "#", label: "Instagram" },
+    { icon: <Facebook className="w-5 h-5" />, href: "#", label: "Facebook" },
+    { icon: <Youtube className="w-5 h-5" />, href: "#", label: "YouTube" },
+    { icon: <Linkedin className="w-5 h-5" />, href: "#", label: "LinkedIn" },
+    { icon: <Twitter className="w-5 h-5" />, href: "#", label: "X" },
+    {
+      icon: (
+        <svg
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="w-5 h-5"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.88-.6-4.13-1.46-.24 4.18-.73 8.35-1.93 12.39-1.2 4.03-3.08 7.37-7.42 8.65-4.34 1.28-9.05-.18-11.85-3.69C-1.89 22.38-3.09 17.53-2.6 13.06c.49-4.47 2.85-8.52 6.64-10.87 3.79-2.35 8.7-2.73 12.82-1.02.1-.03.2-.06.3-.09-.1.3-.2.6-.3.9z" />
+          <path d="M19.505 13.25c.02-.11.04-.21.05-.32.01-.1.02-.21.03-.31.01-.11.02-.21.02-.32 0-.11-.01-.22-.01-.32 0-.11-.01-.22-.02-.33-.01-.11-.02-.22-.03-.32-.01-.11-.03-.22-.04-.33-.02-.11-.04-.21-.06-.32zM12.525.02c-.1.03-.2.06-.3.09 4.12 1.71 9.03 1.33 12.82 3.68 3.79 2.35 6.15 6.4 6.64 10.87.49 4.47-.71 9.32-4.51-12.81-2.8-3.51-7.51-4.97-11.85-3.69-4.34 1.28-6.22 4.62-7.42 8.65-1.2 4.04-1.69 8.21-1.93 12.39-1.25.86-2.69 1.29-4.13 1.46V6c1.54-.17 3.12-.68 4.24-1.79 1.12-1.08 1.67-2.64 1.75-4.17 1.3.01 2.6.02 3.91.02l-.3.92z" />
+        </svg>
+      ),
+      href: "#",
+      label: "TikTok",
+    },
+  ];
+
   return (
-    <footer className="w-full bg-white text-neutral-900 font-sans antialiased border-t border-neutral-200">
-      <div className="max-w-[1440px] mx-auto px-5 sm:px-10 py-16">
-        <div className="mb-6">
-          <h2 className="text-[13px] font-bold tracking-widest uppercase text-black">
-            Access Oxbridge
-          </h2>
+    <footer className="w-full bg-white text-accent font-sans antialiased border-t border-neutral-100 pt-16 pb-8">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-20">
+          {footerSections.map((section, idx) => (
+            <div key={idx} className="flex flex-col">
+              <h3 className="text-lg font-bold mb-6 text-accent opacity-90">
+                {section.title}
+              </h3>
+              <ul className="flex flex-col space-y-3">
+                {section.links.map((link, linkIdx) => (
+                  <li key={linkIdx}>
+                    <Link
+                      href={link.href}
+                      className="text-[15px] font-medium text-accent/80 hover:text-accent hover:underline transition-all duration-200 decoration-1 underline-offset-4"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          <div className="flex flex-col">
+            <h3 className="text-lg font-bold mb-6 text-accent opacity-90">
+              Follow Us
+            </h3>
+            <div className="flex flex-wrap gap-3">
+              {socialLinks.map((social, idx) => (
+                <Link
+                  key={idx}
+                  href={social.href}
+                  className="w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center hover:opacity-90 transition-opacity"
+                  aria-label={social.label}
+                >
+                  {social.icon}
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="w-full h-px bg-neutral-200 mb-10"></div>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-y-12 gap-x-8 mb-24">
-          <div className="flex flex-col space-y-4">
-            <h3 className="text-sm text-neutral-900 font-normal mb-1">Our World</h3>
-            <ul className="flex flex-col space-y-3">
-              <li><Link href="#" className="text-xs text-neutral-600 hover:text-[#1b8a7a] hover:underline transition-colors">Models</Link></li>
-              <li><Link href="#" className="text-xs text-neutral-600 hover:text-[#1b8a7a] hover:underline transition-colors">Owners</Link></li>
-              <li><Link href="#" className="text-xs text-neutral-600 hover:text-[#1b8a7a] hover:underline transition-colors">F1 Team</Link></li>
-              <li><Link href="#" className="text-xs text-neutral-600 hover:text-[#1b8a7a] hover:underline transition-colors">Preowned</Link></li>
-              <li><Link href="#" className="text-xs text-neutral-600 hover:text-[#1b8a7a] hover:underline transition-colors">Experiences</Link></li>
-            </ul>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end pt-12 border-t border-neutral-100">
+          <div className="mb-8 md:mb-0">
+            <button className="flex items-center gap-3 px-6 py-4 border border-accent rounded-md text-accent font-bold text-sm hover:bg-neutral-50 transition-colors">
+              <Globe className="w-5 h-5" strokeWidth={1.5} />
+              English (United Kingdom)
+            </button>
           </div>
 
-          <div className="flex flex-col space-y-4">
-            <h3 className="text-sm text-neutral-900 font-normal mb-1">Dealers</h3>
-            <ul className="flex flex-col space-y-3">
-              <li><Link href="#" className="text-xs text-neutral-600 hover:text-[#1b8a7a] hover:underline transition-colors">Enquiry</Link></li>
-              <li><Link href="#" className="text-xs text-neutral-600 hover:text-[#1b8a7a] hover:underline transition-colors">Contact us</Link></li>
-            </ul>
-          </div>
-
-          <div className="flex flex-col space-y-4">
-            <h3 className="text-sm text-neutral-900 font-normal mb-1">Corporate</h3>
-            <ul className="flex flex-col space-y-3">
-              <li><Link href="#" className="text-xs text-neutral-600 hover:text-[#1b8a7a] hover:underline transition-colors">About Us</Link></li>
-              <li><Link href="#" className="text-xs text-neutral-600 hover:text-[#1b8a7a] hover:underline transition-colors">Media</Link></li>
-              <li><Link href="#" className="text-xs text-neutral-600 hover:text-[#1b8a7a] hover:underline transition-colors">Careers</Link></li>
-              <li><Link href="#" className="text-xs text-neutral-600 hover:text-[#1b8a7a] hover:underline transition-colors">Investors</Link></li>
-            </ul>
-          </div>
-
-          {/* <div className="flex flex-col space-y-4 lg:pl-10">
-            <h3 className="text-sm text-neutral-900 font-normal mb-1">Sign up for our newsletter</h3>
-            <div className="relative w-full max-w-[300px]">
-              <input
-                type="text"
-                placeholder="Email"
-                className="w-full border-b border-neutral-300 py-2 text-sm text-neutral-900 placeholder:text-neutral-500 bg-transparent focus:outline-none focus:border-[#1b8a7a] transition-colors pr-8"
-              />
-              <Search className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
+          <div className="flex flex-col md:items-end gap-2 text-xs font-semibold text-accent/70">
+            <div className="flex flex-wrap gap-x-4 gap-y-2 mb-2">
+              <Link href="#" className="underline decoration-1 underline-offset-2 hover:text-accent">Terms Of Use</Link>
+              <span className="text-neutral-300">|</span>
+              <Link href="#" className="underline decoration-1 underline-offset-2 hover:text-accent">Cookie Preferences</Link>
+              <span className="text-neutral-300">|</span>
+              <Link href="#" className="underline decoration-1 underline-offset-2 hover:text-accent">Privacy Policy</Link>
             </div>
-          </div> */}
-        </div>
-
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 pt-4">
-            <div className="flex items-center gap-5 text-neutral-500">
-              <Link href="#" className="hover:text-accent transition-colors" aria-label="Instagram">
-                <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-              </Link>
-              <Link href="#" className="hover:text-accent transition-colors" aria-label="Facebook">
-                <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-              </Link>
-              <Link href="#" className="hover:text-accent transition-colors" aria-label="X">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-[17px] h-[17px]">
-                  <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
-                  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
-                </svg>
-              </Link>
-              <Link href="#" className="hover:text-accent transition-colors" aria-label="YouTube">
-                <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
-              </Link>
-              <Link href="#" className="hover:text-accent transition-colors" aria-label="LinkedIn">
-                <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-              </Link>
-            </div>
-          <div className="flex flex-col items-start lg:items-end gap-6 w-full lg:w-auto">
-
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] text-neutral-500">
-              <Link href="#" className="hover:text-accent transition-colors">Terms & Conditions</Link>
-              <Link href="#" className="hover:text-accent transition-colors">Privacy</Link>
-              <Link href="#" className="hover:text-accent transition-colors">Cookies</Link>
-              <span className="text-neutral-400">© Access Oxbridge 2025</span>
-            </div>
+            <p className="mb-1 italic">© 2026 Access Oxbridge Education. All rights reserved.</p>
+            <p className="max-w-2xl text-[10px] md:text-right leading-relaxed font-normal opacity-60">
+              Access Oxbridge Education is not sponsored by, affiliated, or associated with any university, college, or education(al) institution mentioned on this website.
+            </p>
           </div>
         </div>
       </div>
