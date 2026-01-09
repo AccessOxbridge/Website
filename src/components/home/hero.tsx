@@ -138,10 +138,10 @@ export default function Hero() {
           `}
         >
           <h2 className="text-base sm:text-lg lg:text-xl font-bold text-primary group-hover:text-accent 
-          transition-colors h-[10%]">
+          transition-colors h-[5%]">
             UK University Admissions
           </h2>
-          <div className="flex items-center justify-center w-full gap-6 h-[30%]">
+          <div className="flex items-center justify-center w-full gap-6 h-[30%] scale-60 sm:scale-100">
             <Image
               className="transition-transform group-hover:scale-110 duration-200 w-14 h-full object-contain"
               src="/scientia.png"
@@ -190,7 +190,7 @@ export default function Hero() {
             Applying to UK universities is exciting but complex, and small mistakes can have a big impact on your results. From choosing the right courses to writing a strong personal statement and meeting UCAS deadlines, the process rewards strategy as much as academic ability. Many students find that having clear guidance and a structured approach makes the experience far more manageable and effective.
           </p>
           <button className="bg-accent text-white px-6 sm:px-8 py-2 text-sm justify-center
-          font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2
+          font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2 mt-14 sm:mt-0
           hover:bg-accent-foreground transition-colors duration-300 cursor-pointer h-12 w-68">
             Find Out More
             <ArrowRightIcon className="size-4" />
@@ -216,7 +216,7 @@ export default function Hero() {
           transition-colors h-[10%]">
             Oxbridge Admissions
           </h2>
-          <div className="flex items-center justify-center w-full gap-6 h-[30%]">
+          <div className="flex items-center justify-center w-full gap-6 h-[30%] scale-90 sm:scale-100">
             <Image
               className="transition-transform group-hover:scale-110 duration-200 w-24 h-full object-contain"
               src="/cambridge.png"
@@ -237,7 +237,7 @@ export default function Hero() {
             Applying to Oxbridge is challenging, but with the right support, you can increase your chances of success. Our Oxbridge Admissions service provides expert guidance, personalized mock interviews, and comprehensive admissions test tuition. We help you prepare for interviews, improve your test scores, and write a strong personal statement. With our support, you can increase your chances of success by 400%.
           </p>
           <button className="bg-accent text-white px-6 sm:px-8 py-2 text-sm justify-center
-          font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2
+          font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2 mt-14 sm:mt-0
           hover:bg-accent-foreground transition-colors duration-300 cursor-pointer h-12 w-68">
             Speak to a Specialist
             <ArrowRightIcon className="size-4" />
