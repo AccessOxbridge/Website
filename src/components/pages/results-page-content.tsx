@@ -7,11 +7,11 @@ import { useReducedMotion } from '@/hooks/use-reduced-motion';
 const acceptanceRateData = [
   {
     name: 'Global Average',
-    value: 17,
+    value: 15,
   },
   {
     name: 'Access Oxbridge',
-    value: 73,
+    value: 67,
   },
 ];
 
@@ -71,7 +71,7 @@ export function ResultsPageContent() {
             className="text-center"
           >
             <h1 className="text-4xl sm:text-5xl text-black w-2/3 mx-auto">
-            Discover the impact Access Oxbridge has made on thousands of students pursuing their Oxbridge dreams
+            Why Access Oxbridge?
             </h1>
             {/* <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Discover the impact Access Oxbridge has made on thousands of students pursuing their Oxbridge dreams.
@@ -92,7 +92,7 @@ export function ResultsPageContent() {
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">UK & Oxbridge</h2>
             <p className="text-lg text-gray-600">
-              73% of our Premier Service students receive an offer from Oxford or Cambridge, vs a global average of 17%.
+              67% of our Premier Service students receive an offer from Oxford or Cambridge, vs a global average of 15%.
             </p>
           </motion.div>
 
@@ -107,9 +107,8 @@ export function ResultsPageContent() {
             <div className="bg-gray-50 p-8 rounded-lg">
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart data={acceptanceRateData} margin={{ top: 20, right: 30, left: 0, bottom: 20 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
                   <XAxis dataKey="name" stroke="#6b7280" />
-                  <YAxis stroke="#6b7280" />
+                  <YAxis stroke="#6b7280" domain={[0, 100]} />
                   <Tooltip
                     contentStyle={{
                       backgroundColor: '#fff',
@@ -125,7 +124,7 @@ export function ResultsPageContent() {
             <div className="flex flex-col justify-center">
               <h3 className="text-2xl font-semibold text-black mb-4">Oxbridge Acceptance Rate</h3>
               <p className="text-gray-700 mb-6">
-                Our students achieve a 73% acceptance rate to Oxford and Cambridge, significantly outperforming the global average of 17%.
+                Our students achieve a 67% acceptance rate to Oxford and Cambridge, significantly outperforming the global average of 15%.
               </p>
               <ul className="space-y-3">
                 <li className="flex gap-3">
@@ -168,7 +167,7 @@ export function ResultsPageContent() {
                   <tr className="border-b border-gray-200 bg-cyan-50">
                     <td className="px-6 py-4 font-semibold text-black">Access Oxbridge</td>
                     <td className="px-6 py-4 text-gray-700">Consultancy</td>
-                    <td className="px-6 py-4 font-bold text-cyan-600">73%</td>
+                    <td className="px-6 py-4 font-bold text-cyan-600">67%</td>
                   </tr>
                   <tr className="border-b border-gray-200">
                     <td className="px-6 py-4 text-gray-700">Competitor A</td>
@@ -217,7 +216,7 @@ export function ResultsPageContent() {
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
           >
             <motion.div variants={itemVariants} className="text-center p-8 bg-white rounded-lg shadow-sm">
-              <div className="text-5xl font-bold text-cyan-500 mb-2">73%</div>
+              <div className="text-5xl font-bold text-cyan-500 mb-2">67%</div>
               <p className="text-lg text-gray-700 font-semibold">Oxbridge Success Rate</p>
               <p className="text-gray-600 mt-2">Highest in the industry</p>
             </motion.div>
@@ -315,7 +314,7 @@ export function ResultsPageContent() {
                 <div className="text-2xl flex-shrink-0">✓</div>
                 <div>
                   <h3 className="font-semibold text-black mb-2">Proven Results</h3>
-                  <p className="text-gray-600">73% of our students receive offers from Oxford or Cambridge.</p>
+                  <p className="text-gray-600">67% of our students receive offers from Oxford or Cambridge.</p>
                 </div>
               </div>
             </motion.div>

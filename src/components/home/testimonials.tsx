@@ -49,15 +49,16 @@ export function VideoTestimonials() {
                 className="mb-10 sm:mb-16 text-center px-4"
             >
                 <h2 className="mx-auto max-w-3xl text-2xl sm:text-4xl font-semibold tracking-tighter text-black mb-4 sm:mb-6">
-                    {homeConfig.testimonialsSection.title}
+                    {/* {homeConfig.testimonialsSection.title} */}
+                    Client Testimonials and Results
                 </h2>
-                <a
+                {/* <a
                     href="#"
                     className="inline-block bg-black hover:bg-accent-foreground text-white text-sm sm:text-base 
                     font-bold px-6 py-3 uppercase tracking-wider transition-all duration-300 rounded-md"
                 >
                     {homeConfig.testimonialsSection.buttonText}
-                </a>
+                </a> */}
             </motion.div>
             <motion.div
                 initial={{ opacity: 0, y: 40 }}

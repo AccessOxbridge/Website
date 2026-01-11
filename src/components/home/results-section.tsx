@@ -22,7 +22,7 @@ export function ResultsSection() {
   return (
     <section id="results" className="pt-12 sm:pt-24 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 items-center">
           {/* Left Content */}
           <motion.div
             initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: -40 }}
@@ -35,13 +35,13 @@ export function ResultsSection() {
               <h2 className="text-3xl sm:text-4xl font-semibold tracking-tighter text-black mb-4">
                 4x Your Oxbridge Chances
               </h2>
-              <p className="text-lg text-gray-600">
+              {/* <p className="text-lg text-gray-600">
                 We are proud of the improvements students make by working with us. 73% of our students receive offers from Oxford or Cambridge, compared to an average of 17%.
-              </p>
+              </p> */}
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-black">Access Oxbridge by the numbers:</h3>
+              {/* <h3 className="text-xl font-semibold text-black">Access Oxbridge by the numbers:</h3> */}
               <ul className="space-y-3">
                 <li className="flex gap-3">
                   <span className="text-accent font-bold">•</span>

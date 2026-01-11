@@ -121,11 +121,9 @@ export default function Footer() {
 
           <div className="flex flex-col md:items-end gap-2 text-xs font-semibold text-accent/70">
             <div className="flex flex-wrap gap-x-4 gap-y-2 mb-2">
-              <Link href="#" className="underline decoration-1 underline-offset-2 hover:text-accent">Terms Of Use</Link>
+              <Link href="/terms-of-use" className="underline decoration-1 underline-offset-2 hover:text-accent">Terms Of Use</Link>
               <span className="text-neutral-300">|</span>
-              <Link href="#" className="underline decoration-1 underline-offset-2 hover:text-accent">Cookie Preferences</Link>
-              <span className="text-neutral-300">|</span>
-              <Link href="#" className="underline decoration-1 underline-offset-2 hover:text-accent">Privacy Policy</Link>
+              <Link href="/privacy-policy" className="underline decoration-1 underline-offset-2 hover:text-accent">Privacy Policy</Link>
             </div>
             <p className="mb-1 italic">© 2026 Access Oxbridge Education. All rights reserved.</p>
             <p className="max-w-2xl text-[10px] md:text-right leading-relaxed font-normal opacity-60">

@@ -104,15 +104,12 @@ function ServicesContent() {
   const steps = isOxbridge ? oxbridgeSteps : ukSteps;
 
   const services = [
-    { title: "Strategic Admissions Consultations", icon: Target, desc: "Expert guidance on university selection and application strategy tailored to your strengths." },
-    { title: "Academic Portfolio Development", icon: FileText, desc: "Building a robust body of work to demonstrate intellectual curiosity and capability." },
-    { title: "Super Curricular Enrichment", icon: BookOpen, desc: "Going beyond the syllabus with advanced reading and research projects." },
-    { title: "Academic Resource Creation", icon: Users, desc: "Custom guides, exclusive webinars, and sample statements for your subject." },
-    { title: "UCAS Personal Statement Support", icon: FileText, desc: "Drafting, editing, and refining your statement to stand out to admissions tutors." },
-    { title: "Admissions Test Prep", icon: Clock, desc: "Comprehensive preparation for UCAT, BMAT, LNAT, TSA, and other entrance exams." },
-    { title: "Medicine Mock Interviews", icon: Award, desc: "MMI and panel interview simulations with qualified medical professionals." },
-    { title: "Oxbridge Mock Interviews", icon: GraduationCap, desc: "Subject-specific mock interviews replicating the rigorous Oxbridge format." },
-    { title: "Curriculum Support (GCSE/A-Level/IB)", icon: BookOpen, desc: "Subject tuition to ensure top grades in your qualifying examinations." },
+    { title: "UCAS Personal Statement Support", icon: FileText, desc: "Individual guidance to help students articulate academic motivation, supercurricular engagement, and subject readiness through a clear, authentic, and intellectually focused personal statement." },
+    { title: "Admissions Test Preparation", icon: Clock, desc: "Structured preparation for Oxbridge and competitive admissions tests, developing problem-solving ability, exam technique, and subject-specific thinking under timed conditions." },
+    { title: "Oxbridge Interview Preparation", icon: GraduationCap, desc: "Rigorous interview preparation focused on academic discussion, critical thinking, and confidence, guided by Oxbridge graduates who understand subject-specific interview expectations." },
+    { title: "Medicine Interview Preparation", icon: Award, desc: "Targeted preparation for medical school interviews, including MMI and panel formats, with emphasis on ethical reasoning, communication skills, and reflective thinking." },
+    { title: "International Application Guidance", icon: Users, desc: "Specialist support for international students, addressing curriculum differences, admissions expectations, and application strategy when applying to Oxbridge and UK universities." },
+    { title: "Curriculum Support (GCSE/A-Level/IB)", icon: BookOpen, desc: "Targeted academic tuition to build the strong subject foundations, grades, and intellectual confidence required for successful applications to Oxbridge and other elite universities." },
   ];
 
   return (
@@ -256,12 +253,13 @@ function ServicesContent() {
                   {service.desc}
                 </p>
 
-                <div className={`flex items-center text-xs font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-2 group-hover:translate-x-0 ${!isOxbridge ? 'text-white' : 'text-primary'
+                <a href='/consultation'
+                className={`flex items-center text-xs font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-2 group-hover:translate-x-0 ${!isOxbridge ? 'text-white' : 'text-primary'
                   }`}>
-                  <span>Learn more</span>
+                  <span>Find Your Mentor</span>
                   <div className={`ml-2 w-4 h-px transition-colors duration-500 ${!isOxbridge ? 'bg-white' : 'bg-primary'
                     }`} />
-                </div>
+                </a>
               </motion.div>
             ))}
           </motion.div>
