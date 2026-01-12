@@ -8,8 +8,8 @@ export const homeConfig: HomeConfig = {
         subheading: "ELITE ADMISSIONS",
         headline: "Achieving Dreams: The Cambridge Experience",
         buttons: [
-          { label: "Our Results", href: "/our-results", variant: "secondary" },
-          { label: "Book Free Consultation →", href: "/consultation", variant: "primary" },
+          { label: "Our Results", href: "/our-results", variant: "primary" },
+          { label: "Book Free Consultation →", href: "/consultation", variant: "secondary" },
         ],
         type: "image",
         src: "/ppl2.jpeg",
@@ -146,12 +146,13 @@ export const homeConfig: HomeConfig = {
     "/kings.png",
     "/lse.png",
     "/manchester.png",
-    "/queeneli.png",
+    "/oxford.png",
+    // "/queeneli.png",
     "/scientia.png",
     "/ucl.png",
   ],
   schoolLogos: {
-    title: "Collaborations, Partnerships and Destinations.",
+    title: "Partnerships and Destinations.",
     buttonText: "Find out more",
   },
   testimonialsSection: {

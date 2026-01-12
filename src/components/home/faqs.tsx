@@ -23,7 +23,7 @@ function FAQItem({ faq, index }: { faq: FAQItem; index: number }) {
         onClick={() => setIsOpen(!isOpen)}
         className="w-full py-6 text-left flex justify-between items-center hover:bg-gray-50 rounded-lg transition-colors duration-200"
       >
-        <h3 className="text-lg font-semibold text-black pr-4">{faq.question}</h3>
+        <h3 className="text-lg font-semibold text-black pr-4 capitalize">{faq.question}</h3>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.2 }}
@@ -55,7 +55,7 @@ function FAQItem({ faq, index }: { faq: FAQItem; index: number }) {
 
 export default function FAQs() {
   return (
-    <section className="pt-16 sm:pt-24 mb-12">
+    <section className="pt-16 sm:pt-24 mb-12 capitalize">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

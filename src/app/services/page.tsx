@@ -178,8 +178,8 @@ function ServicesContent() {
 
                       {/* The Node */}
                       <div className="relative z-10">
-                        <div className={`w-16 h-16 rounded-full flex items-center justify-center border-2 transition-all 
-                        duration-500 shadow-2xl hover:scale-150 hover:bg-green-400 cursor-pointer ${step.isSuccess
+                        <div className={`w-16 h-16 rounded-full flex items-center justify-center border-2 transition-all
+                        duration-500 shadow-2xl hover:scale-150 ${step.isSuccess ? 'hover:bg-green-400' : 'hover:bg-blue-900'} cursor-pointer ${step.isSuccess
                             ? 'bg-green-500 border-green-400 text-white'
                             : isOxbridge
                               ? 'bg-gray-900 border-white/20 text-white'

@@ -29,8 +29,8 @@ export default function UniversitiesCarousel() {
             {[...homeConfig.logos, ...homeConfig.logos].map((logo, idx) => (
               <motion.div
                 key={idx}
-                whileHover={shouldReduceMotion ? {} : { scale: 1.5 }}
-                className="flex h-24 items-center hover:scale-100 transition-colors"
+                // whileHover={shouldReduceMotion ? {} : { scale: 1.5 }}
+                className="flex h-24 items-center transition-colors"
               >
                 <Image
                   src={logo}

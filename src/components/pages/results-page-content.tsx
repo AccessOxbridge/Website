@@ -61,6 +61,12 @@ export function ResultsPageContent() {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* 4x Your Oxbridge Chances Banner */}
+      <div className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-4 px-4 text-center">
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-wide">
+          4x Your Oxbridge Chances
+        </h1>
+      </div>
       {/* Hero Section */}
       <section className="py-16 sm:py-32 ">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -122,24 +128,34 @@ export function ResultsPageContent() {
               </ResponsiveContainer>
             </div>
             <div className="flex flex-col justify-center">
-              <h3 className="text-2xl font-semibold text-black mb-4">Oxbridge Acceptance Rate</h3>
-              <p className="text-gray-700 mb-6">
-                Our students achieve a 67% acceptance rate to Oxford and Cambridge, significantly outperforming the global average of 15%.
-              </p>
-              <ul className="space-y-3">
+              <h3 className="text-2xl font-semibold text-black mb-6">Why our students succeed:</h3>
+              <ul className="space-y-4 mb-6">
                 <li className="flex gap-3">
                   <span className="text-cyan-500 font-bold">•</span>
-                  <span className="text-gray-700">100% of our Oxbridge candidates receive at least two offers from Russell Group universities</span>
+                  <span className="text-gray-700"><strong>Targeted preparation:</strong> Applications are shaped around each student's academic strengths, subject interests, and long-term goals.</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-cyan-500 font-bold">•</span>
-                  <span className="text-gray-700">Our students receive 500+ Oxbridge offers every year</span>
+                  <span className="text-gray-700"><strong>Insider insight:</strong> Guidance is led by Oxbridge graduates who understand the admissions process from the inside.</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="text-cyan-500 font-bold">•</span>
-                  <span className="text-gray-700">Average 20% improvement in admissions test scores after just 4 hours of tuition</span>
+                  <span className="text-gray-700"><strong>Depth over formulas:</strong> We focus on intellectual development, interview thinking, and authentic academic engagement, not templates.</span>
+                </li>
+                <li className="flex gap-3">
+                  <span className="text-cyan-500 font-bold">•</span>
+                  <span className="text-gray-700"><strong>Sustained mentoring:</strong> Support spans the full application journey, from subject exploration to interview readiness.</span>
                 </li>
               </ul>
+              <p className="text-gray-700 mb-6">
+                Our results reflect a commitment to thoughtful, individual mentoring and academic rigour.
+              </p>
+              <a
+                href="/our-results"
+                className="inline-flex items-center justify-center px-6 py-3 bg-cyan-500 text-white font-bold rounded-md hover:bg-cyan-600 transition-colors duration-300"
+              >
+                Our Results →
+              </a>
             </div>
           </motion.div>
 

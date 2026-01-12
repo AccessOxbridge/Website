@@ -86,8 +86,8 @@ export default function Hero() {
                             className={`inline-flex min-w-[140px] sm:min-w-[160px] items-center justify-center px-6 sm:px-8 py-3 
                               sm:py-3.5 text-base font-bold transition-all duration-300 
                               rounded-md ${btn.variant === "primary"
-                                ? "bg-white text-black hover:bg-gray-200"
-                                : "bg-[#2d2d2d]/90 text-white hover:bg-[#1f1f1f]"
+                                ? "bg-accent text-rich-amber-accent hover:bg-accent/90"
+                                : "bg-white text-black hover:bg-gray-200"
                               }`}
                           >
                             {btn.label}
@@ -141,49 +141,53 @@ export default function Hero() {
           transition-colors h-[5%]">
             UK University Admissions
           </h2>
-          <div className="flex items-center justify-center w-full gap-6 h-[30%] scale-60 sm:scale-100">
-            <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-14 h-full object-contain"
-              src="/scientia.png"
-              alt="Scientia"
-              width={96}
-              height={96}
-            />
-            <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-14 h-full object-contain"
-              src="/lse.png"
-              alt="LSE"
-              width={80}
-              height={80}
-            />
-            <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-20 h-full object-contain"
-              src="/ucl.png"
-              alt="UCL"
-              width={112}
-              height={112}
-            />
-            <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-14 h-full object-contain"
-              src="/edinburgh.png"
-              alt="Edinburgh"
-              width={112}
-              height={112}
-            />
-            <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-14 h-full object-contain"
-              src="/kings.png"
-              alt="Kings"
-              width={112}
-              height={112}
-            />
-            <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-32 h-full object-contain"
-              src="/bristol.png"
-              alt="Bristol"
-              width={112}
-              height={112}
-            />
+          <div className="flex flex-col items-center justify-center w-full gap-4 h-[30%] scale-60 sm:scale-100">
+            <div className="flex items-center justify-center gap-6">
+              <Image
+                className="transition-transform group-hover:scale-110 duration-200 w-14 h-full object-contain"
+                src="/scientia.png"
+                alt="Scientia"
+                width={96}
+                height={96}
+              />
+              <Image
+                className="transition-transform group-hover:scale-110 duration-200 w-14 h-full object-contain"
+                src="/lse.png"
+                alt="LSE"
+                width={80}
+                height={80}
+              />
+              <Image
+                className="transition-transform group-hover:scale-110 duration-200 w-20 h-full object-contain"
+                src="/ucl.png"
+                alt="UCL"
+                width={112}
+                height={112}
+              />
+            </div>
+            <div className="flex items-center justify-center gap-6">
+              <Image
+                className="transition-transform group-hover:scale-110 duration-200 w-14 h-full object-contain"
+                src="/edinburgh.png"
+                alt="Edinburgh"
+                width={112}
+                height={112}
+              />
+              <Image
+                className="transition-transform group-hover:scale-110 duration-200 w-14 h-full object-contain"
+                src="/kings.png"
+                alt="Kings"
+                width={112}
+                height={112}
+              />
+              <Image
+                className="transition-transform group-hover:scale-110 duration-200 w-32 h-full object-contain"
+                src="/bristol.png"
+                alt="Bristol"
+                width={112}
+                height={112}
+              />
+            </div>
           </div>
           <p className="text-base text-left text-gray-500 leading-relaxed group-hover:text-gray-700 
           transition-colors h-[40%]">
@@ -218,14 +222,14 @@ export default function Hero() {
           </h2>
           <div className="flex items-center justify-center w-full gap-6 h-[30%] scale-90 sm:scale-100">
             <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-24 h-full object-contain"
+              className="transition-transform group-hover:scale-110 duration-200 w-32 h-full object-contain"
               src="/cambridge.png"
               alt="Cambridge"
               width={128}
               height={128}
             />
             <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-14 h-full object-contain"
+              className="transition-transform group-hover:scale-110 duration-200 w-28 h-full object-contain"
               src="/oxford.png"
               alt="Oxford"
               width={96}

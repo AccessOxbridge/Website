@@ -55,7 +55,7 @@ export default function Header() {
             </button>
           </div>
           
-          <NavigationMenu className="hidden md:flex flex-1 justify-start" viewport={false}>
+          <NavigationMenu className="hidden md:flex flex-1 justify-start tracking-tighter" viewport={false}>
             <NavigationMenuList className="flex items-center justify-start gap-2">
               {headerConfig.navigation.map((item) => (
                 item.hasDropdown && item.dropdownItems ? (
@@ -65,8 +65,8 @@ export default function Header() {
                         e.preventDefault();
                         router.push(item.href);
                       }}
-                      className="text-base font-bold text-white hover:text-accent transition-colors tracking-wider 
-                      px-2 py-1 cursor-pointer"
+                      className="text-base font-bold text-white hover:text-accent transition-colors
+                      px-2 py-1 cursor-pointer tracking-tight"
                     >
                       {item.title}
                     </NavigationMenuTrigger>
