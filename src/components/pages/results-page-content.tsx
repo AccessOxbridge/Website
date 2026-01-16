@@ -3,6 +3,12 @@
 import { motion } from 'framer-motion';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useReducedMotion } from '@/hooks/use-reduced-motion';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, FreeMode } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/free-mode";
+import { useRef } from "react";
+import type { Swiper as SwiperType } from "swiper";
 
 const acceptanceRateData = [
   {
@@ -38,6 +44,7 @@ const successStories = [
 
 export function ResultsPageContent() {
   const shouldReduceMotion = useReducedMotion();
+  const swiperRef = useRef<SwiperType | null>(null);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -77,7 +84,7 @@ export function ResultsPageContent() {
             className="text-center"
           >
             <h1 className="text-4xl sm:text-5xl text-black w-2/3 mx-auto">
-            Why Access Oxbridge?
+              Why Access Oxbridge?
             </h1>
             {/* <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Discover the impact Access Oxbridge has made on thousands of students pursuing their Oxbridge dreams.
@@ -253,7 +260,7 @@ export function ResultsPageContent() {
       </section>
 
       {/* Success Stories */}
-      <section className="py-16 sm:py-24 bg-white border-t border-gray-200">
+      <section className="py-16 sm:py-24 bg-white border-t border-gray-200 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
@@ -267,28 +274,104 @@ export function ResultsPageContent() {
               Hear from students who achieved their Oxbridge dreams with Access Oxbridge.
             </p>
           </motion.div>
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            {successStories.map((story, idx) => (
-              <motion.div
-                key={idx}
-                variants={itemVariants}
-                className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200"
-              >
-                <h3 className="text-xl font-semibold text-black mb-2">{story.name}</h3>
-                <p className="text-sm text-cyan-500 font-medium mb-1">{story.university}</p>
-                <p className="text-sm text-gray-600 mb-4">{story.course}</p>
-                <p className="text-gray-700 italic">"{story.quote}"</p>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
+
+        <motion.div
+          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
+          whileInView={shouldReduceMotion ? {} : { opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full"
+        >
+          <Swiper
+            modules={[FreeMode, Autoplay]}
+            slidesPerView="auto"
+            spaceBetween={0}
+            loop={true}
+            freeMode={true}
+            speed={8000}
+            autoplay={{
+              delay: 0,
+              disableOnInteraction: false,
+            }}
+            onSwiper={(swiper) => swiperRef.current = swiper}
+            className="success-stories-slider"
+          >
+            {/* First set of stories with screenshot placeholders */}
+            {successStories.map((story, i) => (
+              <SwiperSlide key={`story-${i}`} style={{ width: 'auto' }}>
+                <div className="flex items-stretch">
+                  {/* Quote Card */}
+                  <div className="w-[350px] sm:w-[400px] p-8 flex flex-col justify-between h-[320px]">
+                    <div>
+                      <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
+                        "{story.quote}"
+                      </p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-black text-sm sm:text-base">
+                        {story.name}
+                      </p>
+                      <p className="text-cyan-500 text-sm font-medium">
+                        {story.university}
+                      </p>
+                      <p className="text-gray-500 text-sm">
+                        {story.course}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Screenshot Placeholder - Space for future image */}
+                  <div className="w-[200px] sm:w-[280px] h-[320px] bg-gray-100 border border-dashed border-gray-300 flex items-center justify-center mx-4 rounded-lg shrink-0">
+                    <span className="text-gray-400 text-sm text-center px-4">
+                      Screenshot placeholder
+                    </span>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+
+            {/* Duplicate for seamless infinite scroll */}
+            {successStories.map((story, i) => (
+              <SwiperSlide key={`story-dup-${i}`} style={{ width: 'auto' }}>
+                <div className="flex items-stretch">
+                  {/* Quote Card */}
+                  <div className="w-[350px] sm:w-[400px] p-8 flex flex-col justify-between h-[320px]">
+                    <div>
+                      <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
+                        "{story.quote}"
+                      </p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-black text-sm sm:text-base">
+                        {story.name}
+                      </p>
+                      <p className="text-cyan-500 text-sm font-medium">
+                        {story.university}
+                      </p>
+                      <p className="text-gray-500 text-sm">
+                        {story.course}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Screenshot Placeholder - Space for future image */}
+                  <div className="w-[200px] sm:w-[280px] h-[320px] bg-gray-100 border border-dashed border-gray-300 flex items-center justify-center mx-4 rounded-lg shrink-0">
+                    <span className="text-gray-400 text-sm text-center px-4">
+                      Screenshot placeholder
+                    </span>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.div>
+
+        <style jsx global>{`
+          .success-stories-slider .swiper-wrapper {
+            transition-timing-function: linear !important;
+          }
+        `}</style>
       </section>
 
       {/* Why Choose Us */}

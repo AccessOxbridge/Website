@@ -49,7 +49,7 @@ export default function AdmissionsResourcesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center flex flex-col gap-2">
             <h1 className="text-3xl font-bold text-gray-900 text-left sm:text-center sm:w-[70%] mx-auto">
-            Browse Our Admissions Resources for Expert Guidance at Every Stage of Your Application
+              Browse Our Admissions Resources for Expert Guidance at Every Stage of Your Application
             </h1>
             {/* <p className="text-base text-gray-600 max-w-3xl mx-auto px-12">
               Browse Our Admissions Resources for Expert Guidance at Every Stage of Your Application
@@ -88,7 +88,10 @@ export default function AdmissionsResourcesPage() {
                   </p>
 
                   <div className="flex items-center text-accent font-medium text-sm group-hover:text-accent">
-                    <span>Explore Resources</span>
+                    <span className="relative">
+                      Explore Resources
+                      <span className="absolute left-0 bottom-0 w-0 h-[1.5px] bg-accent transition-all duration-300 group-hover:w-full" />
+                    </span>
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>

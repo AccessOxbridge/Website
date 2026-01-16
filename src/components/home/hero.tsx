@@ -76,7 +76,14 @@ export default function Hero() {
                         {slide.subheading}
                       </h3>
                       <h2 className="mb-4 sm:mb-8 text-2xl sm:text-4xl font-semibold text-white md:text-5xl lg:text-[64px]">
-                        {slide.headline}
+                        {slide.id === 2 ? (
+                          <>
+                            Securing Futures:<br />
+                            Bespoke UCAS Support
+                          </>
+                        ) : (
+                          slide.headline
+                        )}
                       </h2>
                       <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
                         {slide.buttons.map((btn, idx) => (
@@ -85,8 +92,8 @@ export default function Hero() {
                             href={btn.href}
                             className={`inline-flex min-w-[140px] sm:min-w-[160px] items-center justify-center px-6 sm:px-8 py-3 
                               sm:py-3.5 text-base font-bold transition-all duration-300 
-                              rounded-md ${btn.variant === "primary"
-                                ? "bg-accent text-rich-amber-accent hover:bg-accent/90"
+                              rounded-md  whitespace-nowrap ${btn.variant === "primary"
+                                ? "bg-accent text-white hover:bg-accent/90"
                                 : "bg-white text-black hover:bg-gray-200"
                               }`}
                           >
@@ -242,7 +249,7 @@ export default function Hero() {
           </p>
           <button className="bg-accent text-white px-6 sm:px-8 py-2 text-sm justify-center
           font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2 mt-14 sm:mt-0
-          hover:bg-accent-foreground transition-colors duration-300 cursor-pointer h-12 w-68">
+          hover:bg-accent-foreground whitespace-nowrap transition-colors duration-300 cursor-pointer h-12 w-68">
             Speak to a Specialist
             <ArrowRightIcon className="size-4" />
           </button>

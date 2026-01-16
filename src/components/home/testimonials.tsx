@@ -1,46 +1,47 @@
 "use client";
 
-import { homeConfig } from "@/configs/home.config";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay, FreeMode } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Play, ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
+import "swiper/css/free-mode";
 import { motion } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
 import type { Swiper as SwiperType } from "swiper";
+
+// Quote testimonial data
+const quoteTestimonials = [
+    {
+        quote: "Access Oxbridge helped us develop a framework for positioning candidates for sustained efficiency and cost benefit.",
+        role: "Headmaster",
+        institution: "Leading UK Independent School"
+    },
+    {
+        quote: "Access Oxbridge unified our systems to enable efficient cross-functional collaboration and streamline data-driven operations. Enhancing efficiency and limited our ability to derive actionable insights.",
+        role: "Director of Studies",
+        institution: "Top Grammar School"
+    },
+    {
+        quote: "Access Oxbridge provided our leadership with detailed insights into student sentiment, enabling targeted strategies to foster a positive learning culture",
+        role: "Deputy Head",
+        institution: "UK State School"
+    },
+    {
+        quote: "We faced challenges in modernising our reporting processes to better align with university goals. Access Oxbridge's solution streamlined reporting operations, reducing inefficiencies and enhancing organisational alignment.",
+        role: "Head of Sixth Form",
+        institution: "Leading Independent School"
+    },
+    {
+        quote: "Access Oxbridge has been a partner in integrating their expertise into our University prep programme. Their AI expertise and understanding of education have helped us create advanced, student-centric solutions.",
+        role: "Principal",
+        institution: "International School Network"
+    },
+];
 
 export function VideoTestimonials() {
     const swiperRef = useRef<SwiperType | null>(null);
-    const containerRef = useRef<HTMLDivElement>(null);
-    const [isVisible, setIsVisible] = useState(false);
-    const [loadedVideos, setLoadedVideos] = useState<Set<number>>(new Set());
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                if (entries[0].isIntersecting) {
-                    setIsVisible(true);
-                    observer.disconnect();
-                }
-            },
-            { threshold: 0.1, rootMargin: '50px' }
-        );
-
-        if (containerRef.current) {
-            observer.observe(containerRef.current);
-        }
-
-        return () => observer.disconnect();
-    }, []);
-
-    const handleVideoLoad = (index: number) => {
-        setLoadedVideos(prev => new Set([...prev, index]));
-    };
 
     return (
-        <section ref={containerRef} id="testimonials" className="relative bg-white py-24 overflow-hidden">
+        <section id="testimonials" className="relative bg-white py-24 overflow-hidden">
             <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -49,115 +50,97 @@ export function VideoTestimonials() {
                 className="mb-10 sm:mb-16 text-center px-4"
             >
                 <h2 className="mx-auto max-w-3xl text-2xl sm:text-4xl font-semibold tracking-tighter text-black mb-4 sm:mb-6">
-                    {/* {homeConfig.testimonialsSection.title} */}
                     Client Testimonials and Results
                 </h2>
-                {/* <a
-                    href="#"
-                    className="inline-block bg-black hover:bg-accent-foreground text-white text-sm sm:text-base 
-                    font-bold px-6 py-3 uppercase tracking-wider transition-all duration-300 rounded-md"
-                >
-                    {homeConfig.testimonialsSection.buttonText}
-                </a> */}
             </motion.div>
+
             <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="container mx-auto px-4 sm:px-6 relative"
+                className="w-full"
             >
+                {/* Infinite Sliding Quotes */}
                 <Swiper
-                    modules={[Navigation, Pagination]}
-                    slidesPerView={1}
-                    spaceBetween={24}
-                    loop
-                    navigation={{
-                        nextEl: null,
-                        prevEl: null,
+                    modules={[FreeMode, Autoplay]}
+                    slidesPerView="auto"
+                    spaceBetween={0}
+                    loop={true}
+                    freeMode={true}
+                    speed={8000}
+                    autoplay={{
+                        delay: 0,
+                        disableOnInteraction: false,
                     }}
-                    pagination={{ clickable: true }}
                     onSwiper={(swiper) => swiperRef.current = swiper}
-                    breakpoints={{
-                        0: { slidesPerView: 1 },
-                        640: { slidesPerView: 2 },
-                        1024: { slidesPerView: 3 },
-                    }}
-                    className="px-4 pb-16"
+                    className="testimonial-slider"
                 >
-                    {homeConfig.testimonials.map((t, i) => (
-                        <SwiperSlide key={i} className="pb-8">
-                            <motion.div
-                                className="h-full"
-                                whileHover={{ y: -8 }}
-                                transition={{ duration: 0.3 }}
-                            >
-                                {/* Video Card */}
-                                <div className="relative aspect-9/16 overflow-hidden rounded-2xl bg-black/10">
-                                    {isVisible && loadedVideos.has(i) ? (
-                                        <iframe
-                                            src={`${t.video}?badge=0&autopause=0`}
-                                            allow="autoplay; fullscreen; picture-in-picture"
-                                            className="absolute inset-0 h-full w-full"
-                                            onLoad={() => handleVideoLoad(i)}
-                                            loading="lazy"
-                                        />
-                                    ) : (
-                                        <div className="absolute inset-0 bg-gray-200 flex items-center justify-center">
-                                            <div className="text-gray-500 text-sm">Loading video...</div>
-                                        </div>
-                                    )}
-                                    {/* Play overlay - clickable to load video */}
-                                    <div
-                                        className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors duration-300 cursor-pointer"
-                                        onClick={() => handleVideoLoad(i)}
-                                    >
-                                        <div className="rounded-full bg-rich-amber-accent p-4 shadow-lg">
-                                            <Play className="h-8 w-8 text-white" fill="white" />
-                                        </div>
+                    {/* First set of quotes with screenshot placeholders */}
+                    {quoteTestimonials.map((testimonial, i) => (
+                        <SwiperSlide key={`quote-${i}`} style={{ width: 'auto' }}>
+                            <div className="flex items-stretch">
+                                {/* Quote Card */}
+                                <div className="w-[350px] sm:w-[400px] p-8 flex flex-col justify-between h-[320px]">
+                                    <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
+                                        "{testimonial.quote}"
+                                    </p>
+                                    <div>
+                                        <p className="font-semibold text-black text-sm sm:text-base">
+                                            {testimonial.role}
+                                        </p>
+                                        <p className="text-gray-500 text-sm">
+                                            {testimonial.institution}
+                                        </p>
                                     </div>
                                 </div>
 
-                                {/* Testimonial info */}
-                                <div className="text-center mt-6">
-                                    <h3 className="text-xl font-semibold text-black mb-2">
-                                        {t.name}
-                                    </h3>
-                                    <p className="text-gray-600 text-sm leading-relaxed">
-                                        {t.description}
-                                    </p>
+                                {/* Screenshot Placeholder - Space for future image */}
+                                <div className="w-[200px] sm:w-[280px] h-[320px] bg-gray-100 border border-dashed border-gray-300 flex items-center justify-center mx-4 rounded-lg shrink-0">
+                                    <span className="text-gray-400 text-sm text-center px-4">
+                                        Screenshot placeholder
+                                    </span>
                                 </div>
-                            </motion.div>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+
+                    {/* Duplicate for seamless infinite scroll */}
+                    {quoteTestimonials.map((testimonial, i) => (
+                        <SwiperSlide key={`quote-dup-${i}`} style={{ width: 'auto' }}>
+                            <div className="flex items-stretch">
+                                {/* Quote Card */}
+                                <div className="w-[350px] sm:w-[400px] p-8 flex flex-col justify-between h-[320px]">
+                                    <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
+                                        "{testimonial.quote}"
+                                    </p>
+                                    <div>
+                                        <p className="font-semibold text-black text-sm sm:text-base">
+                                            {testimonial.role}
+                                        </p>
+                                        <p className="text-gray-500 text-sm">
+                                            {testimonial.institution}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Screenshot Placeholder - Space for future image */}
+                                <div className="w-[200px] sm:w-[280px] h-[320px] bg-gray-100 border border-dashed border-gray-300 flex items-center justify-center mx-4 rounded-lg shrink-0">
+                                    <span className="text-gray-400 text-sm text-center px-4">
+                                        Screenshot placeholder
+                                    </span>
+                                </div>
+                            </div>
                         </SwiperSlide>
                     ))}
                 </Swiper>
-
-                {/* Custom Navigation Buttons */}
-                <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 flex gap-1 z-20">
-                    <button
-                        onClick={() => {
-                            if (swiperRef.current) {
-                                swiperRef.current.slidePrev();
-                            }
-                        }}
-                        className="rounded-full bg-black/30 hover:bg-black/50 p-3 transition-colors duration-300 backdrop-blur-sm border border-black/10"
-                        aria-label="Previous testimonial"
-                    >
-                        <ArrowLeftIcon className="h-5 w-5 text-black" />
-                    </button>
-                    <button
-                        onClick={() => {
-                            if (swiperRef.current) {
-                                swiperRef.current.slideNext();
-                            }
-                        }}
-                        className="rounded-full bg-black/30 hover:bg-black/50 p-3 transition-colors duration-300 backdrop-blur-sm border border-black/10"
-                        aria-label="Next testimonial"
-                    >
-                        <ArrowRightIcon className="h-5 w-5 text-black" />
-                    </button>
-                </div>
             </motion.div>
+
+            <style jsx global>{`
+                .testimonial-slider .swiper-wrapper {
+                    transition-timing-function: linear !important;
+                }
+            `}</style>
         </section>
     );
 }

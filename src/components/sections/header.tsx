@@ -103,7 +103,8 @@ export default function Header() {
 
           <div className="flex items-center shrink-0 gap-2">
             <Link href="https://aoportal.vercel.app/signup" className="text-sm font-medium text-white 
-            hover:text-rich-amber-accent hover:font-bold hover:underline transition-colors tracking-wider px-2 py-1">
+            hover:text-rich-amber-accent hover:font-bold hover:underline 
+            transition-colors tracking-wider px-2 py-1 w-28 overflow-hidden">
               Login / Signup
             </Link>
             <Link

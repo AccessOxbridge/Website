@@ -1,49 +1,26 @@
 import Link from "next/link";
 import { Globe, Instagram, Facebook, Youtube, Linkedin, Twitter } from "lucide-react";
+import { headerConfig } from "@/configs/header.config";
 
 export default function Footer() {
-  const footerSections = [
-    {
-      title: "Our Services",
-      links: [
-        { label: "US Admissions Consulting", href: "#" },
-        { label: "UK Admissions Consulting", href: "#" },
-        { label: "European Admissions Consulting", href: "#" },
-        { label: "University Prep for 11-14 Year Olds", href: "#" },
-        { label: "Former Admission Officers Review", href: "#" },
-        { label: "SAT Tutoring", href: "#" },
-      ],
-    },
-    {
-      title: "About Access Oxbridge",
-      links: [
-        { label: "Our Consultants", href: "#" },
-        { label: "Our Results", href: "#" },
-        { label: "Our Story", href: "#" },
-        { label: "Access Oxbridge in the News", href: "#" },
-        { label: "Join Our Admissions Team", href: "#" },
-        { label: "US College Sports Recruitment", href: "#" },
-        { label: "Postgrad Admissions Consulting", href: "#" },
-        { label: "All Careers", href: "#" },
-        { label: "Our Scholarships", href: "#" },
-      ],
-    },
-    {
-      title: "Admission Resources",
-      links: [
-        { label: "Articles", href: "#" },
-        { label: "SAT Practice Tests", href: "#" },
-        { label: "ACT Practice Tests", href: "#" },
-        { label: "A-Level & IB to GPA Calculator", href: "#" },
-      ],
-    },
-    {
-      title: "Events",
-      links: [
-        { label: "Upcoming Events", href: "#" },
-      ],
-    },
-  ];
+  // Generate footer sections from headerConfig to mirror the header structure
+  const footerSections = headerConfig.navigation
+    .filter((item) => item.hasDropdown && item.dropdownItems)
+    .map((item) => ({
+      title: item.title,
+      links: item.dropdownItems!.map((dropdownItem) => ({
+        label: dropdownItem.title,
+        href: dropdownItem.href,
+      })),
+    }));
+
+  // Add non-dropdown items as a separate section
+  const contactSection = headerConfig.navigation
+    .filter((item) => !item.hasDropdown)
+    .map((item) => ({
+      title: item.title,
+      links: [{ label: "Get in Touch", href: item.href }],
+    }));
 
   const socialLinks = [
     { icon: <Instagram className="w-5 h-5" />, href: "#", label: "Instagram" },
@@ -72,6 +49,7 @@ export default function Footer() {
     <footer className="w-full bg-white text-accent font-sans antialiased border-t border-neutral-100 pt-16 pb-8">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-20">
+          {/* Main navigation sections from header */}
           {footerSections.map((section, idx) => (
             <div key={idx} className="flex flex-col">
               <h3 className="text-lg font-bold mb-6 text-accent opacity-90">
@@ -92,6 +70,35 @@ export default function Footer() {
             </div>
           ))}
 
+          {/* Contact section from header's non-dropdown items */}
+          {contactSection.map((section, idx) => (
+            <div key={`contact-${idx}`} className="flex flex-col">
+              <h3 className="text-lg font-bold mb-6 text-accent opacity-90">
+                {section.title}
+              </h3>
+              <ul className="flex flex-col space-y-3">
+                {section.links.map((link, linkIdx) => (
+                  <li key={linkIdx}>
+                    <Link
+                      href={link.href}
+                      className="text-[15px] font-medium text-accent/80 hover:text-accent hover:underline transition-all duration-200 decoration-1 underline-offset-4"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              {/* CTA Button mirroring header */}
+              <Link
+                href={headerConfig.cta.href}
+                className="mt-4 inline-block py-2 px-4 text-sm font-bold border border-accent rounded-md text-center text-accent hover:bg-accent hover:text-white transition-all duration-200"
+              >
+                {headerConfig.cta.text}
+              </Link>
+            </div>
+          ))}
+
+          {/* Social Links */}
           <div className="flex flex-col">
             <h3 className="text-lg font-bold mb-6 text-accent opacity-90">
               Follow Us
