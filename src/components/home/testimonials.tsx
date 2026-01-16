@@ -7,32 +7,38 @@ import "swiper/css/free-mode";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import type { Swiper as SwiperType } from "swiper";
+import Image from "next/image";
 
 // Quote testimonial data
 const quoteTestimonials = [
     {
         quote: "Access Oxbridge helped us develop a framework for positioning candidates for sustained efficiency and cost benefit.",
         role: "Headmaster",
+        image: "/testimonials/1.jpg",
         institution: "Leading UK Independent School"
     },
     {
         quote: "Access Oxbridge unified our systems to enable efficient cross-functional collaboration and streamline data-driven operations. Enhancing efficiency and limited our ability to derive actionable insights.",
         role: "Director of Studies",
+        image: "/testimonials/1.jpg",
         institution: "Top Grammar School"
     },
     {
         quote: "Access Oxbridge provided our leadership with detailed insights into student sentiment, enabling targeted strategies to foster a positive learning culture",
         role: "Deputy Head",
+        image: "/testimonials/1.jpg",
         institution: "UK State School"
     },
     {
         quote: "We faced challenges in modernising our reporting processes to better align with university goals. Access Oxbridge's solution streamlined reporting operations, reducing inefficiencies and enhancing organisational alignment.",
         role: "Head of Sixth Form",
+        image: "/testimonials/1.jpg",
         institution: "Leading Independent School"
     },
     {
         quote: "Access Oxbridge has been a partner in integrating their expertise into our University prep programme. Their AI expertise and understanding of education have helped us create advanced, student-centric solutions.",
         role: "Principal",
+        image: "/testimonials/1.jpg",
         institution: "International School Network"
     },
 ];
@@ -96,10 +102,8 @@ export function VideoTestimonials() {
                                 </div>
 
                                 {/* Screenshot Placeholder - Space for future image */}
-                                <div className="w-[200px] sm:w-[280px] h-[320px] bg-gray-100 border border-dashed border-gray-300 flex items-center justify-center mx-4 rounded-lg shrink-0">
-                                    <span className="text-gray-400 text-sm text-center px-4">
-                                        Screenshot placeholder
-                                    </span>
+                                <div className="w-[200px] sm:w-[280px] h-fit mx-4 rounded-lg shrink-0">
+                                    <Image className="w-full h-full object-cover" src={testimonial.image} alt={testimonial.role} width={200} height={320}/>
                                 </div>
                             </div>
                         </SwiperSlide>
