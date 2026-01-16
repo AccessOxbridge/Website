@@ -65,7 +65,7 @@ export default function Header() {
                         e.preventDefault();
                         router.push(item.href);
                       }}
-                      className="text-base font-bold text-white hover:text-accent transition-colors
+                      className="text-base font-bold text-white hover:text-rich-amber-accent transition-colors
                       px-2 py-1 cursor-pointer tracking-tight"
                     >
                       {item.title}
@@ -90,7 +90,7 @@ export default function Header() {
                 ) : (
                   <NavigationMenuItem key={item.title}>
                     <NavigationMenuLink asChild>
-                      <Link href={item.href} className="text-base font-bold text-white hover:text-accent transition-colors tracking-wider px-2 py-1">
+                      <Link href={item.href} className="text-base font-bold text-white hover:text-rich-amber-accent transition-colors tracking-wider px-2 py-1">
                         {item.title}
                       </Link>
                     </NavigationMenuLink>
@@ -102,9 +102,9 @@ export default function Header() {
 
 
           <div className="flex items-center shrink-0 gap-2">
-            <Link href="https://aoportal.vercel.app/signup" className="text-sm font-medium text-white 
-            hover:text-rich-amber-accent hover:font-bold hover:underline 
-            transition-colors tracking-wider px-2 py-1 w-28 overflow-hidden">
+            <Link href="https://aoportal.vercel.app/signup" className="text-sm font-medium text-white
+            hover:text-rich-amber-accent hover:underline
+            transition-colors tracking-wider px-2 py-1 w-28 overflow-hidden whitespace-nowrap">
               Login / Signup
             </Link>
             <Link

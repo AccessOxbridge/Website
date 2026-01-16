@@ -36,7 +36,7 @@ export const headerConfig: HeaderConfig = {
         },
         {
           title: 'Join Our Admissions Team',
-          href: 'https://aoportal.vercel.app/signup',
+          href: '/join-our-team',
         },
       ],
     },
