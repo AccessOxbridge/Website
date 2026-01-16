@@ -3,20 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { ArrowRight } from "lucide-react";
-
-const chartData = [
-  {
-    name: "Global Average",
-    value: 17,
-  },
-  {
-    name: "Access Oxbridge",
-    value: 73,
-  },
-];
 
 const studentArticles = [
   {
@@ -54,16 +42,16 @@ export default function OurStoryPage() {
   return (
     <main className="min-h-screen w-full">
       {/* Hero Section - Our Story */}
-      <section className="bg-accent">
-        <div className="container mx-auto px-6 md:px-12 lg:px-20 py-20 md:py-28 lg:py-36">
-          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      <section className="bg-accent pt-12">
+        <div className="container mx-auto px-6 md:px-12 lg:px-20 py-10 md:py-14">
+          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
             {/* Logo Section - Left */}
-            <div className="shrink-0 w-full lg:w-1/2 flex items-center justify-center">
+            <div className="shrink-0 w-full lg:w-1/4 flex items-center justify-center">
               <motion.div
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.9 }}
                 animate={shouldReduceMotion ? {} : { opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
-                className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[420px] lg:h-[420px]"
+                className="relative w-40 h-40 md:w-52 md:h-52 lg:w-[240px] lg:h-[240px]"
               >
                 <Image
                   src="/logo.webp"
@@ -80,13 +68,14 @@ export default function OurStoryPage() {
               initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
               animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="w-full lg:w-1/2 space-y-8"
+              className="w-full lg:w-3/4 space-y-4"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight 
+              text-center lg:text-left">
                 Our Story
               </h1>
 
-              <div className="space-y-6 text-white/90 text-lg md:text-xl leading-relaxed">
+              <div className="space-y-4 text-white/90 text-base md:text-lg leading-relaxed">
                 <p>
                   Access Oxbridge was founded at the University of Cambridge by
                   graduates who experienced both the opportunities and
@@ -110,94 +99,8 @@ export default function OurStoryPage() {
         </div>
       </section>
 
-      {/* Results Section */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="container mx-auto px-6 md:px-12 lg:px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left Content */}
-            <motion.div
-              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: -40 }}
-              whileInView={shouldReduceMotion ? {} : { opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="space-y-8"
-            >
-              <div>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4">
-                  4x Your Oxbridge Chances
-                </h2>
-                <p className="text-lg text-gray-600">
-                  We are proud of the improvements students make by working with us.
-                  73% of our students receive offers from Oxford or Cambridge,
-                  compared to a global average of just 17%.
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <ul className="space-y-4">
-                  <li className="flex gap-3 items-start">
-                    <span className="text-accent font-bold text-lg shrink-0">•</span>
-                    <span className="text-gray-700">
-                      The average student improves their admissions test marks by <strong>20%</strong> after just 4 hours of targeted tuition
-                    </span>
-                  </li>
-                  <li className="flex gap-3 items-start">
-                    <span className="text-accent font-bold text-lg shrink-0">•</span>
-                    <span className="text-gray-700">
-                      <strong>100%</strong> of our Oxbridge candidates receive at least two offers from Russell Group universities
-                    </span>
-                  </li>
-                  <li className="flex gap-3 items-start">
-                    <span className="text-accent font-bold text-lg shrink-0">•</span>
-                    <span className="text-gray-700">
-                      Our students receive <strong>500+</strong> Oxbridge offers every year
-                    </span>
-                  </li>
-                </ul>
-              </div>
-
-              <Link
-                href="/our-results"
-                className="inline-flex items-center gap-2 bg-accent px-8 py-3 text-white font-medium hover:bg-accent/90 transition-colors rounded-md group"
-              >
-                See Our Full Results
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </motion.div>
-
-            {/* Right Chart */}
-            <motion.div
-              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: 40 }}
-              whileInView={shouldReduceMotion ? {} : { opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="flex justify-center items-center"
-            >
-              <div className="w-full h-80 bg-gray-50 rounded-2xl p-6">
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={chartData} margin={{ top: 20, right: 30, left: 0, bottom: 20 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                    <XAxis dataKey="name" stroke="#6b7280" fontSize={12} />
-                    <YAxis stroke="#6b7280" fontSize={12} domain={[0, 100]} />
-                    <Tooltip
-                      contentStyle={{
-                        backgroundColor: "#fff",
-                        border: "1px solid #e5e7eb",
-                        borderRadius: "8px",
-                      }}
-                      formatter={(value) => `${value}%`}
-                    />
-                    <Bar dataKey="value" className="fill-accent" radius={[8, 8, 0, 0]} />
-                  </BarChart>
-                </ResponsiveContainer>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* Student Articles Section */}
-      <section className="bg-gray-50 py-20 md:py-28">
+      <section className="bg-gray-50 py-16">
         <div className="container mx-auto px-6 md:px-12 lg:px-20">
           <motion.div
             initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
@@ -258,7 +161,7 @@ export default function OurStoryPage() {
             ))}
           </div>
 
-          {/* View All Link */}
+          {/* View Our Results Button */}
           <motion.div
             initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
             whileInView={shouldReduceMotion ? {} : { opacity: 1 }}
@@ -267,11 +170,11 @@ export default function OurStoryPage() {
             className="text-center mt-12"
           >
             <Link
-              href="/articles"
-              className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all"
+              href="/our-results"
+              className="inline-flex items-center gap-2 bg-accent px-8 py-4 text-white font-semibold rounded-md hover:bg-accent/90 transition-colors group"
             >
-              View All Student Stories
-              <ArrowRight className="w-5 h-5" />
+              View Our Results
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
         </div>
