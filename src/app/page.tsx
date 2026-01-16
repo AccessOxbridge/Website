@@ -1,9 +1,7 @@
 import Hero from "@/components/home/hero";
 import ScrollIntentWebinar from "@/components/dialogs/ScrollIntentWebinar";
-import Stats from "@/components/sections/stats";
 import UniversitiesCarousel from "@/components/home/universities-carousel";
 import FAQs from "@/components/home/faqs";
-import { Globe } from "@/components/ui/globe";
 import { LazyLoad } from "@/components/ui/lazy-load";
 import dynamic from "next/dynamic";
 
@@ -36,10 +34,6 @@ export default function Home() {
       {/* <LazyLoad>
         <NewsSection/>
       </LazyLoad> */}
-
-      <LazyLoad>
-        <Globe/>
-      </LazyLoad>
 
       <ScrollIntentWebinar/>
     </main>

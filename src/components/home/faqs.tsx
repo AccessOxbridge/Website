@@ -67,9 +67,9 @@ export default function FAQs() {
           <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">
             FAQs
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          {/* <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Get answers to common questions about UCAS applications, Oxbridge interviews, and admissions tests.
-          </p>
+          </p> */}
         </motion.div>
 
         <div className="max-w-4xl mx-auto space-y-8">
