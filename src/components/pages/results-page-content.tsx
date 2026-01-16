@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { useReducedMotion } from '@/hooks/use-reduced-motion';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode } from "swiper/modules";
@@ -9,36 +8,68 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import { useRef } from "react";
 import type { Swiper as SwiperType } from "swiper";
+import Image from "next/image";
+import { ResultsSection } from '../home/results-section';
 
-const acceptanceRateData = [
+// Quote testimonials - same as landing page
+const quoteTestimonials = [
   {
-    name: 'Global Average',
-    value: 15,
+    quote: "Access Oxbridge helped us develop a framework for positioning candidates for sustained efficiency and cost benefit.",
+    role: "Headmaster",
+    image: "/testimonials/1.jpg",
+    institution: "Leading UK Independent School"
   },
   {
-    name: 'Access Oxbridge',
-    value: 67,
+    quote: "Access Oxbridge unified our systems to enable efficient cross-functional collaboration and streamline data-driven operations. Enhancing efficiency and limited our ability to derive actionable insights.",
+    role: "Director of Studies",
+    image: "/testimonials/1.jpg",
+    institution: "Top Grammar School"
+  },
+  {
+    quote: "Access Oxbridge provided our leadership with detailed insights into student sentiment, enabling targeted strategies to foster a positive learning culture",
+    role: "Deputy Head",
+    image: "/testimonials/1.jpg",
+    institution: "UK State School"
+  },
+  {
+    quote: "We faced challenges in modernising our reporting processes to better align with university goals. Access Oxbridge's solution streamlined reporting operations, reducing inefficiencies and enhancing organisational alignment.",
+    role: "Head of Sixth Form",
+    image: "/testimonials/1.jpg",
+    institution: "Leading Independent School"
+  },
+  {
+    quote: "Access Oxbridge has been a partner in integrating their expertise into our University prep programme. Their AI expertise and understanding of education have helped us create advanced, student-centric solutions.",
+    role: "Principal",
+    image: "/testimonials/1.jpg",
+    institution: "International School Network"
   },
 ];
 
-const successStories = [
+// Why Students Choose Access Oxbridge - 6 points
+const whyChoosePoints = [
   {
-    name: 'Sarah Chen',
-    university: 'University of Oxford',
-    course: 'Medicine',
-    quote: 'Access Oxbridge transformed my application. The mock interviews were incredibly realistic, and the feedback helped me articulate my passion for medicine clearly. I went from being uncertain about my chances to receiving an offer.',
+    title: "Expert Tutors",
+    description: "Oxbridge and G5 educated tutors with first hand experience of the admissions processes for the courses they support."
   },
   {
-    name: 'James Mitchell',
-    university: 'University of Cambridge',
-    course: 'Natural Sciences',
-    quote: 'The admissions test tuition was a game-changer. I improved my score by 25% in just 6 hours. The tutors really understood what Cambridge was looking for and tailored their teaching accordingly.',
+    title: "Authentic Interview Preparation",
+    description: "Challenging, subject specific interview preparation designed to reflect the academic depth and style of real Oxbridge interviews."
   },
   {
-    name: 'Priya Patel',
-    university: 'University of Oxford',
-    course: 'Law',
-    quote: 'What impressed me most was the personalized strategy. They didn\'t just prepare me for interviews—they helped me understand my own academic interests better. That authenticity came through in my application.',
+    title: "Oxbridge Offer Outcomes",
+    description: "67% of our supported applicants receive at least one offer from Oxford or Cambridge."
+  },
+  {
+    title: "Personalised Admissions Strategy",
+    description: "A bespoke admissions roadmap covering subject preparation, admissions tests, written work and application milestones."
+  },
+  {
+    title: "G5 University Success",
+    description: "82% of our students secure offers from at least one G5 university."
+  },
+  {
+    title: "Trusted by High Performing Students",
+    description: "Chosen by academically ambitious students from leading UK and international schools seeking serious, high level admissions guidance."
   },
 ];
 
@@ -67,15 +98,16 @@ export function ResultsPageContent() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-accent pt-18">
       {/* 4x Your Oxbridge Chances Banner */}
       <div className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-4 px-4 text-center">
         <h1 className="text-2xl sm:text-3xl font-bold tracking-wide">
           4x Your Oxbridge Chances
         </h1>
       </div>
+
       {/* Hero Section */}
-      <section className="py-16 sm:py-32 ">
+      <section className="py-16 sm:py-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
@@ -83,18 +115,24 @@ export function ResultsPageContent() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-4xl sm:text-5xl text-black w-2/3 mx-auto">
+            <h1 className="text-4xl sm:text-5xl text-white w-2/3 mx-auto">
               Why Access Oxbridge?
             </h1>
-            {/* <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Discover the impact Access Oxbridge has made on thousands of students pursuing their Oxbridge dreams.
-            </p> */}
           </motion.div>
         </div>
       </section>
 
-      {/* UK & Oxbridge Section */}
-      <section className="py-1">
+      {/* Reuse Results Section from home - with custom styling for this page */}
+      <ResultsSection
+        variant="results-page"
+        title="67% of our students receive an offer from Oxford or Cambridge, vs a global average of 15%."
+        hideSubtitle={true}
+        buttonText="Start Your Journey Today →"
+        buttonHref="/consultation"
+      />
+
+      {/* Why Students Choose Access Oxbridge - 6 Points */}
+      <section className="py-16 sm:py-24 bg-accent border-t border-white/20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
@@ -103,163 +141,36 @@ export function ResultsPageContent() {
             transition={{ duration: 0.8 }}
             className="mb-12"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">UK & Oxbridge</h2>
-            <p className="text-lg text-gray-600">
-              67% of our Premier Service students receive an offer from Oxford or Cambridge, vs a global average of 15%.
-            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Why Students Choose Access Oxbridge</h2>
           </motion.div>
 
-          {/* Acceptance Rate Chart */}
-          <motion.div
-            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
-            whileInView={shouldReduceMotion ? {} : { opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16"
-          >
-            <div className="bg-gray-50 p-8 rounded-lg">
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={acceptanceRateData} margin={{ top: 20, right: 30, left: 0, bottom: 20 }}>
-                  <XAxis dataKey="name" stroke="#6b7280" />
-                  <YAxis stroke="#6b7280" domain={[0, 100]} />
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: '#fff',
-                      border: '1px solid #e5e7eb',
-                      borderRadius: '8px',
-                    }}
-                    formatter={(value) => `${value}%`}
-                  />
-                  <Bar dataKey="value" fill="#06b6d4" radius={[8, 8, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-            <div className="flex flex-col justify-center">
-              <h3 className="text-2xl font-semibold text-black mb-6">Why our students succeed:</h3>
-              <ul className="space-y-4 mb-6">
-                <li className="flex gap-3">
-                  <span className="text-cyan-500 font-bold">•</span>
-                  <span className="text-gray-700"><strong>Targeted preparation:</strong> Applications are shaped around each student's academic strengths, subject interests, and long-term goals.</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-cyan-500 font-bold">•</span>
-                  <span className="text-gray-700"><strong>Insider insight:</strong> Guidance is led by Oxbridge graduates who understand the admissions process from the inside.</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-cyan-500 font-bold">•</span>
-                  <span className="text-gray-700"><strong>Depth over formulas:</strong> We focus on intellectual development, interview thinking, and authentic academic engagement, not templates.</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-cyan-500 font-bold">•</span>
-                  <span className="text-gray-700"><strong>Sustained mentoring:</strong> Support spans the full application journey, from subject exploration to interview readiness.</span>
-                </li>
-              </ul>
-              <p className="text-gray-700 mb-6">
-                Our results reflect a commitment to thoughtful, individual mentoring and academic rigour.
-              </p>
-              <a
-                href="/our-results"
-                className="inline-flex items-center justify-center px-6 py-3 bg-cyan-500 text-white font-bold rounded-md hover:bg-cyan-600 transition-colors duration-300"
-              >
-                Our Results →
-              </a>
-            </div>
-          </motion.div>
-
-          {/* Comparison Table */}
-          <motion.div
-            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
-            whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="mb-12"
-          >
-            <h3 className="text-2xl font-semibold text-black mb-6">
-              The Highest Oxbridge Success Rate of Any School or Consultancy
-            </h3>
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="bg-gray-100 border-b-2 border-gray-300">
-                    <th className="px-6 py-4 text-left font-semibold text-black">Institution</th>
-                    <th className="px-6 py-4 text-left font-semibold text-black">Type</th>
-                    <th className="px-6 py-4 text-left font-semibold text-black">Success Rate</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-b border-gray-200 bg-cyan-50">
-                    <td className="px-6 py-4 font-semibold text-black">Access Oxbridge</td>
-                    <td className="px-6 py-4 text-gray-700">Consultancy</td>
-                    <td className="px-6 py-4 font-bold text-cyan-600">67%</td>
-                  </tr>
-                  <tr className="border-b border-gray-200">
-                    <td className="px-6 py-4 text-gray-700">Competitor A</td>
-                    <td className="px-6 py-4 text-gray-700">Consultancy</td>
-                    <td className="px-6 py-4 text-gray-700">59%</td>
-                  </tr>
-                  <tr className="border-b border-gray-200">
-                    <td className="px-6 py-4 text-gray-700">Top Grammar School</td>
-                    <td className="px-6 py-4 text-gray-700">Grammar School</td>
-                    <td className="px-6 py-4 text-gray-700">51%</td>
-                  </tr>
-                  <tr className="border-b border-gray-200">
-                    <td className="px-6 py-4 text-gray-700">Independent School</td>
-                    <td className="px-6 py-4 text-gray-700">Independent School</td>
-                    <td className="px-6 py-4 text-gray-700">47%</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </motion.div>
-
-          {/* Testimonial */}
-          <motion.div
-            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
-            whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="bg-gray-50 p-8 rounded-lg"
-          >
-            <p className="text-lg text-gray-700 italic mb-6">
-              "I highly recommend Access Oxbridge. The team was very professional, helpful and patient. From start to finish, everything was clearly communicated and all my questions were answered. My child has an offer from their first choice university and couldn't be happier. The staff really care about the students and work hard to ensure the best outcomes for them."
-            </p>
-            <p className="font-semibold text-black">— Parent of Oxbridge Admit</p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Key Statistics */}
-      <section className="py-16 sm:py-24 bg-gray-50 border-t border-gray-200">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            <motion.div variants={itemVariants} className="text-center p-8 bg-white rounded-lg shadow-sm">
-              <div className="text-5xl font-bold text-cyan-500 mb-2">67%</div>
-              <p className="text-lg text-gray-700 font-semibold">Oxbridge Success Rate</p>
-              <p className="text-gray-600 mt-2">Highest in the industry</p>
-            </motion.div>
-
-            <motion.div variants={itemVariants} className="text-center p-8 bg-white rounded-lg shadow-sm">
-              <div className="text-5xl font-bold text-cyan-500 mb-2">10,000+</div>
-              <p className="text-lg text-gray-700 font-semibold">Oxbridge Offers</p>
-              <p className="text-gray-600 mt-2">10x more than our closest competitor</p>
-            </motion.div>
-
-            <motion.div variants={itemVariants} className="text-center p-8 bg-white rounded-lg shadow-sm">
-              <div className="text-5xl font-bold text-cyan-500 mb-2">20%</div>
-              <p className="text-lg text-gray-700 font-semibold">Average Test Improvement</p>
-              <p className="text-gray-600 mt-2">After just 4 hours of tuition</p>
-            </motion.div>
+            {whyChoosePoints.map((point, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="bg-white/10 backdrop-blur-sm p-6 rounded-lg"
+              >
+                <div className="flex gap-4">
+                  <div className="text-2xl text-white flex-shrink-0">✓</div>
+                  <div>
+                    <h3 className="font-semibold text-white mb-2">{point.title}</h3>
+                    <p className="text-white/80">{point.description}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Success Stories */}
+      {/* Student Success Stories */}
       <section className="py-16 sm:py-24 bg-white border-t border-gray-200 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -267,12 +178,9 @@ export function ResultsPageContent() {
             whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="mb-12"
+            className="mb-12 text-center"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">Student Success Stories</h2>
-            <p className="text-lg text-gray-600">
-              Hear from students who achieved their Oxbridge dreams with Access Oxbridge.
-            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-black">Student Success Stories</h2>
           </motion.div>
         </div>
 
@@ -297,69 +205,55 @@ export function ResultsPageContent() {
             onSwiper={(swiper) => swiperRef.current = swiper}
             className="success-stories-slider"
           >
-            {/* First set of stories with screenshot placeholders */}
-            {successStories.map((story, i) => (
-              <SwiperSlide key={`story-${i}`} style={{ width: 'auto' }}>
+            {/* First set of quotes with screenshot placeholders */}
+            {quoteTestimonials.map((testimonial, i) => (
+              <SwiperSlide key={`quote-${i}`} style={{ width: 'auto' }}>
                 <div className="flex items-stretch">
                   {/* Quote Card */}
                   <div className="w-[350px] sm:w-[400px] p-8 flex flex-col justify-between h-[320px]">
-                    <div>
-                      <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
-                        "{story.quote}"
-                      </p>
-                    </div>
+                    <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
+                      "{testimonial.quote}"
+                    </p>
                     <div>
                       <p className="font-semibold text-black text-sm sm:text-base">
-                        {story.name}
-                      </p>
-                      <p className="text-cyan-500 text-sm font-medium">
-                        {story.university}
+                        {testimonial.role}
                       </p>
                       <p className="text-gray-500 text-sm">
-                        {story.course}
+                        {testimonial.institution}
                       </p>
                     </div>
                   </div>
 
                   {/* Screenshot Placeholder - Space for future image */}
-                  <div className="w-[200px] sm:w-[280px] h-[320px] bg-gray-100 border border-dashed border-gray-300 flex items-center justify-center mx-4 rounded-lg shrink-0">
-                    <span className="text-gray-400 text-sm text-center px-4">
-                      Screenshot placeholder
-                    </span>
+                  <div className="w-[200px] sm:w-[280px] h-fit mx-4 rounded-lg shrink-0">
+                    <Image className="w-full h-full object-cover" src={testimonial.image} alt={testimonial.role} width={200} height={320} />
                   </div>
                 </div>
               </SwiperSlide>
             ))}
 
             {/* Duplicate for seamless infinite scroll */}
-            {successStories.map((story, i) => (
-              <SwiperSlide key={`story-dup-${i}`} style={{ width: 'auto' }}>
+            {quoteTestimonials.map((testimonial, i) => (
+              <SwiperSlide key={`quote-dup-${i}`} style={{ width: 'auto' }}>
                 <div className="flex items-stretch">
                   {/* Quote Card */}
                   <div className="w-[350px] sm:w-[400px] p-8 flex flex-col justify-between h-[320px]">
-                    <div>
-                      <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
-                        "{story.quote}"
-                      </p>
-                    </div>
+                    <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-6">
+                      "{testimonial.quote}"
+                    </p>
                     <div>
                       <p className="font-semibold text-black text-sm sm:text-base">
-                        {story.name}
-                      </p>
-                      <p className="text-cyan-500 text-sm font-medium">
-                        {story.university}
+                        {testimonial.role}
                       </p>
                       <p className="text-gray-500 text-sm">
-                        {story.course}
+                        {testimonial.institution}
                       </p>
                     </div>
                   </div>
 
                   {/* Screenshot Placeholder - Space for future image */}
-                  <div className="w-[200px] sm:w-[280px] h-[320px] bg-gray-100 border border-dashed border-gray-300 flex items-center justify-center mx-4 rounded-lg shrink-0">
-                    <span className="text-gray-400 text-sm text-center px-4">
-                      Screenshot placeholder
-                    </span>
+                  <div className="w-[200px] sm:w-[280px] h-fit mx-4 rounded-lg shrink-0">
+                    <Image className="w-full h-full object-cover" src={testimonial.image} alt={testimonial.role} width={200} height={320} />
                   </div>
                 </div>
               </SwiperSlide>
@@ -372,77 +266,6 @@ export function ResultsPageContent() {
             transition-timing-function: linear !important;
           }
         `}</style>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-16 sm:py-24 bg-gray-50 border-t border-gray-200">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
-            whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="mb-12"
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold text-black mb-4">Why Students Choose Access Oxbridge</h2>
-          </motion.div>
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
-          >
-            <motion.div variants={itemVariants} className="space-y-4">
-              <div className="flex gap-4">
-                <div className="text-2xl flex-shrink-0">✓</div>
-                <div>
-                  <h3 className="font-semibold text-black mb-2">Expert Tutors</h3>
-                  <p className="text-gray-600">Oxbridge-educated tutors specializing in every course offered by Oxford and Cambridge.</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="text-2xl flex-shrink-0">✓</div>
-                <div>
-                  <h3 className="font-semibold text-black mb-2">3,000+ Mock Interviews</h3>
-                  <p className="text-gray-600">We conduct over 3,000 subject-specific mock interviews annually, run by Oxbridge graduates.</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="text-2xl flex-shrink-0">✓</div>
-                <div>
-                  <h3 className="font-semibold text-black mb-2">Proven Results</h3>
-                  <p className="text-gray-600">67% of our students receive offers from Oxford or Cambridge.</p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div variants={itemVariants} className="space-y-4">
-              <div className="flex gap-4">
-                <div className="text-2xl flex-shrink-0">✓</div>
-                <div>
-                  <h3 className="font-semibold text-black mb-2">Personalized Strategy</h3>
-                  <p className="text-gray-600">A tailored roadmap covering subject preparation, admissions tests, and application milestones.</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="text-2xl flex-shrink-0">✓</div>
-                <div>
-                  <h3 className="font-semibold text-black mb-2">Test Score Improvement</h3>
-                  <p className="text-gray-600">Average 20% improvement in admissions test scores after just 4 hours of tuition.</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="text-2xl flex-shrink-0">✓</div>
-                <div>
-                  <h3 className="font-semibold text-black mb-2">1,000+ School Partners</h3>
-                  <p className="text-gray-600">Trusted by 82% of the Times Top 50 Independent Schools in the UK.</p>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        </div>
       </section>
     </div>
   );

@@ -2,105 +2,141 @@
 
 import { motion } from 'framer-motion';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import Link from 'next/link';
 import { useReducedMotion } from '@/hooks/use-reduced-motion';
 
-const chartData = [
+const acceptanceRateData = [
   {
     name: 'Global Average',
-    value: 17,
+    value: 15,
   },
   {
     name: 'Access Oxbridge',
-    value: 73,
+    value: 67,
   },
 ];
 
-export function ResultsSection() {
+interface ResultsSectionProps {
+  variant?: 'default' | 'results-page';
+  title?: string;
+  hideSubtitle?: boolean;
+  buttonText?: string;
+  buttonHref?: string;
+}
+
+export function ResultsSection({
+  variant = 'default',
+  title = 'UK & Oxbridge',
+  hideSubtitle = false,
+  buttonText = 'Our Results →',
+  buttonHref = '/our-results'
+}: ResultsSectionProps) {
   const shouldReduceMotion = useReducedMotion();
 
+  const isResultsPage = variant === 'results-page';
+
+  // Colors based on variant
+  const titleColor = isResultsPage ? 'text-white' : 'text-black';
+  const subtitleColor = isResultsPage ? 'text-white/80' : 'text-gray-600';
+  const chartBgColor = isResultsPage ? 'bg-white/10 backdrop-blur-sm' : 'bg-gray-50';
+  const chartAxisColor = isResultsPage ? '#ffffff' : '#6b7280';
+  const chartBarColor = isResultsPage ? '#ffffff' : '#1e3a8a';
+  const textColor = isResultsPage ? 'text-accent' : 'text-black';
+  const subTextColor = isResultsPage ? 'text-white/90' : 'text-gray-700';
+  const bulletColor = isResultsPage ? 'text-white' : 'text-accent';
+  const buttonClasses = isResultsPage
+    ? 'bg-white text-accent hover:bg-white/90'
+    : 'bg-accent text-white hover:bg-cyan-600';
+
   return (
-    <section id="results" className="pt-12 sm:pt-24 bg-white">
+    <section className={`py-1 ${isResultsPage ? 'bg-accent' : ''}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 items-center">
-          {/* Left Content */}
-          <motion.div
-            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: -40 }}
-            whileInView={shouldReduceMotion ? {} : { opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={shouldReduceMotion ? {} : { duration: 0.8 }}
-            className="space-y-6"
-          >
-            <div>
-              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tighter text-black mb-4">
-                4x Your Oxbridge Chances
-              </h2>
-              {/* <p className="text-lg text-gray-600">
-                We are proud of the improvements students make by working with us. 73% of our students receive offers from Oxford or Cambridge, compared to an average of 17%.
-              </p> */}
-            </div>
+        <motion.div
+          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+          whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-12"
+        >
+          <h2 className={`text-3xl sm:text-4xl font-bold ${titleColor} mb-4`}>{title}</h2>
+          {!hideSubtitle && (
+            <p className={`text-lg ${subtitleColor}`}>
+              67% of our Premier Service students receive an offer from Oxford or Cambridge, vs a global average of 15%.
+            </p>
+          )}
+        </motion.div>
 
-            <div className="space-y-4">
-              {/* <h3 className="text-xl font-semibold text-black">Access Oxbridge by the numbers:</h3> */}
-              <ul className="space-y-3">
-                <li className="flex gap-3">
-                  <span className="text-accent font-bold">•</span>
-                  <span className="text-gray-700">
-                    The average student improves their admissions test marks by 20% after just 4 hours of targeted tuition
-                  </span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-accent font-bold">•</span>
-                  <span className="text-gray-700">
-                    100% of our Oxbridge candidates receive at least two offers from Russell Group universities
-                  </span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-accent font-bold">•</span>
-                  <span className="text-gray-700">
-                    Our students receive 500+ Oxbridge offers every year
-                  </span>
-                </li>
-              </ul>
-            </div>
-
-            <Link
-              href="/our-results"
-              className="inline-block bg-black px-8 py-3 text-white font-medium hover:bg-black/80 transition-colors
-              rounded-md"
+        {/* Acceptance Rate Chart */}
+        <motion.div
+          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
+          whileInView={shouldReduceMotion ? {} : { opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16"
+        >
+          <div className={`${chartBgColor} p-8 rounded-lg`}>
+            <ResponsiveContainer width="100%" height={300}>
+              <BarChart data={acceptanceRateData} margin={{ top: 20, right: 30, left: 0, bottom: 20 }}>
+                <XAxis dataKey="name" stroke={chartAxisColor} />
+                <YAxis stroke={chartAxisColor} domain={[0, 100]} />
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: '#ffffff',
+                    border: '2px solid #1e3a8a',
+                    borderRadius: '12px',
+                    boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                    padding: '12px 16px',
+                    fontSize: '14px',
+                    fontWeight: '600',
+                    color: 'black',
+                    transition: 'all 0.2s ease-in-out',
+                  }}
+                  labelStyle={{
+                    color: 'black',
+                    fontSize: '12px',
+                    fontWeight: '500',
+                    marginBottom: '4px',
+                  }}
+                  itemStyle={{
+                    color: '#092c68',
+                  }}
+                  formatter={(value) => [`${value}%`, 'Acceptance Rate']}
+                  cursor={{ fill: isResultsPage ? 'rgba(255, 255, 255, 0.1)' : 'rgba(30, 58, 138, 0.1)' }}
+                />
+                <Bar dataKey="value" fill={chartBarColor} radius={[8, 8, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+          <div className="flex flex-col justify-center">
+            <h3 className={`text-2xl font-semibold ${textColor} mb-6`}>Why our students succeed:</h3>
+            <ul className="space-y-4 mb-6">
+              <li className="flex gap-3">
+                <span className={`${bulletColor} font-bold`}>•</span>
+                <span className={subTextColor}><strong>Targeted preparation:</strong> Applications are shaped around each student's academic strengths, subject interests, and long-term goals.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className={`${bulletColor} font-bold`}>•</span>
+                <span className={subTextColor}><strong>Insider insight:</strong> Guidance is led by Oxbridge graduates who understand the admissions process from the inside.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className={`${bulletColor} font-bold`}>•</span>
+                <span className={subTextColor}><strong>Depth over formulas:</strong> We focus on intellectual development, interview thinking, and authentic academic engagement, not templates.</span>
+              </li>
+              <li className="flex gap-3">
+                <span className={`${bulletColor} font-bold`}>•</span>
+                <span className={subTextColor}><strong>Sustained mentoring:</strong> Support spans the full application journey, from subject exploration to interview readiness.</span>
+              </li>
+            </ul>
+            <p className={`${subTextColor} mb-6`}>
+              Our results reflect a commitment to thoughtful, individual mentoring and academic rigour.
+            </p>
+            <a
+              href={buttonHref}
+              className={`inline-flex items-center justify-center px-6 py-3 ${buttonClasses} font-bold rounded-md transition-colors duration-300`}
             >
-              Our Results
-            </Link>
-          </motion.div>
-
-          {/* Right Chart */}
-          <motion.div
-            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: 40 }}
-            whileInView={shouldReduceMotion ? {} : { opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={shouldReduceMotion ? {} : { duration: 0.8, delay: 0.1 }}
-            className="flex justify-center items-center"
-          >
-            <div className="w-full h-80">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={chartData} margin={{ top: 20, right: 30, left: 0, bottom: 20 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-                  <XAxis dataKey="name" stroke="#6b7280" />
-                  <YAxis stroke="#6b7280" />
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: '#fff',
-                      border: '1px solid #e5e7eb',
-                      borderRadius: '8px',
-                    }}
-                    formatter={(value) => `${value}%`}
-                  />
-                  <Bar dataKey="value" className='fill-accent' radius={[8, 8, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-          </motion.div>
-        </div>
+              {buttonText}
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
