@@ -9,7 +9,7 @@ export function CTA() {
         Need Personalised Guidance?
       </h2>
       <p className="text-blue-100 text-lg mb-8">
-        Our expert consultants can provide tailored advice for your specific situation and goals.
+        Our expert consultants provide personalised, strategic guidance to maximise your chances of success at Oxbridge and other elite universities.
       </p>
       <Link
         href="/consultation"
