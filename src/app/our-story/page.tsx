@@ -71,7 +71,7 @@ export default function OurStoryPage() {
               className="w-full lg:w-3/4 space-y-4"
             >
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight 
-              text-center lg:text-left">
+              text-center">
                 Our Story
               </h1>
 

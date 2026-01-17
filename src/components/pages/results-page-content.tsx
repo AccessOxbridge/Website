@@ -99,12 +99,6 @@ export function ResultsPageContent() {
 
   return (
     <div className="min-h-screen bg-accent pt-18">
-      {/* 4x Your Oxbridge Chances Banner */}
-      <div className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-4 px-4 text-center">
-        <h1 className="text-2xl sm:text-3xl font-bold tracking-wide">
-          4x Your Oxbridge Chances
-        </h1>
-      </div>
 
       {/* Hero Section */}
       <section className="py-16 sm:py-32">
@@ -132,17 +126,8 @@ export function ResultsPageContent() {
       />
 
       {/* Why Students Choose Access Oxbridge - 6 Points */}
-      <section className="py-16 sm:py-24 bg-accent border-t border-white/20">
+      <section className="py-16 sm:py-24 bg-accent">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
-            whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="mb-12"
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Why Students Choose Access Oxbridge</h2>
-          </motion.div>
 
           <motion.div
             variants={containerVariants}

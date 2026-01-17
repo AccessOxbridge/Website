@@ -30,7 +30,7 @@ export const homeConfig: HomeConfig = {
         subheading: "Partnerships",
         headline: "Trusted for Oxford, Cambridge & G5 Excellence",
         buttons: [
-          { label: "Our Story", href: "/about", variant: "primary" },
+          { label: "Admissions Resources", href: "/admissions-resources", variant: "primary" },
           { label: "Speak to a Specialist →", href: "/consultation", variant: "secondary" },
         ],
         type: "image",

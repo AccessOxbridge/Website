@@ -12,34 +12,88 @@ import Image from "next/image";
 // Quote testimonial data
 const quoteTestimonials = [
     {
-        quote: "Access Oxbridge helped us develop a framework for positioning candidates for sustained efficiency and cost benefit.",
-        role: "Headmaster",
+        quote: "Access Oxbridge pushed my Engineering thinking well beyond school level and clarified exactly what Oxford tutors value in technical interviews.",
+        role: "Arjun P.",
         image: "/testimonials/1.jpg",
-        institution: "Leading UK Independent School"
+        institution: "Student"
     },
     {
-        quote: "Access Oxbridge unified our systems to enable efficient cross-functional collaboration and streamline data-driven operations. Enhancing efficiency and limited our ability to derive actionable insights.",
-        role: "Director of Studies",
+        quote: "As a parent, I valued the clarity and structure Access Oxbridge provided. The process felt calm, well organised and reassuring at every stage.",
+        role: "Helen W.",
         image: "/testimonials/1.jpg",
-        institution: "Top Grammar School"
+        institution: "Parent"
     },
     {
-        quote: "Access Oxbridge provided our leadership with detailed insights into student sentiment, enabling targeted strategies to foster a positive learning culture",
-        role: "Deputy Head",
+        quote: "I have observed clear improvements in my students' academic confidence and interview readiness after working with Access Oxbridge alongside our school support.",
+        role: "Teacher",
         image: "/testimonials/1.jpg",
-        institution: "UK State School"
+        institution: "School Teacher"
     },
     {
-        quote: "We faced challenges in modernising our reporting processes to better align with university goals. Access Oxbridge's solution streamlined reporting operations, reducing inefficiencies and enhancing organisational alignment.",
-        role: "Head of Sixth Form",
+        quote: "The mentors understood Philosophy at a deep level and challenged my reasoning every session. It was far more demanding than anything I experienced at school.",
+        role: "Sofia R.",
         image: "/testimonials/1.jpg",
-        institution: "Leading Independent School"
+        institution: "Student"
     },
     {
-        quote: "Access Oxbridge has been a partner in integrating their expertise into our University prep programme. Their AI expertise and understanding of education have helped us create advanced, student-centric solutions.",
-        role: "Principal",
+        quote: "Access Oxbridge helped me think more clearly under pressure. The preparation felt realistic, intellectually stretching and closely aligned with real interviews.",
+        role: "Mateo G.",
         image: "/testimonials/1.jpg",
-        institution: "International School Network"
+        institution: "Student"
+    },
+    {
+        quote: "As a parent, I appreciated how tailored the guidance felt to my son's needs. The advice was thoughtful, measured and clearly targeted to help him improve.",
+        role: "Kerri J.",
+        image: "/testimonials/1.jpg",
+        institution: "Parent"
+    },
+    {
+        quote: "The academic depth and professionalism of Access Oxbridge's mentors stood out. Their work complemented our provision and raised expectations appropriately.",
+        role: "Head of an Oxford Summer School",
+        image: "/testimonials/1.jpg",
+        institution: "Oxford Summer School"
+    },
+    {
+        quote: "What impressed me most was how authentic the Economics interview preparation felt. The technical questioning reflected the real admissions experience closely.",
+        role: "Ayman S.",
+        image: "/testimonials/1.jpg",
+        institution: "Cambridge Economics Student"
+    },
+    {
+        quote: "The personalised strategy gave me clear direction throughout the process. I always understood what I needed to improve and why it mattered academically.",
+        role: "Amir H.",
+        image: "/testimonials/1.jpg",
+        institution: "LSE Student"
+    },
+    {
+        quote: "We chose Access Oxbridge for its personalised approach. As parents, the balance between academic challenge and reassurance was exactly what we wanted.",
+        role: "Sarah K.",
+        image: "/testimonials/1.jpg",
+        institution: "Parent"
+    },
+    {
+        quote: "The Physics preparation strengthened how I explained complex ideas and responded confidently to unfamiliar questions in interviews. Thank you!",
+        role: "Isabella M.",
+        image: "/testimonials/1.jpg",
+        institution: "Student"
+    },
+    {
+        quote: "I felt informed, supported and confident in the guidance my child received. I could not recommend this enough to give your son or daughter the tools they need.",
+        role: "Jonathan S.",
+        image: "/testimonials/1.jpg",
+        institution: "Parent"
+    },
+    {
+        quote: "Access Oxbridge challenged my critical thinking and helped me articulate historical interpretations through multiple mock interviews before the real thing!",
+        role: "Kwame D.",
+        image: "/testimonials/1.jpg",
+        institution: "Student"
+    },
+    {
+        quote: "The Mathematics interview preparation was demanding and honest. It improved how I approached unfamiliar problems rather than relying on memorised methods.",
+        role: "Jayanth V.",
+        image: "/testimonials/1.jpg",
+        institution: "Cambridge Mathematics Student"
     },
 ];
 
