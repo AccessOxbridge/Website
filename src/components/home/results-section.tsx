@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { useReducedMotion } from '@/hooks/use-reduced-motion';
@@ -31,8 +32,31 @@ export function ResultsSection({
   buttonHref = '/our-results'
 }: ResultsSectionProps) {
   const shouldReduceMotion = useReducedMotion();
+  const [animatedData, setAnimatedData] = useState([
+    { name: 'Global Average', value: 0 },
+    { name: 'Access Oxbridge', value: 0 },
+  ]);
+  const chartRef = useRef<HTMLDivElement>(null);
 
   const isResultsPage = variant === 'results-page';
+
+  // Animate bar values when chart comes into view
+  const handleChartInView = () => {
+    if (!shouldReduceMotion) {
+      setTimeout(() => {
+        setAnimatedData([
+          { name: 'Global Average', value: 15 },
+          { name: 'Access Oxbridge', value: 67 },
+        ]);
+      }, 300); // Small delay to ensure smooth animation
+    } else {
+      // If reduced motion is preferred, set final values immediately
+      setAnimatedData([
+        { name: 'Global Average', value: 15 },
+        { name: 'Access Oxbridge', value: 67 },
+      ]);
+    }
+  };
 
   // Colors based on variant
   const titleColor = isResultsPage ? 'text-white' : 'text-black';
@@ -67,15 +91,17 @@ export function ResultsSection({
 
         {/* Acceptance Rate Chart */}
         <motion.div
+          ref={chartRef}
           initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
           whileInView={shouldReduceMotion ? {} : { opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
+          onViewportEnter={handleChartInView}
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16"
         >
           <div className={`${chartBgColor} p-8 rounded-lg`}>
             <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={acceptanceRateData} margin={{ top: 20, right: 30, left: 0, bottom: 20 }}>
+              <BarChart data={animatedData} margin={{ top: 20, right: 30, left: 0, bottom: 20 }}>
                 <XAxis dataKey="name" stroke={chartAxisColor} />
                 <YAxis stroke={chartAxisColor} domain={[0, 100]} />
                 <Tooltip
@@ -103,7 +129,7 @@ export function ResultsSection({
                   cursor={false}
                 />
                 <Bar dataKey="value" radius={[8, 8, 0, 0]}>
-                  {acceptanceRateData.map((entry, index) => (
+                  {animatedData.map((entry, index) => (
                     <Cell
                       key={`cell-${index}`}
                       fill={entry.name === 'Access Oxbridge' ? '#FFD700' : chartBarColor}
