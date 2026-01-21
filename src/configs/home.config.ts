@@ -152,7 +152,7 @@ export const homeConfig: HomeConfig = {
     "/ucl.png",
   ],
   schoolLogos: {
-    title: "Partnerships and Destinations.",
+    title: "Partnerships and Destinations",
     buttonText: "Find out more",
   },
   testimonialsSection: {
