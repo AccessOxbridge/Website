@@ -132,7 +132,7 @@ export function ResultsSection({
                   {animatedData.map((entry, index) => (
                     <Cell
                       key={`cell-${index}`}
-                      fill={entry.name === 'Access Oxbridge' ? '#FFD700' : chartBarColor}
+                      fill={chartBarColor}
                     />
                   ))}
                 </Bar>
