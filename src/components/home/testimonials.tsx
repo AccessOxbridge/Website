@@ -55,7 +55,7 @@ const quoteTestimonials = [
     },
     {
         quote: "The personalised strategy gave me clear direction throughout the process. I always understood what I needed to improve and why it mattered academically.",
-        role: "Amir H.",
+        role: "Yuvraj M.",
         image: "/testimonials/1.jpg",
         institution: "LSE Student"
     },
