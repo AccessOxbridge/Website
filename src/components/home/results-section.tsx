@@ -36,6 +36,7 @@ export function ResultsSection({
     { name: 'Global Average', value: 0 },
     { name: 'Access Oxbridge', value: 0 },
   ]);
+  const [animationComplete, setAnimationComplete] = useState(false);
   const chartRef = useRef<HTMLDivElement>(null);
 
   const isResultsPage = variant === 'results-page';
@@ -48,6 +49,8 @@ export function ResultsSection({
           { name: 'Global Average', value: 15 },
           { name: 'Access Oxbridge', value: 67 },
         ]);
+        // Mark animation as complete after a short delay
+        setTimeout(() => setAnimationComplete(true), 100);
       }, 300); // Small delay to ensure smooth animation
     } else {
       // If reduced motion is preferred, set final values immediately
@@ -55,6 +58,7 @@ export function ResultsSection({
         { name: 'Global Average', value: 15 },
         { name: 'Access Oxbridge', value: 67 },
       ]);
+      setAnimationComplete(true);
     }
   };
 
@@ -81,7 +85,7 @@ export function ResultsSection({
           transition={{ duration: 0.8 }}
           className="mb-12 text-center"
         >
-          <h2 className={`text-3xl sm:text-4xl font-bold ${titleColor} text-center underline mb-8`}>Proven Success</h2>
+          <h2 className={`text-3xl sm:text-4xl font-bold ${titleColor} text-center underline mb-8`}>Why Access Oxbridge?</h2>
           {!hideSubtitle && (
             <p className={`text-lg ${subtitleColor}`}>
               67% of our Premier Service students receive an offer from Oxford or Cambridge, vs a global average of 15%.
@@ -104,30 +108,36 @@ export function ResultsSection({
               <BarChart data={animatedData} margin={{ top: 20, right: 30, left: 0, bottom: 20 }}>
                 <XAxis dataKey="name" stroke={chartAxisColor} />
                 <YAxis stroke={chartAxisColor} domain={[0, 100]} />
-                <Tooltip
-                  contentStyle={{
-                    backgroundColor: '#ffffff',
-                    border: '2px solid #1e3a8a',
-                    borderRadius: '12px',
-                    boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-                    padding: '12px 16px',
-                    fontSize: '14px',
-                    fontWeight: '600',
-                    color: 'black',
-                    transition: 'all 0.2s ease-in-out',
-                  }}
-                  labelStyle={{
-                    color: 'black',
-                    fontSize: '12px',
-                    fontWeight: '500',
-                    marginBottom: '4px',
-                  }}
-                  itemStyle={{
-                    color: '#092c68',
-                  }}
-                  formatter={(value) => [`${value}%`, 'Acceptance Rate']}
-                  cursor={false}
-                />
+                {animationComplete && (
+                  <Tooltip
+                    contentStyle={{
+                      backgroundColor: '#ffffff',
+                      border: '2px solid #1e3a8a',
+                      borderRadius: '12px',
+                      boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                      padding: '12px 16px',
+                      fontSize: '14px',
+                      fontWeight: '600',
+                      color: 'black',
+                      transition: 'all 0.2s ease-in-out',
+                    }}
+                    labelStyle={{
+                      color: 'black',
+                      fontSize: '12px',
+                      fontWeight: '500',
+                      marginBottom: '4px',
+                    }}
+                    itemStyle={{
+                      color: '#092c68',
+                    }}
+                    formatter={(value, name) => {
+                      // Always show final values in tooltip to prevent glitches during animation
+                      const finalValue = name === 'Global Average' ? 15 : name === 'Access Oxbridge' ? 67 : value;
+                      return [`${finalValue}%`, 'Acceptance Rate'];
+                    }}
+                    cursor={false}
+                  />
+                )}
                 <Bar dataKey="value" radius={[8, 8, 0, 0]}>
                   {animatedData.map((entry, index) => (
                     <Cell
