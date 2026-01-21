@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Globe, Instagram, Facebook, Youtube, Linkedin, Twitter } from "lucide-react";
+import { Globe, Linkedin } from "lucide-react";
 import { headerConfig } from "@/configs/header.config";
 
 export default function Footer() {
@@ -23,30 +23,15 @@ export default function Footer() {
     }));
 
   const socialLinks = [
-    { icon: <Instagram className="w-5 h-5" />, href: "#", label: "Instagram" },
-    { icon: <Facebook className="w-5 h-5" />, href: "#", label: "Facebook" },
-    { icon: <Youtube className="w-5 h-5" />, href: "#", label: "YouTube" },
-    { icon: <Linkedin className="w-5 h-5" />, href: "#", label: "LinkedIn" },
-    { icon: <Twitter className="w-5 h-5" />, href: "#", label: "X" },
     {
-      icon: (
-        <svg
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className="w-5 h-5"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.88-.6-4.13-1.46-.24 4.18-.73 8.35-1.93 12.39-1.2 4.03-3.08 7.37-7.42 8.65-4.34 1.28-9.05-.18-11.85-3.69C-1.89 22.38-3.09 17.53-2.6 13.06c.49-4.47 2.85-8.52 6.64-10.87 3.79-2.35 8.7-2.73 12.82-1.02.1-.03.2-.06.3-.09-.1.3-.2.6-.3.9z" />
-          <path d="M19.505 13.25c.02-.11.04-.21.05-.32.01-.1.02-.21.03-.31.01-.11.02-.21.02-.32 0-.11-.01-.22-.01-.32 0-.11-.01-.22-.02-.33-.01-.11-.02-.22-.03-.32-.01-.11-.03-.22-.04-.33-.02-.11-.04-.21-.06-.32zM12.525.02c-.1.03-.2.06-.3.09 4.12 1.71 9.03 1.33 12.82 3.68 3.79 2.35 6.15 6.4 6.64 10.87.49 4.47-.71 9.32-4.51-12.81-2.8-3.51-7.51-4.97-11.85-3.69-4.34 1.28-6.22 4.62-7.42 8.65-1.2 4.04-1.69 8.21-1.93 12.39-1.25.86-2.69 1.29-4.13 1.46V6c1.54-.17 3.12-.68 4.24-1.79 1.12-1.08 1.67-2.64 1.75-4.17 1.3.01 2.6.02 3.91.02l-.3.92z" />
-        </svg>
-      ),
-      href: "#",
-      label: "TikTok",
+      icon: <Linkedin className="w-5 h-5" />,
+      href: "https://www.linkedin.com/in/access-oxbridge-6a6294349",
+      label: "LinkedIn",
     },
   ];
 
   return (
-    <footer className="w-full bg-white text-accent font-sans antialiased border-t border-neutral-100 pt-16 pb-8">
+    <footer className="w-full bg-white text-accent border-t border-neutral-100 pt-16 pb-8">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-20">
           {/* Main navigation sections from header */}
@@ -88,13 +73,6 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-              {/* CTA Button mirroring header */}
-              <Link
-                href={headerConfig.cta.href}
-                className="mt-4 inline-block py-2 px-4 text-sm font-bold border border-accent rounded-md text-center text-accent hover:bg-accent hover:text-white transition-all duration-200"
-              >
-                {headerConfig.cta.text}
-              </Link>
             </div>
           ))}
 

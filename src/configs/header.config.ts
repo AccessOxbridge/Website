@@ -8,11 +8,11 @@ export const headerConfig: HeaderConfig = {
       hasDropdown: true,
       dropdownItems: [
         {
-          title: 'UK University applications',
+          title: 'UK University Applications',
           href: '/services?type=uk',
         },
         {
-          title: 'Oxbridge applications',
+          title: 'Oxbridge Applications',
           href: '/services?type=oxbridge',
         },
         // {
