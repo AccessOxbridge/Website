@@ -48,12 +48,6 @@ const quoteTestimonials = [
         institution: "Parent"
     },
     {
-        quote: "The academic depth and professionalism of Access Oxbridge's mentors stood out. Their work complemented our provision and raised expectations appropriately.",
-        role: "Head of an Oxford Summer School",
-        image: "/testimonials/1.jpg",
-        institution: "Oxford Summer School"
-    },
-    {
         quote: "What impressed me most was how authentic the Economics interview preparation felt. The technical questioning reflected the real admissions experience closely.",
         role: "Ayman S.",
         image: "/testimonials/1.jpg",
