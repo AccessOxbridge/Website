@@ -148,57 +148,57 @@ export default function Hero() {
           transition-colors h-[5%]">
             UK University Admissions
           </h2>
-          <div className="flex flex-col items-center justify-center w-full gap-4 h-[30%] scale-60 sm:scale-100">
+          <div className="flex flex-col items-center justify-center w-full gap-4 h-[50%] scale-60 sm:scale-100">
             <div className="flex items-center justify-center gap-6">
               <Image
                 className="transition-transform group-hover:scale-110 duration-200 w-14 h-full object-contain"
                 src="/scientia.png"
                 alt="Scientia"
-                width={96}
-                height={96}
+                width={90}
+                height={90}
               />
               <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-14 h-full object-contain"
+                className="transition-transform group-hover:scale-110 duration-200 w-15 h-full object-contain"
                 src="/lse.png"
                 alt="LSE"
-                width={80}
-                height={80}
+                width={90}
+                height={90}
               />
               <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-20 h-full object-contain"
+                className="transition-transform group-hover:scale-110 duration-200 w-22 h-full object-contain"
                 src="/ucl.png"
                 alt="UCL"
-                width={112}
-                height={112}
+                width={90}
+                height={90}
               />
             </div>
             <div className="flex items-center justify-center gap-6">
               <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-14 h-full object-contain"
+                className="transition-transform group-hover:scale-110 duration-200 w-17 h-full object-contain"
                 src="/edinburgh.png"
                 alt="Edinburgh"
-                width={112}
-                height={112}
+                width={90}
+                height={90}
               />
               <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-14 h-full object-contain"
+                className="transition-transform group-hover:scale-110 duration-200 w-20 h-full object-contain"
                 src="/kings.png"
                 alt="Kings"
-                width={112}
-                height={112}
+                width={90}
+                height={90}
               />
               <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-32 h-full object-contain"
+                className="transition-transform group-hover:scale-110 duration-200 w-20 h-full object-contain"
                 src="/bristol.png"
                 alt="Bristol"
-                width={112}
-                height={112}
+                width={90}
+                height={90}
               />
             </div>
           </div>
           <p className="text-base text-left text-gray-500 leading-relaxed group-hover:text-gray-700 
-          transition-colors h-[40%]">
-            Applying to UK universities is exciting but complex, and small mistakes can have a big impact on your results. From choosing the right courses to writing a strong personal statement and meeting UCAS deadlines, the process rewards strategy as much as academic ability. Many students find that having clear guidance and a structured approach makes the experience far more manageable and effective.
+          transition-colors h-[10%]">
+            Many students find that clear guidance and a well-structured approach, supported by expert insight, provide the essential foundation for achieving success. 
           </p>
           <button className="bg-accent text-white px-6 sm:px-8 py-2 text-sm justify-center
           font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2 mt-14 sm:mt-0
@@ -227,25 +227,25 @@ export default function Hero() {
           transition-colors h-[10%]">
             Oxbridge Admissions
           </h2>
-          <div className="flex items-center justify-center w-full gap-6 h-[30%] scale-90 sm:scale-100">
+          <div className="flex items-center justify-center w-full gap-6 h-[50%] scale-90 sm:scale-100">
             <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-32 h-full object-contain"
+              className="transition-transform group-hover:scale-110 duration-200 w-40 h-full object-contain"
               src="/cambridge.png"
               alt="Cambridge"
-              width={128}
-              height={128}
+              width={90}
+              height={90}
             />
             <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-28 h-full object-contain"
+              className="transition-transform group-hover:scale-110 duration-200 w-22 h-full object-contain"
               src="/oxford.png"
               alt="Oxford"
-              width={96}
-              height={96}
+              width={90}
+              height={90}
             />
           </div>
           <p className="text-base text-left text-gray-500 leading-relaxed group-hover:text-gray-700 
-          transition-colors h-[40%]">
-            Applying to Oxbridge is challenging, but with the right support, you can increase your chances of success. Our Oxbridge Admissions service provides expert guidance, personalized mock interviews, and comprehensive admissions test tuition. We help you prepare for interviews, improve your test scores, and write a strong personal statement. With our support, you can increase your chances of success by 400%.
+          transition-colors h-[10%]">
+            Oxbridge is challenging, but with the right guidance and support, you can secure your place.
           </p>
           <button className="bg-accent text-white px-6 sm:px-8 py-2 text-sm justify-center
           font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2 mt-14 sm:mt-0

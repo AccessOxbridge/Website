@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { useReducedMotion } from '@/hooks/use-reduced-motion';
 
 const acceptanceRateData = [
@@ -55,9 +55,9 @@ export function ResultsSection({
           whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-12"
+          className="mb-12 text-center"
         >
-          <h2 className={`text-3xl sm:text-4xl font-bold ${titleColor} mb-4`}>{title}</h2>
+          <h2 className={`text-3xl sm:text-4xl font-bold ${titleColor} text-center underline mb-8`}>Proven Success</h2>
           {!hideSubtitle && (
             <p className={`text-lg ${subtitleColor}`}>
               67% of our Premier Service students receive an offer from Oxford or Cambridge, vs a global average of 15%.
@@ -100,9 +100,16 @@ export function ResultsSection({
                     color: '#092c68',
                   }}
                   formatter={(value) => [`${value}%`, 'Acceptance Rate']}
-                  cursor={{ fill: isResultsPage ? 'rgba(255, 255, 255, 0.1)' : 'rgba(30, 58, 138, 0.1)' }}
+                  cursor={false}
                 />
-                <Bar dataKey="value" fill={chartBarColor} radius={[8, 8, 0, 0]} />
+                <Bar dataKey="value" radius={[8, 8, 0, 0]}>
+                  {acceptanceRateData.map((entry, index) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={entry.name === 'Access Oxbridge' ? '#FFD700' : chartBarColor}
+                    />
+                  ))}
+                </Bar>
               </BarChart>
             </ResponsiveContainer>
           </div>
