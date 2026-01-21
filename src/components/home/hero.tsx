@@ -148,7 +148,7 @@ export default function Hero() {
           transition-colors h-[5%]">
             UK University Admissions
           </h2>
-          <div className="flex flex-col items-center justify-center w-full gap-4 h-[50%] scale-60 sm:scale-100">
+          <div className="flex flex-col items-center justify-center w-full gap-4 h-[30%] scale-60 sm:scale-100">
             <div className="flex items-center justify-center gap-6">
               <Image
                 className="transition-transform group-hover:scale-110 duration-200 w-14 h-full object-contain"
@@ -197,8 +197,10 @@ export default function Hero() {
             </div>
           </div>
           <p className="text-base text-left text-gray-500 leading-relaxed group-hover:text-gray-700 
-          transition-colors h-[10%]">
-            Many students find that clear guidance and a well-structured approach, supported by expert insight, provide the essential foundation for achieving success. 
+          transition-colors h-[40%]">
+            Applying to UK universities is exciting but complex, and small mistakes can have a big impact on your results. 
+            From choosing the right courses to writing a strong personal statement and meeting UCAS deadlines, the process rewards strategy as much as academic ability. 
+            Many students find that clear guidance and a well-structured approach, supported by expert insight, provide the essential foundation for achieving success.
           </p>
           <button className="bg-accent text-white px-6 sm:px-8 py-2 text-sm justify-center
           font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2 mt-14 sm:mt-0
@@ -227,7 +229,7 @@ export default function Hero() {
           transition-colors h-[10%]">
             Oxbridge Admissions
           </h2>
-          <div className="flex items-center justify-center w-full gap-6 h-[50%] scale-90 sm:scale-100">
+          <div className="flex items-center justify-center w-full gap-6 h-[30%] scale-90 sm:scale-100">
             <Image
               className="transition-transform group-hover:scale-110 duration-200 w-40 h-full object-contain"
               src="/cambridge.png"
@@ -244,8 +246,11 @@ export default function Hero() {
             />
           </div>
           <p className="text-base text-left text-gray-500 leading-relaxed group-hover:text-gray-700 
-          transition-colors h-[10%]">
+          transition-colors h-[40%]">
             Oxbridge is challenging, but with the right guidance and support, you can secure your place.
+            Our Oxbridge Admissions service provides expert guidance, personalized mock interviews, and comprehensive admissions test tuition. 
+            We help you prepare for interviews, improve your test scores, and write a strong personal statement. 
+            With our support, you can increase your chances of success by 400%.
           </p>
           <button className="bg-accent text-white px-6 sm:px-8 py-2 text-sm justify-center
           font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2 mt-14 sm:mt-0
