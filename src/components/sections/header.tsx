@@ -41,7 +41,7 @@ export default function Header() {
   }, []);
   return (
     <>
-      <header className={`fixed top-0 z-1002 w-full shadow-sm transition-all duration-300 backdrop-blur-md bg-accent/90 
+      <header className={`fixed top-0 z-1002 w-full shadow-sm transition-all duration-300 backdrop-blur-md bg-accent/75 
         text-white`}>
         <div className="mx-auto h-18 max-w-[1440px] px-4 md:px-10 flex items-center justify-between">
           <div className="flex items-center gap-4">
