@@ -12,7 +12,7 @@ export const homeConfig: HomeConfig = {
           { label: "Book Free Consultation →", href: "/consultation", variant: "secondary" },
         ],
         type: "image",
-        src: "/ppl2.jpeg",
+        src: "/landing/3.jpeg",
       },
       {
         id: 2,
@@ -23,7 +23,7 @@ export const homeConfig: HomeConfig = {
           { label: "Boost Your Chances by 400% →", href: "/success-stats", variant: "secondary" },
         ],
         type: "image",
-        src: "/oxbridge.png",
+        src: "/landing/1.webp",
       },
       {
         id: 3,
@@ -34,7 +34,7 @@ export const homeConfig: HomeConfig = {
           { label: "Speak to a Specialist →", href: "/consultation", variant: "secondary" },
         ],
         type: "image",
-        src: "/dukes.png",
+        src: "/landing/2.jpg",
       },
     ],
   },
