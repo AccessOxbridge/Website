@@ -119,7 +119,7 @@ export function ResultsPageContent() {
       {/* Reuse Results Section from home - with custom styling for this page */}
       <ResultsSection
         variant="results-page"
-        title="67% of our students receive an offer from Oxford or Cambridge, vs a global average of 15%."
+        title="67% of our students receive an offer from Oxford or Cambridge versus the global average of 15%."
         hideSubtitle={true}
         buttonText="Start Your Journey Today →"
         buttonHref="/consultation"
