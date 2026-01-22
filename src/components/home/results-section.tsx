@@ -85,7 +85,7 @@ export function ResultsSection({
           transition={{ duration: 0.8 }}
           className="mb-12 text-center"
         >
-          <h2 className={`text-3xl sm:text-4xl font-bold ${titleColor} text-center underline mb-8`}>Why Access Oxbridge?</h2>
+          <h2 className={`text-3xl sm:text-4xl font-bold ${titleColor} text-center mb-8`}>Proven Success</h2>
           {!hideSubtitle && (
             <p className={`text-lg ${subtitleColor}`}>
               67% of our students receive an offer from Oxford or Cambridge versus the global average of 15%.
