@@ -81,7 +81,7 @@ export default function Hero() {
                             Securing Futures:<br />
                             Bespoke UCAS Support
                           </>
-                        ) : (
+                        ) : slide.id === 3 ? <>Trusted for Oxford,<br/> Cambridge & G5 Excellence</> : (
                           slide.headline
                         )}
                       </h2>
