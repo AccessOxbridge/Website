@@ -78,7 +78,19 @@ export default function ContactPage() {
         </div>
 
         {/* Right Side: Contact Info */}
-        <div className="lg:pt-[360px] space-y-16 lg:pl-12">
+        <div className="pt-32 space-y-16 lg:pl-12">
+        <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="flex justify-center lg:justify-start"
+          >
+            <img
+              src="/logo.webp"
+              alt="Oxbridge Logo"
+              className="w-32 h-32 lg:w-64 lg:h-64 object-contain"
+            />
+          </motion.div>
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
