@@ -63,20 +63,20 @@ export function ResultsSection({
   };
 
   // Colors based on variant
-  const titleColor = isResultsPage ? 'text-white' : 'text-black';
-  const subtitleColor = isResultsPage ? 'text-white/80' : 'text-gray-600';
-  const chartBgColor = isResultsPage ? 'bg-white/10 backdrop-blur-sm' : 'bg-gray-50';
-  const chartAxisColor = isResultsPage ? '#ffffff' : '#6b7280';
-  const chartBarColor = isResultsPage ? '#ffffff' : '#1e3a8a';
-  const textColor = isResultsPage ? 'text-accent' : 'text-black';
-  const subTextColor = isResultsPage ? 'text-white/90' : 'text-gray-700';
-  const bulletColor = isResultsPage ? 'text-white' : 'text-accent';
+  const titleColor = isResultsPage ? 'text-black' : 'text-white';
+  const subtitleColor = isResultsPage ? 'text-gray-600' : 'text-white/80';
+  const chartBgColor = isResultsPage ? 'bg-gray-50' : 'bg-white/10 backdrop-blur-sm';
+  const chartAxisColor = isResultsPage ? '#6b7280' : '#ffffff';
+  const chartBarColor = isResultsPage ? '#1e3a8a' : '#ffffff';
+  const textColor = isResultsPage ? 'text-black' : 'text-accent';
+  const subTextColor = isResultsPage ? 'text-gray-700' : 'text-white/90';
+  const bulletColor = isResultsPage ? 'text-accent' : 'text-white';
   const buttonClasses = isResultsPage
-    ? 'bg-white text-accent hover:bg-white/90'
-    : 'bg-accent text-white hover:bg-cyan-600';
+    ? 'bg-accent text-white hover:bg-cyan-600'
+    : 'bg-white text-accent hover:bg-white/90';
 
   return (
-    <section className={`py-1 ${isResultsPage ? 'bg-accent' : ''}`}>
+    <section className={`py-20 ${isResultsPage ? 'bg-white' : 'bg-accent'}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
