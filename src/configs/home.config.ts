@@ -139,17 +139,16 @@ export const homeConfig: HomeConfig = {
     },
   ],
   logos: [
-    "/bristol.png",
-    "/cambridge.png",
-    "/durham.png",
-    "/edinburgh.png",
-    "/kings.png",
-    "/lse.png",
-    "/manchester.png",
-    "/oxford.png",
-    // "/queeneli.png",
-    "/scientia.png",
-    "/ucl.png",
+    { src: "/bristol.png", width: 200, height: 160 }, // 0 - was small, made bigger
+    { src: "/cambridge.png", width: 106, height: 106 }, // 1
+    { src: "/durham.png", width: 200, height: 160 }, // 2 - was small, made bigger
+    { src: "/edinburgh.png", width: 80, height: 80 }, // 3
+    { src: "/kings.png", width: 90, height: 100 }, // 4 - was big, made smaller
+    { src: "/lse.png", width: 70, height: 70 }, // 5 - was big, made smaller
+    { src: "/manchester.png", width: 200, height: 170 }, // 6 - was small, made bigger
+    { src: "/oxford.png", width: 70, height: 90 }, // 7
+    { src: "/scientia.png", width: 70, height: 70 }, // 8
+    { src: "/ucl.png", width: 90, height: 90 }, // 9
   ],
   schoolLogos: {
     title: "Partnerships and Destinations",

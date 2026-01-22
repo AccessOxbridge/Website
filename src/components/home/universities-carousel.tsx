@@ -33,11 +33,12 @@ export default function UniversitiesCarousel() {
                 className="flex h-24 items-center transition-colors"
               >
                 <Image
-                  src={logo}
+                  src={logo.src}
                   alt="School logo"
-                  width={96}
-                  height={96}
-                  className="h-full w-auto object-contain"
+                  width={logo.width}
+                  height={logo.height}
+                  className={`object-contain shrink-0`}
+                  style={{ width: logo.width, height: logo.height }}
                   loading="lazy"
                   placeholder="blur"
                   blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjRjNGNEY2Ii8+Cjwvc3ZnPg=="

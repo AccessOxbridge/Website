@@ -17,6 +17,12 @@ export interface Testimonial {
   video: string;
 }
 
+export interface LogoItem {
+  src: string;
+  width: number;
+  height: number;
+}
+
 export interface HeroSlide {
   id: number;
   subheading: string;
@@ -92,7 +98,7 @@ export interface HomeConfig {
     items: ExpertiseItem[];
   };
   testimonials: Testimonial[];
-  logos: string[];
+  logos: LogoItem[];
   schoolLogos: {
     title: string;
     buttonText: string;
