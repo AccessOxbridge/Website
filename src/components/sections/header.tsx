@@ -107,6 +107,19 @@ export default function Header() {
             transition-colors tracking-wider px-2 py-1 w-28 overflow-hidden whitespace-nowrap">
               Login / Signup
             </Link>
+            <Link
+              href={headerConfig.cta.href}
+              className={`
+                py-2 px-4 text-base font-bold border whitespace-nowrap
+                transition-all rounded-md
+                bg-white text-black hover:bg-rich-amber-accent
+                hover:text-accent hover:shadow-lg hover:scale-105
+                duration-200 ease-in-out
+              `}
+              style={{ textTransform: "none" }}
+            >
+              {headerConfig.cta.text}
+            </Link>
           </div>
         </div>
       </header>
