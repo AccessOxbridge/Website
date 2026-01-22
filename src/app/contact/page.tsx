@@ -91,7 +91,7 @@ export default function ContactPage() {
               className="w-32 h-32 lg:w-64 lg:h-64 object-contain"
             />
           </motion.div>
-          <motion.div 
+          {/* <motion.div 
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -119,7 +119,7 @@ export default function ContactPage() {
               <a href="#" className="text-white hover:text-gray-400 transition-all transform hover:scale-110"><Instagram size={24} strokeWidth={1.5} /></a>
               <a href="#" className="text-white hover:text-gray-400 transition-all transform hover:scale-110"><Globe size={24} strokeWidth={1.5} /></a>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </div>

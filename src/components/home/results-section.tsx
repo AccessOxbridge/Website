@@ -29,7 +29,7 @@ export function ResultsSection({
   title = 'UK & Oxbridge',
   hideSubtitle = false,
   buttonText = 'Our Results →',
-  buttonHref = '/our-results'
+  buttonHref = '/our-story#our-results'
 }: ResultsSectionProps) {
   const shouldReduceMotion = useReducedMotion();
   const [animatedData, setAnimatedData] = useState([
@@ -158,7 +158,7 @@ export function ResultsSection({
               </li>
               <li className="flex gap-3">
                 <span className={`${bulletColor} font-bold`}>•</span>
-                <span className={subTextColor}><strong>Insider insight:</strong> Guidance is led by Oxbridge graduates who understand the admissions process from the inside.</span>
+                <span className={subTextColor}><strong>Insider insight:</strong> Guidance is led by Oxbridge graduates and Senior Academic Staff who understand the admissions process from the inside.</span>
               </li>
               <li className="flex gap-3">
                 <span className={`${bulletColor} font-bold`}>•</span>

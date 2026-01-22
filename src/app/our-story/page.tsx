@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { ArrowRight } from "lucide-react";
+import { ResultsPageContent } from "@/components/pages/results-page-content";
 
 const studentArticles = [
   {
@@ -42,7 +43,7 @@ export default function OurStoryPage() {
   return (
     <main className="min-h-screen w-full">
       {/* Hero Section - Our Story */}
-      <section className="bg-accent pt-12">
+      <section id="our-story" className="bg-accent pt-12">
         <div className="container mx-auto px-6 md:px-12 lg:px-20 py-10 md:py-14">
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
             {/* Logo Section - Left */}
@@ -161,23 +162,12 @@ export default function OurStoryPage() {
             ))}
           </div>
 
-          {/* View Our Results Button */}
-          <motion.div
-            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
-            whileInView={shouldReduceMotion ? {} : { opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-center mt-12"
-          >
-            <Link
-              href="/our-results"
-              className="inline-flex items-center gap-2 bg-accent px-8 py-4 text-white font-semibold rounded-md hover:bg-accent/90 transition-colors group"
-            >
-              View Our Results
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </motion.div>
         </div>
+      </section>
+
+      {/* Our Results Section */}
+      <section id="our-results">
+        <ResultsPageContent />
       </section>
     </main>
   );

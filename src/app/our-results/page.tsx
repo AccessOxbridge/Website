@@ -1,6 +1,4 @@
-import Header from "@/components/sections/header";
-import Footer from "@/components/sections/footer";
-import { ResultsPageContent } from "@/components/pages/results-page-content";
+import { redirect } from 'next/navigation';
 
 export const metadata = {
   title: "Our Results | Access Oxbridge",
@@ -8,9 +6,5 @@ export const metadata = {
 };
 
 export default function OurResultsPage() {
-  return (
-    <main className="min-h-screen">
-      <ResultsPageContent />
-    </main>
-  );
+  redirect('/our-story#our-results');
 }

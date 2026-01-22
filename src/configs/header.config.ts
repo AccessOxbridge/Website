@@ -28,11 +28,11 @@ export const headerConfig: HeaderConfig = {
       dropdownItems: [
         {
           title: 'Our Story',
-          href: '/our-story',
+          href: '/our-story#our-story',
         },
         {
           title: 'Our Results',
-          href: '/our-results',
+          href: '/our-story#our-results',
         },
         {
           title: 'Join Our Admissions Team',

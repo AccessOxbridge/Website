@@ -8,7 +8,7 @@ export const homeConfig: HomeConfig = {
         subheading: "ELITE ADMISSIONS",
         headline: "Achieving Dreams: The Cambridge Experience",
         buttons: [
-          { label: "Our Results", href: "/our-results", variant: "primary" },
+          { label: "Our Results", href: "/our-story#our-results", variant: "primary" },
           { label: "Book Free Consultation →", href: "/consultation", variant: "secondary" },
         ],
         type: "image",
@@ -19,7 +19,7 @@ export const homeConfig: HomeConfig = {
         subheading: "Tailored Pathways",
         headline: "Securing Futures: Bespoke UCAS Support",
         buttons: [
-          { label: "Our Results", href: "/our-results", variant: "primary" },
+          { label: "Our Results", href: "/our-story#our-results", variant: "primary" },
           { label: "Boost Your Chances by 400% →", href: "/success-stats", variant: "secondary" },
         ],
         type: "image",
