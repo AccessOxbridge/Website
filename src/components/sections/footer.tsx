@@ -83,14 +83,15 @@ export default function Footer() {
             </h3>
             <div className="flex flex-wrap gap-3">
               {socialLinks.map((social, idx) => (
-                <Link
+                <a
                   key={idx}
                   href={social.href}
                   className="w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center hover:opacity-90 transition-opacity"
                   aria-label={social.label}
+                  target="_blank" rel="noopener noreferrer"
                 >
                   {social.icon}
-                </Link>
+                </a>
               ))}
             </div>
           </div>
