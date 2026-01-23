@@ -151,14 +151,14 @@ export default function Hero() {
           <div className="flex flex-col items-center justify-center w-full gap-4 h-[30%] scale-60 sm:scale-100">
             <div className="flex items-center justify-center gap-6">
               <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-64 h-full 
+                className="transition-transform group-hover:scale-110 duration-200 w-24 h-full 
                 object-cover"
                 src="/imperial.png"
                 alt="Scientia"
                 width={90}
                 height={90}
               />
-              {/* <Image
+              <Image
                 className="transition-transform group-hover:scale-110 duration-200 w-15 h-full object-contain"
                 src="/lse.png"
                 alt="LSE"
@@ -171,9 +171,9 @@ export default function Hero() {
                 alt="UCL"
                 width={90}
                 height={90}
-              /> */}
+              />
             </div>
-            {/* <div className="flex items-center justify-center gap-6">
+            <div className="flex items-center justify-center gap-6">
               <Image
                 className="transition-transform group-hover:scale-110 duration-200 w-17 h-full object-contain"
                 src="/edinburgh.png"
@@ -182,20 +182,20 @@ export default function Hero() {
                 height={90}
               />
               <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-20 h-full object-contain"
+                className="transition-transform group-hover:scale-110 duration-200 w-18 h-full object-contain"
                 src="/kings.png"
                 alt="Kings"
                 width={90}
                 height={90}
               />
               <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-20 h-full object-contain"
+                className="transition-transform group-hover:scale-110 duration-200 w-28 h-full object-contain"
                 src="/bristol.png"
                 alt="Bristol"
                 width={90}
                 height={90}
               />
-            </div> */}
+            </div>
           </div>
           <p className="text-base text-left text-gray-500 leading-relaxed group-hover:text-gray-700 
           transition-colors h-[40%]">
