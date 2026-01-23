@@ -21,21 +21,21 @@ const resourceCategories: ResourceCategory[] = [
   {
     title: 'Oxbridge Guides and Resources',
     description: 'Expert insights and comprehensive guides specifically for Oxford and Cambridge applications. From personal statements to interview preparation.',
-    image: '/oxbridge.png',
+    image: '/landing/5.png',
     href: '/blog?category=oxbridge',
     category: 'oxbridge'
   },
   {
     title: 'UK University Guides and Resources',
     description: 'Complete guides for all UK universities beyond Oxbridge. Course selection, application strategies, and insider tips for success.',
-    image: '/dukes.png',
+    image: '/landing/2.jpg',
     href: '/blog?category=uk-universities',
     category: 'uk-universities'
   },
   {
     title: 'International Student Guides and Resources',
     description: 'Specialized resources for international applicants. Visa guidance, cultural adaptation, and strategies for studying in the UK.',
-    image: '/ppl2.jpeg',
+    image: '/landing/4.png',
     href: '/blog?category=international',
     category: 'international'
   }
