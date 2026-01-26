@@ -119,7 +119,7 @@ export default function ConsultationPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="bg-rich-beige-accent rounded-2xl shadow-lg p-8 md:p-10 lg:sticky lg:top-24"
             >
-              <h2 className="text-2xl md:text-3xl font-bold  mb-6 text-right">
+              <h2 className="text-2xl md:text-3xl font-bold  mb-6 text-left">
                 Book Your Free Consultation
               </h2>
               <p className="text-base text-gray-800 mb-8 text-left">
