@@ -99,7 +99,7 @@ export function ResultsSection({
   const subTextColor = isResultsPage ? 'text-gray-700' : 'text-white/90';
   const bulletColor = isResultsPage ? 'text-accent' : 'text-white';
   const buttonClasses = isResultsPage
-    ? 'bg-accent text-accent hover:bg-rich-amber-accent'
+    ? 'bg-accent text-white hover:bg-rich-amber-accent hover:text-accent'
     : 'bg-white text-accent hover:bg-white/90';
 
   return (
