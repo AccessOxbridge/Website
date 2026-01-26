@@ -167,7 +167,7 @@ export const homeConfig: HomeConfig = {
         },
         {
           question: "How Many International Students Study at Oxbridge",
-          answer: "**University of Oxford:**\n\n* Around **35 % of the student body is international**, meaning students from outside the UK make up roughly one‑third of all Oxford students.\n\n**University of Cambridge:**\n\n* Around **32 % of students at Cambridge are international**, placing the university's international presence on a par with other leading UK institutions."
+          answer: "**University Of Oxford:**\n\n* Around 35 % Of The Student Body Is International, Meaning Students From Outside The UK Make Up Roughly One‑Third Of All Oxford Students.\n\n**University Of Cambridge:**\n\n* Around 32 % Of Students At Cambridge Are International, Placing The University's International Presence On A Par With Other Leading UK Institutions."
         },
         {
           question: "How much does support from Access Oxbridge cost?",
