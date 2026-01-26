@@ -166,10 +166,6 @@ export const homeConfig: HomeConfig = {
           answer: "Access Oxbridge Offers provides focused, academically rigorous support for applicants to Oxford, Cambridge, and the UK's most competitive universities, including:\n\n* **Personalised Academic Strategy:** A tailored roadmap covering subject preparation, supercurriculars, admissions tests, and key application milestones.\n* **Expert Oxbridge Insight:** Guidance from experienced mentors with deep understanding of Oxford and Cambridge subject-level assessment.\n* **Application & Personal Statement Support:** Structured development to clearly and compellingly articulate academic motivation and subject readiness.\n* **Interview Preparation:** Targeted practice to build confident academic thinking, sharp reasoning, and clear communication under pressure.\n* **UK Admissions Guidance:** Strategic support across UCAS choices, entry requirements, offer management, and results-day decisions at leading universities."
         },
         {
-          question: "Can international students apply to Oxford or Cambridge?",
-          answer: "Yes! International students can absolutely apply to Oxbridge, and both universities welcome qualified applicants from around the world through the normal UCAS process, provided they meet the academic and admissions test requirements and complete any interview stages just like UK applicants."
-        },
-        {
           question: "How Many International Students Study at Oxbridge",
           answer: "**University of Oxford:**\n\n* Around **35 % of the student body is international**, meaning students from outside the UK make up roughly one‑third of all Oxford students.\n\n**University of Cambridge:**\n\n* Around **32 % of students at Cambridge are international**, placing the university's international presence on a par with other leading UK institutions."
         },
