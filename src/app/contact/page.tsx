@@ -70,7 +70,9 @@ export default function ContactPage() {
             </div>
             <button 
               type="submit"
-              className="w-full bg-[#4a4a4a] hover:bg-[#5a5a5a] text-white py-4 transition-all duration-300 font-medium tracking-widest text-sm uppercase mt-4"
+              className="w-full bg-[#ffffff] hover:bg-rich-amber-accent text-accent py-4 
+              transition-all duration-300 font-bold tracking-widest text-sm uppercase mt-4
+              cursor-pointer"
             >
               Send
             </button>
@@ -88,8 +90,19 @@ export default function ContactPage() {
             <img
               src="/logo.webp"
               alt="Oxbridge Logo"
-              className="w-32 h-32 lg:w-64 lg:h-64 object-contain"
+              className="w-64 h-64 lg:w-96 lg:h-96 object-contain"
             />
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="space-y-6"
+          >
+            <a href="/consultation" className="bg-[#ffffff] hover:bg-rich-amber-accent text-accent transition-all duration-300 
+            tracking-widest text-sm uppercase px-10 py-5 w-full font-bold cursor-pointer">
+              I want to speak to a specialist
+            </a>
           </motion.div>
           {/* <motion.div 
             initial={{ opacity: 0, x: 20 }}
