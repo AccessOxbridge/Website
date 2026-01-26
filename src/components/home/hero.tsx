@@ -172,10 +172,8 @@ export default function Hero() {
                 width={90}
                 height={90}
               />
-            </div>
-            <div className="flex items-center justify-center gap-6">
-              <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-17 h-full object-contain"
+               <Image
+                className="transition-transform group-hover:scale-110 duration-200 w-16 h-full object-contain"
                 src="/edinburgh.png"
                 alt="Edinburgh"
                 width={90}
@@ -185,13 +183,6 @@ export default function Hero() {
                 className="transition-transform group-hover:scale-110 duration-200 w-18 h-full object-contain"
                 src="/kings.png"
                 alt="Kings"
-                width={90}
-                height={90}
-              />
-              <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-28 h-full object-contain"
-                src="/bristol.png"
-                alt="Bristol"
                 width={90}
                 height={90}
               />

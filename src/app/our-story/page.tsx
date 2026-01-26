@@ -2,171 +2,255 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, GraduationCap, Quote } from "lucide-react";
 import { ResultsPageContent } from "@/components/pages/results-page-content";
+import { useRef } from "react";
 
 const studentArticles = [
   {
     id: 1,
-    title: "Lorem ipsum dolor sit amet consectetur",
-    excerpt: "Adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    author: "Student Name A",
+    title: "Navigating the Cambridge Natural Sciences Interview",
+    excerpt: "How I approached the technical questions and developed the confidence to discuss complex biological systems with world-leading academics.",
+    author: "James T.",
     university: "University of Cambridge",
     course: "Natural Sciences",
-    href: "/articles/placeholder-1",
+    image: "https://images.unsplash.com/photo-1576085898323-2183ba9b22ea?auto=format&fit=crop&q=80&w=800",
+    href: "/blog/cambridge-natural-sciences-guide",
   },
   {
     id: 2,
-    title: "Ut enim ad minim veniam quis nostrud",
-    excerpt: "Exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    author: "Student Name B",
+    title: "Philosophy & Theology: Beyond the Personal Statement",
+    excerpt: "Deep diving into historical interpretations and learning to articulate nuanced arguments during my Oxford interview process.",
+    author: "Sofia R.",
     university: "University of Oxford",
-    course: "Medicine",
-    href: "/articles/placeholder-2",
+    course: "Philosophy & Theology",
+    image: "https://images.unsplash.com/photo-1521791136064-7986c2923216?auto=format&fit=crop&q=80&w=800",
+    href: "/blog/oxford-philosophy-theology-journey",
   },
   {
     id: 3,
-    title: "Duis aute irure dolor in reprehenderit",
-    excerpt: "In voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    author: "Student Name C",
+    title: "Securing an Offer for Law at Cambridge",
+    excerpt: "Overcoming the LNAT and preparing for the problem-based questions that define the Law admissions process at Christ's College.",
+    author: "Elena M.",
     university: "University of Cambridge",
     course: "Law",
-    href: "/articles/placeholder-3",
+    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=800",
+    href: "/blog/cambridge-law-success-story",
   },
 ];
 
 export default function OurStoryPage() {
   const shouldReduceMotion = useReducedMotion();
+  const storyRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: storyRef,
+    offset: ["start start", "end end"]
+  });
+
+  const logoScale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.1, 1.2]);
+  const logoOpacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0.8, 1, 1, 0.8]);
 
   return (
-    <main className="min-h-screen w-full">
-      {/* Hero Section - Our Story */}
-      <section id="our-story" className="bg-accent pt-12">
-        <div className="container mx-auto px-6 md:px-12 lg:px-20 py-10 md:py-14">
-          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-            {/* Logo Section - Left */}
-            <div className="shrink-0 w-full lg:w-1/4 flex items-center justify-center">
+    <main className="min-h-screen w-full bg-white">
+      {/* Our Story Section - Sticky Layout */}
+      <section
+        id="our-story"
+        ref={storyRef}
+        className="bg-accent relative pt-24 pb-32"
+      >
+        <div className="container mx-auto px-6 md:px-12 lg:px-20">
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-32 items-stretch relative">
+
+            {/* Left Column: Sticky Container */}
+            <div className="w-full lg:w-1/3 relative min-h-[300px] lg:min-h-full">
+              {/* This inner div is what actually sticks */}
+              <div className="lg:sticky lg:top-1/2 lg:-translate-y-1/2 flex items-center justify-center py-12 lg:py-0">
+                <motion.div
+                  style={{
+                    scale: shouldReduceMotion ? 1 : logoScale,
+                    opacity: shouldReduceMotion ? 1 : logoOpacity
+                  }}
+                  className="relative group"
+                >
+                  {/* Decorative glow background */}
+                  <div className="absolute -inset-8 bg-white/5 rounded-full blur-3xl group-hover:bg-white/10 transition-colors duration-700" />
+
+                  <div className="relative w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80">
+                    <Image
+                      src="/logo.webp"
+                      alt="Access Oxbridge Logo"
+                      fill
+                      className="object-contain drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+                      priority
+                    />
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Right Column: Narrative Text */}
+            <div className="w-full lg:w-2/3">
               <motion.div
-                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.9 }}
-                animate={shouldReduceMotion ? {} : { opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8 }}
-                className="relative w-40 h-40 md:w-52 md:h-52 lg:w-[240px] lg:h-[240px]"
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 30 }}
+                whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+                className="space-y-16"
               >
-                <Image
-                  src="/logo.webp"
-                  alt="Access Oxbridge Logo"
-                  fill
-                  className="object-contain drop-shadow-2xl"
-                  priority
-                />
+                <div className="space-y-6">
+                  <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-white tracking-tighter">
+                    Our <span className="text-white/40">Story</span>
+                  </h1>
+                  <div className="w-24 h-1.5 bg-white/20 rounded-full" />
+                </div>
+
+                <div className="space-y-12 text-white/90 text-xl md:text-2xl leading-relaxed font-light">
+                  <p className="">
+                    Access Oxbridge was founded at the University of Cambridge by graduates who experienced both the opportunities
+                    and the inequalities of the admissions process firsthand. As applicants ourselves, we encountered moments of
+                    excitement and possibility alongside uncertainty about expectations, academic standards, and how best to express
+                    our ideas.
+                  </p>
+
+                  <p>
+                    Through this experience, one truth became clear: academic potential is too often limited not by ability,
+                    but by unequal access to clear, informed guidance. Navigating Oxbridge applications can feel daunting,
+                    particularly for students without established networks or specialist support.
+                  </p>
+
+                  <div className="p-8 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-sm relative overflow-hidden group">
+                    <Quote className="absolute -top-4 -right-4 w-24 h-24 text-white/5 -rotate-12 group-hover:rotate-0 transition-transform duration-700" />
+                    <p className="italic text-white font-medium relative z-10">
+                      "Small differences in preparation, confidence, and feedback can have an outsized impact. Access Oxbridge was created in response to this reality."
+                    </p>
+                  </div>
+
+                  <p>
+                    We wanted to build something that would demystify the process while encouraging students to engage deeply
+                    with their subject and develop confidence in their own academic voice. Our mission is to support students
+                    around the world in approaching competitive applications with clarity, integrity, and intellectual curiosity.
+                  </p>
+
+                  <p>
+                    We believe that widening access and upholding academic rigour belong together. High standards matter,
+                    and so does ensuring that talented students from all backgrounds are equipped to meet them on equal footing.
+                  </p>
+
+                  <p>
+                    What began as a small initiative has grown into a global mentoring community shaped by thoughtful preparation,
+                    curiosity, and a shared belief in education as a transformative force. At Access Oxbridge, we are committed
+                    not only to helping students apply, but to helping them think independently, ask better questions, and
+                    grow into scholars long before they enter an interview room.
+                  </p>
+                </div>
               </motion.div>
             </div>
 
-            {/* Text Section - Right */}
-            <motion.div
-              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
-              animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="w-full lg:w-3/4 space-y-4"
-            >
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight 
-              text-left pl-24">
-                Our Story
-              </h1>
-
-              <div className="space-y-4 text-white/90 text-base md:text-lg leading-relaxed">
-                <p>
-                  Access Oxbridge was founded at the University of Cambridge by
-                  graduates who experienced both the opportunities and
-                  inequalities of the admissions process firsthand. Having
-                  navigated Oxbridge applications ourselves, we recognised how
-                  often academic potential is constrained by a lack of clear,
-                  informed guidance rather than ability.
-                </p>
-
-                <p>
-                  Our mission is to support students worldwide in approaching
-                  competitive applications with confidence, clarity, and academic
-                  integrity. What began as a small initiative has grown into a
-                  global mentoring community, grounded in intellectual curiosity,
-                  thoughtful preparation, and a commitment to widening access
-                  while maintaining academic rigour.
-                </p>
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Student Articles Section */}
-      <section className="bg-gray-50 py-16">
-        <div className="container mx-auto px-6 md:px-12 lg:px-20">
+      {/* Student Stories Section */}
+      <section className="bg-slate-50 py-32 relative overflow-hidden">
+        {/* Background Decorative Elements */}
+        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-accent/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-accent/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
+
+        <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
           <motion.div
             initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
             whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-12"
+            className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8"
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black mb-4">
-              Student Stories
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Read about the journeys of students who achieved their Oxbridge dreams with our support.
+            <div className="space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/5 text-accent text-sm font-semibold tracking-wide uppercase">
+                <GraduationCap className="w-4 h-4" />
+                Student Journeys
+              </div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900">
+                Student Stories
+              </h2>
+            </div>
+            <p className="text-lg text-slate-600 max-w-md">
+              Read about the journeys of students who achieved their Oxbridge dreams with our bespoke mentoring and support.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {studentArticles.map((article, index) => (
               <motion.article
                 key={article.id}
-                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 30 }}
                 whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group"
+                className="group relative flex flex-col h-full bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-200/60"
               >
-                <Link href={article.href} className="block">
-                  <div className="bg-white rounded-2xl p-8 h-full shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-accent/20 group-hover:-translate-y-1">
-                    {/* Article Meta */}
-                    <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
-                      <span className="text-accent font-medium">{article.university}</span>
-                      <span>•</span>
-                      <span>{article.course}</span>
-                    </div>
+                {/* Article Image Container */}
+                <div className="aspect-video overflow-hidden relative">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                    {/* Title */}
-                    <h3 className="text-xl font-semibold text-black mb-3 group-hover:text-accent transition-colors">
-                      {article.title}
-                    </h3>
-
-                    {/* Excerpt */}
-                    <p className="text-gray-600 mb-6 leading-relaxed">
-                      {article.excerpt}
-                    </p>
-
-                    {/* Author */}
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm font-medium text-gray-700">
-                        {article.author}
-                      </span>
-                      <span className="text-accent group-hover:translate-x-1 transition-transform">
-                        <ArrowRight className="w-5 h-5" />
-                      </span>
+                  {/* Category Badge */}
+                  <div className="absolute top-4 left-4">
+                    <div className="px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md text-xs font-bold text-accent shadow-lg">
+                      {article.university}
                     </div>
                   </div>
-                </Link>
+                </div>
+
+                {/* Content */}
+                <div className="flex flex-col grow p-8">
+                  <div className="text-xs font-semibold text-accent uppercase tracking-widest mb-3">
+                    {article.course}
+                  </div>
+
+                  <Link href={article.href} className="group-hover:text-accent transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-accent transition-colors">
+                      {article.title}
+                    </h3>
+                  </Link>
+
+                  <p className="text-slate-600 mb-8 grow leading-relaxed">
+                    {article.excerpt}
+                  </p>
+
+                  <div className="flex items-center justify-between pt-6 border-t border-slate-100 mt-auto">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent font-bold">
+                        {article.author.charAt(0)}
+                      </div>
+                      <span className="text-sm font-bold text-slate-800">
+                        {article.author}
+                      </span>
+                    </div>
+
+                    <Link
+                      href={article.href}
+                      className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-accent group-hover:text-white transition-all duration-300"
+                    >
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+                    </Link>
+                  </div>
+                </div>
               </motion.article>
             ))}
           </div>
-
         </div>
       </section>
 
       {/* Our Results Section */}
-      <section id="our-results">
+      <section id="our-results" className="bg-white">
         <ResultsPageContent />
       </section>
     </main>

@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import ApproachCards from '@/components/sections/cards'
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion'
-import { CheckCircle2, Target, FileText, BookOpen, Users, Clock, Award, GraduationCap } from 'lucide-react'
+import { CheckCircle2, Target, FileText, BookOpen, Users, Clock, Award, GraduationCap, ArrowRight } from 'lucide-react'
 import ScrollIntentSpinWheel from '@/components/dialogs/ScrollIntentSpinWheel'
 import { useEffect, useState, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
@@ -234,7 +234,7 @@ function ServicesContent() {
                   shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.1)] ${!isOxbridge
                       ? 'bg-gray-800 border-gray-700'
                       : 'bg-white border-gray-100'
-                    }`}
+                    } h-92`}
                 >
                   <div className="absolute top-0 left-0 w-full h-1 bg-secondary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-t-2xl origin-left" />
 
@@ -254,11 +254,10 @@ function ServicesContent() {
                     {service.desc}
                   </p>
 
-                  <div className={`flex items-center text-xs font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-2 group-hover:translate-x-0 ${!isOxbridge ? 'text-white' : 'text-primary'
-                    }`}>
-                    <span>Find Your Mentor</span>
-                    <div className={`ml-2 w-4 h-px transition-colors duration-500 ${!isOxbridge ? 'bg-white' : 'bg-primary'
-                      }`} />
+                  <div className={`flex items-center text-xs font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 
+                  transition-all transform translate-x-2 group-hover:translate-x-0 
+                  ${!isOxbridge ? 'text-white' : 'text-primary'} gap-2`}>
+                    Find Your Mentor <ArrowRight className='w-4 h-4'/>
                   </div>
                 </motion.div>
               </Link>
