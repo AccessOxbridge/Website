@@ -2,16 +2,43 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, TooltipProps } from 'recharts';
 import { useReducedMotion } from '@/hooks/use-reduced-motion';
+
+function ChartTooltip({ active, payload }: TooltipProps<number, string>) {
+  if (!active || !payload?.length) return null;
+  const item = payload[0];
+  const dataName = item.payload?.name as string;
+  const value = item.payload?.name === 'Access Oxbridge (2025)' ? 67 : item.payload?.name === 'The Times Global Average (2024-26)' ? 15 : item.value;
+  const isAccessOxbridge = dataName === 'Access Oxbridge (2025)';
+  return (
+    <div
+      style={{
+        backgroundColor: '#ffffff',
+        border: '2px solid #1e3a8a',
+        borderRadius: '12px',
+        boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+        padding: '12px 16px',
+        fontSize: '14px',
+        fontWeight: '600',
+        color: 'black',
+      }}
+    >
+      <p style={{ fontSize: '12px', fontWeight: '500', marginBottom: '4px', color: 'black' }}>Acceptance Rate</p>
+      <p style={{ color: '#092c68' }}>
+        {value}%{isAccessOxbridge && ' — Out of 84 students, 56 were successful in their applications to either Oxford or Cambridge'}
+      </p>
+    </div>
+  );
+}
 
 const acceptanceRateData = [
   {
-    name: 'Global Average',
+    name: 'The Times Global Average (2024-26)',
     value: 15,
   },
   {
-    name: 'Access Oxbridge',
+    name: 'Access Oxbridge (2025)',
     value: 67,
   },
 ];
@@ -33,8 +60,8 @@ export function ResultsSection({
 }: ResultsSectionProps) {
   const shouldReduceMotion = useReducedMotion();
   const [animatedData, setAnimatedData] = useState([
-    { name: 'Global Average', value: 0 },
-    { name: 'Access Oxbridge', value: 0 },
+    { name: 'The Times Global Average (2024-26)', value: 0 },
+    { name: 'Access Oxbridge (2025)', value: 0 },
   ]);
   const [animationComplete, setAnimationComplete] = useState(false);
   const chartRef = useRef<HTMLDivElement>(null);
@@ -46,8 +73,8 @@ export function ResultsSection({
     if (!shouldReduceMotion) {
       setTimeout(() => {
         setAnimatedData([
-          { name: 'Global Average', value: 15 },
-          { name: 'Access Oxbridge', value: 67 },
+          { name: 'The Times Global Average (2024-26)', value: 15 },
+          { name: 'Access Oxbridge (2025)', value: 67 },
         ]);
         // Mark animation as complete after a short delay
         setTimeout(() => setAnimationComplete(true), 100);
@@ -55,8 +82,8 @@ export function ResultsSection({
     } else {
       // If reduced motion is preferred, set final values immediately
       setAnimatedData([
-        { name: 'Global Average', value: 15 },
-        { name: 'Access Oxbridge', value: 67 },
+        { name: 'The Times Global Average (2024-26)', value: 15 },
+        { name: 'Access Oxbridge (2025)', value: 67 },
       ]);
       setAnimationComplete(true);
     }
@@ -65,14 +92,14 @@ export function ResultsSection({
   // Colors based on variant
   const titleColor = isResultsPage ? 'text-black' : 'text-white';
   const subtitleColor = isResultsPage ? 'text-gray-600' : 'text-white/80';
-  const chartBgColor = isResultsPage ? 'bg-gray-50' : 'bg-white/10 backdrop-blur-sm';
-  const chartAxisColor = isResultsPage ? '#6b7280' : '#ffffff';
-  const chartBarColor = isResultsPage ? '#1e3a8a' : '#ffffff';
+  const chartBgColor = 'bg-white';
+  const chartAxisColor = '#6b7280';
+  const chartBarColor = '#1e3a8a';
   const textColor = isResultsPage ? 'text-black' : 'text-accent';
   const subTextColor = isResultsPage ? 'text-gray-700' : 'text-white/90';
   const bulletColor = isResultsPage ? 'text-accent' : 'text-white';
   const buttonClasses = isResultsPage
-    ? 'bg-accent text-white hover:bg-cyan-600'
+    ? 'bg-accent text-accent hover:bg-rich-amber-accent'
     : 'bg-white text-accent hover:bg-white/90';
 
   return (
@@ -104,39 +131,13 @@ export function ResultsSection({
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16"
         >
           <div className={`${chartBgColor} p-8 rounded-lg`}>
+            <h3 className={`text-xl font-semibold mb-4 ${textColor}`}>Oxbridge Admissions Statistics</h3>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={animatedData} margin={{ top: 20, right: 30, left: 0, bottom: 20 }}>
                 <XAxis dataKey="name" stroke={chartAxisColor} />
-                <YAxis stroke={chartAxisColor} domain={[0, 100]} />
+                <YAxis stroke={chartAxisColor} domain={[0, 100]} tickFormatter={(v) => `${v}%`} />
                 {animationComplete && (
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: '#ffffff',
-                      border: '2px solid #1e3a8a',
-                      borderRadius: '12px',
-                      boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-                      padding: '12px 16px',
-                      fontSize: '14px',
-                      fontWeight: '600',
-                      color: 'black',
-                      transition: 'all 0.2s ease-in-out',
-                    }}
-                    labelStyle={{
-                      color: 'black',
-                      fontSize: '12px',
-                      fontWeight: '500',
-                      marginBottom: '4px',
-                    }}
-                    itemStyle={{
-                      color: '#092c68',
-                    }}
-                    formatter={(value, name) => {
-                      // Always show final values in tooltip to prevent glitches during animation
-                      const finalValue = name === 'Global Average' ? 15 : name === 'Access Oxbridge' ? 67 : value;
-                      return [`${finalValue}%`, 'Acceptance Rate'];
-                    }}
-                    cursor={false}
-                  />
+                  <Tooltip content={<ChartTooltip />} cursor={false} />
                 )}
                 <Bar dataKey="value" radius={[8, 8, 0, 0]}>
                   {animatedData.map((entry, index) => (
