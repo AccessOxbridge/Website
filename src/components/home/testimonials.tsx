@@ -20,73 +20,73 @@ const quoteTestimonials = [
     {
         quote: "As a parent, I valued the clarity and structure Access Oxbridge provided. The process felt calm, well organised and reassuring at every stage.",
         role: "Helen W.",
-        image: "/testimonials/1.jpg",
+        image: "/testimonials/2.png",
         institution: "Parent"
     },
     {
         quote: "I have observed clear improvements in my students' academic confidence and interview readiness after working with Access Oxbridge alongside our school support.",
         role: "Teacher",
-        image: "/testimonials/1.jpg",
+        image: "/testimonials/2.png",
         institution: "School Teacher"
     },
     {
         quote: "The mentors understood Philosophy at a deep level and challenged my reasoning every session. It was far more demanding than anything I experienced at school.",
         role: "Sofia R.",
-        image: "/testimonials/1.jpg",
+        image: "/testimonials/2.png",
         institution: "Student"
     },
     {
         quote: "Access Oxbridge helped me think more clearly under pressure. The preparation felt realistic, intellectually stretching and closely aligned with real interviews.",
         role: "Mateo G.",
-        image: "/testimonials/1.jpg",
+        image: "/testimonials/2.png",
         institution: "Student"
     },
     {
         quote: "As a parent, I appreciated how tailored the guidance felt to my son's needs. The advice was thoughtful, measured and clearly targeted to help him improve.",
         role: "Kerri J.",
-        image: "/testimonials/1.jpg",
+        image: "/testimonials/2.png",
         institution: "Parent"
     },
     {
         quote: "What impressed me most was how authentic the Economics interview preparation felt. The technical questioning reflected the real admissions experience closely.",
         role: "Ayman S.",
-        image: "/testimonials/1.jpg",
+        image: "/testimonials/2.png",
         institution: "Cambridge Economics Student"
     },
     {
         quote: "The personalised strategy gave me clear direction throughout the process. I always understood what I needed to improve and why it mattered academically.",
         role: "Yuvraj M.",
-        image: "/testimonials/1.jpg",
+        image: "/testimonials/2.png",
         institution: "LSE Student"
     },
     {
         quote: "We chose Access Oxbridge for its personalised approach. As parents, the balance between academic challenge and reassurance was exactly what we wanted.",
         role: "Sarah K.",
-        image: "/testimonials/1.jpg",
+        image: "/testimonials/2.png",
         institution: "Parent"
     },
     {
         quote: "The Physics preparation strengthened how I explained complex ideas and responded confidently to unfamiliar questions in interviews. Thank you!",
         role: "Isabella M.",
-        image: "/testimonials/1.jpg",
+        image: "/testimonials/2.png",
         institution: "Student"
     },
     {
         quote: "I felt informed, supported and confident in the guidance my child received. I could not recommend this enough to give your son or daughter the tools they need.",
         role: "Jonathan S.",
-        image: "/testimonials/1.jpg",
+        image: "/testimonials/2.png",
         institution: "Parent"
     },
     {
         quote: "Access Oxbridge challenged my critical thinking and helped me articulate historical interpretations through multiple mock interviews before the real thing!",
         role: "Kwame D.",
-        image: "/testimonials/1.jpg",
+        image: "/testimonials/2.png",
         institution: "Student"
     },
     {
         quote: "The Mathematics interview preparation was demanding and honest. It improved how I approached unfamiliar problems rather than relying on memorised methods.",
         role: "Jayanth V.",
-        image: "/testimonials/1.jpg",
+        image: "/testimonials/2.png",
         institution: "Cambridge Mathematics Student"
     },
 ];
@@ -150,7 +150,7 @@ export function VideoTestimonials() {
                                 </div>
 
                                 {/* Screenshot Placeholder - Space for future image */}
-                                <div className="w-[200px] sm:w-[280px] h-fit mx-4 rounded-lg shrink-0">
+                                <div className="w-[200px] sm:w-[280px] h-fit mx-4 rounded-2xl border-neutral-200 shrink-0 border">
                                     <Image className="w-full h-full object-cover" src={testimonial.image} alt={testimonial.role} width={200} height={320}/>
                                 </div>
                             </div>
