@@ -287,15 +287,15 @@ export default function OurStoryPage() {
                   </div>
                 </motion.article>
               ))}
+              <div className="h-full items-center flex justify-center">
+                <a className="bg-accent h-12 px-8 rounded-lg text-xl text-white flex items-center justify-center gap-2 hover:bg-accent/90 transition-colors">
+                  More Student Success
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+              </div>
             </div>
           )}
-          
-          <div className="flex justify-center mt-16">
-            <a className="bg-accent h-12 px-8 rounded-lg text-xl text-white flex items-center justify-center gap-2 hover:bg-accent/90 transition-colors">
-              More Student Success
-              <ArrowRight className="w-5 h-5"/>
-            </a>
-          </div>
+
 
 
         </div>
