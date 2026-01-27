@@ -141,7 +141,7 @@ Why Our Students Succeed
             </ResponsiveContainer>
           </div>
           <div className="flex flex-col justify-center">
-            <h3 className={`text-2xl font-semibold mb-6`}>Why our students succeed:</h3>
+            {/* <h3 className={`text-2xl font-semibold mb-6`}>Why our students succeed:</h3> */}
             <ul className="space-y-4 mb-6">
               <li className="flex gap-3">
                 <span className={`${bulletColor} font-bold`}>•</span>
