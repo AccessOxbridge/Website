@@ -10,7 +10,7 @@ export default function UniversitiesCarousel() {
     const { shouldReduceMotion } = usePerformance();
 
     return (
-      <section className="overflow-hidden py-12 sm:py-24 bg-white">
+      <section className="overflow-hidden pt-12 sm:pt-24 bg-[#1f67cbe3]">
         <motion.div
           initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 40 }}
           whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
@@ -18,7 +18,7 @@ export default function UniversitiesCarousel() {
           transition={shouldReduceMotion ? {} : { duration: 0.8 }}
           className="mb-10 sm:mb-16 text-center px-4"
         >
-          <h2 className="mx-auto max-w-3xl text-2xl sm:text-4xl font-semibold tracking-tighter text-black">
+          <h2 className="mx-auto max-w-3xl text-2xl sm:text-4xl font-semibold tracking-tighter text-white">
             {homeConfig.schoolLogos.title}
           </h2>
           {/* <button className="mt-4 sm:mt-6 bg-black px-6 py-3 text-sm sm:text-base text-white hover:bg-black/80 cursor-pointer">{homeConfig.schoolLogos.buttonText}</button> */}
