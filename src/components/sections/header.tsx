@@ -77,7 +77,8 @@ export default function Header() {
                             <NavigationMenuLink asChild>
                               <Link
                                 href={dropdownItem.href}
-                                className="block px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors rounded-sm"
+                                className="block px-3 py-2 text-2xl font-bold text-gray-700 hover:bg-gray-100 transition-colors 
+                                rounded-sm tracking-wide"
                               >
                                 {dropdownItem.title}
                               </Link>
