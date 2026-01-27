@@ -59,22 +59,6 @@ export function ResultsPageContent() {
   return (
     <div className="min-h-screen pt-18">
 
-      {/* Hero Section */}
-      {/* <section className="">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
-            animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h1 className="text-4xl sm:text-5xl text-accent w-2/3 mx-auto">
-              Why Access Oxbridge?
-            </h1>
-          </motion.div>
-        </div>
-      </section> */}
-
       {/* Reuse Results Section from home - with custom styling for this page */}
       <ResultsSection
         variant="results-page"
@@ -85,7 +69,7 @@ export function ResultsPageContent() {
       />
 
       {/* Why Students Choose Access Oxbridge - 6 Points */}
-      <section className="py-16 sm:py-24 bg-accent">
+      <section className="pb-16 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
           <motion.div
@@ -99,7 +83,7 @@ export function ResultsPageContent() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="bg-white/10 backdrop-blur-sm p-6 rounded-lg"
+                className="bg-accent backdrop-blur-sm p-6 rounded-lg"
               >
                 <div className="flex gap-4">
                   <div className="text-2xl text-white flex-shrink-0">✓</div>
