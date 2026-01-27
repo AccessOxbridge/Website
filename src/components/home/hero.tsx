@@ -134,9 +134,9 @@ export default function Hero() {
           href="/services"
           className={`
             group relative w-full sm:w-1/2
-            h-120
+            h-140
             px-5 py-8
-            flex flex-col gap-4 sm:gap-8
+            flex flex-col gap-4
             transition-all duration-500 text-center cursor-pointer
             bg-white hover:-translate-y-2
             border border-gray-100
@@ -144,50 +144,50 @@ export default function Hero() {
             hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.1)]
           `}
         >
-          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-primary group-hover:text-accent 
-          transition-colors h-14 flex items-center justify-center">
+          <h2 className="flex-none text-xl sm:text-2xl font-bold text-primary group-hover:text-accent 
+          transition-colors h-[70px] flex items-center justify-center px-4">
             UK University Admissions
           </h2>
-          <div className="flex items-center justify-center w-full bg-gray-50/50 rounded-xl px-4 h-40">
-            <div className="flex items-center justify-center gap-4 sm:gap-6">
+          <div className="flex-none flex items-center justify-center w-full rounded-2xl h-[120px] overflow-hidden">
+            <div className="flex items-center justify-center gap-4 sm:gap-8 px-6 h-full">
               <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-24 h-12 object-contain"
+                className="transition-transform group-hover:scale-110 duration-200 w-auto h-16 sm:h-20 object-contain"
                 src="/imperial.png"
                 alt="Imperial"
-                width={90}
-                height={90}
+                width={140}
+                height={80}
               />
               <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-15 h-12 object-contain"
+                className="transition-transform group-hover:scale-110 duration-200 w-auto h-14 sm:h-20 object-contain"
                 src="/lse.png"
                 alt="LSE"
-                width={90}
-                height={90}
+                width={140}
+                height={80}
               />
               <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-22 h-12 object-contain"
+                className="transition-transform group-hover:scale-110 duration-200 w-auto h-18 sm:h-20 object-contain"
                 src="/ucl.png"
                 alt="UCL"
-                width={90}
-                height={90}
+                width={140}
+                height={80}
               />
               <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-16 h-12 object-contain"
+                className="transition-transform group-hover:scale-110 duration-200 w-auto h-18 sm:h-20 object-contain"
                 src="/edinburgh.png"
                 alt="Edinburgh"
-                width={90}
-                height={90}
+                width={140}
+                height={80}
               />
               <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-18 h-12 object-contain"
+                className="transition-transform group-hover:scale-110 duration-200 w-auto h-14 sm:h-18 object-contain"
                 src="/kings.png"
                 alt="Kings"
-                width={90}
-                height={90}
+                width={140}
+                height={80}
               />
             </div>
           </div>
-          <div className="grow flex flex-col justify-start">
+          <div className="grow flex flex-col justify-start mt-2">
             <p className="text-sm sm:text-base text-left text-gray-500 leading-relaxed group-hover:text-gray-700 
             transition-colors">
               Applying to UK universities is exciting but complex, and small mistakes can have a big impact on your results.
@@ -195,9 +195,10 @@ export default function Hero() {
               Many students find that clear guidance and a well-structured approach, supported by expert insight, provide the essential foundation for achieving success.
             </p>
           </div>
-          <button className="bg-accent text-white px-6 sm:px-8 py-2 text-sm justify-center
+          <button className="bg-accent text-white px-8 py-3 text-sm justify-center mb-8
           font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2
-          hover:bg-accent-foreground transition-colors duration-300 cursor-pointer h-12 w-64 shadow-lg shadow-accent/20">
+          hover:bg-accent-foreground transition-all duration-300 cursor-pointer h-12 w-64 shadow-lg 
+          shadow-accent/20 active:scale-95">
             Find Out More
             <ArrowRightIcon className="size-4" />
           </button>
@@ -208,9 +209,9 @@ export default function Hero() {
           href="/consultation"
           className={`
             group relative w-full sm:w-1/2
-            h-120
+            h-140
             px-5 py-8
-            flex flex-col gap-4 sm:gap-8
+            flex flex-col gap-4
             transition-all duration-500 text-center cursor-pointer
             bg-white hover:-translate-y-2
             border border-gray-100
@@ -218,27 +219,29 @@ export default function Hero() {
             hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.1)]
           `}
         >
-          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-primary group-hover:text-accent 
-          transition-colors h-14 flex items-center justify-center">
+          <h2 className="flex-none text-xl sm:text-2xl font-bold text-primary group-hover:text-accent 
+          transition-colors h-[70px] flex items-center justify-center px-4">
             Oxbridge Admissions
           </h2>
-          <div className="flex items-center justify-center w-full gap-6 h-40 bg-gray-50/50 rounded-xl px-4">
-            <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-20 h-12 object-contain"
-              src="/cambridge.png"
-              alt="Cambridge"
-              width={90}
-              height={90}
-            />
-            <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-12 h-12 object-contain"
-              src="/oxford.png"
-              alt="Oxford"
-              width={90}
-              height={90}
-            />
+          <div className="flex-none flex items-center justify-center w-full rounded-2xl h-[120px] overflow-hidden">
+            <div className="flex items-center justify-center gap-4 sm:gap-8 px-6 h-full">
+              <Image
+                className="transition-transform group-hover:scale-110 duration-200 w-auto h-24 sm:h-28 object-contain"
+                src="/cambridge.png"
+                alt="Cambridge"
+                width={160}
+                height={100}
+              />
+              <Image
+                className="transition-transform group-hover:scale-110 duration-200 w-auto h-20 sm:h-24 object-contain"
+                src="/oxford.png"
+                alt="Oxford"
+                width={160}
+                height={100}
+              />
+            </div>
           </div>
-          <div className="grow flex flex-col justify-start">
+          <div className="grow flex flex-col justify-start mt-2">
             <p className="text-sm sm:text-base text-left text-gray-500 leading-relaxed group-hover:text-gray-700 
             transition-colors">
               Oxbridge is challenging, but with the right guidance and support, you can secure your place.
@@ -247,9 +250,9 @@ export default function Hero() {
               With our support, you can increase your chances of success by 400%.
             </p>
           </div>
-          <button className="bg-accent text-white px-6 sm:px-8 py-2 text-sm justify-center
+          <button className="bg-accent text-white px-8 py-3 text-sm justify-center mb-8
           font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2
-          hover:bg-accent-foreground whitespace-nowrap transition-colors duration-300 cursor-pointer h-12 w-64 shadow-lg shadow-accent/20">
+          hover:bg-accent-foreground whitespace-nowrap transition-all duration-300 cursor-pointer h-12 w-64 shadow-lg shadow-accent/20 active:scale-95">
             Speak to a Specialist
             <ArrowRightIcon className="size-4" />
           </button>
