@@ -20,7 +20,7 @@ export function BlogContent({ content }: BlogContentProps) {
   }, [content])
 
   // Calculate the visible height (55% of content)
-  const visibleHeight = contentHeight * 0.55
+  const visibleHeight = contentHeight * 0.50
 
   return (
     <div className="relative">
@@ -42,28 +42,15 @@ export function BlogContent({ content }: BlogContentProps) {
       {/* Blur overlay and signup CTA */}
       {!isUnlocked && contentHeight > 0 && (
         <div className="absolute bottom-0 left-0 right-0">
-          {/* Gradient fade overlay */}
-          <div
-            className="h-64 bg-gradient-to-t from-white via-white/95 to-transparent pointer-events-none"
-          />
 
           {/* Signup CTA Card */}
           <div className="bg-white pt-4 pb-8">
             <div className="relative">
-              {/* Decorative background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-purple-600/5 to-blue-600/5 rounded-2xl" />
 
-              <div className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl p-8 md:p-12 text-center overflow-hidden">
-                {/* Subtle background pattern */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl" />
-                  <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500 rounded-full blur-3xl" />
-                </div>
-
-                {/* Content */}
+              <div className="relative bg-accent rounded-2xl p-8 md:p-12 text-center overflow-hidden">
                 <div className="relative z-10">
                   {/* Lock icon */}
-                  <div className="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg shadow-blue-500/25">
+                  <div className="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-rich-amber-accent shadow-lg shadow-blue-500/25">
                     <svg
                       className="w-8 h-8 text-white"
                       fill="none"
@@ -90,7 +77,7 @@ export function BlogContent({ content }: BlogContentProps) {
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <a
                       href="https://aoportal.vercel.app/signup"
-                      className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5"
+                      className="group inline-flex items-center gap-2 px-8 py-4 bg-rich-amber-accent text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-rich-amber-accent/50 hover:shadow-xl hover:shadow-accent/40 hover:-translate-y-0.5"
                     >
                       <span>Sign Up for Free</span>
                       <svg
