@@ -1,11 +1,22 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { memo, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, TooltipProps } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { useReducedMotion } from '@/hooks/use-reduced-motion';
 
-function ChartTooltip({ active, payload }: TooltipProps<number, string>) {
+const tooltipContainerStyle = {
+  backgroundColor: '#ffffff',
+  border: '2px solid #071c3a',
+  borderRadius: '12px',
+  boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+  padding: '12px 16px',
+  fontSize: '14px',
+  fontWeight: '600',
+  color: 'black',
+} as const;
+
+const ChartTooltip = memo(function ChartTooltip({ active, payload }: { active?: boolean; payload?: any[] }) {
   if (!active || !payload?.length) return null;
   const item = payload[0];
   const dataName = item.payload?.name as string;
@@ -14,16 +25,7 @@ function ChartTooltip({ active, payload }: TooltipProps<number, string>) {
   const isGlobalTimes = dataName === 'The Times Global Oxbridge Acceptance Rate (2024-26)';
   return (
     <div
-      style={{
-        backgroundColor: '#ffffff',
-        border: '2px solid #071c3a',
-        borderRadius: '12px',
-        boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-        padding: '12px 16px',
-        fontSize: '14px',
-        fontWeight: '600',
-        color: 'black',
-      }}
+      style={tooltipContainerStyle}
     >
       <p style={{ fontSize: '12px', fontWeight: '500', marginBottom: '4px', color: 'black' }}>Acceptance Rate</p>
       {isGlobalTimes ? (
@@ -38,7 +40,7 @@ function ChartTooltip({ active, payload }: TooltipProps<number, string>) {
       )}
     </div>
   );
-}
+});
 
 const acceptanceRateData = [
   {
@@ -67,41 +69,9 @@ export function ResultsSection({
   buttonHref = '/our-story#our-results'
 }: ResultsSectionProps) {
   const shouldReduceMotion = useReducedMotion();
-  const [animatedData, setAnimatedData] = useState([
-    { name: 'The Times Global Oxbridge Acceptance Rate (2024-26)', value: 0 },
-    { name: 'Access Oxbridge (2025)', value: 0 },
-  ]);
-  const [animationComplete, setAnimationComplete] = useState(false);
-  const [hasAnimated, setHasAnimated] = useState(false);
   const chartRef = useRef<HTMLDivElement>(null);
 
   const isResultsPage = variant === 'results-page';
-
-  // Animate bar values when chart comes into view
-  const handleChartInView = () => {
-    // Prevent repeated animations when the section re-enters the viewport,
-    // which can cause janky re-renders while hovering the chart.
-    if (hasAnimated) return;
-    setHasAnimated(true);
-
-    if (!shouldReduceMotion) {
-      setTimeout(() => {
-        setAnimatedData([
-          { name: 'The Times Global Oxbridge Acceptance Rate (2024-26)', value: 15 },
-          { name: 'Access Oxbridge (2025)', value: 67 },
-        ]);
-        // Mark animation as complete after a short delay
-        setTimeout(() => setAnimationComplete(true), 100);
-      }, 300); // Small delay to ensure smooth animation
-    } else {
-      // If reduced motion is preferred, set final values immediately
-      setAnimatedData([
-        { name: 'The Times Global Oxbridge Acceptance Rate (2024-26)', value: 15 },
-        { name: 'Access Oxbridge (2025)', value: 67 },
-      ]);
-      setAnimationComplete(true);
-    }
-  };
 
   const chartBgColor = 'bg-white';
   const chartAxisColor = '#6b7280';
@@ -137,13 +107,12 @@ Why Our Students Succeed
           whileInView={shouldReduceMotion ? {} : { opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          onViewportEnter={handleChartInView}
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16"
         >
           <div className={`${chartBgColor} p-8 rounded-lg text-center`}>
             <h3 className={`text-xl font-semibold mb-4 ${textColor}`}>Oxbridge Admissions Statistics</h3>
             <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={animatedData} margin={{ top: 20, right: 30, left: 0, bottom: 60 }}>
+              <BarChart data={acceptanceRateData} margin={{ top: 20, right: 30, left: 0, bottom: 60 }}>
                 <XAxis 
                 className='mt-12'
                   dataKey="name" 
@@ -154,11 +123,14 @@ Why Our Students Succeed
                   tick={{ fontSize: 8 }}
                 />
                 <YAxis stroke={chartAxisColor} domain={[0, 100]} tickFormatter={(v) => `${v}%`} />
-                {animationComplete && (
-                  <Tooltip content={<ChartTooltip />} cursor={false} />
-                )}
-                <Bar dataKey="value" radius={[8, 8, 0, 0]}>
-                  {animatedData.map((entry, index) => (
+                <Tooltip
+                  content={<ChartTooltip />}
+                  cursor={false}
+                  // Prevent the tooltip from capturing the pointer and causing hover flicker.
+                  wrapperStyle={{ pointerEvents: 'none' }}
+                />
+                <Bar dataKey="value" radius={[8, 8, 0, 0]} isAnimationActive={false}>
+                  {acceptanceRateData.map((entry, index) => (
                     <Cell
                       key={`cell-${index}`}
                       fill={"#071c3a"}
