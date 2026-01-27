@@ -11,6 +11,7 @@ function ChartTooltip({ active, payload }: TooltipProps<number, string>) {
   const dataName = item.payload?.name as string;
   const value = item.payload?.name === 'Access Oxbridge (2025)' ? 67 : item.payload?.name === 'The Times Global Oxbridge Acceptance Rate (2024-26)' ? 15 : item.value;
   const isAccessOxbridge = dataName === 'Access Oxbridge (2025)';
+  const isGlobalTimes = dataName === 'The Times Global Oxbridge Acceptance Rate (2024-26)';
   return (
     <div
       style={{
@@ -25,9 +26,16 @@ function ChartTooltip({ active, payload }: TooltipProps<number, string>) {
       }}
     >
       <p style={{ fontSize: '12px', fontWeight: '500', marginBottom: '4px', color: 'black' }}>Acceptance Rate</p>
-      <p style={{ color: '#071c3a' }}>
-        {value}%{isAccessOxbridge && ' — Out of 84 students, 56 were successful in their applications to either Oxford or Cambridge'}
-      </p>
+      {isGlobalTimes ? (
+        <>
+          <p style={{ color: '#071c3a' }}>Global Oxford Acceptance — 14%</p>
+          <p style={{ color: '#071c3a' }}>Global Cambridge Acceptance — 16%</p>
+        </>
+      ) : (
+        <p style={{ color: '#071c3a' }}>
+          {value}%{isAccessOxbridge && ' — Out of 84 students, 56 were successful in their applications to either Oxford or Cambridge'}
+        </p>
+      )}
     </div>
   );
 }
@@ -64,12 +72,18 @@ export function ResultsSection({
     { name: 'Access Oxbridge (2025)', value: 0 },
   ]);
   const [animationComplete, setAnimationComplete] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const chartRef = useRef<HTMLDivElement>(null);
 
   const isResultsPage = variant === 'results-page';
 
   // Animate bar values when chart comes into view
   const handleChartInView = () => {
+    // Prevent repeated animations when the section re-enters the viewport,
+    // which can cause janky re-renders while hovering the chart.
+    if (hasAnimated) return;
+    setHasAnimated(true);
+
     if (!shouldReduceMotion) {
       setTimeout(() => {
         setAnimatedData([
@@ -107,7 +121,7 @@ export function ResultsSection({
           className="mb-12 text-center"
         >
           <h2 className={`text-3xl sm:text-4xl font-bold text-black text-center mb-8`}>
-            {isResultsPage ? "Proven Success" : "Why Our Students Succeed"}
+Why Our Students Succeed
           </h2>
           {!hideSubtitle && (
             <p className={`text-lg text-gray-600`}>
