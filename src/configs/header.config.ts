@@ -23,16 +23,16 @@ export const headerConfig: HeaderConfig = {
     },
     {
       title: 'Our Network',
-      href: '/network',
+      href: '/our-story',
       hasDropdown: true,
       dropdownItems: [
         {
           title: 'Our Story',
-          href: '/our-story#our-story',
+          href: '/our-story',
         },
         {
           title: 'Our Results',
-          href: '/our-story#our-results',
+          href: '/our-results',
         },
         {
           title: 'Become a Mentor',

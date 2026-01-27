@@ -201,17 +201,18 @@ export default function OurStoryPage() {
             className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8"
           >
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/5 text-accent text-sm font-semibold tracking-wide uppercase">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/5 text-accent text-sm 
+              font-semibold tracking-wide uppercase">
                 <GraduationCap className="w-4 h-4" />
                 Student Journeys
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900">
                 Student Stories
               </h2>
+              <p className="text-lg text-slate-600 max-w-xl">
+                Read about the journeys of students who achieved their Oxbridge dreams with our bespoke mentoring and support.
+              </p>
             </div>
-            <p className="text-lg text-slate-600 max-w-md">
-              Read about the journeys of students who achieved their Oxbridge dreams with our bespoke mentoring and support.
-            </p>
           </motion.div>
 
           {isLoading ? (
