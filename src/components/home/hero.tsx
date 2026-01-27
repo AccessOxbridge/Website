@@ -81,7 +81,7 @@ export default function Hero() {
                             Securing Futures:<br />
                             Bespoke UCAS Support
                           </>
-                        ) : slide.id === 3 ? <>Trusted for Oxford,<br/> Cambridge & G5 Excellence</> : (
+                        ) : slide.id === 3 ? <>Trusted for Oxford,<br /> Cambridge & G5 Excellence</> : (
                           slide.headline
                         )}
                       </h2>
@@ -144,43 +144,42 @@ export default function Hero() {
             hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.1)]
           `}
         >
-          <h2 className="text-base sm:text-lg lg:text-xl font-bold text-primary group-hover:text-accent 
-          transition-colors h-[5%]">
+          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-primary group-hover:text-accent 
+          transition-colors h-14 flex items-center justify-center">
             UK University Admissions
           </h2>
-          <div className="flex flex-col items-center justify-center w-full gap-4 h-[30%] scale-60 sm:scale-100">
-            <div className="flex items-center justify-center gap-6">
+          <div className="flex items-center justify-center w-full bg-gray-50/50 rounded-xl px-4 h-40">
+            <div className="flex items-center justify-center gap-4 sm:gap-6">
               <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-24 h-full 
-                object-cover"
+                className="transition-transform group-hover:scale-110 duration-200 w-24 h-12 object-contain"
                 src="/imperial.png"
-                alt="Scientia"
+                alt="Imperial"
                 width={90}
                 height={90}
               />
               <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-15 h-full object-contain"
+                className="transition-transform group-hover:scale-110 duration-200 w-15 h-12 object-contain"
                 src="/lse.png"
                 alt="LSE"
                 width={90}
                 height={90}
               />
               <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-22 h-full object-contain"
+                className="transition-transform group-hover:scale-110 duration-200 w-22 h-12 object-contain"
                 src="/ucl.png"
                 alt="UCL"
                 width={90}
                 height={90}
               />
-               <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-16 h-full object-contain"
+              <Image
+                className="transition-transform group-hover:scale-110 duration-200 w-16 h-12 object-contain"
                 src="/edinburgh.png"
                 alt="Edinburgh"
                 width={90}
                 height={90}
               />
               <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-18 h-full object-contain"
+                className="transition-transform group-hover:scale-110 duration-200 w-18 h-12 object-contain"
                 src="/kings.png"
                 alt="Kings"
                 width={90}
@@ -188,15 +187,17 @@ export default function Hero() {
               />
             </div>
           </div>
-          <p className="text-base text-left text-gray-500 leading-relaxed group-hover:text-gray-700 
-          transition-colors h-[40%]">
-            Applying to UK universities is exciting but complex, and small mistakes can have a big impact on your results. 
-            From choosing the right courses to writing a strong personal statement and meeting UCAS deadlines, the process rewards strategy as much as academic ability. 
-            Many students find that clear guidance and a well-structured approach, supported by expert insight, provide the essential foundation for achieving success.
-          </p>
+          <div className="grow flex flex-col justify-start">
+            <p className="text-sm sm:text-base text-left text-gray-500 leading-relaxed group-hover:text-gray-700 
+            transition-colors">
+              Applying to UK universities is exciting but complex, and small mistakes can have a big impact on your results.
+              From choosing the right courses to writing a strong personal statement and meeting UCAS deadlines, the process rewards strategy as much as academic ability.
+              Many students find that clear guidance and a well-structured approach, supported by expert insight, provide the essential foundation for achieving success.
+            </p>
+          </div>
           <button className="bg-accent text-white px-6 sm:px-8 py-2 text-sm justify-center
-          font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2 mt-14 sm:mt-0
-          hover:bg-accent-foreground transition-colors duration-300 cursor-pointer h-12 w-68">
+          font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2
+          hover:bg-accent-foreground transition-colors duration-300 cursor-pointer h-12 w-64 shadow-lg shadow-accent/20">
             Find Out More
             <ArrowRightIcon className="size-4" />
           </button>
@@ -217,36 +218,38 @@ export default function Hero() {
             hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.1)]
           `}
         >
-          <h2 className="text-base sm:text-lg lg:text-xl font-bold text-primary group-hover:text-accent 
-          transition-colors h-[10%]">
+          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-primary group-hover:text-accent 
+          transition-colors h-14 flex items-center justify-center">
             Oxbridge Admissions
           </h2>
-          <div className="flex items-center justify-center w-full gap-6 h-[30%] scale-90 sm:scale-100">
+          <div className="flex items-center justify-center w-full gap-6 h-40 bg-gray-50/50 rounded-xl px-4">
             <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-24 h-full object-contain"
+              className="transition-transform group-hover:scale-110 duration-200 w-20 h-12 object-contain"
               src="/cambridge.png"
               alt="Cambridge"
               width={90}
               height={90}
             />
             <Image
-              className="transition-transform group-hover:scale-110 duration-200 w-16 h-full object-contain"
+              className="transition-transform group-hover:scale-110 duration-200 w-12 h-12 object-contain"
               src="/oxford.png"
               alt="Oxford"
               width={90}
               height={90}
             />
           </div>
-          <p className="text-base text-left text-gray-500 leading-relaxed group-hover:text-gray-700 
-          transition-colors h-[40%]">
-            Oxbridge is challenging, but with the right guidance and support, you can secure your place.
-            Our Oxbridge Admissions service provides expert guidance, personalized mock interviews, and comprehensive admissions test tuition. 
-            We help you prepare for interviews, improve your test scores, and write a strong personal statement. 
-            With our support, you can increase your chances of success by 400%.
-          </p>
+          <div className="grow flex flex-col justify-start">
+            <p className="text-sm sm:text-base text-left text-gray-500 leading-relaxed group-hover:text-gray-700 
+            transition-colors">
+              Oxbridge is challenging, but with the right guidance and support, you can secure your place.
+              Our Oxbridge Admissions service provides expert guidance, personalized mock interviews, and comprehensive admissions test tuition.
+              We help you prepare for interviews, improve your test scores, and write a strong personal statement.
+              With our support, you can increase your chances of success by 400%.
+            </p>
+          </div>
           <button className="bg-accent text-white px-6 sm:px-8 py-2 text-sm justify-center
-          font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2 mt-14 sm:mt-0
-          hover:bg-accent-foreground whitespace-nowrap transition-colors duration-300 cursor-pointer h-12 w-68">
+          font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2
+          hover:bg-accent-foreground whitespace-nowrap transition-colors duration-300 cursor-pointer h-12 w-64 shadow-lg shadow-accent/20">
             Speak to a Specialist
             <ArrowRightIcon className="size-4" />
           </button>

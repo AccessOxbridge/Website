@@ -257,12 +257,13 @@ export default function OurStoryPage() {
                     </div>
 
                     <Link href={article.href} className="group-hover:text-accent transition-colors duration-300">
-                      <h3 className="text-2xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-accent transition-colors">
+                      <h3 className="text-2xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-accent 
+                      transition-colors">
                         {article.title}
                       </h3>
                     </Link>
 
-                    <p className="text-slate-600 mb-8 grow leading-relaxed">
+                    <p className="text-slate-600 mb-8 grow leading-relaxed line-clamp-3">
                       {article.excerpt}
                     </p>
 
