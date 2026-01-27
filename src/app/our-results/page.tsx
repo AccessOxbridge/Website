@@ -1,4 +1,4 @@
-import { redirect } from 'next/navigation';
+import { ResultsPageContent } from '@/components/pages/results-page-content';
 
 export const metadata = {
   title: "Our Results | Access Oxbridge",
@@ -6,5 +6,9 @@ export const metadata = {
 };
 
 export default function OurResultsPage() {
-  redirect('/our-story#our-results');
+  return (
+      <section id="our-results" className="bg-white">
+        <ResultsPageContent />
+      </section>
+  )
 }

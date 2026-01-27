@@ -134,7 +134,7 @@ export default function OurStoryPage() {
                 className="space-y-16"
               >
                 <div className="space-y-6">
-                  <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-white tracking-tighter">
+                  <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter">
                     Our <span className="text-white/40">Story</span>
                   </h1>
                   <div className="w-24 h-1.5 bg-white/20 rounded-full" />
@@ -215,13 +215,13 @@ export default function OurStoryPage() {
           </motion.div>
 
           {isLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[1, 2, 3].map((skeleton) => (
-                <div key={skeleton} className="h-[500px] rounded-3xl bg-slate-200 animate-pulse" />
+                <div key={skeleton} className="h-24 rounded-xl bg-slate-200 animate-pulse" />
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {articles && articles.map((article, index) => (
                 <motion.article
                   key={article.id}
@@ -229,70 +229,31 @@ export default function OurStoryPage() {
                   whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="group relative flex flex-col h-full bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-200/60"
+                  className="group relative flex flex-col bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md 
+                  transition-all duration-300 border border-slate-200/60 p-6"
                 >
-                  {/* Article Image Container */}
-                  <div className="aspect-video overflow-hidden relative">
-                    <Image
-                      src={article.image}
-                      alt={article.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                    {/* Category Badge */}
-                    <div className="absolute top-4 left-4">
-                      <div className="px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md text-xs font-bold text-accent shadow-lg">
-                        {article.university}
-                      </div>
+                  <Link href={article.href} className="flex flex-col gap-3">
+                    <h3 className="text-lg font-bold text-slate-900 leading-tight group-hover:text-accent transition-colors">
+                      {article.title}
+                    </h3>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm text-slate-600">
+                        {article.author}
+                      </span>
                     </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex flex-col grow p-8">
-                    <div className="text-xs font-semibold text-accent uppercase tracking-widest mb-3">
-                      {article.course}
-                    </div>
-
-                    <Link href={article.href} className="group-hover:text-accent transition-colors duration-300">
-                      <h3 className="text-2xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-accent transition-colors">
-                        {article.title}
-                      </h3>
-                    </Link>
-
-                    <p className="text-slate-600 mb-8 grow leading-relaxed">
-                      {article.excerpt}
-                    </p>
-
-                    <div className="flex items-center justify-between pt-6 border-t border-slate-100 mt-auto">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent font-bold">
-                          {article.author.charAt(0)}
-                        </div>
-                        <span className="text-sm font-bold text-slate-800">
-                          {article.author}
-                        </span>
-                      </div>
-
-                      <Link
-                        href={article.href}
-                        className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-accent group-hover:text-white transition-all duration-300"
-                      >
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
-                      </Link>
-                    </div>
-                  </div>
+                  </Link>
                 </motion.article>
               ))}
+          <a className="bg-accent h-12 text-xl text-white flex items-center justify-center gap-2 rounded-md
+          mt-8" href="/our-results">
+            More Student Success
+            <ArrowRight className="w-5 h-5"/>
+          </a>
             </div>
           )}
-        </div>
-      </section>
 
-      {/* Our Results Section */}
-      <section id="our-results" className="bg-white">
-        <ResultsPageContent />
+
+        </div>
       </section>
     </main>
   );

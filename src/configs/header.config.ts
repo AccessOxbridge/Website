@@ -35,7 +35,7 @@ export const headerConfig: HeaderConfig = {
           href: '/our-story#our-results',
         },
         {
-          title: 'Join Our Admissions Team',
+          title: 'Become a Mentor',
           href: '/join-our-team',
         },
       ],
