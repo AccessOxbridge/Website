@@ -209,7 +209,7 @@ export default function OurStoryPage() {
                 Student Stories
               </h2>
             </div>
-            <p className="text-lg text-slate-600 max-w-md">
+            <p className="text-lg text-slate-900 max-w-md">
               Read about the journeys of students who achieved their Oxbridge dreams with our bespoke mentoring and support.
             </p>
           </motion.div>
