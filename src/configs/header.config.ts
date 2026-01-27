@@ -27,12 +27,12 @@ export const headerConfig: HeaderConfig = {
       hasDropdown: true,
       dropdownItems: [
         {
-          title: 'Our Story',
-          href: '/our-story',
-        },
-        {
           title: 'Our Results',
           href: '/our-results',
+        },
+        {
+          title: 'Our Story',
+          href: '/our-story',
         },
         {
           title: 'Become a Mentor',
