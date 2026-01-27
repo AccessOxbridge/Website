@@ -18,6 +18,12 @@ const quoteTestimonials = [
         institution: "Student"
     },
     {
+        quote: "I would like to thank the entire team, including the organisers and the two tutors who worked with Austin, for their invaluable support and guidance throughout the process. We are extremely grateful for the role you played in his success.",
+        role: "Elizabeth A.",
+        image: "/testimonials/1.jpg",
+        institution: "Parent"
+    },
+    {
         quote: "As a parent, I valued the clarity and structure Access Oxbridge provided. The process felt calm, well organised and reassuring at every stage.",
         role: "Helen W.",
         image: "/testimonials/2.png",
