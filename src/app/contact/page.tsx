@@ -97,10 +97,10 @@ export default function ContactPage() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="space-y-6"
+            className="space-y-6 w-full"
           >
             <a href="/consultation" className="bg-[#ffffff] hover:bg-rich-amber-accent text-accent transition-all duration-300 
-            tracking-widest text-sm uppercase px-10 py-5 w-full font-bold cursor-pointer">
+            text-base capitalize px-18 py-5 w-full font-bold cursor-pointer">
               I want to speak to a specialist
             </a>
           </motion.div>
