@@ -95,15 +95,14 @@ export function ResultsSection({
   const chartBgColor = 'bg-white';
   const chartAxisColor = '#6b7280';
   const chartBarColor = '#1e3a8a';
-  const textColor = isResultsPage ? 'text-black' : 'text-accent';
-  const subTextColor = isResultsPage ? 'text-gray-700' : 'text-white/90';
-  const bulletColor = isResultsPage ? 'text-accent' : 'text-white';
-  const buttonClasses = isResultsPage
-    ? 'bg-accent text-white hover:bg-rich-amber-accent hover:text-accent'
-    : 'bg-white text-accent hover:bg-white/90';
+  const textColor = 'text-black';
+  const subTextColor = 'text-gray-700';
+  const bulletColor = 'text-accent'
+  const buttonClasses = 'bg-accent text-white hover:bg-rich-amber-accent hover:text-accent'
+    // : 'bg-white text-accent hover:bg-white/90';
 
   return (
-    <section className={`py-20 ${isResultsPage ? 'bg-white' : 'bg-accent'}`}>
+    <section className={`py-20 bg-white`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
@@ -112,11 +111,11 @@ export function ResultsSection({
           transition={{ duration: 0.8 }}
           className="mb-12 text-center"
         >
-          <h2 className={`text-3xl sm:text-4xl font-bold ${titleColor} text-center mb-8`}>
+          <h2 className={`text-3xl sm:text-4xl font-bold text-black text-center mb-8`}>
             {isResultsPage ? "Proven Success" : "Why Our Students Succeed"}
           </h2>
           {!hideSubtitle && (
-            <p className={`text-lg ${subtitleColor}`}>
+            <p className={`text-lg text-gray-600`}>
               67% of our students receive an offer from Oxford or Cambridge versus the global average of 15%.
             </p>
           )}
@@ -153,7 +152,7 @@ export function ResultsSection({
             </ResponsiveContainer>
           </div>
           <div className="flex flex-col justify-center">
-            <h3 className={`text-2xl font-semibold ${textColor} mb-6`}>Why our students succeed:</h3>
+            <h3 className={`text-2xl font-semibold mb-6`}>Why our students succeed:</h3>
             <ul className="space-y-4 mb-6">
               <li className="flex gap-3">
                 <span className={`${bulletColor} font-bold`}>•</span>
