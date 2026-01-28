@@ -122,12 +122,12 @@ export function ResultsSection({
 
   return (
     <section className="relative py-20 bg-white overflow-hidden">
-      {/* Translucent background filler
+      {/* Translucent background filler */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.4]"
         style={{ backgroundImage: 'url(/results-bg.png)' }}
         aria-hidden
-      /> */}
+      />
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
@@ -155,7 +155,7 @@ Why Our Students Succeed
           transition={{ duration: 0.8, delay: 0.2 }}
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16"
         >
-          <div className={`${chartBgColor} p-8 rounded-lg text-center`}>
+          <div className={`bg-white/95 p-8 rounded-lg text-center`}>
             <h3 className={`text-xl font-semibold mb-4 ${textColor}`}>Oxbridge Admissions Statistics</h3>
             <ResponsiveContainer width="100%" height={320}>
               <BarChart data={acceptanceRateData} margin={{ top: 20, right: 30, left: 30, bottom: 90 }}>
