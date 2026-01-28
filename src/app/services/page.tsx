@@ -153,7 +153,7 @@ function ServicesContent() {
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
-            className="absolute top-1/2 left-0 w-full h-px bg-accent dark:bg-white origin-left -translate-y-1/2 hidden md:block"
+            className="absolute top-1/2 left-0 w-full h-px bg-neutral-500 origin-left -translate-y-1/2 hidden md:block"
             transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
           />
 
