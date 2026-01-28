@@ -268,14 +268,14 @@ export default function OurStoryPage() {
                     </p>
 
                     <div className="flex items-center justify-between pt-6 border-t border-slate-100 mt-auto">
-                      <div className="flex items-center gap-3">
+                      {/* <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent font-bold">
                           {article.author.charAt(0)}
                         </div>
                         <span className="text-sm font-bold text-slate-800">
                           {article.author}
                         </span>
-                      </div>
+                      </div> */}
 
                       <Link
                         href={article.href}
