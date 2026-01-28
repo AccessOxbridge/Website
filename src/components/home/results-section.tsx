@@ -5,21 +5,20 @@ import { motion } from 'framer-motion';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { useReducedMotion } from '@/hooks/use-reduced-motion';
 
-// Custom tick component that wraps text
+// Custom tick component that wraps text and draws upward so nothing is clipped
 const WrappedTick = ({ x, y, payload }: any) => {
-  const words = payload.value.split(' ');
-  const maxWidth = 200; // Maximum width before wrapping
-  const fontSize = 16;
+  if (!payload?.value) return null;
+  const words = String(payload.value).split(' ');
+  const maxWidth = 240;
+  const fontSize = 14;
   const lineHeight = fontSize * 1.2;
-  
+
   const lines: string[] = [];
   let currentLine = '';
-  
+
   words.forEach((word: string) => {
     const testLine = currentLine ? `${currentLine} ${word}` : word;
-    // Rough estimate: each character is about fontSize * 0.6 wide
-    const estimatedWidth = testLine.length * fontSize * 0.6;
-    
+    const estimatedWidth = testLine.length * fontSize * 0.55;
     if (estimatedWidth > maxWidth && currentLine) {
       lines.push(currentLine);
       currentLine = word;
@@ -27,18 +26,17 @@ const WrappedTick = ({ x, y, payload }: any) => {
       currentLine = testLine;
     }
   });
-  
-  if (currentLine) {
-    lines.push(currentLine);
-  }
-  
+  if (currentLine) lines.push(currentLine);
+
+  // Draw from bottom line upward (last line at y=0, previous lines at -lineHeight, -2*lineHeight, ...)
+  // so both labels stay inside the chart and nothing is cut off
   return (
     <g transform={`translate(${x},${y})`}>
       {lines.map((line, index) => (
         <text
           key={index}
           x={0}
-          y={index * lineHeight + 10}
+          y={-(lines.length - 1 - index) * lineHeight + 20}
           textAnchor="middle"
           fontSize={fontSize}
           fill="#6b7280"
@@ -90,7 +88,7 @@ const ChartTooltip = memo(function ChartTooltip({ active, payload }: { active?: 
 
 const acceptanceRateData = [
   {
-    name: 'The Times Global Oxbridge Acceptance Rate (2024-26)',
+    name: 'Times Global Oxbridge Acceptance Rate (24-26)',
     value: 15,
   },
   {
@@ -109,16 +107,12 @@ interface ResultsSectionProps {
 
 export function ResultsSection({
   variant = 'default',
-  title = 'UK & Oxbridge',
   hideSubtitle = false,
   buttonText = 'Our Results →',
-  buttonHref = '/our-story#our-results'
+  buttonHref = '/our-results'
 }: ResultsSectionProps) {
   const shouldReduceMotion = useReducedMotion();
   const chartRef = useRef<HTMLDivElement>(null);
-
-  const isResultsPage = variant === 'results-page';
-
   const chartBgColor = 'bg-white';
   const chartAxisColor = '#6b7280';
   const textColor = 'text-black';
@@ -127,8 +121,14 @@ export function ResultsSection({
   const buttonClasses = 'bg-accent text-white hover:bg-rich-amber-accent hover:text-accent'
 
   return (
-    <section className={`py-20 bg-white`}>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative py-20 bg-white overflow-hidden">
+      {/* Translucent background filler
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.4]"
+        style={{ backgroundImage: 'url(/results-bg.png)' }}
+        aria-hidden
+      /> */}
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
           whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
@@ -157,15 +157,16 @@ Why Our Students Succeed
         >
           <div className={`${chartBgColor} p-8 rounded-lg text-center`}>
             <h3 className={`text-xl font-semibold mb-4 ${textColor}`}>Oxbridge Admissions Statistics</h3>
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={acceptanceRateData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
+            <ResponsiveContainer width="100%" height={320}>
+              <BarChart data={acceptanceRateData} margin={{ top: 20, right: 30, left: 30, bottom: 90 }}>
                 <XAxis 
                   className='mt-12'
                   dataKey="name" 
                   stroke={chartAxisColor}
                   textAnchor="middle"
                   height={80}
-                  tick={<WrappedTick />}
+                  interval={0}
+                  tick={(props) => <WrappedTick {...props} />}
                 />
                 <YAxis stroke={chartAxisColor} domain={[0, 100]} tickFormatter={(v) => `${v}%`} />
                 <Tooltip
