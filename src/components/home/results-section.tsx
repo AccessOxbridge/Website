@@ -79,7 +79,7 @@ const ChartTooltip = memo(function ChartTooltip({ active, payload }: { active?: 
         </>
       ) : (
         <p style={{ color: '#071c3a' }}>
-          {value}%{isAccessOxbridge && ' — Out of 84 students, 56 were successful in their applications to either Oxford or Cambridge'}
+          {value}%{isAccessOxbridge && ' — Out of 167 students, 112 were successful in their applications to either Oxford or Cambridge'}
         </p>
       )}
     </div>
