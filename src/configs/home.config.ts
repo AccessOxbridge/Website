@@ -8,7 +8,7 @@ export const homeConfig: HomeConfig = {
         subheading: "ELITE ADMISSIONS",
         headline: "Achieving Dreams: The Cambridge Experience",
         buttons: [
-          { label: "Our Results", href: "/our-story#our-results", variant: "primary" },
+          { label: "Our Results", href: "/our-results", variant: "primary" },
           { label: "Book Free Consultation →", href: "/consultation", variant: "secondary" },
         ],
         type: "image",
