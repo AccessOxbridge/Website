@@ -5,6 +5,52 @@ import { motion } from 'framer-motion';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { useReducedMotion } from '@/hooks/use-reduced-motion';
 
+// Custom tick component that wraps text
+const WrappedTick = ({ x, y, payload }: any) => {
+  const words = payload.value.split(' ');
+  const maxWidth = 200; // Maximum width before wrapping
+  const fontSize = 16;
+  const lineHeight = fontSize * 1.2;
+  
+  const lines: string[] = [];
+  let currentLine = '';
+  
+  words.forEach((word: string) => {
+    const testLine = currentLine ? `${currentLine} ${word}` : word;
+    // Rough estimate: each character is about fontSize * 0.6 wide
+    const estimatedWidth = testLine.length * fontSize * 0.6;
+    
+    if (estimatedWidth > maxWidth && currentLine) {
+      lines.push(currentLine);
+      currentLine = word;
+    } else {
+      currentLine = testLine;
+    }
+  });
+  
+  if (currentLine) {
+    lines.push(currentLine);
+  }
+  
+  return (
+    <g transform={`translate(${x},${y})`}>
+      {lines.map((line, index) => (
+        <text
+          key={index}
+          x={0}
+          y={index * lineHeight + 10}
+          textAnchor="middle"
+          fontSize={fontSize}
+          fill="#6b7280"
+          dy="0.71em"
+        >
+          {line}
+        </text>
+      ))}
+    </g>
+  );
+};
+
 const tooltipContainerStyle = {
   backgroundColor: '#ffffff',
   border: '2px solid #071c3a',
@@ -112,15 +158,14 @@ Why Our Students Succeed
           <div className={`${chartBgColor} p-8 rounded-lg text-center`}>
             <h3 className={`text-xl font-semibold mb-4 ${textColor}`}>Oxbridge Admissions Statistics</h3>
             <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={acceptanceRateData} margin={{ top: 20, right: 30, left: 0, bottom: 60 }}>
+              <BarChart data={acceptanceRateData} margin={{ top: 20, right: 30, left: 0, bottom: 80 }}>
                 <XAxis 
-                className='mt-12'
+                  className='mt-12'
                   dataKey="name" 
                   stroke={chartAxisColor}
-                  // angle={-45}
                   textAnchor="middle"
-                  height={50}
-                  tick={{ fontSize: 8 }}
+                  height={80}
+                  tick={<WrappedTick />}
                 />
                 <YAxis stroke={chartAxisColor} domain={[0, 100]} tickFormatter={(v) => `${v}%`} />
                 <Tooltip

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useReducedMotion } from '@/hooks/use-reduced-motion';
 import { ResultsSection } from '../home/results-section';
+import { StudentStoriesSection } from '../sections/student-stories-section';
 
 
 // Why Students Choose Access Oxbridge - 6 points
@@ -97,6 +98,9 @@ export function ResultsPageContent() {
           </motion.div>
         </div>
       </section>
+
+      {/* Student Stories Section */}
+      <StudentStoriesSection />
 
     </div>
   );
