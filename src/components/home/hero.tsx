@@ -247,7 +247,7 @@ export default function Hero() {
               Oxbridge is challenging, but with the right guidance and support, you can secure your place.
               Our Oxbridge Admissions service provides expert guidance, personalized mock interviews, and comprehensive admissions test tuition.
               We help you prepare for interviews, improve your test scores, and write a strong personal statement.
-              With our support, you can increase your chances of success by 400%.
+              Historically, our support has boosted students chances by up to 400%
             </p>
           </div>
           <button className="bg-accent text-white px-8 py-3 text-sm justify-center mb-8
