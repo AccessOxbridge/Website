@@ -72,7 +72,7 @@ const ChartTooltip = memo(function ChartTooltip({ active, payload }: { active?: 
       style={tooltipContainerStyle}
     >
       <p style={{ fontSize: '12px', fontWeight: '500', marginBottom: '4px', color: 'black' }}>Acceptance Rate</p>
-      {isGlobalTimes ? (
+      {item.payload?.name !== 'Access Oxbridge (2025)' ? (
         <>
           <p style={{ color: '#071c3a' }}>Global Oxford Acceptance — 14%</p>
           <p style={{ color: '#071c3a' }}>Global Cambridge Acceptance — 16%</p>
