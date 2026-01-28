@@ -75,7 +75,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       <BlogMeta post={post} />
 
       {/* Post Content */}
-      <BlogContent content={post.body} />
+      <BlogContent content={post.body} categories={post.categories} />
 
       {/* Related Posts */}
       <BlogRelated posts={relatedPosts} />

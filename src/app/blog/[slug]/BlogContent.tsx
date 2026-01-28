@@ -6,10 +6,12 @@ import { mdxComponents } from '@/lib/mdx-components'
 
 interface BlogContentProps {
   content: string
+  categories?: string[]
 }
 
-export function BlogContent({ content }: BlogContentProps) {
-  const [isUnlocked, setIsUnlocked] = useState(false)
+export function BlogContent({ content, categories }: BlogContentProps) {
+  const isLockedCategory = categories?.includes('Admissions Guide' as any)
+  const [isUnlocked, setIsUnlocked] = useState(!isLockedCategory)
   const contentRef = useRef<HTMLDivElement>(null)
   const [contentHeight, setContentHeight] = useState<number>(0)
 
@@ -29,8 +31,8 @@ export function BlogContent({ content }: BlogContentProps) {
         ref={contentRef}
         className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-blue-600 prose-strong:text-gray-900 prose-code:text-gray-800 prose-pre:bg-gray-900 prose-pre:text-gray-100"
         style={{
-          maxHeight: isUnlocked ? 'none' : `${visibleHeight}px`,
-          overflow: 'hidden',
+          maxHeight: isLockedCategory && !isUnlocked ? `${visibleHeight}px` : 'none',
+          overflow: isLockedCategory && !isUnlocked ? 'hidden' : 'visible',
           transition: 'max-height 0.5s ease-out'
         }}
       >
@@ -39,8 +41,8 @@ export function BlogContent({ content }: BlogContentProps) {
         </ReactMarkdown>
       </div>
 
-      {/* Blur overlay and signup CTA */}
-      {!isUnlocked && contentHeight > 0 && (
+      {/* Blur overlay and signup CTA — only for Admissions Guide */}
+      {isLockedCategory && !isUnlocked && contentHeight > 0 && (
         <div className="absolute bottom-0 left-0 right-0">
 
           {/* Signup CTA Card */}

@@ -41,12 +41,14 @@ export function BlogMeta({ post }: BlogMetaProps) {
         </div>
       </div>
 
-      {/* Category Badge */}
-      <div className="flex items-center gap-2 mb-4">
+      {/* Category Badges */}
+      <div className="flex flex-wrap items-center gap-2 mb-4">
         <Tag className="h-4 w-4 text-gray-400" />
-        <Badge variant="outline" className="text-sm">
-          {post.category}
-        </Badge>
+        {post.categories.map((cat) => (
+          <Badge key={cat} variant="outline" className="text-sm">
+            {cat}
+          </Badge>
+        ))}
       </div>
 
       {/* Updated Date (if available) */}

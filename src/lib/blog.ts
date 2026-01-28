@@ -23,7 +23,7 @@ export async function getAllPosts(): Promise<BlogPost[]> {
     author: post.author,
     publishedAt: new Date(post.published_at),
     updatedAt: post.updated_at ? new Date(post.updated_at) : undefined,
-    category: post.category as BlogCategory,
+    categories: post.categories as BlogCategory[],
     tags: post.tags || [],
     image: post.image,
     readingTime: post.reading_time,
@@ -58,7 +58,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
       author: data.author,
       publishedAt: new Date(data.published_at),
       updatedAt: data.updated_at ? new Date(data.updated_at) : undefined,
-      category: data.category as BlogCategory,
+      categories: data.categories as BlogCategory[],
       tags: data.tags || [],
       image: data.image,
       readingTime: data.reading_time,
@@ -84,7 +84,7 @@ export async function getRelatedPosts(slug: string, limit: number = 3): Promise<
     const { data, error } = await supabase
       .from('articles')
       .select('*')
-      .eq('category', currentPost.category)
+      .contains('categories', [currentPost.categories[0]]) // Related to the first category for now
       .neq('slug', slug)
       .order('published_at', { ascending: false })
       .limit(limit)
@@ -102,7 +102,7 @@ export async function getRelatedPosts(slug: string, limit: number = 3): Promise<
       author: post.author,
       publishedAt: new Date(post.published_at),
       updatedAt: post.updated_at ? new Date(post.updated_at) : undefined,
-      category: post.category as BlogCategory,
+      categories: post.categories as BlogCategory[],
       tags: post.tags || [],
       image: post.image,
       readingTime: post.reading_time,
@@ -140,7 +140,7 @@ export async function getFeaturedPosts(): Promise<BlogPost[]> {
     author: post.author,
     publishedAt: new Date(post.published_at),
     updatedAt: post.updated_at ? new Date(post.updated_at) : undefined,
-    category: post.category as BlogCategory,
+    categories: post.categories as BlogCategory[],
     tags: post.tags || [],
     image: post.image,
     readingTime: post.reading_time,
@@ -158,7 +158,7 @@ export async function getPostsByCategory(category: BlogCategory): Promise<BlogPo
   const { data, error } = await supabase
     .from('articles')
     .select('*')
-    .eq('category', category)
+    .contains('categories', [category])
     .order('published_at', { ascending: false })
 
   if (error) {
@@ -174,7 +174,7 @@ export async function getPostsByCategory(category: BlogCategory): Promise<BlogPo
     author: post.author,
     publishedAt: new Date(post.published_at),
     updatedAt: post.updated_at ? new Date(post.updated_at) : undefined,
-    category: post.category as BlogCategory,
+    categories: post.categories as BlogCategory[],
     tags: post.tags || [],
     image: post.image,
     readingTime: post.reading_time,

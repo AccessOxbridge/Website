@@ -45,7 +45,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
     const blogCategory = categoryMapping[category as keyof typeof categoryMapping]
     if (blogCategory) {
       allPosts = await getPostsByCategory(blogCategory)
-      featuredPosts = featuredPosts.filter(post => post.category === blogCategory).slice(0, 3)
+      featuredPosts = featuredPosts.filter(post => post.categories.includes(blogCategory)).slice(0, 3)
     }
   }
 

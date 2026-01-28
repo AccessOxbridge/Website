@@ -6,7 +6,7 @@ export interface BlogPost {
   author: string;
   publishedAt: Date;
   updatedAt?: Date;
-  category: BlogCategory;
+  categories: BlogCategory[];
   tags: string[];
   image: string;
   readingTime: number;
@@ -22,4 +22,5 @@ export type BlogCategory =
   | "Personal Statement"
   | "UK Universities"
   | "Student Stories"
-  | "International Students";
+  | "International Students"
+  | "Admissions Guide";

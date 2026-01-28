@@ -28,18 +28,19 @@ export function BlogCard({ post, featured = false }: BlogCardProps) {
               className="object-cover group-hover:scale-105 transition-transform duration-200"
               sizes={featured ? "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
             />
-            <div className="absolute top-3 left-3">
-              <Badge variant="secondary" className="bg-white/90 text-gray-800 hover:bg-white">
-                {post.category}
-              </Badge>
+            <div className="absolute top-3 left-3 flex flex-wrap gap-2">
+              {post.categories.map((cat) => (
+                <Badge key={cat} variant="secondary" className="bg-white/90 text-gray-800 hover:bg-white text-[10px] px-2 py-0">
+                  {cat}
+                </Badge>
+              ))}
             </div>
           </div>
         </CardHeader>
 
         <CardContent className="p-6">
-          <h3 className={`font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors ${
-            featured ? 'text-xl' : 'text-lg'
-          }`}>
+          <h3 className={`font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-blue-600 transition-colors ${featured ? 'text-xl' : 'text-lg'
+            }`}>
             {post.title}
           </h3>
 
