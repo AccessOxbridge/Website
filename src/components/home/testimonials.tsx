@@ -30,12 +30,6 @@ const quoteTestimonials = [
         institution: "Parent"
     },
     {
-        quote: "I have observed clear improvements in my students' academic confidence and interview readiness after working with Access Oxbridge alongside our school support.",
-        role: "Teacher",
-        // image: "/testimonials/2.png",
-        institution: "School Teacher"
-    },
-    {
         quote: "The mentors understood Philosophy at a deep level and challenged my reasoning every session. It was far more demanding than anything I experienced at school.",
         role: "Sofia R.",
         image: "/testimonials/2.png",
