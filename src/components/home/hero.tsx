@@ -117,7 +117,7 @@ export default function Hero() {
                       <button
                         key={index}
                         onClick={() => setCurrentSlide(index)}
-                        className={`h-[2px] w-8 ${index === currentSlide ? "bg-white" : "bg-white/40"}`}
+                        className={`h-[2px] w-8 ${index === currentSlide ? "bg-rich-amber-accent" : "bg-white/40"}`}
                       />
                     ))}
                   </div>
