@@ -18,7 +18,7 @@ const whyChoosePoints = [
   },
   {
     title: "Oxbridge Offer Outcomes",
-    description: "67% of our supported applicants receive at least one offer from Oxford or Cambridge."
+    description: "67% of our supported applicants receive one offer from Oxford or Cambridge."
   },
   {
     title: "Personalised Admissions Strategy",
