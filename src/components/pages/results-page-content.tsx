@@ -70,7 +70,7 @@ export function ResultsPageContent() {
       />
 
       {/* Why Students Choose Access Oxbridge - 6 Points */}
-      <section className="pb-16 bg-white">
+      <section className="pb-16 mt-12 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
           <motion.div

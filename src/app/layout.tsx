@@ -4,6 +4,7 @@ import "@/assets/globals.css"
 import Header from "@/components/sections/header";
 import Footer from "@/components/sections/footer";
 import { CTA } from "@/components/sections/cta";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -66,7 +67,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header/>
+        <Toaster position="top-center" richColors />
+        <Header />
         <main>{children}</main>
         <CTA />
         <Footer />
@@ -74,3 +76,4 @@ export default function RootLayout({
     </html>
   );
 }
+

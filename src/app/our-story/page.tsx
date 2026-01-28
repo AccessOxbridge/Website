@@ -123,7 +123,7 @@ export default function OurStoryPage() {
                   <div className="p-8 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-sm relative overflow-hidden group">
                     <Quote className="absolute -top-4 -right-4 w-24 h-24 text-white/5 -rotate-12 group-hover:rotate-0 transition-transform duration-700" />
                     <p className="italic text-white font-medium relative z-10">
-                      "Small differences in preparation, confidence, and feedback can have an outsized impact. Access Oxbridge was created in response to this reality."
+                      "Academic excellence is no longer enough. The process is a strategic marathon, not a sprint."
                     </p>
                   </div>
 
