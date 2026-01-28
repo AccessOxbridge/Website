@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion";
-import { Menu, Twitter, Linkedin, Instagram, Globe, Link } from "lucide-react";
+import { Menu, Twitter, Linkedin, Instagram, Globe, Link, ArrowRight } from "lucide-react";
 
 export default function ContactPage() {
   return (
@@ -99,9 +99,14 @@ export default function ContactPage() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="space-y-6 w-full"
           >
-            <a href="/consultation" className="bg-[#ffffff] hover:bg-rich-amber-accent text-accent transition-all duration-300 
-            text-base capitalize px-18 py-5 w-full font-bold cursor-pointer">
+            <a href="/consultation">
+              <div className="bg-[#ffffff] hover:bg-rich-amber-accent text-accent transition-all duration-300 
+            text-base capitalize py-5 w-full sm:w-[80%] font-bold cursor-pointer whitespace-nowrap flex items-center
+             justify-center">
+              
               I want to speak to a specialist
+              {/* <ArrowRight/> */}
+              </div>
             </a>
           </motion.div>
           {/* <motion.div 
