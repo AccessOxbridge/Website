@@ -197,7 +197,7 @@ export default function Hero() {
           </div>
           <button className="bg-accent text-white px-8 py-3 text-sm justify-center mb-8
           font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2
-          hover:bg-accent-foreground transition-all duration-300 cursor-pointer h-12 w-64 shadow-lg 
+          hover:bg-rich-amber-accent transition-all duration-300 cursor-pointer h-12 w-64 shadow-lg 
           shadow-accent/20 active:scale-95">
             Find Out More
             <ArrowRightIcon className="size-4" />
@@ -250,9 +250,9 @@ export default function Hero() {
               Historically, our support has boosted students chances by up to 400%
             </p>
           </div>
-          <button className="bg-accent text-white px-8 py-3 text-sm justify-center mb-8
+          <button className="bg-accent text-white px-8 py-3 text-sm justify-center mb-8 
           font-bold uppercase tracking-wider rounded-md mx-auto flex items-center gap-2
-          hover:bg-accent-foreground whitespace-nowrap transition-all duration-300 cursor-pointer h-12 w-64 shadow-lg shadow-accent/20 active:scale-95">
+          hover:bg-rich-amber-accent whitespace-nowrap transition-all duration-300 cursor-pointer h-12 w-64 shadow-lg shadow-accent/20 active:scale-95">
             Speak to a Specialist
             <ArrowRightIcon className="size-4" />
           </button>
