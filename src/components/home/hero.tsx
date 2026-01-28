@@ -103,14 +103,14 @@ export default function Hero() {
                       </div>
                     </div>
 
-                    <div className="flex justify-center sm:justify-end gap-2 mt-12">
+                    {/* <div className="flex justify-center sm:justify-end gap-2 mt-12">
                       <button onClick={prevSlide} aria-label="Previous slide">
                         <ArrowLeftIcon className="size-10 rounded-full bg-white/50 p-2 hover:bg-white/70" />
                       </button>
                       <button onClick={nextSlide} aria-label="Next slide">
                         <ArrowRightIcon className="size-10 rounded-full bg-white/50 p-2 hover:bg-white/70" />
                       </button>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 gap-1">
                     {slides.map((_, index) => (

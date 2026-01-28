@@ -14,28 +14,28 @@ export const homeConfig: HomeConfig = {
         type: "image",
         src: "/landing/3.jpeg",
       },
-      {
-        id: 2,
-        subheading: "Tailored Pathways",
-        headline: "Securing Futures: Bespoke UCAS Support",
-        buttons: [
-          { label: "Our Results", href: "/our-story#our-results", variant: "primary" },
-          { label: "Boost Your Chances by 400% →", href: "/success-stats", variant: "secondary" },
-        ],
-        type: "image",
-        src: "/landing/1.webp",
-      },
-      {
-        id: 3,
-        subheading: "Partnerships",
-        headline: "Trusted for Oxford, Cambridge & G5 Excellence",
-        buttons: [
-          { label: "Admissions Resources", href: "/admissions-resources", variant: "primary" },
-          { label: "Speak to a Specialist →", href: "/consultation", variant: "secondary" },
-        ],
-        type: "image",
-        src: "/landing/2.jpg",
-      },
+      // {
+      //   id: 2,
+      //   subheading: "Tailored Pathways",
+      //   headline: "Securing Futures: Bespoke UCAS Support",
+      //   buttons: [
+      //     { label: "Our Results", href: "/our-story#our-results", variant: "primary" },
+      //     { label: "Boost Your Chances by 400% →", href: "/success-stats", variant: "secondary" },
+      //   ],
+      //   type: "image",
+      //   src: "/landing/1.webp",
+      // },
+      // {
+      //   id: 3,
+      //   subheading: "Partnerships",
+      //   headline: "Trusted for Oxford, Cambridge & G5 Excellence",
+      //   buttons: [
+      //     { label: "Admissions Resources", href: "/admissions-resources", variant: "primary" },
+      //     { label: "Speak to a Specialist →", href: "/consultation", variant: "secondary" },
+      //   ],
+      //   type: "image",
+      //   src: "/landing/2.jpg",
+      // },
     ],
   },
   stats: [
