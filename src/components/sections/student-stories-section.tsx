@@ -88,27 +88,11 @@ export function StudentStoriesSection() {
                 className="group relative flex flex-col h-full bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl 
                 transition-all duration-500 border border-slate-200/60"
               >
-                {/* Article Image Container */}
-                <div className="aspect-video overflow-hidden relative">
-                  <Image
-                    src={article.image}
-                    alt={article.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                  {/* Category Badge */}
-                  <div className="absolute top-4 left-4">
-                    <div className="px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md text-xs font-bold text-accent shadow-lg">
-                      {article.university}
-                    </div>
-                  </div>
-                </div>
+                
 
                 {/* Content */}
                 <div className="flex flex-col grow p-8">
-                  <div className="text-xs font-semibold text-accent uppercase tracking-widest mb-3">
+                  <div className="text-xs font-semibold text-accent uppercase tracking-widest mb-8">
                     {article.course}
                   </div>
 
