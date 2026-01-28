@@ -35,7 +35,7 @@ export default function Home() {
         <NewsSection/>
       </LazyLoad> */}
 
-      <ScrollIntentWebinar/>
+      {/* <ScrollIntentWebinar/> */}
     </main>
   );
 }

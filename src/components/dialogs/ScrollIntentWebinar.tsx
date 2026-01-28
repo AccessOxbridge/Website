@@ -70,7 +70,7 @@ export function WebinarToast({
           </p>
 
           <p className="mb-4 text-sm font-medium text-[#d6b34a]">
-            Wednesday 11th February 6:00pm UK
+            Wednesday 19th February 6:00pm UK
           </p>
 
           <a
