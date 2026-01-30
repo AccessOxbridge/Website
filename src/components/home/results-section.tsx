@@ -10,7 +10,7 @@ const WrappedTick = ({ x, y, payload }: any) => {
   if (!payload?.value) return null;
   const words = String(payload.value).split(' ');
   const maxWidth = 240;
-  const fontSize = 14;
+  const fontSize = 12;
   const lineHeight = fontSize * 1.2;
 
   const lines: string[] = [];
@@ -157,8 +157,8 @@ Why Our Students Succeed
         >
           <div className={`bg-white/95 p-8 rounded-lg text-center`}>
             <h3 className={`text-xl font-semibold mb-4 ${textColor}`}>Oxbridge Admissions Statistics</h3>
-            <ResponsiveContainer width="100%" height={320}>
-              <BarChart data={acceptanceRateData} margin={{ top: 20, right: 30, left: 30, bottom: 90 }}>
+            <ResponsiveContainer width="100%" height={390}>
+              <BarChart data={acceptanceRateData} margin={{ top: 20, right: 0, left: -10, bottom: 0 }}>
                 <XAxis 
                   className='mt-12'
                   dataKey="name" 

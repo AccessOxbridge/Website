@@ -148,24 +148,24 @@ export default function Hero() {
           transition-colors h-[70px] flex items-center justify-center px-4">
             UK University Admissions
           </h2>
-          <div className="flex-none flex items-center justify-center w-full rounded-2xl h-[120px] overflow-hidden">
-            <div className="flex items-center justify-center gap-4 sm:gap-8 px-6 h-full">
+          <div className="flex-none flex items-center justify-center w-full rounded-2xl sm:h-[120px] overflow-hidden">
+            <div className="flex items-center justify-center gap-4 sm:gap-8 px-6 h-full flex-wrap sm:flex-nowrap">
               <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-auto h-16 sm:h-20 object-contain"
+                className="transition-transform group-hover:scale-110 duration-200 w-auto h-20 object-contain"
                 src="/imperial.png"
                 alt="Imperial"
                 width={140}
                 height={80}
               />
               <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-auto h-14 sm:h-20 object-contain"
+                className="transition-transform group-hover:scale-110 duration-200 w-auto h-16 sm:h-20 object-contain"
                 src="/lse.png"
                 alt="LSE"
                 width={140}
                 height={80}
               />
               <Image
-                className="transition-transform group-hover:scale-110 duration-200 w-auto h-18 sm:h-20 object-contain"
+                className="transition-transform group-hover:scale-110 duration-200 w-auto h-16 sm:h-20 object-contain"
                 src="/ucl.png"
                 alt="UCL"
                 width={140}
